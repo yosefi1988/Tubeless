@@ -83,9 +83,9 @@ public class StickyHeaderFragment extends BaseDecorationFragment implements Recy
         list.setAdapter(adapter);
         list.addItemDecoration(decor, 1);
         list.addOnItemTouchListener(this);
-
-        AsyncCarCategoriesByCompany asyncCarCategoriesByCompany = new AsyncCarCategoriesByCompany(context,list,textView, dilatingDotsProgressBar, categoryList, categoryHeaderList, adapter, etSearch,listType, sortType);
-        asyncCarCategoriesByCompany.execute();
+//
+//        AsyncCarCategoriesByCompany asyncCarCategoriesByCompany = new AsyncCarCategoriesByCompany(context,list,textView, dilatingDotsProgressBar, categoryList, categoryHeaderList, adapter, etSearch,listType, sortType);
+//        asyncCarCategoriesByCompany.execute();
 
     }
 

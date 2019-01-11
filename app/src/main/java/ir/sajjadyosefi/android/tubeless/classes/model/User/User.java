@@ -5,6 +5,7 @@ import com.orm.SugarRecord;
 import java.io.Serializable;
 import java.util.List;
 
+import ir.sajjadyosefi.android.tubeless.classes.model.Car.Car;
 import ir.sajjadyosefi.android.tubeless.classes.model.Post;
 
 public class User extends SugarRecord implements Serializable {
@@ -19,7 +20,7 @@ public class User extends SugarRecord implements Serializable {
 	private String loginPassword = null;
 	private Device device = null;
 
-
+	private List<Car> carList = null ;
 
 	public String getLoginPhone() {
 		return loginPhone;
@@ -172,5 +173,14 @@ public class User extends SugarRecord implements Serializable {
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	public List<Car> getCarList() {
+		return carList;
+	}
+
+	public void setCarList(List<Car> carList) {
+		this.carList = carList;
+	}
 
 }

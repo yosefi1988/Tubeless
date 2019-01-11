@@ -131,7 +131,7 @@ public class AsyncCarCategoriesByCompany extends AsyncTask<String, Void, CarCate
                         CategoryItem categoryitemCar = new CategoryItem();
                         categoryitemCar.setHeader(false);
                         categoryitemCar.setIdHeader(categoryItem.getID());
-                        categoryitemCar.setDirectoryName(categoryItem.getDirectoryName() + "/" + itemCar.getNameEn().replace(" ","_"));
+//                        categoryitemCar.setDirectoryName(categoryItem.getDirectoryName() + "/" + itemCar.getNameEn().replace(" ","_"));
                         categoryitemCar.setID(itemCar.getID());
 
                         if(itemCar.getCarClass().getNameFa() == null)
@@ -139,9 +139,9 @@ public class AsyncCarCategoriesByCompany extends AsyncTask<String, Void, CarCate
                         else
                             categoryitemCar.setTitle(itemCar.getCarClass().getNameFa());
 
-                        categoryitemCar.setText(itemCar.getNameFa());
+//                        categoryitemCar.setText(itemCar.getNameFa());
                         categoryitemCar.setPicture(itemCar.getCarClass().getLogo());
-                        Log.i("car", itemCar.getNameFa());
+//                        Log.i("car", itemCar.getNameFa());
                         categoryList.add(categoryitemCar);
                     }
                     headersId++;

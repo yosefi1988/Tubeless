@@ -183,6 +183,7 @@
     <string name="search_length_comment">عبارتی برای جستجو وارد نکردید.</string>
     <string name="not_found_dialog">ما نتیجه ای برای جستجوی شما پیدا نکردیم ! آیا میخواهید آن را در سیستم ثبت کنید ؟</string>
     <string name="regit">ثبت می کنم</string>
+    <string name="addCar">افزودن اتوموبیل</string>
 
 
 </resources>

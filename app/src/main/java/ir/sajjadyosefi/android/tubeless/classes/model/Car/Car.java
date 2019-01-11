@@ -15,12 +15,8 @@ public class Car {
     private CarType carType;
     private Date DesignDate;
     private String CompanyCategory;
-    private String DescriptionEn;
-    private String DescriptionAr;
-    private String DescriptionFa;
-    private String NameEn;
-    private String NameAr;
-    private String NameFa;
+    private String Description;
+    private String Name;
     private Object price;
 
     //radyab
@@ -83,54 +79,6 @@ public class Car {
         CompanyCategory = companyCategory;
     }
 
-    public String getDescriptionEn() {
-        return DescriptionEn;
-    }
-
-    public void setDescriptionEn(String descriptionEn) {
-        DescriptionEn = descriptionEn;
-    }
-
-    public String getDescriptionAr() {
-        return DescriptionAr;
-    }
-
-    public void setDescriptionAr(String descriptionAr) {
-        DescriptionAr = descriptionAr;
-    }
-
-    public String getDescriptionFa() {
-        return DescriptionFa;
-    }
-
-    public void setDescriptionFa(String descriptionFa) {
-        DescriptionFa = descriptionFa;
-    }
-
-    public String getNameEn() {
-        return NameEn;
-    }
-
-    public void setNameEn(String nameEn) {
-        NameEn = nameEn;
-    }
-
-    public String getNameAr() {
-        return NameAr;
-    }
-
-    public void setNameAr(String nameAr) {
-        NameAr = nameAr;
-    }
-
-    public String getNameFa() {
-        return NameFa;
-    }
-
-    public void setNameFa(String nameFa) {
-        NameFa = nameFa;
-    }
-
     public Object getPrice() {
         return price;
     }
@@ -139,6 +87,21 @@ public class Car {
         this.price = price;
     }
 
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
 
     public  String getMobileNumber() {
         return mobileNumber;

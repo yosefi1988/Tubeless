@@ -106,12 +106,12 @@ public class AsyncCarCategoriesRecently extends AsyncTask<String, Void, CarCateg
                         CategoryItem categoryitemCar = new CategoryItem();
                         categoryitemCar.setHeader(false);
                         categoryitemCar.setIdHeader(categoryItem.getID());
-                        categoryitemCar.setDirectoryName(categoryItem.getDirectoryName() + "/" + itemCar.getNameEn().replace(" ","_"));
+//                        categoryitemCar.setDirectoryName(categoryItem.getDirectoryName() + "/" + itemCar.getNameEn().replace(" ","_"));
                         categoryitemCar.setID(itemCar.getID());
                         categoryitemCar.setTitle(itemCar.getCarClass().getNameFa());
-                        categoryitemCar.setText(itemCar.getNameFa());
+//                        categoryitemCar.setText(itemCar.getNameFa());
                         categoryitemCar.setPicture(itemCar.getCarClass().getLogo());
-                        Log.i("car", itemCar.getNameFa());
+//                        Log.i("car", itemCar.getNameFa());
                         categoryList.add(categoryitemCar);
                     }
                     headersId++;
