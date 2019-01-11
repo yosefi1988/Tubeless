@@ -1,0 +1,123 @@
+apply plugin: 'com.android.application'
+
+android {
+    def versionname = "3.01"
+    flavorDimensions "default"
+    compileSdkVersion 25
+    buildToolsVersion "27.0.3"
+
+    configurations {
+//        all*.exclude module: 'okhttp'
+        all*.exclude module: 'okio'
+    }
+
+
+    lintOptions { disable 'MissingTranslation', 'ExtraTranslation' }
+    defaultConfig {
+        applicationId "ir.sajjadyosefi.tubeless.tubeless"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 23
+        versionName "${versionname}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true //important
+
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            //useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //manifestPlaceholders = [pn: "com.hamsa"]
+            //manifestPlaceholders = [pn: "com.hamsa.debug"]
+            manifestPlaceholders = [pn: "ir.sajjadyosefi.tubeless"]
+        }
+        debug {
+            minifyEnabled false
+            //useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //versionNameSuffix "-dev"
+            manifestPlaceholders = [pn: "ir.sajjadyosefi.tubeless"]
+        }
+    }
+//    productFlavors {
+//        prod {
+//            applicationId "ir.sajjadyosefi.tubeless.tubeless"
+//            versionCode 3
+//        }
+//        dev {
+//            applicationId "ir.sajjadyosefi.tubeless.tubeless.dev"
+//            versionCode 3
+//        }
+//    }
+
+//    signingConfigs {
+//        hamsaa {
+//            storeFile file("hamsaa.jks")
+//            storePassword "uh8Y8vL5YD"
+//            keyAlias "hamsaa"
+//            keyPassword "ba38idF8ASs"
+//        }
+//    }
+    productFlavors {
+        avvalMarket {
+            versionName "${versionname}"
+            versionNameSuffix "-a"
+        }
+        bazaar {
+            versionName "${versionname}"
+            versionNameSuffix "-b"
+        }
+        myket {
+            versionName "${versionname}-m"
+        }
+        iranapps {
+            versionName "${versionname}-i"
+        }
+        jhobin {
+            versionName "${versionname}-j"
+        }
+        kandoo {
+            versionName "${versionname}"
+            versionNameSuffix "-k"
+        }
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:design:25.4.0'
+    implementation 'com.android.support:support-vector-drawable:25.4.0'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //implementation 'com.github.jrvansuita:GaussianBlur:+'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    testImplementation 'junit:junit:4.12'
+    implementation 'org.fabiomsr:moneytextview:1.1.0'
+    implementation 'com.github.justzak:dilatingdotsprogressbar:1.0.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':PagerSlidingTabStrip')
+    implementation 'com.github.satyan:sugar:1.4'
+    implementation project(':faboptions')
+    implementation 'com.uncopt:android.justified:1.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation project(':crop-image-lib')
+    implementation 'com.google.firebase:firebase-messaging:11.0.4'
+    implementation 'com.google.firebase:firebase-core:11.0.4'
+    implementation 'com.google.firebase:firebase-crash:11.0.4'
+
+
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation group: 'com.squareup.okhttp', name: 'okhttp', version: '2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+}
+
+apply plugin: 'com.google.gms.google-services'

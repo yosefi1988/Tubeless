@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/day_contact_us_back"
+    android:layout_marginTop="0dp" >
+
+    <ImageView
+        android:id="@+id/ivInvisableBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/ivVisableBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+
+    <ir.sajjadyosefi.android.tubeless.view.widget.view.VerticalScrollview
+
+        android:id="@+id/svScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:visibility="visible">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_margin="15dp"
+            android:gravity="right"
+            android:background="@drawable/circle_background_negative"
+
+            android:foregroundGravity="right"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/png_loss_01"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/png_loss_02"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/png_loss_03"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+
+            <include
+                layout="@layout/_part_horizontal_line">
+            </include>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="چه چیزی میخواهید ثبت کنید:"
+                android:textColor="@color/day_contact_us_text"
+                android:textSize="20dp"
+                android:focusableInTouchMode="true" />
+
+            <RelativeLayout
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:paddingTop="10dp"
+                android:layoutDirection="rtl"
+                android:foregroundGravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RadioGroup
+                    android:id="@+id/rgRadios"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+
+                    <requestFocus />
+
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:checked="true">
+
+                        <requestFocus />
+                    </RadioButton>
+
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true" />
+
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/linearLayout"
+                    android:clickable="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/rgRadios" >
+
+                     <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                        android:id="@+id/tvRadio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignBaseline="@+id/radioButton1"
+                        android:layout_alignBottom="@+id/radioButton1"
+                        android:layout_gravity="right"
+                        android:paddingEnd="5dp"
+                        android:paddingStart="5dp"
+                        android:layout_toLeftOf="@+id/radioButton1"
+                        android:layout_toStartOf="@+id/radioButton1"
+                        android:paddingTop="3dp"
+                        android:layout_weight="1"
+                        android:clickable="false"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:text="@string/peyda_shode"
+                        android:textColor="@color/day_contact_us_text"  />
+
+
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                        android:id="@+id/tvRadio3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/radioButton3"
+                        android:layout_alignBottom="@+id/radioButton3"
+                        android:layout_gravity="right"
+                        android:layout_toLeftOf="@+id/radioButton3"
+                        android:layout_toStartOf="@+id/radioButton3"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="5dp"
+                        android:paddingStart="5dp"
+                        android:clickable="false"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:text="@string/gom_shode"
+                        android:textColor="@color/day_contact_us_text"  />
+
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                        android:id="@+id/tvRadio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/radioButton2"
+                        android:layout_alignBottom="@+id/radioButton2"
+                        android:layout_gravity="right"
+                        android:layout_toLeftOf="@+id/radioButton2"
+                        android:paddingEnd="5dp"
+                        android:paddingStart="5dp"
+
+                        android:layout_toStartOf="@+id/radioButton2"
+                        android:paddingTop="3dp"
+                        android:layout_weight="1"
+                        android:clickable="false"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:text="@string/serghati"
+                        android:textColor="@color/day_contact_us_text"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvTitleText02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="right|center"
+                android:clickable="true"
+                android:elevation="1dp"
+                android:paddingTop="20dp"
+                android:foregroundGravity="right"
+                android:gravity="right"
+                android:text="Text"
+                android:contextClickable="false"
+                android:textColor="@color/day_contact_us_text"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+            <TableLayout
+                android:id="@+id/tblLoginPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layoutDirection="rtl"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:id="@+id/llRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                        android:id="@+id/tvField1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="0.2"
+                        android:clickable="false"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="5dp"
+                        android:text="@string/title"
+                        android:textColor="@color/day_contact_us_text"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:focusableInTouchMode="true"
+                        android:id="@+id/etField1"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="left"
+                        android:layout_weight="0.7"
+                        android:adjustViewBounds="true"
+                        android:ems="8"
+                        android:textColor="@color/day_contact_us_text"
+                        android:digits="۰۱۲۳۴۵۶۷۸۹0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz _آابضصثقفغعپهخحجچگکمنتالبیژَُِّءؤيةًٌٍسشظطزرذدئو"
+                        android:hint="بيمه نامه شخص ثالث"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:background="@drawable/circle_background_white"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName" >
+
+                    </EditText>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                        android:id="@+id/tvField2"
+                        android:text="محل"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="0.2"
+                        android:clickable="false"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/day_contact_us_text"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:focusableInTouchMode="true"
+                        android:id="@+id/etField2"
+                        android:hint="تهران - میرداماد - کوچه یوسفی"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="left"
+                        android:layout_weight="0.7"
+                        android:adjustViewBounds="true"
+                        android:ems="8"
+                        android:textColor="@color/day_contact_us_text"
+                        android:digits="۰۱۲۳۴۵۶۷۸۹0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz _آابضصثقفغعپهخحجچگکمنتالبیژَُِّءؤيةًٌٍسشظطزرذدئو"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:background="@drawable/circle_background_white"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName" >
+
+                    </EditText>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llRow3"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                        android:id="@+id/tvField22"
+                        android:text="زمان"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="0.2"
+                        android:clickable="false"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/day_contact_us_text"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:focusableInTouchMode="true"
+                        android:id="@+id/etField3"
+                        android:digits="۰۱۲۳۴۵۶۷۸۹0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz _آابضصثقفغعپهخحجچگکمنتالبیژَُِّءؤيةًٌٍسشظطزرذدئو"
+                        android:hint="سه شنبه 19 بهمن 96"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="left"
+                        android:layout_weight="0.7"
+                        android:adjustViewBounds="true"
+                        android:ems="8"
+                        android:textColor="@color/day_contact_us_text"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:background="@drawable/circle_background_white"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName" >
+
+                    </EditText>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/llRow23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="visible">
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                        android:id="@+id/tvField4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center"
+                        android:layout_weight="0.2"
+                        android:clickable="false"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="10dp"
+                        android:text="تصویر"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/btnCamera"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="0.8"
+                        android:text="@string/SelectPicture" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etField4"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="top|right"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:elevation="1dp"
+                        android:ems="8"
+                        android:padding="10dp"
+                        android:background="@drawable/circle_background_white"
+                        android:digits="۰۱۲۳۴۵۶۷۸۹0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmN\n)(}{\/.,-+nOoPpQqRrSsTtUuVvWwXxYyZz _آابضصثقفغعپهخحجچگکمنتالبیژَُِّءؤيةًٌٍسشظطزرذدئو"
+                        android:gravity="top|right"
+                        android:textColor="@color/day_contact_us_text"
+                        android:hint="توضیحات : به نام مهران احمدی شماره شناسنامه 5265 نام پدر رضا \n \n شماره تماس 09756588055"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textMultiLine"
+                        android:selectAllOnFocus="false" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="0.5"
+                        android:text="btn1" />
+
+                    <Button
+                        android:id="@+id/btn2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="0.5"
+                        android:text="btn2" />
+
+
+                </LinearLayout>
+
+
+            </TableLayout>
+
+        </LinearLayout>
+
+
+    </ir.sajjadyosefi.android.tubeless.view.widget.view.VerticalScrollview>
+
+<com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center_horizontal"
+        android:color="#2980b9"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:radius="5dp"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        app:dd_numDots="5"
+        app:dd_scaleMultiplier="2" />
+</FrameLayout>

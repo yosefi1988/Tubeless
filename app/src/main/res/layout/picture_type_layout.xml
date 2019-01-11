@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:id="@+id/layout_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="right"
+    android:background="#fcfff8"
+    android:padding="10dp">
+
+    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="@string/updateAvalable"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+
+
+        <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+            android:id="@+id/btnCamera"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="40dp"
+            android:text="@string/camera"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/buttonshape_lightblue"
+            android:drawableRight="@android:drawable/ic_menu_camera" />
+
+        <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+            android:id="@+id/btnBrowse"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="40dp"
+            android:text="@string/gallery"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/buttonshape_lightblue"
+            android:drawableRight="@android:drawable/ic_menu_gallery"  />
+
+
+    </LinearLayout>
+
+</LinearLayout>

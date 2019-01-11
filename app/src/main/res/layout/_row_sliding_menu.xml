@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingRight="16dp"
+    android:layout_marginRight="5dp"
+    android:layout_column="2"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:layoutDirection="rtl">
+
+
+        <ir.sajjadyosefi.android.tubeless.view.widget.view.IconTextView
+            android:id="@+id/sideMenuIcon"
+            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            android:minWidth="35dp"
+            android:textAlignment="center"
+            android:text="\uE807"
+            android:textSize="25dp" />
+
+        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+            android:id="@+id/sideMenuTxtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:paddingRight="5dp"
+            android:clickable="true"
+            android:layout_column="2"
+            android:text="privateUser"
+            android:textSize="15dp" />
+    </TableRow>
+</TableLayout>

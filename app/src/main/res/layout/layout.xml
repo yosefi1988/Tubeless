@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/dddddddddddddddddd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+
+            <ir.sajjadyosefi.android.tubeless.view.widget.view.ImageViewPlus
+                android:id="@+id/iv_menuCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:background="@drawable/jpg_back2"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                app:widthAndHeightRatio="2.2"
+                android:layout_alignBottom="@+id/linearLayout3"
+                android:layout_alignParentTop="true" />
+
+            <!--        android:layout_centerInParent="true"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="right"
+                android:orientation="vertical"
+                android:paddingRight="20dp"
+                android:paddingTop="55dp"
+                android:visibility="visible"
+                android:weightSum="1"
+                android:id="@+id/linearLayout3">
+
+                <GridLayout
+                    android:id="@+id/grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:columnCount="2"
+                    android:foregroundGravity="right"
+                    android:layoutDirection="rtl"
+                    android:textDirection="rtl"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgUser"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="right|top"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible" />
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                        android:id="@+id/txtUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="right|bottom"
+                        android:clickable="true"
+                        android:elevation="1dp"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="2dp"
+                        android:text="منتظر باشید"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                </GridLayout>
+
+
+                <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                    android:id="@+id/txtEditProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="-2dp"
+                    android:layout_weight="14.20"
+                    android:clickable="true"
+                    android:text="ویرایش پروفایل"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="10dp"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rclMenuItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="none"
+                android:overScrollMode="never" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

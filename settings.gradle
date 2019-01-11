@@ -1,0 +1,1 @@
+include ':app', ':PagerSlidingTabStrip', ':faboptions', ':crop-image-lib'

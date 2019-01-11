@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:activity="ir.moslem_deris.apps.zarinpal_pay_android.MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView2" >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:activity="ir.moslem_deris.apps.zarinpal_pay_android.MainActivity">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:textSize="18dp"
+                android:text="اطلاعات پرداخت"/>
+
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="مبلغ"
+                    android:id="@+id/textView"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="1000"
+                    android:id="@+id/textViewPrice"
+                    android:layout_toStartOf="@+id/textView"
+                    android:layout_toLeftOf="@+id/textView"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignBottom="@+id/textView" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="تومان"
+                    android:layout_toLeftOf="@+id/textViewPrice"
+                    android:layout_toStartOf="@+id/textViewPrice"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignTop="@+id/textView"
+                    android:layout_alignBottom="@+id/textViewPrice" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginTop="10dp"
+                android:paddingTop="5dp"
+                android:layout_marginRight="10dp"
+                android:paddingRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                android:text="@string/phoneNumber" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editTextPhone"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginTop="10dp"
+                android:paddingTop="5dp"
+                android:layout_marginRight="10dp"
+                android:paddingRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                android:text="آدرس ایمیل:"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/editTextEmail"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginTop="10dp"
+                android:paddingTop="5dp"
+                android:layout_marginRight="10dp"
+                android:paddingRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                android:text="@string/Discription" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextDiscription"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="روی پرداخت کلیک کنید"/>
+
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="پــــــــــــــــــــرداخت"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnContiniue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ادامــــــــــه"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>

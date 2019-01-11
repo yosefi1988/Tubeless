@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:layout_margin="50dp"
+    android:background="@drawable/layout_bg_item"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".activity.uploadPicture.CategorySelectActivity">
+
+<!--<RelativeLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_margin="50dp"-->
+    <!--android:background="@drawable/layout_bg_item"-->
+    <!--tools:context=".activity.CategorySelectActivity">-->
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="1dp"
+        android:hint="@string/search"
+        android:textColorHint="@android:color/darker_gray"
+        android:inputType="textPersonName" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etSearch">
+
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/pager_tab_strip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#333"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:textColor="#fff" />
+
+
+    </android.support.v4.view.ViewPager>
+
+    <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:radius="5dp"
+        android:color="#2980b9"
+        app:dd_numDots="5"
+        android:layout_margin="20dp"
+        app:dd_scaleMultiplier="2"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+</RelativeLayout>
