@@ -4,7 +4,7 @@ android {
     def versionname = "3.01"
     flavorDimensions "default"
     compileSdkVersion 25
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '28.0.3'
 
     configurations {
 //        all*.exclude module: 'okhttp'
