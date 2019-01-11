@@ -16,7 +16,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba329586-5063-4660-b55f-296d898bf096" name="Default" comment="" />
+    <list default="true" id="ba329586-5063-4660-b55f-296d898bf096" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,8 +113,8 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="107" column="55" lean-forward="true" selection-start-line="107" selection-start-column="55" selection-end-line="107" selection-end-column="55" />
+            <state relative-caret-position="320">
+              <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -12013,8 +12015,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="107" column="55" lean-forward="true" selection-start-line="107" selection-start-column="55" selection-end-line="107" selection-end-column="55" />
+        <state relative-caret-position="320">
+          <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
         </state>
       </provider>
     </entry>
