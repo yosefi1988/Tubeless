@@ -6,8 +6,9 @@ import android.os.AsyncTask;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.ServerResponseBase;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
+
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.basic.ServerResponseBase;
 
 
 public class AsyncFavouriteBlogItem extends AsyncTask {

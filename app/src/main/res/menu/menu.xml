@@ -1,22 +1,12 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/faboptions_like"
-        android:icon="@drawable/png_like_light"
-        android:title="Favorite" />
-
-    <item
-        android:id="@+id/faboptions_comment"
-        android:icon="@drawable/png_commen_lightt"
-        android:title="Message" />
-
-    <item
-        android:id="@+id/faboptions_download"
-        android:icon="@drawable/png_download_light"
-        android:title="Download" />
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="@string/register"
+        app:showAsAction="ifRoom" />
 
 
-    <item
-        android:id="@+id/faboptions_share"
-        android:icon="@drawable/png_share_light"
-        android:title="Share" />
 </menu>

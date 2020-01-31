@@ -3,9 +3,9 @@ package ir.sajjadyosefi.android.tubeless.view.fragment.minor;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -197,7 +197,7 @@ public class FragmentMashinbaz extends Fragment {
 ////            li_all.setVisibility(View.VISIBLE);
 //
 ////            nothingText.setText("");
-////            title.setText("صفحه اصلی");
+////            text.setText("صفحه اصلی");
 ////            home_layout.setBackgroundColor(Color.parseColor("#1f1f20"));
 ////            profile_layout.setBackgroundColor(Color.parseColor("#313539"));
 ////            friend_layout.setBackgroundColor(Color.parseColor("#313539"));
@@ -211,7 +211,7 @@ public class FragmentMashinbaz extends Fragment {
 //
 //            if (result != null) {
 //                if (result.getPages().size() >= 0) {
-//                    Pages_Adapter adapter_page = new Pages_Adapter(context,(MainActivity)context,  result, mRecyclerViewTimeline, mLinearLayoutManager, showHome, mProgressBar);
+//                    Pages_Adapter adapter_page = new Pages_Adapter(context,(xMainActivity)context,  result, mRecyclerViewTimeline, mLinearLayoutManager, showHome, mProgressBar);
 //                    mRecyclerViewTimeline.setAdapter(adapter_page);
 //                }
 //                else if(result.getPages().size() == 0) {
@@ -222,7 +222,7 @@ public class FragmentMashinbaz extends Fragment {
 //                }
 //            } else {
 //                mRecyclerViewTimeline.setAdapter(null);
-////                Toast.makeText(MainActivity.this, "Nothing to show !", Toast.LENGTH_SHORT).show();
+////                Toast.makeText(xMainActivity.this, "Nothing to show !", Toast.LENGTH_SHORT).show();
 //                nothingText.setText("Nothing To Show !");
 //                new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
 //                        .setTitleText("")

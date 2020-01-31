@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
+    android:id="@+id/layoutCount"
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linearLayoutShare"
     android:layout_width="wrap_content"
     android:layoutDirection="rtl"
     android:layout_gravity="right"
@@ -14,16 +14,17 @@
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="3dp"
         app:srcCompat="@android:drawable/ic_menu_view" />
 
-    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+    <TextView
         android:id="@+id/textViewCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:textColor="@color/day_content_text"
         android:layoutDirection="rtl"
-        android:layout_marginTop="5dp"
+        android:textColor="@color/colorTextGry"
+        android:layout_marginTop="-3dp"
         android:paddingRight="5dp"
         android:text="156"  />
 

@@ -1,9 +1,9 @@
 package ir.sajjadyosefi.android.tubeless.adapter.fragment;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import ir.sajjadyosefi.android.tubeless.view.fragment.minor.FragmentTimelineMinor;
 
@@ -54,7 +54,7 @@ public class FragmentMashinbazAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        // Generate title based on item position
+        // Generate text based on item position
         return mTabTitles[position];
     }
 }

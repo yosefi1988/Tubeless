@@ -10,11 +10,12 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.MainActivity;
+
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.response.NewYafteResponse;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.response.NewYafteResponse;
 
 
 /**
@@ -60,7 +61,7 @@ public class AsyncRegNewYafte extends AsyncTask {
             else {
                 //ok
 
-                //Global.mUser = registerResponse.he;
+                //Global.user = registerResponse.he;
 
                 Intent intent = new Intent(mContext, MainActivity.class);
                 ((Activity) mContext).startActivity(intent);

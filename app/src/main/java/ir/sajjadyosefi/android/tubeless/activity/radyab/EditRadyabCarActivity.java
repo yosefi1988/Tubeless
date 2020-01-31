@@ -10,20 +10,17 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -31,24 +28,17 @@ import com.orm.SugarContext;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 
 import eu.janmuller.android.simplecropimage.CropImage;
 import ir.adad.client.Adad;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.classes.databaseLayout.DatabaseUtils;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.User;
-import ir.sajjadyosefi.android.tubeless.classes.model.radyab.SlaveDetails;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.HttpFileUploadAsync;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.Url;
 import ir.sajjadyosefi.android.tubeless.provider.InternalStorageContentProvider;
-import ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 
 import static ir.sajjadyosefi.android.tubeless.activity.uploadPicture.UploadPictureActivity.REQUEST_CODE_CROP_IMAGE;
 import static ir.sajjadyosefi.android.tubeless.activity.uploadPicture.UploadPictureActivity.REQUEST_CODE_GALLERY;
@@ -119,8 +109,8 @@ public class EditRadyabCarActivity extends AppCompatActivity {
 
         tvTitle.setOnClickListener(imageviewClickListener);
 
-//        if(Global.mUser != null){
-//            etField1.setText(Global.mUser.getMobileNumber());
+//        if(Global.user != null){
+//            etField1.setText(Global.user.getMobileNumber());
 //            etField1.setEnabled(false);
 //        }
 
@@ -161,14 +151,14 @@ public class EditRadyabCarActivity extends AppCompatActivity {
 
                 Global.copy(mFileTemp, mFileTemp2 );
 
-                DatabaseUtils databaseUtils = new DatabaseUtils(context);
-                SlaveDetails slaveDetails = new SlaveDetails();
-                slaveDetails.setCarName(etField1.getText().toString());
-                slaveDetails.setShomareMotor(etField4.getText().toString());
-                slaveDetails.setShomarePelak(etField2.getText().toString());
-                slaveDetails.setShomareShasi(etField3.getText().toString());
-                slaveDetails.setCarPicture(mFileTemp2.getPath());
-                databaseUtils.updateSlaveDetails(slaveId,slaveDetails);
+//                LitePallDatabaseUtils databaseUtils = new LitePallDatabaseUtils(context);
+//                SlaveDetails slaveDetails = new SlaveDetails();
+//                slaveDetails.setCarName(etField1.getText().toString());
+//                slaveDetails.setShomareMotor(etField4.getText().toString());
+//                slaveDetails.setShomarePelak(etField2.getText().toString());
+//                slaveDetails.setShomareShasi(etField3.getText().toString());
+//                slaveDetails.setCarPicture(mFileTemp2.getPath());
+//                databaseUtils.updateSlaveDetails(slaveId,slaveDetails);
 
 
                 Intent intent = new Intent(context, SelectCarForRadyab.class);
@@ -359,8 +349,8 @@ public class EditRadyabCarActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Global.mUser = new User();
-//        Intent intent = new Intent(this,MainActivity.class);
+        Global.user = new User();
+//        Intent intent = new Intent(this,xMainActivity.class);
 //        startActivity(intent);
         finish();
         overridePendingTransition(R.anim.fadeout, R.anim.fadein);

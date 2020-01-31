@@ -4,14 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
@@ -26,8 +24,9 @@ import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncDeleteBlogItem;
 import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncFavouriteBlogItem;
 import ir.sajjadyosefi.android.tubeless.classes.DateConverterSjd;
 import ir.sajjadyosefi.android.tubeless.classes.JsonDateDeserializer;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
-import ir.sajjadyosefi.android.tubeless.classes.utility.RoundedCornersTransformation;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.BlogItemViewHolder;
+import ir.sajjadyosefi.android.xTubeless.utility.RoundedCornersTransformation;
 
 /**
  * Created by sajjad on 9/19/2018.
@@ -38,7 +37,8 @@ public class Blog {
     final int margin = 5;
     final Transformation transformation = new RoundedCornersTransformation(radius, margin);
 
-    public void prepareBlogItem(final Context mContext, final DilatingDotsProgressBar mProgressBar, final EndlessList_Adapter.BlogItemViewHolder holder, final List<Object> mTimelineItemList, final int position) {
+    public void prepareBlogItem(final Context mContext, final DilatingDotsProgressBar mProgressBar,
+                                final BlogItemViewHolder holder, final List<Object> mTimelineItemList, final int position) {
 
         final boolean[] loadedImage = {false};
         Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new JsonDateDeserializer()).create();
@@ -70,10 +70,10 @@ public class Blog {
         holder.linearLayoutFaveorative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Global.mUser == null){
+                if(Global.user == null){
                     Global.ShowMessageDialog(mContext,"",mContext.getString(R.string.NotLoggedIn3));
                 }else {
-                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.mUser.getUserID(),blogItem.isInMyFavList());
+                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.user.getUserId(),blogItem.isInMyFavList());
                     asyncFavouriteBlogItem.execute();
                 }
 
@@ -88,27 +88,27 @@ public class Blog {
 
 
 
-        if (blogItem.getUser() != null)
-            Picasso.with(mContext)
-                    .load(blogItem.getUser().getUserImage())
-                    .placeholder(R.drawable.progress_animation)
-                    //.centerInside()
-                    .transform(transformation)
-                    .into(holder.imageViewUserAvatar, new Callback() {
-                        @Override
-                        public void onSuccess() {
-
-                        }
-
-                        @Override
-                        public void onError() {
-                            // TODO Auto-generated method stub
-                            Picasso.with(mContext)
-                                    .load(R.drawable.sajjad)
-                                    .transform(transformation)
-                                    .into(holder.imageViewUserAvatar);
-                        }
-                    });
+//        if (blogItem.getUser() != null)
+//            Picasso.with(mContext)
+//                    .load(blogItem.getUser().getUserImage())
+//                    .placeholder(R.drawable.progress_animation)
+//                    //.centerInside()
+//                    .transform(transformation)
+//                    .into(holder.imageViewUserAvatar, new Callback() {
+//                        @Override
+//                        public void onSuccess() {
+//
+//                        }
+//
+//                        @Override
+//                        public void onError() {
+//                            // TODO Auto-generated method stub
+////                            Picasso.with(mContext)
+////                                    .load(R.drawable.sajjad)
+////                                    .transform(transformation)
+////                                    .into(holder.imageViewUserAvatar);
+//                        }
+//                    });
 
 
         View.OnClickListener onclick = new View.OnClickListener() {
@@ -133,8 +133,8 @@ public class Blog {
         View.OnClickListener onDeleteClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Global.mUser != null) {
-                    if (Global.mUser.getMobileNumber().contains("09123678522")) {
+                if (Global.user != null) {
+                    if (Global.user.getMobileNumber().contains("09123678522")) {
                         new AlertDialog.Builder(mContext)
                                 .setTitle("Title")
                                 .setMessage("Do you really want to whatever?")
@@ -142,7 +142,7 @@ public class Blog {
                                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                                     public void onClick(DialogInterface dialog, int whichButton) {
-                                        AsyncDeleteBlogItem asyncDeleteBlogItem = new AsyncDeleteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.mUser.getUserID());
+                                        AsyncDeleteBlogItem asyncDeleteBlogItem = new AsyncDeleteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.user.getUserId());
                                         asyncDeleteBlogItem.execute();
                                     }})
                                 .setNegativeButton(android.R.string.no, null).show();

@@ -2,11 +2,13 @@ package ir.sajjadyosefi.android.tubeless.activity.radyab;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.DatabaseUtils;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
@@ -15,10 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.MainActivity;
+
 import ir.sajjadyosefi.android.tubeless.adapter.radyab.CarListAdapter;
-import ir.sajjadyosefi.android.tubeless.classes.databaseLayout.DatabaseUtils;
-import ir.sajjadyosefi.android.tubeless.classes.model.radyab.SlaveDetails;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.radyab.SlaveDetails;
 
 
 public class SelectCarForRadyab extends AppCompatActivity   {
@@ -41,7 +43,7 @@ public class SelectCarForRadyab extends AppCompatActivity   {
         prepareCarData();
 
         recyclerViewRadyabCars = (RecyclerView) findViewById(R.id.recyclerViewRadyabCars);
-        mAdapter = new CarListAdapter(context, carList);
+        //mAdapter = new CarListAdapter(context, carList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerViewRadyabCars.setLayoutManager(mLayoutManager);
         recyclerViewRadyabCars.setItemAnimator(new DefaultItemAnimator());
@@ -74,11 +76,11 @@ public class SelectCarForRadyab extends AppCompatActivity   {
     }
 
     private void prepareCarData() {
-        DatabaseUtils databaseUtils = new DatabaseUtils(context);
-        List<SlaveDetails> list = databaseUtils.loadSlaveList();
-        for (SlaveDetails item : list) {
-            carList.add(item);
-        }
+        //DatabaseUtils databaseUtils = new DatabaseUtils(context);
+//        List<SlaveDetails> list = databaseUtils.loadSlaveList();
+//        for (SlaveDetails item : list) {
+//            carList.add(item);
+//        }
 
     }
 
@@ -86,7 +88,7 @@ public class SelectCarForRadyab extends AppCompatActivity   {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.fadeout, R.anim.fadein);
         finish();

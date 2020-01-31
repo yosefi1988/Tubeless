@@ -11,11 +11,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -36,8 +36,8 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 
 import eu.janmuller.android.simplecropimage.CropImage;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.HttpFileUploadAsync;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.Url;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.HttpFileUploadAsync;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.Url;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.provider.InternalStorageContentProvider;
 import ir.sajjadyosefi.android.tubeless.R;
@@ -278,33 +278,33 @@ public class UploadPictureActivity extends AppCompatActivity {
 //                    helper.sendImageToServer(context,mFileTemp,RestApiHelper.CAR_PIC);
 
                     if(getFileSize(context, mFileTemp)<4) {
-                        //3
-                        try {
-                            if(Global.mUser == null) {
-                                Global.ShowMessageDialog(context, "", context.getString(R.string.NotLoggedIn2));
-                            }else {
-                                if(Global.mUser.getCanSendPicture() == false) {
-                                    Global.ShowMessageDialog(context, "", context.getString(R.string.CanNotSendPicture));
-                                }else {
-                                    HttpFileUploadAsync HttpFileUploadAsync = new HttpFileUploadAsync(context, dilatingDotsProgressBar, btnSend,
-                                            Url.POST_ADD_CAR_PICTURE,
-                                            mFileTemp,
-                                            "Files/Pictures/Cars/" + selectedCar + "/" + Global.mUser.getUserID() + "/",
-                                            Url.MAIN_SERVER_ADDRESS + "Account/AddCarPictureX?Tags=" +
-                                                    etTags
-                                                    .getText()
-                                                    .toString()
-                                                    .replace(" ", "%20")
-                                                    .replace("_", "%5F") + "&CarID=" + selectedCategory + "&UserID=" + Global.mUser.getUserID() + "");
-
-                                    HttpFileUploadAsync.execute();
-                                }
-                            }
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
+//                        //3
+//                        try {
+//                            if(Global.user == null) {
+//                                Global.ShowMessageDialog(context, "", context.getString(R.string.NotLoggedIn2));
+//                            }else {
+//                                if(Global.user.getCanSendPicture() == false) {
+//                                    Global.ShowMessageDialog(context, "", context.getString(R.string.CanNotSendPicture));
+//                                }else {
+//                                    HttpFileUploadAsync HttpFileUploadAsync = new HttpFileUploadAsync(context, dilatingDotsProgressBar, btnSend,
+//                                            Url.POST_ADD_CAR_PICTURE,
+//                                            mFileTemp,
+//                                            "Files/Pictures/Cars/" + selectedCar + "/" + Global.user.getUserID() + "/",
+//                                            Url.MAIN_SERVER_ADDRESS + "Account/AddCarPictureX?Tags=" +
+//                                                    etTags
+//                                                    .getText()
+//                                                    .toString()
+//                                                    .replace(" ", "%20")
+//                                                    .replace("_", "%5F") + "&CarID=" + selectedCategory + "&UserID=" + Global.user.getUserID() + "");
+//
+//                                    HttpFileUploadAsync.execute();
+//                                }
+//                            }
+//                        } catch (MalformedURLException e) {
+//                            e.printStackTrace();
+//                        } catch (FileNotFoundException e) {
+//                            e.printStackTrace();
+//                        }
                     }else
                         Global.ShowMessageDialog(context,"",context.getString(R.string.fileSize4Mb));
 

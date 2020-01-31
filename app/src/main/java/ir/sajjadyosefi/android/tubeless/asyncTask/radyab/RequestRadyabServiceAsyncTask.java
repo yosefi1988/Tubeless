@@ -5,8 +5,8 @@ import android.os.AsyncTask;
 import android.widget.Toast;
 
 import ir.sajjadyosefi.android.tubeless.classes.business.RadyabBusiness;
-import ir.sajjadyosefi.android.tubeless.classes.model.radyab.response.GooglePushResponse;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.HttpUrlconnectionHelper;
+import ir.sajjadyosefi.android.xTubeless.classes.model.radyab.response.GooglePushResponse;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.HttpUrlconnectionHelper;
 
 
 /**

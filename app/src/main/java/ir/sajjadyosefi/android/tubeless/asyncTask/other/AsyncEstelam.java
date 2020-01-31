@@ -6,8 +6,8 @@ import android.os.Build;
 import android.util.Log;
 
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
-import ir.sajjadyosefi.android.tubeless.classes.model.RequestEstelam;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.RequestEstelam;
 import ir.sajjadyosefi.android.tubeless.R;
 
 

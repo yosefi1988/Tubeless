@@ -2,9 +2,10 @@ package ir.sajjadyosefi.android.tubeless.asyncTask.timeline;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
@@ -14,10 +15,11 @@ import java.util.Random;
 import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
 import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.model.TimelineItemBase;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.TimelineResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.TimelineItemBase;
+
 import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.TimelineResponse;
 
 
 public class AsyncLoadTimeline extends AsyncTask {
@@ -118,7 +120,7 @@ public class AsyncLoadTimeline extends AsyncTask {
             }
             // else {
 //                mRecyclerViewTimeline.setAdapter(null);
-//                Toast.makeText(MainActivity.this, "Nothing to show !", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(xMainActivity.this, "Nothing to show !", Toast.LENGTH_SHORT).show();
 //                mTextViewNoting.setText("Nothing To Show !");
 //                new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
 //                        .setTitleText("")

@@ -2,7 +2,7 @@ package ir.sajjadyosefi.android.tubeless.asyncTask.config;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -17,14 +17,15 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
-import ir.sajjadyosefi.android.tubeless.classes.model.Car.Car;
-import ir.sajjadyosefi.android.tubeless.classes.model.Company;
-import ir.sajjadyosefi.android.tubeless.classes.model.Config.CarCategoriesByCompanyResponse;
-import ir.sajjadyosefi.android.tubeless.classes.model.Config.CategoryItem;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Company;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Config.CategoryItem;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.activity.uploadPicture.CategorySelectActivity;
 import ir.sajjadyosefi.android.tubeless.widget.StickyTestAdapter;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Car.Car;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Config.CarCategoriesByCompanyResponse;
 
 
 /**
@@ -92,10 +93,10 @@ public class AsyncCarCategoriesByCompany extends AsyncTask<String, Void, CarCate
         RestApiHelper myParser = new RestApiHelper();
         switch (listType) {
             case (CategorySelectActivity.RECENTLY_CAR_LIST):
-                if(Global.mUser == null)
+                if(Global.user == null)
                     return myParser.carCategoriesByCompanyRecently();
                 else
-                    return myParser.carCategoriesByCompanyRecently(Global.mUser.getUserID());
+                    return myParser.carCategoriesByCompanyRecently(Global.user.getUserId());
 
             case (CategorySelectActivity.CAR_CATEGORY_BY_COMPANY):
                 return myParser.carCategoriesByCompany();

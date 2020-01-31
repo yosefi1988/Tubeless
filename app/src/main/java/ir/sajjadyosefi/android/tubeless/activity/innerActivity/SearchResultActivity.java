@@ -1,52 +1,22 @@
 package ir.sajjadyosefi.android.tubeless.activity.innerActivity;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.widget.ImageView;
-import android.widget.MediaController;
-import android.widget.PopupMenu;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.joaquimley.faboptions.FabOptions;
-import com.squareup.picasso.Picasso;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-import java.util.Random;
-
-import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.classes.DownloadingTask;
 import ir.sajjadyosefi.android.tubeless.view.fragment.minor.FragmentTimelineMinor;
-
-import static ir.sajjadyosefi.android.tubeless.activity.WebViewActivity.verifyStoragePermissions;
 //import static com.joaquimley.faboptions.sample.R.id.toolbar;
 
 /**

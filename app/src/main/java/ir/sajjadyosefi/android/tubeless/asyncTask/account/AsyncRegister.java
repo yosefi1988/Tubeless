@@ -9,12 +9,14 @@ import android.widget.Toast;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.RegisterResponse;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.User;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+
+
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.MainActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.RegisterResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 
 
 /**
@@ -55,12 +57,12 @@ public class AsyncRegister extends AsyncTask {
         if(response == null){
             Global.ShowMessageDialog(mContext, "",mContext.getString(R.string.RegisterErrorOnServer));
         }else {
-            if (registerResponse.getServerStatus().getCode() == 98)
-                Global.ShowMessageDialog(mContext, "", registerResponse.getServerStatus().getMessage());
-            else {
+//            if (registerResponse.getServerStatus().getCode() == 98)
+//                Global.ShowMessageDialog(mContext, "", registerResponse.getServerStatus().getMessage());
+//            else {
                 //ok
 
-                Global.mUser = registerResponse.getUser();
+                Global.user = registerResponse.getUser();
 
                 Intent intent = new Intent(mContext, MainActivity.class);
                 ((Activity) mContext).startActivity(intent);
@@ -69,7 +71,7 @@ public class AsyncRegister extends AsyncTask {
                 //Global.ShowMessageDialog(mContext,"",registerResponse.getUser().getUserName());
                 Toast.makeText(mContext, registerResponse.getServerStatus().getMessage(), Toast.LENGTH_SHORT).show();
             }
-        }
+//        }
         if (mProgressBar != null)
             mProgressBar.hideNow();
     }

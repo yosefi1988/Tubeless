@@ -6,12 +6,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.support.v4.widget.SwipeRefreshLayout;
-//import android.support.v7.widget.LinearLayoutManager;
-//import android.support.v7.widget.RecyclerView;
+//import androidx.recyclerview.widget.LinearLayoutManager;
+//import androidx.recyclerview.widget.RecyclerView;
 //import android.support.v7.widget.RecyclerView.Adapter;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +16,12 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
@@ -39,11 +39,15 @@ import ir.sajjadyosefi.android.tubeless.asyncTask.timeline.AsyncLoadTimeline;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
 import ir.sajjadyosefi.android.tubeless.classes.business.Blog;
 import ir.sajjadyosefi.android.tubeless.classes.business.Yafte;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.BlogItemViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.YafteItemViewHolder;
+import it.sephiroth.android.library.bottomnavigation.app.ToolbarScrollHelper;
 
-public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapter.ParentViewHolder> {
+public class EndlessList_Adapter extends RecyclerView.Adapter<PostViewHolder> {
 
     //FINAL STATIC
     public static int YAFTE = 12 ;                  //سرقتی پیداشده گمشده
@@ -58,13 +62,14 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
     private RecyclerView mRecyclerViewTimeline;
     private List<Object> mTimelineItemList;
     EndlessList_Adapter mPostsAdapter;
+    private boolean hasAppBarLayout;
 
     //scroll
     private int previousTotal = 0;
     private boolean loading = true;
     private int visibleThreshold = 5;
     int firstVisibleItem, visibleItemCount, totalItemCount;
-
+    ToolbarScrollHelper scrollHelper;
 
 
     //User Profile
@@ -74,13 +79,14 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
     private TextView fullName;
     private TextView location;
     public LinearLayoutManager mLayoutManager = null ;
+    private int navigationHeight;
 
     private int lastPosition = -1;
     public int listType = 0;
     public int idHeader = 0;
 
 
-    public EndlessList_Adapter(final Context context, DilatingDotsProgressBar progressBar, TextView textViewNoting, SwipeRefreshLayout swipeRefreshLayoutNews, final RecyclerView recyclerViewTimeline, List<Object> timelineItemList, LinearLayoutManager linearLayoutManager, final int listType, final int idHeader) {
+    public EndlessList_Adapter(final Context context, final int navigationHeight, ToolbarScrollHelper scrollHelper,final boolean hasAppBarLayout, DilatingDotsProgressBar progressBar, TextView textViewNoting, SwipeRefreshLayout swipeRefreshLayoutNews, final RecyclerView recyclerViewTimeline, List<Object> timelineItemList, LinearLayoutManager linearLayoutManager, final int listType, final int idHeader) {
         this.idHeader = idHeader;
         this.mContext = context ;
         this.mProgressBar = progressBar;
@@ -91,9 +97,12 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
         this.mPostsAdapter = this ;
         this.mLayoutManager = linearLayoutManager ;
         this.listType = listType;
+        this.navigationHeight = navigationHeight;
+        this.hasAppBarLayout = hasAppBarLayout;
+        this.scrollHelper = scrollHelper;
         sssss(this.mRecyclerViewTimeline,this.mContext);
     }
-    public EndlessList_Adapter(final Context context, DilatingDotsProgressBar progressBar, TextView textViewNoting, SwipeRefreshLayout swipeRefreshLayoutNews, final RecyclerView recyclerViewTimeline, List<Object> timelineItemList, LinearLayoutManager linearLayoutManager, final int listType) {
+    public EndlessList_Adapter(final Context context,final int navigationHeight, ToolbarScrollHelper scrollHelper, final boolean hasAppBarLayout, DilatingDotsProgressBar progressBar, TextView textViewNoting, SwipeRefreshLayout swipeRefreshLayoutNews, final RecyclerView recyclerViewTimeline, List<Object> timelineItemList, LinearLayoutManager linearLayoutManager, final int listType) {
         this.mContext = context ;
         this.mProgressBar = progressBar;
         this.mTextViewNoting = textViewNoting;
@@ -103,9 +112,13 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
         this.mPostsAdapter = this ;
         this.mLayoutManager = linearLayoutManager ;
         this.listType = listType;
+        this.navigationHeight = navigationHeight;
+        this.hasAppBarLayout = hasAppBarLayout;
+        this.scrollHelper = scrollHelper;
+
         sssss(this.mRecyclerViewTimeline,this.mContext);
     }
-    public EndlessList_Adapter(final Context context, DilatingDotsProgressBar progressBar, TextView textViewNoting, SwipeRefreshLayout swipeRefreshLayoutNews, final RecyclerView recyclerViewTimeline, List<Object> timelineItemList, LinearLayoutManager linearLayoutManager, String term, final int listType, final int idHeader) {
+    public EndlessList_Adapter(final Context context,final int navigationHeight, ToolbarScrollHelper scrollHelper,final boolean hasAppBarLayout,  DilatingDotsProgressBar progressBar, TextView textViewNoting, SwipeRefreshLayout swipeRefreshLayoutNews, final RecyclerView recyclerViewTimeline, List<Object> timelineItemList, LinearLayoutManager linearLayoutManager, String term, final int listType, final int idHeader) {
         this.mContext = context ;
         this.mProgressBar = progressBar;
         this.mTextViewNoting = textViewNoting;
@@ -117,6 +130,10 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
         this.mPostsAdapter = this ;
         this.mLayoutManager = linearLayoutManager ;
         this.listType = listType;
+        this.navigationHeight = navigationHeight;
+        this.hasAppBarLayout = hasAppBarLayout;
+        this.scrollHelper = scrollHelper;
+
         sssss(this.mRecyclerViewTimeline,this.mContext);
     }
 
@@ -225,7 +242,9 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
                 ).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }
         }else{
-            Global.ShowMessageDialog(context,"",context.getString(R.string.errorInInternetConnection));
+            try {
+                Global.ShowMessageDialog(context,"",context.getString(R.string.errorInInternetConnection));
+            }catch (Exception ex){}
         }
     }
 
@@ -370,112 +389,17 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
         notifyDataSetChanged();
     }
 
-    public class ParentViewHolder extends RecyclerView.ViewHolder {
-
-        public ParentViewHolder(View itemView) {
-            super(itemView);
-        }
-
-        public void clearAnimation() {
-            itemView.clearAnimation();
-        }
-    }
-
-    public class BlogItemViewHolder extends ParentViewHolder {
-
-        public LinearLayout linearLayoutTop;
-        public LinearLayout linearLayoutCenter;
-        public LinearLayout linearLayoutBottom;
-        public LinearLayout linearLayoutFaveorative;
-
-        public ImageView imageViewShare;
-        public TextView textViewShare;
-        public ImageView imageViewDelete;
-        public TextView textViewDelete;
 
 
-        public ImageView imageViewUserAvatar;
-        public ImageView imageViewFavourite;
-        public TextView textViewUserName;
-
-        public TextView textViewTitle;
-        public TextView textViewStatment;
-        public TextView textViewStatment2;
-        public TextView textViewCount;
-
-        public BlogItemViewHolder(View itemView) {
-            super(itemView);
-
-            linearLayoutTop               = (LinearLayout) itemView.findViewById(R.id.linearLayoutTop);
-            linearLayoutCenter            = (LinearLayout) itemView.findViewById(R.id.linearLayoutCenter);
-            linearLayoutBottom            = (LinearLayout) itemView.findViewById(R.id.linearLayoutBottom);
-            linearLayoutFaveorative             = (LinearLayout) itemView.findViewById(R.id.linearLayoutFavorative);
-
-            imageViewShare                  = (ImageView) itemView.findViewById(R.id.imageViewShare);
-            textViewShare                   = (TextView) itemView.findViewById(R.id.textViewShare);
-            imageViewDelete               = (ImageView) itemView.findViewById(R.id.imageViewDelete);
-            textViewDelete                = (TextView) itemView.findViewById(R.id.textViewDelete);
 
 
-            imageViewUserAvatar           = (ImageView) itemView.findViewById(R.id.imageViewUserAvatar);
-            imageViewFavourite           = (ImageView) itemView.findViewById(R.id.imageViewFavourite);
-            textViewUserName              = (TextView) itemView.findViewById(R.id.textViewUserName);
-
-            textViewTitle                 = (TextView) itemView.findViewById(R.id.textViewTitle);
-            textViewStatment              = (TextView) itemView.findViewById(R.id.textViewStatment);
-            textViewStatment2             = (TextView) itemView.findViewById(R.id.textViewStatment2);
-            textViewCount                 = (TextView) itemView.findViewById(R.id.textViewCount);
-        }
-    }
-
-    public class YafteItemViewHolder extends ParentViewHolder {
-
-        public LinearLayout linearLayoutTop;
-        public LinearLayout linearLayoutCenter;
-        public LinearLayout linearLayoutBottom;
-
-        public ImageView imageViewShare;
-        public TextView textViewShare;
-        public ImageView imageViewDelete;
-        public TextView textViewDelete;
-
-        public ImageView imageViewUserAvatar;
-        public TextView textViewUserName;
-
-        public TextView textViewTitle;
-        public TextView textViewStatment;
-        public TextView textViewStatment2;
-        public TextView textViewCount;
-
-        public YafteItemViewHolder(View itemView) {
-            super(itemView);
-
-            linearLayoutTop               = (LinearLayout) itemView.findViewById(R.id.linearLayoutTop);
-            linearLayoutCenter            = (LinearLayout) itemView.findViewById(R.id.linearLayoutCenter);
-            linearLayoutBottom            = (LinearLayout) itemView.findViewById(R.id.linearLayoutBottom);
-
-            imageViewShare               = (ImageView) itemView.findViewById(R.id.imageViewShare);
-            textViewShare                = (TextView) itemView.findViewById(R.id.textViewShare);
-            imageViewDelete               = (ImageView) itemView.findViewById(R.id.imageViewDelete);
-            textViewDelete                = (TextView) itemView.findViewById(R.id.textViewDelete);
-
-
-            imageViewUserAvatar           = (ImageView) itemView.findViewById(R.id.imageViewUserAvatar);
-            textViewUserName              = (TextView) itemView.findViewById(R.id.textViewUserName);
-
-            textViewTitle                 = (TextView) itemView.findViewById(R.id.textViewTitle);
-            textViewStatment              = (TextView) itemView.findViewById(R.id.textViewStatment);
-            textViewStatment2             = (TextView) itemView.findViewById(R.id.textViewStatment2);
-            textViewCount                 = (TextView) itemView.findViewById(R.id.textViewCount);
-        }
-    }
 
     @Override
-    public void onViewDetachedFromWindow(final ParentViewHolder holder) {
+    public void onViewDetachedFromWindow(final PostViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
         holder.itemView.clearAnimation();
 
-        ((ParentViewHolder)holder).clearAnimation();
+        ((PostViewHolder)holder).clearAnimation();
 
     }
 
@@ -486,7 +410,7 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
     }
 
     @Override
-    public ParentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == YAFTE){
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_of_yafte_item, parent, false);
@@ -507,7 +431,7 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
 //            case 3:
 //                return new TimeLineItemViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_addad, parent, false), viewType);
 //            case 4:
-//                return new TimeLineItemViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_image_of_a_car, parent, false), viewType);
+//                return new TimeLineItemViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout._row_image_of_a_car, parent, false), viewType);
 
 //        }
     }
@@ -517,11 +441,20 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
 
 
     @Override
-    public void onBindViewHolder(final ParentViewHolder holder, final int position) {
+    public void onBindViewHolder(final PostViewHolder holder, final int position) {
+
+        ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).topMargin = 0;
+        if (position == getItemCount() - 1) {
+            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).bottomMargin = holder.marginBottom + navigationHeight;
+        } else if (position == 0 && !hasAppBarLayout) {
+            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).topMargin = scrollHelper.getToolbarHeight();
+        } else {
+            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).bottomMargin = holder.marginBottom;
+        }
 
 //        if (mTimelineItemList.get(position) instanceof TimelineItemBase) {
 //            if (((TimelineItemBase) (mTimelineItemList.get(position))).getID_TimelineType() == 3) { //.getNmae().equals("CarPictures")){
-////                holder.adView = MainActivity.adView;
+////                holder.adView = xMainActivity.adView;
 //            }
 //        }
 //        if(mTimelineItemList.get(position) instanceof TimelineItemBase)
@@ -919,7 +852,7 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
 //            return 3;
 
 
-//        if (mTimelineItemList.get(position) instanceof ir.sajjadyosefi.android.tubeless.classes.model.yafte.Yafte){
+//        if (mTimelineItemList.get(position) instanceof ir.sajjadyosefi.android.xTubeless.classes.modelY.yafte.Yafte){
             if ((((BlogItem)mTimelineItemList.get(position)).getCategoryID() == 16) ||
                     (((BlogItem)mTimelineItemList.get(position)).getCategoryID() == 17)||
                     (((BlogItem)mTimelineItemList.get(position)).getCategoryID() == 18))
@@ -928,10 +861,7 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<EndlessList_Adapte
                 return BLOG; //blog
             }
 //        }
-
         return 1;
-
-
     }
 
 

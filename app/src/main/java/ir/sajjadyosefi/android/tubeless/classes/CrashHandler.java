@@ -17,7 +17,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.Thread.UncaughtExceptionHandler;
 
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.Url;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.Url;
 import ir.sajjadyosefi.android.tubeless.R;
 
 public class CrashHandler implements UncaughtExceptionHandler {

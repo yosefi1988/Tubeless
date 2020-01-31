@@ -38,5 +38,5 @@
         android:layout_centerVertical="true"
         android:textColor="#000"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 </RelativeLayout>

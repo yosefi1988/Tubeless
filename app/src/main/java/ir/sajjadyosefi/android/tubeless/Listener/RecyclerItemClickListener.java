@@ -1,10 +1,11 @@
 package ir.sajjadyosefi.android.tubeless.Listener;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by sajjad on 06/23/2016.

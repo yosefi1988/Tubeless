@@ -4,12 +4,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.ServerResponseBase;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.basic.ServerResponseBase;
 
 
 public class AsyncDeleteBlogItem extends AsyncTask {

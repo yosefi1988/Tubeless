@@ -17,6 +17,7 @@
 package com.joaquimley.faboptions;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -25,16 +26,6 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.MenuRes;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.view.SupportMenuInflater;
-import android.support.v7.view.menu.MenuBuilder;
-import android.support.v7.widget.AppCompatImageView;
 import android.transition.ChangeBounds;
 import android.transition.ChangeTransform;
 import android.transition.Transition;
@@ -48,6 +39,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.MenuRes;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.view.SupportMenuInflater;
+import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static com.joaquimley.faboptions.R.drawable.faboptions_ic_overflow;
 
@@ -129,7 +132,9 @@ public class FabOptions extends FrameLayout implements View.OnClickListener {
     public void setBackgroundColor(@ColorRes int backgroundColor) {
         Context context = getContext();
         if (context != null) {
-            @ColorInt int color = ContextCompat.getColor(context, backgroundColor);
+            @SuppressLint("ResourceType")
+            @ColorInt
+            int color = ContextCompat.getColor(context, backgroundColor);
             setBackgroundColor(context, color);
         } else {
             Log.w(TAG, "Couldn't set background color, context is null");
@@ -183,6 +188,7 @@ public class FabOptions extends FrameLayout implements View.OnClickListener {
     /**
      * Deprecated. Use {@link #setButtonsMenu(int)} instead.
      */
+    @SuppressLint("RestrictedApi")
     @Deprecated
     public void setButtonsMenu(Context context, @MenuRes int menuId) {
         mMenu = new MenuBuilder(context);
@@ -200,8 +206,7 @@ public class FabOptions extends FrameLayout implements View.OnClickListener {
     }
 
     private void addButton(Context context, MenuItem menuItem) {
-        AppCompatImageView button = mButtonContainer.addButton(context, menuItem.getItemId(),
-                menuItem.getTitle(), menuItem.getIcon());
+        AppCompatImageView button = mButtonContainer.addButton(context, menuItem.getItemId(), menuItem.getTitle(), menuItem.getIcon());
         button.setOnClickListener(this);
     }
 

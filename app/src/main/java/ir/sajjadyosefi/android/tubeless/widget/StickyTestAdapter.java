@@ -20,7 +20,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,12 +29,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.Url;
-import ir.sajjadyosefi.android.tubeless.classes.model.Config.CategoryItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Config.CategoryItem;
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.widget.recyclerview.decoration.StickyHeaderAdapter;
 
@@ -110,11 +107,11 @@ public class StickyTestAdapter
         }
         if (header != null) {
             viewholder.imageView.setImageDrawable(((Activity)context).getResources().getDrawable(R.drawable.ic_launcher));
-            Picasso.with(context)
-                    //.load(String.format(Url.MEDIA_SERVER_ADDRESS + "Files/Pictures/LogoOfCompanies/48/%s.jpg", header.getPicture()))
-                    .load(String.format(Url.MEDIA_SERVER_ADDRESS + "Files/Pictures/LogoOfCompanies/50/%s.png", header.getPicture()))
-                    .placeholder(R.drawable.progress_animation)
-                    .into(viewholder.imageView);
+//            Picasso.with(context)
+//                    //.load(String.format(Url.MEDIA_SERVER_ADDRESS + "Files/Pictures/LogoOfCompanies/48/%s.jpg", header.getPicture()))
+//                    .load(String.format(Url.MEDIA_SERVER_ADDRESS + "Files/Pictures/LogoOfCompanies/50/%s.png", header.getPicture()))
+//                    .placeholder(R.drawable.progress_animation)
+//                    .into(viewholder.imageView);
 
             viewholder.header.setText(header.getTitle());
         }

@@ -26,6 +26,5 @@
         android:gravity="center"
         android:textColor="@color/day_username_text"
         android:layoutDirection="rtl"
-        android:text="@string/app_name"
-        android:textSize="17dp" />
+        android:text="@string/app_name" />
 </LinearLayout>

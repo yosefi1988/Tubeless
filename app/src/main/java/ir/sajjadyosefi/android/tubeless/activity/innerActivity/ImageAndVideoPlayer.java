@@ -10,10 +10,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +45,9 @@ import ir.sajjadyosefi.android.tubeless.R;
 import com.joaquimley.faboptions.FabOptions;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import static ir.sajjadyosefi.android.tubeless.activity.WebViewActivity.verifyStoragePermissions;
+import static ir.sajjadyosefi.android.xTubeless.activity.WebViewActivity.verifyStoragePermissions;
+
+
 //import static com.joaquimley.faboptions.sample.R.id.toolbar;
 
 /**
@@ -98,7 +102,7 @@ public class ImageAndVideoPlayer extends AppCompatActivity implements View.OnCli
                 });
 
                 if(btnMenu.isEnabled())
-                    popup.show();//showing popup menu
+                    popup.show();//showing popup menux
             }
         });//closing the setOnClickListener method
 
@@ -118,21 +122,21 @@ public class ImageAndVideoPlayer extends AppCompatActivity implements View.OnCli
                 downloadedImage.setVisibility(View.VISIBLE);
 
                 if(filePath.contains("/storage/")) {
-                    Picasso.with(ImageAndVideoPlayer.this)
-                            .load(new File(filePath))
-//                        .memoryPolicy(MemoryPolicy.NO_CACHE )
-//                        .networkPolicy(NetworkPolicy.NO_CACHE)
-//                        .resize(512, 512)
-//                        .noFade()
-                            .into(downloadedImage);
+//                    Picasso.with(ImageAndVideoPlayer.this)
+//                            .load(new File(filePath))
+////                        .memoryPolicy(MemoryPolicy.NO_CACHE )
+////                        .networkPolicy(NetworkPolicy.NO_CACHE)
+////                        .resize(512, 512)
+////                        .noFade()
+//                            .into(downloadedImage);
                 }else {
-                    Picasso.with(ImageAndVideoPlayer.this)
-                            .load(filePath)
-//                        .memoryPolicy(MemoryPolicy.NO_CACHE )
-//                        .networkPolicy(NetworkPolicy.NO_CACHE)
-//                        .resize(512, 512)
-//                        .noFade()
-                            .into(downloadedImage);
+//                    Picasso.with(ImageAndVideoPlayer.this)
+//                            .load(filePath)
+////                        .memoryPolicy(MemoryPolicy.NO_CACHE )
+////                        .networkPolicy(NetworkPolicy.NO_CACHE)
+////                        .resize(512, 512)
+////                        .noFade()
+//                            .into(downloadedImage);
                 }
             }
         }
@@ -208,7 +212,7 @@ public class ImageAndVideoPlayer extends AppCompatActivity implements View.OnCli
 
             case R.id.faboptions_download:
 
-                if(Global.mUser == null){
+                if(Global.user == null){
                     Global.ShowMessageDialog(this,"",this.getString(R.string.NotLoggedIn));
                 }else {
                     String fileName = Global.getFileFullName(filePath.toString());

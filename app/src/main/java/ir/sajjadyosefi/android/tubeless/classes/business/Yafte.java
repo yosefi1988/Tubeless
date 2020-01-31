@@ -4,14 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
 import java.util.Date;
@@ -24,7 +22,8 @@ import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
 import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncDeleteBlogItem;
 import ir.sajjadyosefi.android.tubeless.classes.DateConverterSjd;
 import ir.sajjadyosefi.android.tubeless.classes.JsonDateDeserializer;
-import ir.sajjadyosefi.android.tubeless.classes.utility.RoundedCornersTransformation;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.YafteItemViewHolder;
+import ir.sajjadyosefi.android.xTubeless.utility.RoundedCornersTransformation;
 
 /**
  * Created by sajjad on 9/19/2018.
@@ -36,40 +35,40 @@ public class Yafte {
     final int margin = 5;
     final Transformation transformation = new RoundedCornersTransformation(radius, margin);
 
-    public void prepareYafteItem(final Context mContext , final EndlessList_Adapter.YafteItemViewHolder holder, final List<Object> mTimelineItemList, final int position) {
+    public void prepareYafteItem(final Context mContext , final YafteItemViewHolder holder, final List<Object> mTimelineItemList, final int position) {
 
         final boolean[] loadedImage = {false};
         Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new JsonDateDeserializer()).create();
         String json0000 = gson.toJson(mTimelineItemList.get(position));
-        final ir.sajjadyosefi.android.tubeless.classes.model.yafte.Yafte yafteItem = gson.fromJson(json0000,ir.sajjadyosefi.android.tubeless.classes.model.yafte.Yafte.class);
+        final Yafte yafteItem = gson.fromJson(json0000,Yafte.class);
 
         DateConverterSjd dateUtiliti = new DateConverterSjd();
 
-        holder.textViewTitle.setText(yafteItem.getTitle());
-        holder.textViewStatment.setText(yafteItem.getStatement());
-        holder.textViewStatment2.setText(yafteItem.getTitlePicture());
-
-                if (yafteItem.getUser() != null)
-                    holder.textViewUserName.setText(yafteItem.getUser().getUserName());
-
-                holder.textViewCount.setText(yafteItem.getViewCount() + "");
-
-                View.OnClickListener onClickListener = new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                EndlessList_Adapter.prepareToShare(mContext,yafteItem.getTitlePicture(),yafteItem.getStatement(),false);
-            }
-        };
-        holder.textViewShare.setOnClickListener(onClickListener);
-        holder.imageViewShare.setOnClickListener(onClickListener);
+//        holder.textViewTitle.setText(yafteItem.getTitle());
+//        holder.textViewStatment.setText(yafteItem.getStatement());
+//        holder.textViewStatment2.setText(yafteItem.getTitlePicture());
+//
+//                if (yafteItem.getUser() != null)
+//                    holder.textViewUserName.setText(yafteItem.getUser().getUserName());
+//
+//                holder.textViewCount.setText(yafteItem.getViewCount() + "");
+//
+//                View.OnClickListener onClickListener = new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                EndlessList_Adapter.prepareToShare(mContext,yafteItem.getTitlePicture(),yafteItem.getStatement(),false);
+//            }
+//        };
+//        holder.textViewShare.setOnClickListener(onClickListener);
+//        holder.imageViewShare.setOnClickListener(onClickListener);
 
         View.OnClickListener onStarClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Global.mUser == null){
+                if(Global.user == null){
                     Global.ShowMessageDialog(mContext,"",mContext.getString(R.string.NotLoggedIn3));
                 }else {
-//                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,yafteItem.getID(),Global.mUser.getUserID(),yafteItem.isInMyFavList());
+//                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,yafteItem.getID(),Global.user.getUserID(),yafteItem.isInMyFavList());
 //                    asyncFavouriteBlogItem.execute();
                 }
             }
@@ -85,27 +84,27 @@ public class Yafte {
 
 
 
-        if (yafteItem.getUser() != null)
-            Picasso.with(mContext)
-                    .load(yafteItem.getUser().getUserImage())
-                    .placeholder(R.drawable.progress_animation)
-                    //.centerInside()
-                    .transform(transformation)
-                    .into(holder.imageViewUserAvatar, new Callback() {
-                        @Override
-                        public void onSuccess() {
-
-                        }
-
-                        @Override
-                        public void onError() {
-                            // TODO Auto-generated method stub
-                            Picasso.with(mContext)
-                                    .load(R.drawable.sajjad)
-                                    .transform(transformation)
-                                    .into(holder.imageViewUserAvatar);
-                        }
-                    });
+//        if (yafteItem.getUser() != null)
+//            Picasso.with(mContext)
+//                    .load(yafteItem.getUser().getUserImage())
+//                    .placeholder(R.drawable.progress_animation)
+//                    //.centerInside()
+//                    .transform(transformation)
+//                    .into(holder.imageViewUserAvatar, new Callback() {
+//                        @Override
+//                        public void onSuccess() {
+//
+//                        }
+//
+//                        @Override
+//                        public void onError() {
+//                            // TODO Auto-generated method stub
+////                            Picasso.with(mContext)
+////                                    .load(R.drawable.sajjad)
+////                                    .transform(transformation)
+////                                    .into(holder.imageViewUserAvatar);
+//                        }
+//                    });
 
         View.OnClickListener onclick = new View.OnClickListener() {
             @Override
@@ -126,8 +125,8 @@ public class Yafte {
         View.OnClickListener onDeleteClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Global.mUser != null) {
-                    if (Global.mUser.getMobileNumber().contains("09123678522")) {
+                if (Global.user != null) {
+                    if (Global.user.getMobileNumber().contains("09123678522")) {
                         new AlertDialog.Builder(mContext)
                                 .setTitle("Title")
                                 .setMessage("Do you really want to whatever?")
@@ -135,8 +134,8 @@ public class Yafte {
                                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                                     public void onClick(DialogInterface dialog, int whichButton) {
-                                        AsyncDeleteBlogItem asyncDeleteBlogItem = new AsyncDeleteBlogItem(mContext,null,yafteItem.getID(),Global.mUser.getUserID());
-                                        asyncDeleteBlogItem.execute();
+//                                        AsyncDeleteBlogItem asyncDeleteBlogItem = new AsyncDeleteBlogItem(mContext,null,yafteItem.getID(),Global.user.getUserID());
+//                                        asyncDeleteBlogItem.execute();
                                     }})
                                 .setNegativeButton(android.R.string.no, null).show();
 

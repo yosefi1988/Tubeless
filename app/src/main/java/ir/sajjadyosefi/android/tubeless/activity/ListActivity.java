@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,9 +21,9 @@ import com.google.gson.Gson;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
-import ir.sajjadyosefi.android.tubeless.classes.model.Page;
-import ir.sajjadyosefi.android.tubeless.classes.model.Post;
-import ir.sajjadyosefi.android.tubeless.classes.model.Posts;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Page;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Post;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Posts;
 import ir.sajjadyosefi.android.tubeless.R;
 
 /**
@@ -286,7 +287,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //send comment
-                Long as = post.getId() ;
+//                Long as = post.getId() ;
                 int a ;
                 a = 1 + 2 ;
 
@@ -366,7 +367,7 @@ public class ListActivity extends AppCompatActivity {
 
         adapter_Posts = null;//new EndlessList_Adapter(mContext,dilatingDotsProgressBar,textViewEmpty,mSwipeRefreshLayout_list,recyclerList, posts, null,userId);
         LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        llm.setOrientation(RecyclerView.VERTICAL);
         recyclerList.setLayoutManager(llm);
         recyclerList.setAdapter(adapter_Posts);
 

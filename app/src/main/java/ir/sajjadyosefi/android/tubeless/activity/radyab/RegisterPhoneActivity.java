@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -18,9 +18,10 @@ import java.util.regex.Pattern;
 
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.MainActivity;
+
 import ir.sajjadyosefi.android.tubeless.classes.business.RadyabBusiness;
-import ir.sajjadyosefi.android.tubeless.classes.utility.radyab.SMSUtils;
+import ir.sajjadyosefi.android.xTubeless.utility.radyab.SMSUtils;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 
 
 public class RegisterPhoneActivity extends AppCompatActivity   {
@@ -115,7 +116,7 @@ public class RegisterPhoneActivity extends AppCompatActivity   {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.fadeout, R.anim.fadein);
         finish();

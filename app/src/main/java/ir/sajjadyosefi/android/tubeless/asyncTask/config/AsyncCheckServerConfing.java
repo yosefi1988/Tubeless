@@ -3,17 +3,18 @@ package ir.sajjadyosefi.android.tubeless.asyncTask.config;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.ServerResponseConfig;
-import ir.sajjadyosefi.android.tubeless.classes.model.UpdateRequest;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.ServerResponseConfig;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.UpdateRequest;
 
 
 /**
@@ -46,9 +47,9 @@ public class AsyncCheckServerConfing extends AsyncTask<String, Void, ServerRespo
 //                    Toast.makeText(context,CurrentVersion,Toast.LENGTH_LONG).show();
 //                    Toast.makeText(context,context.getApplicationContext().getPackageName(),Toast.LENGTH_LONG).show();
 
-                    if (Global.mUser != null){
-                        Global.mUser.setCanSendPicture(serverResponseConfig.getConfiguration().getCanSendPicture());
-                    }
+//                    if (Global.user != null){
+//                        Global.user.setCanSendPicture(serverResponseConfig.getConfiguration().getCanSendPicture());
+//                    }
                     CurrentVersion = CurrentVersion.substring(0,CurrentVersion.length()-2);
                     if (!serverResponseConfig.getConfiguration().getVersion().getLastVersion().equals(CurrentVersion)){
                         ShowDownloadPromp2(context , serverResponseConfig);

@@ -2,16 +2,13 @@ package ir.sajjadyosefi.android.tubeless.activity.innerActivity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
-import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncLoadBlogItem;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
 import ir.sajjadyosefi.android.tubeless.R;
 
 /**
@@ -32,15 +29,15 @@ public class ReadBlogActivity extends AppCompatActivity {
         String objectString = getIntent().getStringExtra("Object");
         BlogItem blogItem = gson.fromJson(objectString,BlogItem.class);
 
-        AsyncLoadBlogItem asyncLoadBlogItem = new AsyncLoadBlogItem(
-                mContext,
-                ((DilatingDotsProgressBar)findViewById(R.id.PBSjd)),
-                ((ImageView)findViewById(R.id.iv_menuCover)),
-                ((TextView)(findViewById(R.id.tvPersian0))),
-                ((TextView)(findViewById(R.id.tvPersian))),
-                ((TextView)(findViewById(R.id.nothing_text))),
-                blogItem.getID());
-        asyncLoadBlogItem.execute();
+//        AsyncLoadBlogItem asyncLoadBlogItem = new AsyncLoadBlogItem(
+//                mContext,
+//                ((DilatingDotsProgressBar)findViewById(R.id.PBSjd)),
+//                ((ImageView)findViewById(R.id.iv_menuCover)),
+//                ((TextView)(findViewById(R.id.tvPersian0))),
+//                ((TextView)(findViewById(R.id.tvPersian))),
+//                ((TextView)(findViewById(R.id.nothing_text))),
+//                blogItem.getID());
+//        asyncLoadBlogItem.execute();
 
         getSupportActionBar().setTitle(getString(R.string.pleaseWait));
 

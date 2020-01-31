@@ -1,6 +1,6 @@
 package ir.sajjadyosefi.android.tubeless.classes.adapter.menu;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -8,9 +8,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.classes.model.menu.SliderMenuItem;
-import ir.sajjadyosefi.android.tubeless.classes.model.menu.SlidingMenuItemTitle;
 import ir.sajjadyosefi.android.tubeless.view.widget.view.IconTextView;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.menu.SliderMenuItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.menu.SlidingMenuItemTitle;
 
 /**
  * Created by Other on 06/23/2016.

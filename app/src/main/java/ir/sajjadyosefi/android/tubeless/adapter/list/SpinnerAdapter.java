@@ -1,7 +1,7 @@
 package ir.sajjadyosefi.android.tubeless.adapter.list;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

@@ -5,8 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,20 +15,22 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.activity.ContactUsActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.ContactUsActivity;
 import ir.sajjadyosefi.android.tubeless.activity._BaseDrawerActivity;
 import ir.sajjadyosefi.android.tubeless.adapter.list.SpinnerAdapter;
 import ir.sajjadyosefi.android.tubeless.R;
 
-import ir.sajjadyosefi.android.tubeless.classes.model.yafte.search.Search;
-import ir.sajjadyosefi.android.tubeless.classes.model.yafte.search.SearchResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.yafte.search.Search;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.yafte.search.SearchResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -3,22 +3,24 @@ package ir.sajjadyosefi.android.tubeless.activity.radyab;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.asyncTask.radyab.RequestRadyabServiceAsyncTask;
-import ir.sajjadyosefi.android.tubeless.classes.databaseLayout.DatabaseUtils;
-import ir.sajjadyosefi.android.tubeless.classes.model.radyab.SlaveDetails;
-import ir.sajjadyosefi.android.tubeless.classes.model.radyab.requestService.RequestService;
+import ir.sajjadyosefi.android.xTubeless.classes.model.radyab.requestService.RequestService;
 import ir.sajjadyosefi.android.tubeless.view.fragment.radyab.radyabDashbord;
 import ir.sajjadyosefi.android.tubeless.view.fragment.radyab.radyabHome;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.radyab.SlaveDetails;
 
 public class MainRadyabActivity extends AppCompatActivity {
 
@@ -95,11 +97,10 @@ public class MainRadyabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_radyab);
         mContext = this;
-        DatabaseUtils databaseUtils = new DatabaseUtils(mContext);
 
         Intent intent = getIntent();
         final int slaveId = intent.getExtras().getInt("IdSlave");
-        slaveDetails = databaseUtils.loadSlaveDetails(slaveId);
+        //slaveDetails = databaseUtils.loadSlaveDetails(slaveId);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

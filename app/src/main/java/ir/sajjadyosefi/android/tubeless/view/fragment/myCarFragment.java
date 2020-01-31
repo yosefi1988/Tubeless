@@ -3,8 +3,8 @@ package ir.sajjadyosefi.android.tubeless.view.fragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +23,7 @@ import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentProfileAdapter;
 // In this case, the fragment displays simple text based on the page
 @SuppressLint("ValidFragment")
 public class myCarFragment extends Fragment {
-    public static int PAGE_COUNT = 1;
+    public static int PAGE_COUNT = 2;
     public static String mTabTitles[] = new String[] {"1","2","3"};
 
     public static Context context;

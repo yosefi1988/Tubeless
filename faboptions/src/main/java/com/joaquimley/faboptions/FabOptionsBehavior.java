@@ -15,11 +15,12 @@
  */
 
 package com.joaquimley.faboptions;
-
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * FabOptions component default CoordinatorLayout.Behavior to react Snackbar

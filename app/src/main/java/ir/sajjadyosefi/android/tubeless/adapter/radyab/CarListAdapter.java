@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,20 +20,12 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
-import java.util.zip.Inflater;
 
-import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.activity.innerActivity.ImageAndVideoPlayer;
 import ir.sajjadyosefi.android.tubeless.activity.radyab.MainRadyabActivity;
-import ir.sajjadyosefi.android.tubeless.activity.radyab.RadyabCarActivity;
-import ir.sajjadyosefi.android.tubeless.activity.radyab.SelectCarForRadyab;
-import ir.sajjadyosefi.android.tubeless.classes.databaseLayout.DatabaseUtils;
-import ir.sajjadyosefi.android.tubeless.classes.model.radyab.CarLogDetails;
-import ir.sajjadyosefi.android.tubeless.classes.model.radyab.SlaveDetails;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.radyab.SlaveDetails;
 
 /**
  * Created by sajjad on 5/23/2018.
@@ -42,7 +34,7 @@ import ir.sajjadyosefi.android.tubeless.classes.model.radyab.SlaveDetails;
 public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarSlaveViewHolder> {
     private List<SlaveDetails> carList;
     private Context context;
-    DatabaseUtils databaseUtils;
+//    LitePallDatabaseUtils databaseUtils;
     CarListAdapter adapter ;
 
     public CarListAdapter(Context context , List<SlaveDetails> carList) {
@@ -51,19 +43,19 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarSlave
         this.adapter = this;
 
         ///////////////Default Slave //////////////////
-        databaseUtils = new DatabaseUtils(context);
-            boolean haveDefault = false;
-            for (SlaveDetails item :carList) {
-                if (item.isDefault() == true) {
-                    haveDefault = true;
-                    break;
-                }
-            }
-            if(!haveDefault && carList.size() >= 1) {
-                databaseUtils.updateDefault(carList.get(0).getSlaveId(), true);
-                carList.get(0).setDefault(true);
-                adapter.notifyDataSetChanged();
-        }
+//        databaseUtils = new LitePallDatabaseUtils(context);
+//            boolean haveDefault = false;
+//            for (SlaveDetails item :carList) {
+//                if (item.isDefault() == true) {
+//                    haveDefault = true;
+//                    break;
+//                }
+//            }
+//            if(!haveDefault && carList.size() >= 1) {
+//                databaseUtils.updateDefault(carList.get(0).getSlaveId(), true);
+//                carList.get(0).setDefault(true);
+//                adapter.notifyDataSetChanged();
+//        }
         //////////////////////////////////////////////
     }
 
@@ -81,7 +73,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarSlave
         holder.textViewTitle.setText(slaveDetails.getCarName());
         try {
 //            Picasso.with(context)
-//                    .load(Global.mUser.getUserImage())
+//                    .load(Global.user.getUserImage())
 //                    .into(holder.imageViewCar);
 
             Bitmap bitmap = BitmapFactory.decodeFile(slaveDetails.getCarPicture());
@@ -122,7 +114,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarSlave
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                databaseUtils.deleteSlave(context, slaveDetails.getSlaveId());
+//                                databaseUtils.deleteSlave(context, slaveDetails.getSlaveId());
                                 carList.remove(position);
                                 adapter.notifyDataSetChanged();
                             }
@@ -145,7 +137,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarSlave
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == true){
-                    databaseUtils.updateDefault(slaveDetails.getSlaveId(),true);
+//                    databaseUtils.updateDefault(slaveDetails.getSlaveId(),true);
 
                     for (SlaveDetails item :carList) {
                         item.setDefault(false);
@@ -153,7 +145,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarSlave
                     carList.get(position).setDefault(true);
                     adapter.notifyDataSetChanged();
                 }else {
-                    databaseUtils.updateDefault(slaveDetails.getSlaveId(),false);
+//                    databaseUtils.updateDefault(slaveDetails.getSlaveId(),false);
                 }
 
             }

@@ -6,11 +6,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<android.support.design.widget.CoordinatorLayout-->
+    <!--<androidx.coordinatorlayout.widget.CoordinatorLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" >-->
 
-        <!--&lt;!&ndash;<android.support.design.widget.FloatingActionButton&ndash;&gt;-->
+        <!--&lt;!&ndash;<com.google.android.material.floatingactionbutton.FloatingActionButton&ndash;&gt;-->
             <!--&lt;!&ndash;android:id="@+id/fab2"&ndash;&gt;-->
             <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
             <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
@@ -26,7 +26,7 @@
             <!--&lt;!&ndash;app:layout_anchorGravity="bottom|start"&ndash;&gt;-->
             <!--&lt;!&ndash;app:layout_behavior="ir.mahanco.mahansocial.Utilities.ScrollAwareFABBehavior" />&ndash;&gt;-->
 
-    <!--</android.support.design.widget.CoordinatorLayout>-->
+    <!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,81 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true" >
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:fitsSystemWindows="true"
-        android:layout_height="100dp"
-        android:layout_width="match_parent">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
-            android:fitsSystemWindows="true"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent"
-                app:layout_collapseMode="pin"  />
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
-
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
-        android:orientation="vertical"
+        android:id="@+id/header"
+        android:background="@color/colorBlack"
         android:layout_width="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_height="wrap_content">
+        android:layout_height="130dp" >
 
 
-        <!--com.astuetz.PagerSlidingTabStripDefault-->
-        <com.astuetz.PagerSlidingTabStrip
-            android:id="@+id/tabs"
-            app:pstsShouldExpand="true"
-            app:pstsTextAllCaps="true"
-            android:layout_width="match_parent"
-            android:background="#ffffff"
-            android:layout_height="30dp"
-
-            android:layoutDirection="ltr"
-            android:paddingTop="1dp"
-            android:paddingBottom="1dp"
-            app:pstsUnderlineHeight="3dp"
-            app:pstsUnderlineColor="@color/tubelessColor_blue_03"
-            app:pstsIndicatorHeight="60dp"
-            app:pstsIndicatorColor = "@color/tubelessColor_yellow_01"
-            app:pstsDividerColor="@color/tubelessColor_yellow_01"
-            />
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
+        <ir.sajjadyosefi.android.tubeless.view.widget.view.ImageViewPlus
+            android:id="@+id/iv_menuCover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:layout_below="@+id/tabs" />
+            android:adjustViewBounds="false"
+            android:background="@drawable/jpg_back1"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:widthAndHeightRatio="2.2"
+            android:layout_alignBottom="@+id/linearLayout3"
+            android:layout_alignParentTop="true" />
 
+        <!--        android:layout_centerInParent="true"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:paddingRight="20dp"
+            android:paddingTop="15dp"
+            android:visibility="visible"
+            android:weightSum="1"
+            android:id="@+id/linearLayout3">
+
+            <GridLayout
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:columnCount="2"
+                android:foregroundGravity="right"
+                android:layoutDirection="rtl"
+                android:textDirection="rtl" >
+
+                <ImageView
+                    android:id="@+id/imgUser"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="right|top"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+
+                <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                    android:id="@+id/txtUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="right|bottom"
+                    android:clickable="true"
+                    android:elevation="1dp"
+                    android:foregroundGravity="right"
+                    android:gravity="right"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="2dp"
+                    android:text="منتظر باشید"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+            </GridLayout>
+
+
+            <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                android:id="@+id/txtEditProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="-2dp"
+                android:layout_weight="14.20"
+                android:clickable="true"
+                android:text="ویرایش پروفایل"
+                android:textColor="@color/colorAccent"
+                android:textSize="10dp"
+                android:visibility="visible" />
+
+        </LinearLayout>
     </RelativeLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+    <!--com.astuetz.PagerSlidingTabStripDefault-->
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_below="@+id/header"
+        app:pstsShouldExpand="true"
+        app:pstsTextAllCaps="true"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="30dp"
 
-</android.support.design.widget.CoordinatorLayout>
+        android:layoutDirection="ltr"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        app:pstsUnderlineHeight="3dp"
+        app:pstsUnderlineColor="@color/tubelessColor_blue_03"
+        app:pstsIndicatorHeight="60dp"
+        app:pstsIndicatorColor = "@color/tubelessColor_yellow_01"
+        app:pstsDividerColor="@color/tubelessColor_yellow_01"
+        />
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:layout_below="@+id/tabs" />
+
+</RelativeLayout>
 

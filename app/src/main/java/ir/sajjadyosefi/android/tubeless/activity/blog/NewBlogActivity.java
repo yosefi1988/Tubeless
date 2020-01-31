@@ -3,7 +3,6 @@ package ir.sajjadyosefi.android.tubeless.activity.blog;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -11,6 +10,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.orm.SugarContext;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
@@ -21,8 +22,8 @@ import ir.adad.client.Adad;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.asyncTask.yafte.AsyncRegNewYafte;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.User;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView;
 
 //import com.vansuita.gaussianblur.GaussianBlur;
@@ -94,8 +95,8 @@ public class NewBlogActivity extends AppCompatActivity {
 //        tvField2.setOnClickListener(imageviewClickListener);
 //        tvTitle.setOnClickListener(imageviewClickListener);
 
-//        if(Global.mUser != null){
-//            etField1.setText(Global.mUser.getMobileNumber());
+//        if(Global.user != null){
+//            etField1.setText(Global.user.getMobileNumber());
 //            etField1.setEnabled(false);
 //        }
 
@@ -186,8 +187,8 @@ public class NewBlogActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Global.mUser = new User();
-//        Intent intent = new Intent(this,MainActivity.class);
+        Global.user = new User();
+//        Intent intent = new Intent(this,xMainActivity.class);
 //        startActivity(intent);
 
         finish();

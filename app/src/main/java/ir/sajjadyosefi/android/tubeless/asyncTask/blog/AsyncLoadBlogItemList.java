@@ -5,13 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
@@ -22,10 +23,11 @@ import ir.sajjadyosefi.android.tubeless.activity.ContactUsActivity;
 import ir.sajjadyosefi.android.tubeless.activity.yafteha.NewYafteActivity;
 import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItemListResponse;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+
 import ir.sajjadyosefi.android.tubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItemListResponse;
 
 
 public class AsyncLoadBlogItemList extends AsyncTask {
@@ -170,7 +172,7 @@ public class AsyncLoadBlogItemList extends AsyncTask {
             }
             // else {
 //                mRecyclerViewTimeline.setAdapter(null);
-//                Toast.makeText(MainActivity.this, "Nothing to show !", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(xMainActivity.this, "Nothing to show !", Toast.LENGTH_SHORT).show();
 //                mTextViewNoting.setText("Nothing To Show !");
 //                new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
 //                        .setTitleText("")

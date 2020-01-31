@@ -2,8 +2,8 @@ package ir.sajjadyosefi.android.tubeless.adapter.fragment;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -12,8 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import ir.sajjadyosefi.android.tubeless.classes.model.Notification;
-import ir.sajjadyosefi.android.tubeless.classes.model.ResponseNotification;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Notification;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.ResponseNotification;
+
 
 /**
  * Created by a.fereydoni on 2/2/2016.

@@ -11,13 +11,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+
 import ir.sajjadyosefi.android.tubeless.R;
 
 
 /**
  * Created by sajjad
  */
-public class GetUsersWindow extends android.support.v7.app.AlertDialog {
+public class GetUsersWindow extends AlertDialog {
     private Context context;
 //    public boolean save;
     CheckBox checkBox;

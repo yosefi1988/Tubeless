@@ -1,48 +1,23 @@
 package ir.sajjadyosefi.android.tubeless.adapter.list;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Environment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
+import androidx.recyclerview.widget.RecyclerView;
 
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.activity.yafteha.SearchResultActivity;
-import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter;
-import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncLoadBlogItemList;
-import ir.sajjadyosefi.android.tubeless.asyncTask.timeline.AsyncLoadTimeline;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.business.Blog;
 import ir.sajjadyosefi.android.tubeless.classes.business.SearchResult;
-import ir.sajjadyosefi.android.tubeless.classes.business.Yafte;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
 
-//import android.support.v7.widget.LinearLayoutManager;
-//import android.support.v7.widget.RecyclerView;
+//import androidx.recyclerview.widget.LinearLayoutManager;
+//import androidx.recyclerview.widget.RecyclerView;
 //import android.support.v7.widget.RecyclerView.Adapter;
 
 public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.BlogItemViewHolder> {

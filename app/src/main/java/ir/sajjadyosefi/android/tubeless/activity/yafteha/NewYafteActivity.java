@@ -12,12 +12,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -45,12 +45,12 @@ import ir.adad.client.Adad;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.asyncTask.yafte.AsyncRegNewYafte;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.User;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.HttpFileUploadAsync;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.Url;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.HttpFileUploadAsync;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.Url;
 import ir.sajjadyosefi.android.tubeless.provider.InternalStorageContentProvider;
 import ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 
 import static ir.sajjadyosefi.android.tubeless.activity.uploadPicture.UploadPictureActivity.REQUEST_CODE_CROP_IMAGE;
 import static ir.sajjadyosefi.android.tubeless.activity.uploadPicture.UploadPictureActivity.REQUEST_CODE_GALLERY;
@@ -194,8 +194,8 @@ public class NewYafteActivity extends AppCompatActivity {
 //        tvField2.setOnClickListener(imageviewClickListener);
         tvTitle.setOnClickListener(imageviewClickListener);
 
-//        if(Global.mUser != null){
-//            etField1.setText(Global.mUser.getMobileNumber());
+//        if(Global.user != null){
+//            etField1.setText(Global.user.getMobileNumber());
 //            etField1.setEnabled(false);
 //        }
 
@@ -256,11 +256,11 @@ public class NewYafteActivity extends AppCompatActivity {
                     if(getFileSize(context, mFileTemp)<4) {
                         //3
                         try {
-//                            if(Global.mUser == null) {
+//                            if(Global.user == null) {
 //                                Global.ShowMessageDialog(context, "", context.getString(R.string.NotLoggedIn2));
 //                            }else
                                 {
-//                                if(Global.mUser.getCanSendPicture() == false) {
+//                                if(Global.user.getCanSendPicture() == false) {
 //                                    Global.ShowMessageDialog(context, "", context.getString(R.string.CanNotSendPicture));
 //                                }else
                                     {
@@ -269,7 +269,7 @@ public class NewYafteActivity extends AppCompatActivity {
                                             HttpFileUploadAsync HttpFileUploadAsync = new HttpFileUploadAsync(context, dilatingDotsProgressBar, btnSend,
                                                     Url.POST_ADD_YAFTE_WITH_PIC,
                                                     mFileTemp,
-//                                            "Files/Pictures/yafte/" + NewYafteActivity.Type + "/" + Global.mUser.getUserID() + "/",
+//                                            "Files/Pictures/yafte/" + NewYafteActivity.Type + "/" + Global.user.getUserID() + "/",
                                                     "Files/Pictures/yafte/" + messageType + "/",
                                                     Url.MAIN_SERVER_ADDRESS + "Yafte/AddYafte?" +
                                                             "Title=" + toHex(etField1
@@ -283,7 +283,7 @@ public class NewYafteActivity extends AppCompatActivity {
                                                             "&Comment=" + toHex(etField4.getText().toString()) +
                                                             "&HeaderID=" + selectedRadio +
                                                             "&UserID=49");
-                                            //"&UserID=" + Global.mUser.getUserID() + "");
+                                            //"&UserID=" + Global.user.getUserID() + "");
 
                                             HttpFileUploadAsync.execute();
                                             mFileTemp = null;
@@ -578,8 +578,8 @@ public class NewYafteActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Global.mUser = new User();
-//        Intent intent = new Intent(this,MainActivity.class);
+        Global.user = new User();
+//        Intent intent = new Intent(this,xMainActivity.class);
 //        startActivity(intent);
 
         finish();

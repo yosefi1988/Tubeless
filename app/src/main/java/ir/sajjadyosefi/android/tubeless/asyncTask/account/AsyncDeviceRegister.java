@@ -4,11 +4,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.DeviceRegisterResponse;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.Device;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.User;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Device;
+
 import ir.sajjadyosefi.android.tubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.DeviceRegisterResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 
 
 /**
@@ -45,8 +47,8 @@ public class AsyncDeviceRegister extends AsyncTask {
     protected void onPostExecute(Object response) {
         if(response!=null){
             DeviceRegisterResponse deviceRegisterResponse = (DeviceRegisterResponse) response;
-            Global.mUser = new User();
-            Global.mUser.setDevice(deviceRegisterResponse.getDevice());
+            Global.user = new User();
+//            Global.user.setDevice(deviceRegisterResponse.getDevice());
         }
     }
 }

@@ -8,13 +8,19 @@ buildscript {
             url "https://maven.google.com" // Google's Maven repositorygradle-4.4+-all.zip
         }
         google()
+        maven { url 'https://maven.fabric.io/public' }
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+//        classpath 'com.android.tools.build:gradle:3.2.1'
+//        classpath 'com.android.tools.build:gradle:3.4.1'
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-        classpath 'com.google.gms:google-services:3.1.2'
+        classpath 'com.google.gms:google-services:4.3.2'
+        classpath 'io.fabric.tools:gradle:1.31.1'  // Crashlytics plugin
+
+        classpath 'com.android.tools.build:gradle:3.4.2'
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -28,6 +34,10 @@ allprojects {
             url 'https://maven.google.com/'
         }
         google()
+    }
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
     }
 }
 

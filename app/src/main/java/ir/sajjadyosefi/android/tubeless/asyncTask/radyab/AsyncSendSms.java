@@ -5,8 +5,8 @@ import android.os.AsyncTask;
 
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import ir.sajjadyosefi.android.tubeless.classes.model.common.Sms;
-import ir.sajjadyosefi.android.tubeless.classes.utility.radyab.SMSUtils;
+import ir.sajjadyosefi.android.xTubeless.classes.model.common.Sms;
+import ir.sajjadyosefi.android.xTubeless.utility.radyab.SMSUtils;
 
 
 /**

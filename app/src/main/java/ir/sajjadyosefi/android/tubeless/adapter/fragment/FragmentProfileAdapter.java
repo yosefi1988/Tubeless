@@ -1,9 +1,9 @@
 package ir.sajjadyosefi.android.tubeless.adapter.fragment;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import ir.sajjadyosefi.android.tubeless.view.fragment.BlankFragment;
 import ir.sajjadyosefi.android.tubeless.view.fragment.minor.FragmentTimelineMinor;
@@ -19,7 +19,7 @@ public class FragmentProfileAdapter extends FragmentPagerAdapter {
     public static int LIST_BLOG = 1 ;
 
     Context context;
-    private String mTabTitles[] = new String[] {"پروفایل من","ردیابی","پیداشده ها"};
+    private String mTabTitles[] = new String[] {"پروفایل من","ردیابی","xxx ها"};
     public static int mTab1 = 0 ;
     public static int mTab2 = 0 ;
     public static int mTab3 = 0 ;
@@ -53,7 +53,7 @@ public class FragmentProfileAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        // Generate title based on item position
+        // Generate text based on item position
         return mTabTitles[position];
     }
 }

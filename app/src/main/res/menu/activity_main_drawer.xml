@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_menu_login"
+            android:title="@string/login" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="register_and_login" />
+        <!--<item-->
+            <!--android:id="@+id/nav_gallery"-->
+            <!--android:icon="@drawable/ic_menu_camera"-->
+            <!--android:text="@string/profile" />-->
+
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_add_new_item"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="add_new_item" />
+        <item
+            android:id="@+id/nav_search_by_national_code"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="search_by_national_code" />
+        <item
+            android:id="@+id/nav_search_by_name"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="search_by_name" />
+    </group>
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_about_us"
+                android:icon="@drawable/ic_menu_share"
+                android:title="about_us" />
+            <item
+                android:id="@+id/nav_contact_us"
+                android:icon="@drawable/ic_menu_share"
+                android:title="contact_us" />
+
+            <item
+                android:id="@+id/nav_role"
+                android:icon="@drawable/ic_menu_share"
+                android:title="قوانین" />
+
+        </menu>
+    </item>
+
+    <item android:title="social">
+        <menu>
+            <item
+                    android:id="@+id/nav_telegram"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="telegram" />
+            <item
+                    android:id="@+id/nav_instagram"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="instagram" />
+        </menu>
+    </item>
+
+</menu>

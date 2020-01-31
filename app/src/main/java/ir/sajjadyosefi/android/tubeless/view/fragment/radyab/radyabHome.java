@@ -2,10 +2,11 @@ package ir.sajjadyosefi.android.tubeless.view.fragment.radyab;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.view.fragment.minor.FragmentTimelineMinor;

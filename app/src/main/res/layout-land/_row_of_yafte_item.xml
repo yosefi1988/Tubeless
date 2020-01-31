@@ -60,8 +60,6 @@
                     android:paddingTop="2dp"
                     android:text="عنوان"
                     android:textColor="@color/day_title"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="19dp"
                     android:textStyle="bold" />
 
                 <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
@@ -71,9 +69,7 @@
                     android:gravity="right"
                     android:paddingRight="10dp"
                     android:text="متن کوتاه"
-                    android:textColor="@color/day_content_text"
-                    android:textSize="17dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textColor="@color/day_content_text"  />
 
                 <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
                     android:id="@+id/textViewStatment2"
@@ -82,8 +78,7 @@
                     android:gravity="right"
                     android:textColor="@color/day_content_text"
                     android:paddingRight="10dp"
-                    android:text="متن ثانوی"
-                    android:textAppearance="?android:attr/textAppearanceSmall"  />
+                    android:text="متن ثانوی"   />
 
 
             </LinearLayout>

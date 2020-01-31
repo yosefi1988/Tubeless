@@ -9,7 +9,7 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +20,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import ir.sajjadyosefi.android.tubeless.classes.model.AppStatus;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.ServerResponseConfig;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.AppStatus;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.ServerResponseConfig;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.MainActivity;
+
 import ir.sajjadyosefi.android.tubeless.activity.PaymentActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 
 /**
  * Created by sajjad on 10/06/2016.
@@ -150,12 +151,12 @@ public class CommonClass {
 //
 //        ///////////////////////////////////////////////////////////////////////////////////////
 //
-//        // set dialog message
+//        // set progressDialog message
 //        alertDialogBuilder
 //                .setCancelable(false)
 //                .setPositiveButton("OK",
 //                        new DialogInterface.OnClickListener() {
-//                            public void onClick(DialogInterface dialog,int id) {
+//                            public void onClick(DialogInterface progressDialog,int id) {
 //                                // get user input and set it to result
 //                                // edit text
 //
@@ -165,18 +166,18 @@ public class CommonClass {
 //
 //                .setNegativeButton("Cancel",
 //                        new DialogInterface.OnClickListener() {
-//                            public void onClick(DialogInterface dialog, int id) {
-//                                dialog.cancel();
+//                            public void onClick(DialogInterface progressDialog, int id) {
+//                                progressDialog.cancel();
 //                            }
 //                        });
 //
-//        // create alert dialog
+//        // create alert progressDialog
 //        AlertDialog alertDialog = alertDialogBuilder.create();
 //
 //
 //        alertDialogBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() {
 //            @Override
-//            public void onDismiss(DialogInterface dialog) {
+//            public void onDismiss(DialogInterface progressDialog) {
 //
 //            }
 //        });
@@ -184,17 +185,17 @@ public class CommonClass {
 //        // show it
 //        //alertDialog.show();
 //
-//        final AlertDialog dialog = alertDialogBuilder.show();
-//        //dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
-//        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setVisibility(View.GONE);
-//        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setVisibility(View.GONE);
+//        final AlertDialog progressDialog = alertDialogBuilder.show();
+//        //progressDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
+//        progressDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setVisibility(View.GONE);
+//        progressDialog.getButton(AlertDialog.BUTTON_POSITIVE).setVisibility(View.GONE);
 //
-//        dialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.border_main_menu_body) );
+//        progressDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.border_main_menu_body) );
 //
 //        buttonclose.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                dialog.dismiss();
+//                progressDialog.dismiss();
 //            }
 //        });
 //
@@ -215,7 +216,7 @@ public class CommonClass {
         final TextView textView = (TextView) promptsView.findViewById(R.id.textViewTitle);
         textView.setText(context.getString(R.string.app_id));
 
-        // set dialog message
+        // set progressDialog message
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("OK",
@@ -231,7 +232,7 @@ public class CommonClass {
                             }
                         });
 
-        // create alert dialog
+        // create alert progressDialog
         AlertDialog alertDialog = alertDialogBuilder.create();
 
         // show it
@@ -267,7 +268,7 @@ public class CommonClass {
                 context.getString(R.string.app_web_address));
         textView.setText(text);
 
-        // set dialog message
+        // set progressDialog message
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton(context.getString(R.string.pardakht),
@@ -286,7 +287,7 @@ public class CommonClass {
                                 ((Activity)context).finish();
                             }
                         });
-        // create alert dialog
+        // create alert progressDialog
         AlertDialog alertDialog = alertDialogBuilder.create();
         // show it
         alertDialog.show();
@@ -326,7 +327,7 @@ public class CommonClass {
         if (type == FIRST_TIME) {
             textView.setText(context.getString(R.string.internetConnectionErrorTextFirstTime));
 
-            // set dialog message
+            // set progressDialog message
             alertDialogBuilder
                     .setCancelable(false)
                     .setPositiveButton(context.getString(R.string.internetConnectTryAgain),
@@ -352,26 +353,26 @@ public class CommonClass {
 //        }else if (type == MUST_COONNECT_TO_PAYMENT) {
 //            textView.setText(context.getString(R.string.internetConnectionForPaymentErrorText));
 //
-//            // set dialog message
+//            // set progressDialog message
 //            alertDialogBuilder
 //                    .setCancelable(false)
 //                    .setPositiveButton(context.getString(R.string.ok),
 //                            new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog,int id) {
-//                                    dialog.dismiss();
+//                                public void onClick(DialogInterface progressDialog,int id) {
+//                                    progressDialog.dismiss();
 //                                }
 //                            })
 //                    .setNegativeButton(R.string.cancelAndExit,
 //                            new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int id) {
-//                                    dialog.cancel();
+//                                public void onClick(DialogInterface progressDialog, int id) {
+//                                    progressDialog.cancel();
 //                                    ((Activity)context).finish();
 //                                }
 //                            });
         }else if (type == NOT_CONNECT) {
             textView.setText(context.getString(R.string.errorInInternetConnection));
 
-            // set dialog message
+            // set progressDialog message
             alertDialogBuilder
                     .setCancelable(false)
                     .setPositiveButton(context.getString(R.string.ok),
@@ -389,7 +390,7 @@ public class CommonClass {
                             });
         }else if (type == SHOW_PEYMENT_REF_ID) {
             textView.setText(String.format(context.getString(R.string.peymentOkResponseMessage),arg));
-            // set dialog message
+            // set progressDialog message
             alertDialogBuilder
                     .setCancelable(false)
                     .setPositiveButton(context.getString(R.string.ok),
@@ -403,7 +404,7 @@ public class CommonClass {
                     context.getString(R.string.ErrorOnConfermPayment),
                     context.getString(R.string.SupportNumber),
                     arg));
-            // set dialog message
+            // set progressDialog message
             alertDialogBuilder
                     .setCancelable(false)
                     .setPositiveButton(context.getString(R.string.ok),
@@ -416,7 +417,7 @@ public class CommonClass {
         else if (type == MUST_COONNECT_TO_COUNTINUE) {
             textView.setText(context.getString(R.string.errorInInternetConnectionforCountinue));
 
-            // set dialog message
+            // set progressDialog message
             alertDialogBuilder
                     .setCancelable(false)
                     .setPositiveButton(context.getString(R.string.internetConnectTryAgain),
@@ -441,7 +442,7 @@ public class CommonClass {
 
 
 
-        // create alert dialog
+        // create alert progressDialog
         AlertDialog alertDialog = alertDialogBuilder.create();
         // show it
         alertDialog.show();
@@ -478,10 +479,10 @@ public class CommonClass {
 
     public static boolean isLimitValid() {
         AppStatus appStatus = null;
-        List<AppStatus> appStatusList = AppStatus.listAll(AppStatus.class);
-        if (appStatusList.size() == 1) {
-            appStatus = appStatusList.get(0);
-        }
+//        List<AppStatus> appStatusList = AppStatus.listAll(AppStatus.class);
+//        if (appStatusList.size() == 1) {
+//            appStatus = appStatusList.get(0);
+//        }
 
 
         if (appStatus != null && appStatus.InstallDate != null) {
@@ -514,10 +515,10 @@ public class CommonClass {
                 }
                 else {
                     //Save
-                    appStatus.buyStatus = "Null";
-                    //appStatus.buyStatus = "Limit";
-                    appStatus.save();
-                    //End Save
+//                    appStatus.buyStatus = "Null";
+//                    //appStatus.buyStatus = "Limit";
+//                    appStatus.save();
+//                    //End Save
                     return false;
 
                 }
@@ -545,7 +546,7 @@ public class CommonClass {
 //            handler.postDelayed(new Runnable() {
 //                @Override
 //                public void run() {
-//                    Intent intent = new Intent(context, MainActivity.class);
+//                    Intent intent = new Intent(context, xMainActivity.class);
 //                    Bundle bundle = new Bundle();
 //                    bundle.putString("MoarefStatus",((ServerResponseConfig) serverResponseConfig).details.MoarefStatus);
 //                    intent.putExtras(bundle);

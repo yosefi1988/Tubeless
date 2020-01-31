@@ -1,43 +1,45 @@
 {
   "project_info": {
-    "project_number": "779304769397",
-    "firebase_url": "https://tubeless-176308.firebaseio.com",
-    "project_id": "tubeless-176308",
-    "storage_bucket": "tubeless-176308.appspot.com"
+    "project_number": "436191597727",
+    "firebase_url": "https://xtubelessx.firebaseio.com",
+    "project_id": "xtubelessx",
+    "storage_bucket": "xtubelessx.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:779304769397:android:3767ccc4859a1e3d",
+        "mobilesdk_app_id": "1:436191597727:android:9a8d6f53ff357a79f3beaa",
         "android_client_info": {
-          "package_name": "ir.sajjadyosefi.tubeless.tubeless"
+          "package_name": "ir.sajjadyosefi.tubeless"
         }
       },
       "oauth_client": [
         {
-          "client_id": "779304769397-1j2l18hdeq1um4qgio82dev81vdm7k5f.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "436191597727-l8gi0tu372faso9q96ov0ifhgagasq93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.sajjadyosefi.tubeless",
+            "certificate_hash": "9229055957ad6713d5b56619497e56cf1b7ec592"
+          }
         },
         {
-          "client_id": "779304769397-48vhook9c0re2bcu15b6nt7v3tpf2eji.apps.googleusercontent.com",
+          "client_id": "436191597727-hfcra30dj2jr3nlpt6n42as0k4bmtmgv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCgDdCmiC1_8MHRfsCISDd_1V3VLu7GMD8"
+          "current_key": "AIzaSyAirlj6jP45-7PkYKiayc1vJSC0GTucP2w"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436191597727-q43im2kpj7vqadp6oemnhj2llg8kl64g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

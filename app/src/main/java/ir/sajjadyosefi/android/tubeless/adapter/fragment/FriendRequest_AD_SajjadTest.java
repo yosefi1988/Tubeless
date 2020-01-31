@@ -2,7 +2,7 @@ package ir.sajjadyosefi.android.tubeless.adapter.fragment;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.ServerResponseConfig;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.ServerResponseConfig;
 
 
 /**

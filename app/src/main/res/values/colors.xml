@@ -2,10 +2,6 @@
 <resources>
 
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-
 
     <color name="night_white_hint_text">#d65c5c5c</color>
     <color name="day_white_hint_text">#cabcbcbc</color>
@@ -46,4 +42,28 @@
     <color name="tubelessColor_blue_02">#111f43</color>
     <color name="tubelessColor_blue_03">#0b152d</color>
 
+
+
+
+    <color name="colorBlack">#000000</color>
+
+    <color name="colorButton">#991041</color>
+
+
+
+
+    <color name="colorPrimary">#FFC107</color>
+    <color name="colorTextGry">#5A5A5A</color>
+    <color name="colorPrimaryDark">#4267b2</color>
+    <color name="colorAccent">#4267b2</color>
+
+    <color name="colorProgress">@color/colorWhite</color>
+    <color name="fb_background_color">#e9ebee</color>
+
+
+
+    <color name="colorHorizontalLineGry">#B3E0E0E0</color>
+    <color name="colorBorderGry">#B3CCCCCC</color>
+
+    <color name="colorWhite">#ffffff</color>
 </resources>

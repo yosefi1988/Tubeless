@@ -4,10 +4,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
-import ir.sajjadyosefi.android.tubeless.classes.model.NetworkLayout.MessageResponse;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.Message;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
+
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Message;
 import ir.sajjadyosefi.android.tubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.MessageResponse;
 
 
 /**
@@ -50,7 +51,7 @@ public class AsyncSendMessage extends AsyncTask {
 //        else {
 //            //ok
 //
-//            Global.mUser = registerResponse.getUser();
+//            Global.user = registerResponse.getUser();
 //
             //((Activity)mContext).finish();
 //            Toast.makeText(mContext,registerResponse.getUser().getUserName(), Toast.LENGTH_SHORT).show();

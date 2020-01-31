@@ -2,19 +2,18 @@ package ir.sajjadyosefi.android.tubeless.activity.yafteha;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.activity._BaseDrawerActivity;
 import ir.sajjadyosefi.android.tubeless.adapter.list.SearchResultAdapter;
-import ir.sajjadyosefi.android.tubeless.classes.model.yafte.search.Search;
-import ir.sajjadyosefi.android.tubeless.classes.model.yafte.search.SearchResponse;
-import ir.sajjadyosefi.android.tubeless.classes.model.yafte.search.SearchResultObject;
-import retrofit2.Response;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.yafte.search.SearchResultObject;
+
 
 public class SearchResultActivity extends _BaseDrawerActivity {
 

@@ -11,8 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
 import ir.moslem_deris.apps.zarinpal.PaymentBuilder;
 import ir.moslem_deris.apps.zarinpal.ZarinPal;
 import ir.moslem_deris.apps.zarinpal.enums.ZarinPalError;
@@ -20,8 +18,9 @@ import ir.moslem_deris.apps.zarinpal.listeners.OnPaymentListener;
 import ir.moslem_deris.apps.zarinpal.models.Payment;
 import ir.sajjadyosefi.android.tubeless.asyncTask.other.AsyncPeymentResult;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.model.AppStatus;
-import ir.sajjadyosefi.android.tubeless.classes.model.RequestConfirmPayment;
+import ir.sajjadyosefi.android.xTubeless.activity.Splash_Screen;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.AppStatus;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.RequestConfirmPayment;
 import ir.sajjadyosefi.android.tubeless.R;
 
 public class PaymentActivity extends _BaseDrawerActivity {
@@ -115,14 +114,14 @@ public class PaymentActivity extends _BaseDrawerActivity {
 
                 //Save
                 AppStatus appStatus;
-                List<AppStatus> appStatusList = AppStatus.listAll(AppStatus.class);
-                if (appStatusList.size() == 0) {
-
-                } else {
-                    appStatus = appStatusList.get(0);
-                    appStatus.buyStatus = "OK";
-                    appStatus.save();
-                }
+//                List<AppStatus> appStatusList = AppStatus.listAll(AppStatus.class);
+//                if (appStatusList.size() == 0) {
+//
+//                } else {
+//                    appStatus = appStatusList.get(0);
+//                    appStatus.buyStatus = "OK";
+//                    appStatus.save();
+//                }
                 //End Save
 
 
@@ -134,7 +133,7 @@ public class PaymentActivity extends _BaseDrawerActivity {
                 btnContiniue.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context,Splash_Screen.class));
+                        context.startActivity(new Intent(context, Splash_Screen.class));
                         overridePendingTransition(R.anim.fadeout, R.anim.fadein);
                         finish();
                     }

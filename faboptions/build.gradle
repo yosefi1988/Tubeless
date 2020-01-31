@@ -40,7 +40,7 @@ android {
 
 dependencies {
     //compile "com.android.support:design:+"
-    compile "com.android.support:design:25.3.1"
+    implementation "com.android.support:design:25.3.1"
 
 }
 //apply from: 'https://raw.githubusercontent.com/JoaquimLey/jcenter-config/master/deploy.gradle'

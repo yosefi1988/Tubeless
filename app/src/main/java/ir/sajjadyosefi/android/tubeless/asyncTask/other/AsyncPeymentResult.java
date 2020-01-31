@@ -6,9 +6,9 @@ import android.os.AsyncTask;
 import java.util.List;
 
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.model.AppStatus;
-import ir.sajjadyosefi.android.tubeless.classes.model.RequestConfirmPayment;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.RestApiHelper;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.AppStatus;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.RequestConfirmPayment;
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
 
 
 /**
@@ -45,16 +45,16 @@ public class AsyncPeymentResult extends AsyncTask {
         if (serverResponse != null) {
 
             //Save
-            AppStatus appStatus;
-            List<AppStatus> appStatusList = AppStatus.listAll(AppStatus.class);
-            if (appStatusList.size() == 0) {
-
-            } else {
-                appStatus = appStatusList.get(0);
-//                appStatus.buyStatus = ((ServerResponseConfig) serverResponse).details.BuyStatus;
-//                appStatus.InstallDate = ((ServerResponseConfig) serverResponse).details.InstallDate;
-                appStatus.save();
-            }
+//            AppStatus appStatus;
+//            List<AppStatus> appStatusList = AppStatus.listAll(AppStatus.class);
+//            if (appStatusList.size() == 0) {
+//
+//            } else {
+//                appStatus = appStatusList.get(0);
+////                appStatus.buyStatus = ((ServerResponseConfig) serverResponse).details.BuyStatus;
+////                appStatus.InstallDate = ((ServerResponseConfig) serverResponse).details.InstallDate;
+//                appStatus.save();
+//            }
             //End Save
 
         }else {

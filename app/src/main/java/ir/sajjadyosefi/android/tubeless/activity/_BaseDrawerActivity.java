@@ -8,12 +8,13 @@ import android.content.pm.ApplicationInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.LayoutRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.splunk.mint.Mint;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,8 +31,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,11 +40,17 @@ import ir.sajjadyosefi.android.tubeless.classes.HamburgerMenuDrawable;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.Listener.RecyclerItemClickListener;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.classes.model.menu.MultiTitleItem;
+
 import ir.sajjadyosefi.android.tubeless.classes.adapter.menu.SideMenuAdapter;
-import ir.sajjadyosefi.android.tubeless.classes.model.menu.SliderMenuItem;
-import ir.sajjadyosefi.android.tubeless.classes.model.menu.SliderMenuMultTitle;
-import ir.sajjadyosefi.android.tubeless.classes.model.menu.SlidingMenuItemTitle;
+
+import ir.sajjadyosefi.android.xTubeless.activity.ContactUsActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.WebViewActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.menu.MultiTitleItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.menu.SliderMenuItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.menu.SliderMenuMultTitle;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.menu.SlidingMenuItemTitle;
 
 
 /**
@@ -91,7 +95,7 @@ public class _BaseDrawerActivity extends AppCompatActivity implements RecyclerIt
         ViewGroup viewGroup = (ViewGroup) findViewById(R.id.drawer_fl_contentRoot);
 
         rootView = LayoutInflater.from(this).inflate(layoutResID, viewGroup, true);
-        Global.mUser = Global.LoadLogedInUser(context);
+        Global.user = Global.LoadLogedInUser(context);
         initializeDrawer();
 
 
@@ -187,39 +191,36 @@ public class _BaseDrawerActivity extends AppCompatActivity implements RecyclerIt
     }
 
     private void userInitialize() {
-
-
-
-        if(Global.mUser != null) {
+        if(Global.user != null) {
             //iv_UserImageCover
             //iv_UserImage
             //txtUserName.setOnClickListener(goToProfile);
             //txtEditUserProfile.setOnClickListener(goToProfile);
 
-            if(Global.mUser.getUserName()!= "")
-                txtUserName.setText(Global.mUser.getUserName());
+            if(Global.user.getUserName()!= "")
+                txtUserName.setText(Global.user.getUserName());
             else
                 txtUserName.setText(context.getResources().getString(R.string.UnKnown));
             txtEditUserProfile.setText(context.getResources().getString(R.string.EDIT_PROFILE));
 
 
-            if(Global.mUser.getUserImage() != null && !Global.mUser.getUserImage().equals(""))
-                Picasso.with(context)
-                        .load(Global.mUser.getUserImage())
-                        .into(iv_UserImage);
-            else
-                Picasso.with(context)
-                        .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7fmKV2li2SGhAi9UOpA2K-KO_y1NGcCGrfY2tvjiacoTbRwgn")
-                        .into(iv_UserImage);
+//            if(Global.user.getUserImage() != null && !Global.user.getUserImage().equals(""))
+//                Picasso.with(context)
+//                        .load(Global.user.getUserImage())
+//                        .into(iv_UserImage);
+//            else
+//                Picasso.with(context)
+//                        .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7fmKV2li2SGhAi9UOpA2K-KO_y1NGcCGrfY2tvjiacoTbRwgn")
+//                        .into(iv_UserImage);
 
-            if(Global.mUser.getProfileImage() != null && !Global.mUser.getProfileImage().equals(""))
-                Picasso.with(context)
-                        .load(Global.mUser.getProfileImage())
-                        .into(iv_UserImageCover);
-            else
-                Picasso.with(context)
-                        .load("http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-McLaren-650S-GT3-Yellow-Race-Car-PNG-Image.png")
-                        .into(iv_UserImageCover);
+//            if(Global.user.getProfileImage() != null && !Global.user.getProfileImage().equals(""))
+//                Picasso.with(context)
+//                        .load(Global.user.getProfileImage())
+//                        .into(iv_UserImageCover);
+//            else
+//                Picasso.with(context)
+//                        .load("http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-McLaren-650S-GT3-Yellow-Race-Car-PNG-Image.png")
+//                        .into(iv_UserImageCover);
 
         }else {
             txtUserName.setText("");
@@ -233,8 +234,6 @@ public class _BaseDrawerActivity extends AppCompatActivity implements RecyclerIt
             Toast.makeText(getApplicationContext(),"Noting",Toast.LENGTH_SHORT).show();;
         }
     };
-
-
 
     View.OnClickListener goToPishnahadatListener = new View.OnClickListener() {
         @Override
@@ -322,7 +321,7 @@ public class _BaseDrawerActivity extends AppCompatActivity implements RecyclerIt
         @Override
         public void onClick(View v) {
 
-            Intent intent = new Intent(getApplicationContext(),WebViewActivity.class);
+            Intent intent = new Intent(getApplicationContext(), WebViewActivity.class);
             Bundle bundle = new Bundle();
     //        bundle.putString("WebType", "report");
     //        bundle.putString("WebType", "feedback");
@@ -346,43 +345,43 @@ public class _BaseDrawerActivity extends AppCompatActivity implements RecyclerIt
         //items.add(new SliderMenuItem(R.string.INSTALING,        R.drawable.profile_ic_sajjad, "inviteFriends", R.color.colorPrimary));
 
         items.add(new SlidingMenuItemTitle(R.string.account));
-        if(Global.mUser == null) {
-            items.add(new SliderMenuItem(R.string.login, R.string.loginIcon,25, newActivity(LoginActivity.LOGIN), R.color.colorPrimary));
-            items.add(new SliderMenuItem(R.string.register, R.string.RegisterIon,25, newActivity(LoginActivity.REGISTER), R.color.colorPrimary));
+        if(Global.user == null) {
+//            items.add(new SliderMenuItem(R.string.login, R.string.loginIcon,25, newActivity(LoginActivity.LOGIN), R.color.colorButton));
+//            items.add(new SliderMenuItem(R.string.register, R.string.RegisterIon,25, newActivity(LoginActivity.REGISTER), R.color.colorButton));
         }else {
             //items.add(new SliderMenuItem(R.string.forgetPassword, R.drawable.png_forget_password, newActivity(LoginActivity.FORGET_PASSWORD), R.color.colorPrimary));
-            items.add(new SliderMenuItem(R.string.changePassword, R.string.changePasswordIcon,21, newActivity(LoginActivity.CHANGE_PASSWORD), R.color.colorPrimary));
+//            items.add(new SliderMenuItem(R.string.changePassword, R.string.changePasswordIcon,21, newActivity(LoginActivity.CHANGE_PASSWORD), R.color.colorButton));
         }
 
 
 
         items.add(new SlidingMenuItemTitle(R.string.app_name));
 
-        items.add(new SliderMenuItem(R.string.car_under_control, R.string.loginIcon,25, goToRadyabSelectCar, R.color.colorPrimary));
-        items.add(new SliderMenuItem(R.string.registerRadyab, R.string.loginIcon,25, goToRadyabRegister, R.color.colorPrimary));
+        items.add(new SliderMenuItem(R.string.car_under_control, R.string.loginIcon,25, goToRadyabSelectCar, R.color.colorButton));
+        items.add(new SliderMenuItem(R.string.registerRadyab, R.string.loginIcon,25, goToRadyabRegister, R.color.colorButton));
 
 
-        items.add(new SliderMenuItem(R.string.ghavanin,    R.string.ghavaninIcon,20, goToGhavanin, R.color.colorPrimary));
+        items.add(new SliderMenuItem(R.string.ghavanin,    R.string.ghavaninIcon,20, goToGhavanin, R.color.colorButton));
         //items.add(new SliderMenuItem(R.string.app_name,    R.drawable.jpg_kosar, goToProfile, R.color.colorPrimary));
 
-        items.add(new SliderMenuItem(R.string.contactUsMenu,         R.string.contactUsMenuIcon,20, newActivity(ContactUsActivity.CONTACT_US),          R.color.colorPrimary));
-        items.add(new SliderMenuItem(R.string.AbouteThisVersion,         R.string.AbouteThisVersionIcon,30,ShowAbouteThisVersion(),          R.color.colorPrimary));
+        items.add(new SliderMenuItem(R.string.contactUsMenu,         R.string.contactUsMenuIcon,20, newActivity(ContactUsActivity.CONTACT_US),          R.color.colorButton));
+        items.add(new SliderMenuItem(R.string.AbouteThisVersion,         R.string.AbouteThisVersionIcon,30,ShowAbouteThisVersion(),          R.color.colorButton));
 
         items.add(new SlidingMenuItemTitle(R.string.socialNetwork));
         List<MultiTitleItem> multTitleitems = new ArrayList<>();
-        multTitleitems.add(new MultiTitleItem(R.id.linRootWebLog, R.string.InternetIcon,20, "showWebPage", new menuMultiTitleItemClick()));
-        multTitleitems.add(new MultiTitleItem(R.id.linRootTelegram, R.string.TelegramIcon,20, "showTelegram", new menuMultiTitleItemClick()));
-        multTitleitems.add(new MultiTitleItem(R.id.linRootInstagram,  R.string.InstagramIcon,20,"showInstagram", new menuMultiTitleItemClick()));
+//        multTitleitems.add(new MultiTitleItem(R.id.linRootWebLog, R.string.InternetIcon,20, "showWebPage", new menuMultiTitleItemClick()));
+//        multTitleitems.add(new MultiTitleItem(R.id.linRootTelegram, R.string.TelegramIcon,20, "showTelegram", new menuMultiTitleItemClick()));
+//        multTitleitems.add(new MultiTitleItem(R.id.linRootInstagram,  R.string.InstagramIcon,20,"showInstagram", new menuMultiTitleItemClick()));
         items.add(new SliderMenuMultTitle(-1, multTitleitems));
 
-        if(Global.mUser != null) {
-            items.add(new SliderMenuItem(R.string.logout,R.string.logoutIcon,25, logOutListener, R.color.colorPrimary));
+        if(Global.user != null) {
+            items.add(new SliderMenuItem(R.string.logout,R.string.logoutIcon,25, logOutListener, R.color.colorButton));
         }
 
         if(Global.avalableSendAppInMenu(context))
-            items.add(new SliderMenuItem(R.string.shareApp, R.string.shareAppIcon, 30,shareAppListener, R.color.colorPrimary));
+            items.add(new SliderMenuItem(R.string.shareApp, R.string.shareAppIcon, 30,shareAppListener, R.color.colorButton));
 
-        items.add(new SliderMenuItem(R.string.closeApp, R.string.closeAppIcon, 30,exitListener, R.color.colorPrimary));
+        items.add(new SliderMenuItem(R.string.closeApp, R.string.closeAppIcon, 30,exitListener, R.color.colorButton));
 
     }
 
@@ -433,101 +432,82 @@ public class _BaseDrawerActivity extends AppCompatActivity implements RecyclerIt
         return null;
     }
     private View.OnClickListener newActivity(final int activityType) {
-        final Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        switch (activityType) {
-            case LoginActivity.LOGIN:
-            {
-                return new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt(LoginActivity.Type,activityType);
-                        intent.putExtras(bundle);
-                        finish();
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-
-                    }
-                };
-            }
-            case LoginActivity.REGISTER:
-            {
-                return new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt(LoginActivity.Type,activityType);
-                        intent.putExtras(bundle);
-                        finish();
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-                    }
-                };
-            }
-            case LoginActivity.FORGET_PASSWORD:
-            {
-                return new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt(LoginActivity.Type,activityType);
-                        intent.putExtras(bundle);
-                        finish();
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-                    }
-                };
-            }
-            case LoginActivity.CHANGE_PASSWORD:
-            {
-                return new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt(LoginActivity.Type,activityType);
-                        intent.putExtras(bundle);
-                        finish();
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-                    }
-                };
-            }
-            case ContactUsActivity.CONTACT_US:
-            {
-                return new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), ContactUsActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putInt(ContactUsActivity.Type,activityType);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-                    }
-                };
-            }
-        }
+//        final Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//        switch (activityType) {
+//            case LoginActivity.LOGIN:
+//            {
+//                return new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt(LoginActivity.Type,activityType);
+//                        intent.putExtras(bundle);
+//                        finish();
+//                        startActivity(intent);
+//                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//
+//                    }
+//                };
+//            }
+//            case LoginActivity.REGISTER:
+//            {
+//                return new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt(LoginActivity.Type,activityType);
+//                        intent.putExtras(bundle);
+//                        finish();
+//                        startActivity(intent);
+//                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//                    }
+//                };
+//            }
+//            case LoginActivity.FORGET_PASSWORD:
+//            {
+//                return new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt(LoginActivity.Type,activityType);
+//                        intent.putExtras(bundle);
+//                        finish();
+//                        startActivity(intent);
+//                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//                    }
+//                };
+//            }
+//            case LoginActivity.CHANGE_PASSWORD:
+//            {
+//                return new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt(LoginActivity.Type,activityType);
+//                        intent.putExtras(bundle);
+//                        finish();
+//                        startActivity(intent);
+//                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//                    }
+//                };
+//            }
+//            case ContactUsActivity.CONTACT_US:
+//            {
+//                return new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Intent intent = new Intent(getApplicationContext(), ContactUsActivity.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt(ContactUsActivity.Type,activityType);
+//                        intent.putExtras(bundle);
+//                        startActivity(intent);
+//                        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//                    }
+//                };
+//            }
+//        }
         return null;
     }
-
-    private class menuMultiTitleItemClick implements View.OnClickListener {
-
-        @Override
-        public void onClick(View v) {
-            try {
-                Method method = _BaseDrawerActivity.this.getClass().getMethod(v.getTag().toString());
-                method.invoke(_BaseDrawerActivity.this, null);
-
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
 
 
 
@@ -536,9 +516,9 @@ public class _BaseDrawerActivity extends AppCompatActivity implements RecyclerIt
         @Override
         public void onClick(View v) {
             //EventBus.getDefault().post(new MessageEvent("logOut"));
-            Global.mUser = null;
+            Global.user = null;
 
-            Intent intent = new Intent(context,MainActivity.class);
+            Intent intent = new Intent(context, MainActivity.class);
             ((Activity)context).startActivity(intent);
             ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
             ((Activity)context).finish();

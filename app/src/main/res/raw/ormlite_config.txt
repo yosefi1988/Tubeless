@@ -2,7 +2,7 @@
 # generated on 2018/11/09 12:46:42
 #
 # --table-start--
-dataClass=ir.sajjadyosefi.android.tubeless.classes.model.radyab.CarLogDetails
+dataClass=ir.sajjadyosefi.android.xTubeless.classes.model.radyab.CarLogDetails
 tableName=carlogdetails
 # --table-fields-start--
 # --field-start--
@@ -35,7 +35,7 @@ maxForeignAutoRefreshLevel=2
 # --table-end--
 #################################
 # --table-start--
-dataClass=ir.sajjadyosefi.android.tubeless.classes.model.radyab.RadyabSetting
+dataClass=ir.sajjadyosefi.android.xTubeless.classes.model.radyab.RadyabSetting
 tableName=radyabsetting
 # --table-fields-start--
 # --field-start--
@@ -51,7 +51,7 @@ fieldName=isMasterTokenValid
 # --table-end--
 #################################
 # --table-start--
-dataClass=ir.sajjadyosefi.android.tubeless.classes.model.radyab.SlaveDetails
+dataClass=ir.sajjadyosefi.android.xTubeless.classes.model.radyab.SlaveDetails
 tableName=slavedetails
 # --table-fields-start--
 # --field-start--

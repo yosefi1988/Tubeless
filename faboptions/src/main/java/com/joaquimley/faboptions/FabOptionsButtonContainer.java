@@ -18,12 +18,13 @@ package com.joaquimley.faboptions;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 /**
  * Custom FabOptions buttons ({@link ImageView}) container, enables runtime view insertion

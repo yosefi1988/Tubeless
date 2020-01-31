@@ -6,29 +6,31 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.sajjadyosefi.android.tubeless.activity.ContactUsActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.ContactUsActivity;
 import ir.sajjadyosefi.android.tubeless.activity.blog.NewBlogActivity;
 import ir.sajjadyosefi.android.tubeless.activity.yafteha.NewYafteActivity;
 import ir.sajjadyosefi.android.tubeless.activity.innerActivity.SearchResultActivity;
@@ -38,6 +40,8 @@ import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.classes.animation.ResizeAnimation;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
+import it.sephiroth.android.library.bottomnavigation.app.ToolbarScrollHelper;
 
 
 /**
@@ -60,11 +64,18 @@ public class FragmentTimelineMinor extends Fragment {
     private SwipeRefreshLayout      mSwipeRefreshLayout;
     private DilatingDotsProgressBar mProgressBar;
     List<Object>                    timelineItemList = new ArrayList<Object>();
+    private ToolbarScrollHelper scrollHelper;
+    MainActivity activity;
 
     RelativeLayout searchBox ;
     RelativeLayout searchBoxRoot ;
     static int w = 0;
     private Button buttonSendComment;
+
+    int navigationHeight;
+    int actionbarHeight;
+    private SystemBarTintManager.SystemBarConfig config;
+
 
 //    public FloatingActionButton floatingActionButton, floatingActionButton2;
 
@@ -105,6 +116,13 @@ public class FragmentTimelineMinor extends Fragment {
         term = getArguments().getString("term");
     }
 
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -121,6 +139,7 @@ public class FragmentTimelineMinor extends Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_timeline_minor, container, false);
 
+        activity = (MainActivity) getActivity();
         searchBox = (RelativeLayout) view.findViewById(R.id.searchBox);
         searchBoxRoot = (RelativeLayout) view.findViewById(R.id.searchBoxRoot);
 
@@ -176,16 +195,34 @@ public class FragmentTimelineMinor extends Fragment {
 //            public void onClick(View v) {
 //
 //                ((Activity)context).startActivityForResult(new Intent(((Activity)context),NewPostListActivity.class),750);
-////                if (((Activity) (context)) instanceof MainActivity){
+////                if (((Activity) (context)) instanceof xMainActivity){
 ////                    //((Activity) (context))
 ////                    try {
-////                        ((MainActivity) (context)).menuBottomBarClick(((MainActivity) (context)).findViewById(R.id.post_layout));
+////                        ((xMainActivity) (context)).menuBottomBarClick(((xMainActivity) (context)).findViewById(R.id.post_layout));
 ////                    } catch (MalformedURLException e) {
 ////                        e.printStackTrace();
 ////                    }
 ////                }
 //            }
 //        });
+
+
+
+
+
+        if (!activity.hasManagedToolbarScroll()) {
+            scrollHelper = new ToolbarScrollHelper(activity, activity.getToolbar());
+            scrollHelper.initialize(mRecyclerViewTimeline);
+        }
+        config = activity.getSystemBarTint().getConfig();
+
+
+        if (activity.hasTranslucentNavigation()) {
+            navigationHeight = config.getNavigationBarHeight();
+        } else {
+            navigationHeight = 0;
+        }
+
         return view;
     }
 
@@ -222,6 +259,9 @@ public class FragmentTimelineMinor extends Fragment {
                 if(listType == FragmentTimelineAdapter.LIST_TIMELINE) {
                     adapter_Posts = new EndlessList_Adapter(
                             context,
+                            navigationHeight,
+                            scrollHelper,
+                            activity.hasAppBarLayout(),
                             mProgressBar,
                             mTextViewNoting,
                             mSwipeRefreshLayout,
@@ -233,6 +273,9 @@ public class FragmentTimelineMinor extends Fragment {
                 }else if(listType == FragmentTimelineAdapter.LIST_BLOG) {
                     adapter_Posts = new EndlessList_Adapter(
                             context,
+                            navigationHeight,
+                            scrollHelper,
+                            activity.hasAppBarLayout(),
                             mProgressBar,
                             mTextViewNoting,
                             mSwipeRefreshLayout,
@@ -253,6 +296,9 @@ public class FragmentTimelineMinor extends Fragment {
             if (listType == FragmentTimelineAdapter.LIST_TIMELINE) {
                 adapter_Posts = new EndlessList_Adapter(
                         context,
+                        navigationHeight,
+                        scrollHelper,
+                        activity.hasAppBarLayout(),
                         mProgressBar,
                         mTextViewNoting,
                         mSwipeRefreshLayout,
@@ -263,6 +309,9 @@ public class FragmentTimelineMinor extends Fragment {
             } else if (listType == FragmentTimelineAdapter.LIST_BLOG) {
                 adapter_Posts = new EndlessList_Adapter(
                         context,
+                        navigationHeight,
+                        scrollHelper,
+                        activity.hasAppBarLayout(),
                         mProgressBar,
                         mTextViewNoting,
                         mSwipeRefreshLayout,
@@ -277,6 +326,9 @@ public class FragmentTimelineMinor extends Fragment {
         }else {
             adapter_Posts = new EndlessList_Adapter(
                     context,
+                    navigationHeight,
+                    scrollHelper,
+                    activity.hasAppBarLayout(),
                     mProgressBar,
                     mTextViewNoting,
                     mSwipeRefreshLayout,

@@ -1,19 +1,19 @@
 package ir.sajjadyosefi.android.tubeless;
 
 import android.app.Activity;
-import android.app.Application;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.support.annotation.RequiresApi;
-import android.support.multidex.MultiDex;
-import android.support.multidex.MultiDexApplication;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.multidex.MultiDex;
+import androidx.multidex.MultiDexApplication;
+
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,12 +23,11 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import org.litepal.LitePal;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import java.util.Random;
 
@@ -38,10 +37,12 @@ import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentPoliceAdapter;
 import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTamirgahAdapter;
 import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter;
 import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentYaftehaAdapter;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.Device;
-import ir.sajjadyosefi.android.tubeless.classes.model.User.User;
-import ir.sajjadyosefi.android.tubeless.classes.networkLayout.retrofit.RetrofitHelper;
-import ir.sajjadyosefi.android.tubeless.view.fragment.FragmentYafteha;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Device;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
+
+import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.retrofit.RetrofitHelper;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
 /**
@@ -49,19 +50,36 @@ import ir.sajjadyosefi.android.tubeless.view.fragment.FragmentYafteha;
  */
 public class Global extends MultiDexApplication {
 
-    private static Context mContext;
-    public static User mUser;
+    //_____________ ok ________________
+    public static User user = null;
+
+    //_________________________________
+
+
     public static String token;
     public static RetrofitHelper apiManager;
-
+    public static int NOT_LOGN_USER = 20053 ;
+    public static int IDUser = NOT_LOGN_USER ;
+    public static RetrofitHelperTubeless apiManagerTubeless;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mContext = this;
         MultiDex.install(this);
         apiManager = RetrofitHelper.getInstance();
+
+        apiManagerTubeless = RetrofitHelperTubeless.getInstance();
+        LitePal.initialize(this);
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/BYekan.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
+
+
+
+
     }
 
     public static void copy(File src, File dst) {

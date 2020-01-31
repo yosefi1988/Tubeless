@@ -1,37 +1,18 @@
 package ir.sajjadyosefi.android.tubeless.classes.business;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
-import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import java.util.Date;
 import java.util.List;
 
-import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.innerActivity.ReadBlogActivity;
-import ir.sajjadyosefi.android.tubeless.activity.yafteha.SearchResultActivity;
-import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
 import ir.sajjadyosefi.android.tubeless.adapter.list.SearchResultAdapter;
-import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncDeleteBlogItem;
-import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncFavouriteBlogItem;
 import ir.sajjadyosefi.android.tubeless.classes.DateConverterSjd;
-import ir.sajjadyosefi.android.tubeless.classes.JsonDateDeserializer;
-import ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem;
-import ir.sajjadyosefi.android.tubeless.classes.model.yafte.search.SearchResponse;
-import ir.sajjadyosefi.android.tubeless.classes.model.yafte.search.SearchResultObject;
-import ir.sajjadyosefi.android.tubeless.classes.utility.RoundedCornersTransformation;
+
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.yafte.search.SearchResultObject;
+import ir.sajjadyosefi.android.xTubeless.utility.RoundedCornersTransformation;
 
 /**
  * Created by sajjad on 9/19/2018.

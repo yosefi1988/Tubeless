@@ -1,298 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.9">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:padding="20dp"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
 
-        <LinearLayout
-            android:id="@+id/dddddddddddddddddd"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.9"
-            android:background="#43ffebeb"
-            android:orientation="vertical"
-            android:visibility="visible">
+            android:layout_height="150dp" >
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/png_user" />
 
-                <ir.sajjadyosefi.android.tubeless.view.widget.view.ImageViewPlus
-                    android:id="@+id/iv_menuCover"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="false"
-                    android:background="@drawable/jpg_back1"
-                    android:scaleType="centerCrop"
-                    android:visibility="visible"
-                    app:widthAndHeightRatio="2.2" />
+        </RelativeLayout>
 
-                <!--        android:layout_centerInParent="true"-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/login_title"
+            style="@style/AppTheme.DayTextViewBigTitle"
+            android:text="@string/profile" />
 
-                    android:gravity="right"
-                    android:orientation="vertical"
-                    android:paddingRight="20dp"
-                    android:paddingTop="55dp"
-                    android:visibility="visible"
-                    android:weightSum="1">
+        <EditText
+            android:id="@+id/ueditTextNameUserId"
+            style="@style/AppTheme.DayEditText"
+            android:drawableLeft="@android:drawable/ic_secure"
+            android:hint="@string/userid"
 
-                    <GridLayout
-                        android:id="@+id/grid"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:columnCount="2"
-                        android:foregroundGravity="right"
-                        android:layoutDirection="rtl"
-                        android:textDirection="rtl">
-
-                        <ImageView
-                            android:id="@+id/imgUser"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="right|top"
-                            android:adjustViewBounds="true"
-                            android:scaleType="centerCrop"
-                            android:visibility="visible" />
-
-                        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                            android:id="@+id/txtUsername"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="left|bottom"
-                            android:layout_marginLeft="15dp"
-                            android:clickable="true"
-                            android:elevation="1dp"
-                            android:foregroundGravity="right"
-                            android:gravity="right"
-                            android:paddingLeft="4dp"
-                            android:paddingRight="2dp"
-                            android:text="منتظر باشید"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="17dp"
-                            android:textStyle="bold"
-                            android:visibility="visible" />
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:inputType="phone" />
 
 
-                    </GridLayout>
+        <EditText
+            android:id="@+id/editTextName"
+            style="@style/AppTheme.DayEditText"
+            android:drawableLeft="@android:drawable/ic_secure"
+            android:hint="@string/mobile_number"
+
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            style="@style/AppTheme.DayEditText"
+            android:drawableLeft="@android:drawable/ic_secure"
+            android:hint="@string/emailAddress"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:inputType="phone" />
 
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                        android:id="@+id/txtEditProfile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="-2dp"
-                        android:layout_weight="14.20"
-                        android:clickable="true"
-                        android:text="ویرایش پروفایل"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15dp"
-                        android:visibility="visible" />
-
-                </LinearLayout>
-            </RelativeLayout>
-
-            <!--<org.fabiomsr.moneytextview.MoneyTextView-->
-                <!--android:id="@+id/textViewPrice2"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--app:symbol="$"-->
-                <!--app:format="###,###.000"-->
-                <!--app:symbolGravity="start|top"-->
-                <!--app:symbolTextSize="30sp"-->
-                <!--app:symbolMargin="6dp"-->
-                <!--app:amount="1256.56"-->
-                <!--app:baseTextSize="54sp"-->
-                <!--app:decimalDigitsTextSize="30sp"-->
-                <!--app:decimalMargin="6dp"-->
-                <!--app:includeDecimalSeparator="false"-->
-                <!--app:baseTextColor="#0017c9"-->
-                <!--android:layout_below="@+id/textView3"-->
-                <!--android:layout_alignRight="@+id/textView3"-->
-                <!--android:layout_alignEnd="@+id/textView3" />-->
-
-            <TextView
-                android:id="@+id/textViewPrice2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView3"
-                android:layout_alignRight="@+id/textView3"
-                android:layout_alignEnd="@+id/textView3" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:columnCount="2"
-                    android:foregroundGravity="right"
-                    android:layoutDirection="rtl"
-                    android:textDirection="rtl">
 
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="right|center"
-                        android:clickable="true"
-                        android:elevation="1dp"
-                        android:foregroundGravity="right"
-                        android:gravity="right"
-                        android:text="منتظر باشید"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name" />
-                </GridLayout>
-
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:columnCount="2"
-                    android:foregroundGravity="right"
-                    android:layoutDirection="rtl"
-                    android:textDirection="rtl">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:paddingTop="5dp"
+            android:textColor="#4267b2"
+            android:visibility="invisible"
+            android:text="help" />
 
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="right|center"
-                        android:clickable="true"
-                        android:elevation="1dp"
-                        android:foregroundGravity="right"
-                        android:gravity="right"
-                        android:text="منتظر باشید"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
 
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name" />
-                </GridLayout>
-
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:columnCount="2"
-                    android:foregroundGravity="right"
-                    android:layoutDirection="rtl"
-                    android:textDirection="rtl">
+    </LinearLayout>
 
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="right|center"
-                        android:clickable="true"
-                        android:elevation="1dp"
-                        android:foregroundGravity="right"
-                        android:gravity="right"
-                        android:text="منتظر باشید"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name" />
-                </GridLayout>
-
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:columnCount="1"
-                    android:foregroundGravity="right"
-                    android:layoutDirection="rtl"
-                    android:textDirection="rtl">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
 
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right|center"
-                        android:clickable="true"
-                        android:elevation="1dp"
-                        android:foregroundGravity="right"
-                        android:gravity="right"
-                        android:text="توضیحات"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
+        <Button
+            android:id="@+id/buttonSignOut"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_search"
+            android:text="@string/sign_out"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_search"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:adjustViewBounds="true"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:layout_columnWeight="1"
-                        android:text="Name" />
-                </GridLayout>
+    </LinearLayout>
 
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:columnCount="2"
-                    android:foregroundGravity="right"
-                    android:layoutDirection="rtl"
-                    android:textDirection="rtl">
-
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="0.5"
-                        android:layout_gravity="right|center"
-                        android:text="Button" />
-
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="0.5"
-                        android:layout_gravity="left|center"
-                        android:text="Button" />
-                </GridLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
+</RelativeLayout>
