@@ -2,7 +2,9 @@ package ir.sajjadyosefi.android.xTubeless.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,9 +37,12 @@ import org.litepal.LitePal;
 
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
+import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import it.sephiroth.android.library.bottomnavigation.BadgeProvider;
@@ -229,13 +234,19 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     Bundle bundle = new Bundle();
                     bundle.putString("WebType" , "rule");
                     getActivity().startActivityForResult(WebViewActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+                }else if (id == R.id.nav_about_us) {
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("WebType" , "about");
+                    getActivity().startActivityForResult(WebViewActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+
                 }else  if (id == R.id.nav_login) {
                      Bundle bundle = new Bundle();
                      bundle.putInt("type" , 1);
 
                      getActivity().startActivityForResult(LoginActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
 
-                }else  if (id == R.id.nav_account) {
+//                }else  if (id == R.id.nav_account) {
 //                    // Handle the camera action
 //                    if (Global.user != null) {
 //                        Intent autoActivityIntent =  new Intent(getContext(), ProfileActivity.class);
@@ -279,12 +290,11 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                        getActivity().finish();
 //                    }
 
-                } else if (id == R.id.nav_about_us) {
-//                    ContainerActivity.type = 1 ;
-//                    getContext().startActivity(new Intent(getContext(), ContainerActivity.class));
                 } else if (id == R.id.nav_contact_us) {
 //                    ContainerActivity.type = 2 ;
 //                    getContext().startActivity(new Intent(getContext(), ContainerActivity.class));
+
+                    getActivity().startActivity(ContactUsActivity.getIntent(getContext()));
                 } else if (id == R.id.nav_telegram) {
                     //share on telegram
 
@@ -305,24 +315,24 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
                     //channel
 
-//                    Uri uri = Uri.parse(StaticValue.Telegram);
-//                    Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-//                    likeIng.setPackage("org.telegram.messenger");
-//                    try {
-//                        startActivity(likeIng);
-//                    } catch (ActivityNotFoundException e) {
-//                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(StaticValue.Telegram)));
-//                    }
+                    Uri uri = Uri.parse(StaticValue.Telegram);
+                    Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+                    likeIng.setPackage("org.telegram.messenger");
+                    try {
+                        startActivity(likeIng);
+                    } catch (ActivityNotFoundException e) {
+                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(StaticValue.Telegram)));
+                    }
 
                 } else if (id == R.id.nav_instagram) {
-//                    Uri uri = Uri.parse(StaticValue.Instagram);
-//                    Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-//                    likeIng.setPackage("com.instagram.android");
-//                    try {
-//                        startActivity(likeIng);
-//                    } catch (ActivityNotFoundException e) {
-//                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(StaticValue.Instagram)));
-//                    }
+                    Uri uri = Uri.parse(StaticValue.Instagram);
+                    Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+                    likeIng.setPackage("com.instagram.android");
+                    try {
+                        startActivity(likeIng);
+                    } catch (ActivityNotFoundException e) {
+                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(StaticValue.Instagram)));
+                    }
                 } else if (id == R.id.nav_instagram) {
 //                    Uri uri = Uri.parse(StaticValue.Instagram);
 //                    Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);

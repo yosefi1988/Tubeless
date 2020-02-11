@@ -85,9 +85,9 @@ public class TubelessException extends Exception{
         code = errorCode;
     }
 
-    public void handleServerMessage(Context mContext, View rootView, ServerResponseBase responseX) {
+    public void handleServerMessage(Context mContext , ServerResponseBase responseX) {
         try {
-            assert rootView == null;
+//            assert rootView == null;
             assert mContext == null;
 
             int resID = mContext.getResources().getIdentifier("error_message_" + (responseX.getTubelessException().getCode() * -1), "string", mContext.getPackageName());
@@ -100,14 +100,15 @@ public class TubelessException extends Exception{
                         Toast.makeText(mContext,"ssss",Toast.LENGTH_SHORT).show();
                     }
                 };
-                Snackbar
-                        .make(rootView, "یک خطای پیش بینی نشده", 8000)
-                        //.setAction("Yes", snackOnClickListener)
-                        .setActionTextColor(Color.MAGENTA)
-                        .show();
+                Toast.makeText(mContext,"یک خطای پیش بینی نشده",Toast.LENGTH_SHORT).show();
+//                Snackbar
+//                        .make(rootView, "یک خطای پیش بینی نشده", 8000)
+//                        //.setAction("Yes", snackOnClickListener)
+//                        .setActionTextColor(Color.MAGENTA)
+//                        .show();
             }else {
-                Snackbar.make(rootView, resID, Snackbar.LENGTH_SHORT).show();
-
+//                Snackbar.make(rootView, resID, Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"یک خطای پیش بینی نشده",Toast.LENGTH_SHORT).show();
             }
 
         }catch (Exception e){
@@ -115,20 +116,24 @@ public class TubelessException extends Exception{
         }
 
         if (responseX != null) {
-            handleServerMessage(mContext,rootView,responseX.getTubelessException().getCode());
+            handleServerMessage(mContext,responseX.getTubelessException().getCode());
         }else {
 //            Toast.makeText(context, context.getResources().getString(R.string.server_not_response), Toast.LENGTH_SHORT).show();
 
-            if (rootView != null) {
-                Snackbar.make(rootView, mContext.getResources().getString(R.string.server_not_response), Snackbar.LENGTH_SHORT).show();
-            }
+            Toast.makeText(mContext, mContext.getResources().getString(R.string.server_not_response),Toast.LENGTH_SHORT).show();
+
+//            if (rootView != null) {
+//                Snackbar.make(rootView, mContext.getResources().getString(R.string.server_not_response), Snackbar.LENGTH_SHORT).show();
+//            }
         }
     }
 
-    public static void handleServerMessage(Context mContext, View view, int code) {
+    public static void handleServerMessage(Context mContext, int code) {
         try {
             int resID = mContext.getResources().getIdentifier("error_message_" + code, "string", mContext.getPackageName());
-            Snackbar.make(view, resID, Snackbar.LENGTH_SHORT).show();
+//            Snackbar.make(view, resID, Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(mContext, mContext.getResources().getString(resID),Toast.LENGTH_SHORT).show();
+
 
         }catch (Exception e){
             e.printStackTrace();
@@ -136,7 +141,7 @@ public class TubelessException extends Exception{
     }
 
 
-    public static void handleClientMessage(Context mContext, View view, int code) {
+    public static void handleClientMessage(Context mContext, int code) {
 //        if (mContext != null) {
 //            SamanToast samanToast = null;
 //            samanToast = new SamanToast(mContext,mContext.getString(R.string.error_text_entered_valuse_not_valid), SamanToast.ERROR);
@@ -145,7 +150,8 @@ public class TubelessException extends Exception{
 
         try {
             int resID = mContext.getResources().getIdentifier("error_message_" + code, "string", mContext.getPackageName());
-            Snackbar.make(view, resID, Snackbar.LENGTH_SHORT).show();
+//            Snackbar.make(view, resID, Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(mContext, mContext.getResources().getString(resID),Toast.LENGTH_SHORT).show();
 
         }catch (Exception e){
             e.printStackTrace();

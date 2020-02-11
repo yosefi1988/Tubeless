@@ -81,7 +81,7 @@ public class TimelineItemBase implements IItems {
     }
 
     @Override
-    public void fill(Context context, PostViewHolder holder, IItems item) {
+    public void fill(Context context, int listType, PostViewHolder holder, IItems item) {
 
     }
 

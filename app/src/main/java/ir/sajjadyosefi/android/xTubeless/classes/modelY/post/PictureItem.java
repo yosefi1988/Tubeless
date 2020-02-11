@@ -85,7 +85,7 @@ public class PictureItem implements IItems{
 
 
     @Override
-    public void fill(Context context , PostViewHolder holder , IItems item) {
+    public void fill(Context context ,int listType, PostViewHolder holder , IItems item) {
         PictureItem sssss = ((PictureItem)item);
         TwoLinesViewHolder hhhhhh = ((TwoLinesViewHolder)holder);
 

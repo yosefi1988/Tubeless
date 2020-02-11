@@ -45,7 +45,7 @@ import ir.sajjadyosefi.android.tubeless.R;
 import com.joaquimley.faboptions.FabOptions;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import static ir.sajjadyosefi.android.xTubeless.activity.WebViewActivity.verifyStoragePermissions;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity.verifyStoragePermissions;
 
 
 //import static com.joaquimley.faboptions.sample.R.id.toolbar;

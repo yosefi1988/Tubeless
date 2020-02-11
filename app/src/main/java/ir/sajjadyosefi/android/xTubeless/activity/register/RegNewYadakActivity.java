@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity;
+package ir.sajjadyosefi.android.xTubeless.activity.register;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,25 +10,21 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 
 
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.request.yafte.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.basic.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallback;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static ir.sajjadyosefi.android.tubeless.Global.NOT_LOGN_USER;
-import static ir.sajjadyosefi.android.xTubeless.activity.RegNewYafteActivity.GO_TO_LOGIN;
+import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity.GO_TO_LOGIN;
 
 
 public class RegNewYadakActivity extends TubelessActivity {
@@ -42,7 +38,7 @@ public class RegNewYadakActivity extends TubelessActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_new_yafte);
+        setContentView(R.layout.activity_new_yadak);
         buttonReg = findViewById(R.id.buttonReg);
         buttonBack = findViewById(R.id.buttonBack);
         editTextText = findViewById(R.id.editTextText);

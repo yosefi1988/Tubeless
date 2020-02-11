@@ -5,7 +5,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.TextItem;
 
 public class TwoLinesViewHolder extends PostViewHolder {
 

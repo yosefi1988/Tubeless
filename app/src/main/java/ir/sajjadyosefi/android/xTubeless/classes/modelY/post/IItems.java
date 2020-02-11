@@ -6,5 +6,5 @@ import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostViewHolde
 
 public interface IItems {
 
-    void fill(Context context , PostViewHolder holder , IItems item);
+    void fill(Context context , int listType , PostViewHolder holder , IItems item);
 }

@@ -37,7 +37,6 @@ import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter
 import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncLoadBlogItemList;
 import ir.sajjadyosefi.android.tubeless.asyncTask.timeline.AsyncLoadTimeline;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.classes.business.Blog;
 import ir.sajjadyosefi.android.tubeless.classes.business.Yafte;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
 import ir.sajjadyosefi.android.tubeless.Global;
@@ -627,8 +626,8 @@ public class EndlessList_Adapter extends RecyclerView.Adapter<PostViewHolder> {
                 Yafte yafte = new Yafte();
                 yafte.prepareYafteItem(mContext , (YafteItemViewHolder) holder, mTimelineItemList, position); //سرقتی / گمشده / پیدا شده
             }else {
-                Blog blog = new Blog();
-                blog.prepareBlogItem(mContext,mProgressBar, (BlogItemViewHolder) holder,mTimelineItemList, position); //blog
+//                Blog blog = new Blog();
+//                blog.prepareBlogItem(mContext,mProgressBar, (BlogItemViewHolder) holder,mTimelineItemList, position); //blog
             }
         }
 // else if (mTimelineItemList.get(position).getItemType().equals("1")){

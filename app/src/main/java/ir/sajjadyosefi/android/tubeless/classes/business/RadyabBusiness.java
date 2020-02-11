@@ -1,20 +1,12 @@
 package ir.sajjadyosefi.android.tubeless.classes.business;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Looper;
-import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 
-import ir.sajjadyosefi.android.tubeless.activity.radyab.EditRadyabCarActivity;
-import ir.sajjadyosefi.android.tubeless.activity.radyab.MainRadyabActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.common.Sms;
-import ir.sajjadyosefi.android.xTubeless.classes.model.radyab.requestService.RequestService;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.radyab.response.ResponseTokenRoot;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtils;
 
 /**
  * Created by sajjad on 5/1/2018.

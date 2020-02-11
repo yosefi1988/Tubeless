@@ -4,9 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -34,6 +36,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
 import static org.litepal.LitePalApplication.getContext;
@@ -43,6 +46,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     private final View rootView;
     private final int scrollHeight;
+    private final SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView recyclerView;
     private Picasso picasso;
     private int navigationHeight;
@@ -59,7 +63,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
     EndlessRecyclerOnScrollListener onScrollListener;
 
 
-    public XAdapter(int type, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, int ToolbarHeight, final int navigationHeight, final boolean hasAppBarLayout, final List<IItems> data) {
+    public XAdapter(int type, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, int ToolbarHeight, final int navigationHeight, final boolean hasAppBarLayout, SwipeRefreshLayout mSwipeRefreshLayout, final List<IItems> data) {
         this.type = type;
         this.navigationHeight = navigationHeight;
         this.data = data;
@@ -70,6 +74,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
         this.scrollHeight = ToolbarHeight;
         this.mLayoutManager = linearLayoutManager ;
         this.recyclerView = recyclerView;
+        this.mSwipeRefreshLayout = mSwipeRefreshLayout ;
 
         this.adapter = this;
 
@@ -109,6 +114,56 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 //            loadTimeline(context,1,true);
 //        });
         loadTimeline(context,1,false);
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+//                timelineItemList = new ArrayList<Object>();
+//                if(listType == FragmentTimelineAdapter.LIST_TIMELINE) {
+//                    adapter_Posts = new EndlessList_Adapter(
+//                            context,
+//                            navigationHeight,
+//                            scrollHelper,
+//                            activity.hasAppBarLayout(),
+//                            mProgressBar,
+//                            mTextViewNoting,
+//                            mSwipeRefreshLayout,
+//                            mRecyclerView,
+//                            timelineItemList,
+//                            mLayoutManager,
+//                            listType);
+//                    Global.resetListIndex(0);
+//                }else if(listType == FragmentTimelineAdapter.LIST_BLOG) {
+//                    adapter_Posts = new EndlessList_Adapter(
+//                            context,
+//                            navigationHeight,
+//                            scrollHelper,
+//                            activity.hasAppBarLayout(),
+//                            mProgressBar,
+//                            mTextViewNoting,
+//                            mSwipeRefreshLayout,
+//                            mRecyclerView,
+//                            timelineItemList,
+//                            mLayoutManager,
+//                            listType,
+//                            idHeader);
+//                    Global.resetListIndex(idHeader);
+//                }
+//                mRecyclerView.setAdapter(adapter_Posts);
+                loadTimeline(context,1,false);
+
+                mSwipeRefreshLayout.setRefreshing(false);
+
+//                if(type == TYPE_YAFTE){
+//
+//                }else if(type == TYPE_YADAK){
+//
+//                }else if(type == TYPE_IMAGE){
+//
+//                }
+            }
+        });
     }
 
     private void loadTimeline(Context context,int current_page,boolean isRefresh) {
@@ -291,11 +346,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
         if (data.get(position) instanceof PictureItem) {
             final PictureItem item = (PictureItem) data.get(position);
-            item.fill(context , holder, item);
+            item.fill(context ,type, holder, item);
 
         }else if (data.get(position) instanceof TimelineItem) {
             final TimelineItem item = (TimelineItem) data.get(position);
-            item.fill(context , holder, item);
+            item.fill(context ,type, holder, item);
 
         }else if (data.get(position) instanceof TextItem) {
 //            final TextItem item = (TextItem) data.get(position);

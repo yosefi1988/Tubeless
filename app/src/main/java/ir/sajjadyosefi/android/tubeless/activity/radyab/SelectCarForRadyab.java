@@ -2,7 +2,6 @@ package ir.sajjadyosefi.android.tubeless.activity.radyab;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 

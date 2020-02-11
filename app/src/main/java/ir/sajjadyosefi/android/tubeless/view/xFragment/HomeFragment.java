@@ -30,12 +30,12 @@ import com.google.android.material.navigation.NavigationView;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.ContactUsActivity;
+
 
 import ir.sajjadyosefi.android.tubeless.adapter.xFragments.MainPagerAdapter;
-import ir.sajjadyosefi.android.xTubeless.activity.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
 
 
 import static ir.sajjadyosefi.android.tubeless.view.fragment.minor.FragmentTimelineMinor.ARG_LIST;

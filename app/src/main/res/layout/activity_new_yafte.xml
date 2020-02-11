@@ -102,13 +102,13 @@
                 android:textSize="14dp"
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="-10dp"
-                android:text="مثال:    کاربرات \n           میل سوپاپ\n          چراغ مه شکن" />
+                android:text="مثال:    کارت سوخت \n           گواهینامه رانندگی\n          کارت ملی" />
 
             <EditText
                 android:id="@+id/editTextTitleStatment"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_secure"
-                android:hint="@string/where_miss" />
+                android:hint="@string/where_miss_2" />
 
 
             <TextView
@@ -116,33 +116,33 @@
                 android:textSize="14dp"
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="-10dp"
-                android:text="مثال:    پژو 405 مدل 1376 GLX " />
+                android:text="مثال:    فرودگاه شیراز " />
 
             <EditText
                 android:id="@+id/editTextTitlePicture"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_secure"
-                android:hint="@string/what_date" />
+                android:hint="@string/what_date2" />
 
             <TextView
                 style="@style/AppTheme.DayTextView"
                 android:textSize="14dp"
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="-10dp"
-                android:text="مثال:    اگه تا قبل از عید پیدا بشه خریدارم و شماره تماس 09123456789 لطفا پیامک ارسال کنید. " />
+                android:text="مثال:    یک ماه پیش \n            پاییز سال 95" />
 
             <EditText
                 android:id="@+id/editTextText"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_secure"
-                android:hint="@string/text2" />
+                android:hint="@string/text22" />
 
             <TextView
                 style="@style/AppTheme.DayTextView"
                 android:textSize="14dp"
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="-10dp"
-                android:text="مثال:    کاربرات پوسته آلمینیومی دو دریچه ای شماره 56 فرانسوی لوله بنزین کوتاه" />
+                android:text="مثال:    کیف چرمی قهوه ای سوخته همراه با مدارک شناسایی خودم و همسرم مقداری پول و شناسنامه" />
 
 
             <EditText

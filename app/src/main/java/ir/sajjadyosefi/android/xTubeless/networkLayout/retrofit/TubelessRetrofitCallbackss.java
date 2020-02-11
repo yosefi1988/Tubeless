@@ -79,7 +79,7 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
         } catch (TubelessException sException) {
             sException.printStackTrace();
 //            if (showResult)
-//                sException.handleServerMessage(mContext,rootView,responseX);
+                sException.handleServerMessage(mContext,responseX);
         }catch (Exception sException) {
             sException.printStackTrace();
         }

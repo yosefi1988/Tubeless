@@ -3,10 +3,7 @@ package ir.sajjadyosefi.android.tubeless.asyncTask.other;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import java.util.List;
-
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.AppStatus;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.RequestConfirmPayment;
 import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
 

@@ -1,366 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/FrameLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/day_contact_us_back"
-    android:layout_marginTop="0dp" >
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
 
-    <ImageView
-        android:id="@+id/ivInvisableBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:visibility="invisible"/>
-
-    <ImageView
-        android:id="@+id/ivVisableBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"  />
 
     <ScrollView
-        android:id="@+id/svScroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.9"
-        android:visibility="visible">
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:paddingBottom="50dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/png_contact_us" />
+
+            <TextView
+                android:id="@+id/login_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/reg_new_yafte"
+                android:textColor="#4267b2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="شماره پشتیبانی 09227087288"
+                android:textColor="@color/day_contact_us_text"
+                android:textSize="20dp"  />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="نوع ارتباط را انتخاب کنید:"
+                android:textColor="#4267b2"/>
+            <RadioGroup
+                android:visibility="visible"
+                android:id="@+id/rgRadios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/contactUsSuggestion"
+                    android:checked="true" >
+                    <requestFocus />
+                </RadioButton>
+
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/contactUsAppOrder"
+                    android:layout_alignParentRight="true" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/contactUs"
+                    android:layout_alignParentRight="true" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/editTextTitle"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_secure"
+                android:hint="@string/title" />
+
+
+            <EditText
+                android:id="@+id/editTextText"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_secure"
+                android:hint="@string/text2" />
 
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:layout_margin="15dp"
-                android:gravity="right"
-                android:background="@drawable/circle_background_negative"
-
-                android:foregroundGravity="right"
-                android:orientation="vertical"
-                android:padding="5dp"
-                android:visibility="visible">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
 
 
-
-                <ImageView
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/buttonReg"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/png_contact_us"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"/>
+                    android:background="@drawable/btn_search"
+                    android:text="@string/reg"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
 
-                <include
-                layout="@layout/_part_horizontal_line">
-            </include>
-
-                <TextView
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/buttonBack"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="شماره پشتیبانی 09227087288"
-                    android:textColor="@color/day_contact_us_text"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:focusableInTouchMode="true" />
-
-                <TextView
-                    android:id="@+id/tvTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="نوع ارتباط را انتخاب کنید:"
-                    android:textColor="@color/day_contact_us_text"
-                    android:textSize="20dp"
-                    android:focusableInTouchMode="true" />
-
-                <RelativeLayout
-                    android:layout_gravity="right"
-                    android:gravity="right"
-                    android:paddingTop="10dp"
-                    android:layoutDirection="rtl"
-                    android:foregroundGravity="right"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-
-                    <RadioGroup
-                        android:visibility="visible"
-                        android:id="@+id/rgRadios"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <requestFocus/>
-                        <RadioButton
-                            android:id="@+id/radioButton1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:checked="true" >
-                            <requestFocus />
-                        </RadioButton>
-
-
-                        <RadioButton
-                            android:id="@+id/radioButton2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true" />
-
-
-                        <RadioButton
-                            android:id="@+id/radioButton3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true" />
-
-                    </RadioGroup>
-
-                    <LinearLayout
-                        android:visibility="visible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:id="@+id/linearLayout"
-                        android:layout_alignParentLeft="true"
-                        android:layout_toLeftOf="@+id/rgRadios" >
-
-                        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                            android:id="@+id/tvRadio1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:layout_alignBaseline="@+id/radioButton1"
-                            android:layout_alignBottom="@+id/radioButton1"
-                            android:layout_gravity="right"
-                            android:paddingEnd="5dp"
-                            android:paddingStart="5dp"
-                            android:layout_toLeftOf="@+id/radioButton1"
-                            android:layout_toStartOf="@+id/radioButton1"
-                            android:paddingTop="3dp"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:foregroundGravity="right"
-                            android:gravity="right"
-                            android:text="@string/contactUsSuggestion"
-                            android:textColor="@color/day_contact_us_text"  />
-
-
-
-                        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                            android:id="@+id/tvRadio3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/radioButton3"
-                            android:layout_alignBottom="@+id/radioButton3"
-                            android:layout_gravity="right"
-                            android:layout_toLeftOf="@+id/radioButton3"
-                            android:layout_toStartOf="@+id/radioButton3"
-                            android:layout_weight="1"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="5dp"
-                            android:paddingStart="5dp"
-                            android:clickable="true"
-                            android:foregroundGravity="right"
-                            android:gravity="right"
-                            android:text="@string/contactUsAppOrder"
-                            android:textColor="@color/day_contact_us_text"  />
-                        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                            android:id="@+id/tvRadio2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/radioButton2"
-                            android:layout_alignBottom="@+id/radioButton2"
-                            android:layout_gravity="right"
-                            android:layout_toLeftOf="@+id/radioButton2"
-                            android:paddingEnd="5dp"
-                            android:paddingStart="5dp"
-
-                            android:layout_toStartOf="@+id/radioButton2"
-                            android:paddingTop="3dp"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:foregroundGravity="right"
-                            android:gravity="right"
-                            android:text="@string/contactUs"
-                            android:textColor="@color/day_contact_us_text"/>
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/tvTitleText02"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="right|center"
-                    android:clickable="true"
-                    android:elevation="1dp"
-                    android:paddingTop="20dp"
-                    android:foregroundGravity="right"
-                    android:gravity="right"
-                    android:text="Text"
-                    android:textColor="@color/day_contact_us_text"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
-
-                <TableLayout
-                    android:id="@+id/tblLoginPanel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:layoutDirection="rtl"
-                    android:padding="10dp">
-
-
-                    <LinearLayout
-                        android:id="@+id/llRow1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                            android:id="@+id/tvField1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_weight="0.3"
-                            android:clickable="true"
-                            android:foregroundGravity="right"
-                            android:gravity="right"
-                            android:paddingTop="5dp"
-                            android:text="@string/phoneNumber"
-                            android:textColor="@color/day_contact_us_text"
-                            android:textSize="17dp"
-                            android:textStyle="bold" />
-
-                        <EditText
-                            android:focusableInTouchMode="true"
-                            android:id="@+id/etField1"
-                            android:layout_width="0dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="left"
-                            android:layout_weight="0.7"
-                            android:adjustViewBounds="true"
-                            android:ems="8"
-                            android:textColor="@color/day_contact_us_text"
-
-                            android:enabled="true"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:background="@drawable/circle_background_white"
-                            android:hint="@string/someText"
-                            android:imeOptions="flagNoExtractUi"
-                            android:inputType="textPersonName" >
-
-                        </EditText>
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/llRow2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
-
-                        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
-                            android:id="@+id/tvField2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_weight="0.3"
-                            android:clickable="true"
-                            android:foregroundGravity="right"
-                            android:gravity="right"
-                            android:paddingTop="10dp"
-                            android:text="@string/emailAddress"
-                            android:textColor="@android:color/holo_blue_dark"
-                            android:textSize="17dp"
-                            android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/etField2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="0.7"
-                            android:adjustViewBounds="true"
-                            android:ems="8"
-                            android:hint="@string/someText"
-                            android:imeOptions="flagNoExtractUi"
-                            android:inputType="textPersonName" />
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/llRow3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:id="@+id/etField3"
-                            android:layout_width="0dp"
-                            android:layout_height="150dp"
-                            android:layout_gravity="top|right"
-                            android:layout_weight="1"
-                            android:adjustViewBounds="true"
-                            android:elevation="1dp"
-                            android:ems="8"
-                            android:padding="10dp"
-                            android:textColor="@color/day_contact_us_text"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/circle_background_white"
-                            android:gravity="top|right"
-                            android:hint="@string/someText"
-                            android:imeOptions="flagNoExtractUi"
-                            android:inputType="textMultiLine"
-                            android:selectAllOnFocus="false" />
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/btn1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left|center"
-                            android:layout_weight="0.5"
-                            android:text="btn1" />
-
-                        <Button
-                            android:id="@+id/btn2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left|center"
-                            android:layout_weight="0.5"
-                            android:text="btn2" />
-
-
-                    </LinearLayout>
-
-
-                </TableLayout>
+                    android:background="@drawable/btn_search"
+                    android:text="@string/back"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
 
+        </LinearLayout>
     </ScrollView>
-
-</FrameLayout>
+</RelativeLayout>

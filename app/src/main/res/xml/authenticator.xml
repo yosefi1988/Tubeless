@@ -4,5 +4,5 @@
         android:accountType="ir.sajjadyosefi.tubeless"
         android:icon="@drawable/ic_launcher"
         android:smallIcon="@drawable/ic_launcher"
-        android:label="sssssssssssssss"
+        android:label="@string/app_name"
 />

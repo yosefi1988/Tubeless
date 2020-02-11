@@ -1,6 +1,7 @@
-package ir.sajjadyosefi.android.xTubeless.activity;
+package ir.sajjadyosefi.android.xTubeless.activity.common;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,9 +20,14 @@ import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
 import ir.sajjadyosefi.android.tubeless.classes.DateConverterSjd;
 import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
 
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.LoginResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallback;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.Responses.blog.TimelineItemResponse;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,41 +64,55 @@ public class ReadBlogActivity extends TubelessActivity {
         String objectString = getIntent().getStringExtra("Object");
         TimelineItem blogItem = gson.fromJson(objectString, TimelineItem.class);
 
+        firstFillData(blogItem);
 
-        Global.apiManagerTubeless.getTimelineItem(blogItem.getBlogID(),new TubelessRetrofitCallback<Object>(this,null, false, null, new Callback<Object>() {
+        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineItemResponse.class) {
             @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-                Gson gson = new Gson();
-                JsonElement jsonElement = gson.toJsonTree(response.body());
-                TimelineItemResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineItemResponse.class);
-
-
-                fillData(responseX.getTimelineItem());
-                int a = 5 ;
-                a++;
+            public void t_beforeSendRequest() {
 
             }
 
             @Override
-            public void onFailure(Call<Object> call, Throwable t) {
+            public void t_afterGetResponse() {
 
             }
-        }));
 
-//        getSupportActionBar().setTitle(getString(R.string.pleaseWait));
+            @Override
+            public void t_complite() {
 
-    }
+            }
+
+
+            @Override
+            public void t_responseNull() {
+
+            }
+
+
+            @Override
+            public void t_retry(Call<Object> call) {
+
+            }
+
+
+            @Override
+            public void t_onSuccess(Object response) {
+                fillData(((TimelineItemResponse)response).getTimelineItem());
+            }
+        };
+        Global.apiManagerTubeless.getTimelineItem(blogItem.getBlogID(), ssssssss);
+     }
 
 
     TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewShare,textViewText;
     ImageView imageViewUserAvatar, imageViewShare,imageviewPicture;
 
-    private void fillData(TimelineItem timelineItem) {
+    private void firstFillData(TimelineItem timelineItem) {
 
         DateConverterSjd dateUtiliti = new DateConverterSjd();
 
 
-        if (timelineItem.getPicture()!= null && timelineItem.getPicture().length() > 10) {
+        if (timelineItem.getPicture() != null && timelineItem.getPicture().length() > 10) {
             imageviewPicture.setVisibility(View.VISIBLE);
             Picasso.get()
                     .load(timelineItem.getPictureTumble())
@@ -156,30 +176,8 @@ public class ReadBlogActivity extends TubelessActivity {
         textViewUserName.setText(timelineItem.getUserName());
         textViewCount.setText(timelineItem.getViewCount() + "");
 
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EndlessList_Adapter.prepareToShare(mContext, timelineItem.getTitle(), timelineItem.getText(), false);
-//                Toast.makeText(mContext,"Share" ,Toast.LENGTH_SHORT).show();
 
-            }
-        };
 
-        textViewShare.setOnClickListener(onClickListener);
-        imageViewShare.setOnClickListener(onClickListener);
-
-        View.OnClickListener onStarClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-//                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,yafteItem.getID(),Global.user.getUserID(),yafteItem.isInMyFavList());
-//                    asyncFavouriteBlogItem.execute();
-
-            }
-        };
-
-//        holder.imageViewFavourite.setOnClickListener(onStarClickListener);
-//        holder.textViewFavourite.setOnClickListener(onStarClickListener);
 //        if(yafteItem.isInMyFavList())
 //            holder.imageViewFavourite.setImageResource(android.R.drawable.btn_star_big_on);
 //        else
@@ -216,6 +214,35 @@ public class ReadBlogActivity extends TubelessActivity {
         }
 
 
+        fillClicks(timelineItem);
+    }
+
+    private void fillClicks(TimelineItem timelineItem) {
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EndlessList_Adapter.prepareToShare(mContext, timelineItem.getTitle(), timelineItem.getText(), false);
+//                Toast.makeText(mContext,"Share" ,Toast.LENGTH_SHORT).show();
+
+            }
+        };
+
+        textViewShare.setOnClickListener(onClickListener);
+        imageViewShare.setOnClickListener(onClickListener);
+
+        View.OnClickListener onStarClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,yafteItem.getID(),Global.user.getUserID(),yafteItem.isInMyFavList());
+//                    asyncFavouriteBlogItem.execute();
+
+            }
+        };
+
+//        holder.imageViewFavourite.setOnClickListener(onStarClickListener);
+//        holder.textViewFavourite.setOnClickListener(onStarClickListener);
+
 
         View.OnClickListener onclick2 = new View.OnClickListener() {
             @Override
@@ -225,6 +252,9 @@ public class ReadBlogActivity extends TubelessActivity {
         };
 
         textViewUserName.setOnClickListener(onclick2);
+    }
+
+    private void fillData(TimelineItem timelineItem) {
 
     }
 }

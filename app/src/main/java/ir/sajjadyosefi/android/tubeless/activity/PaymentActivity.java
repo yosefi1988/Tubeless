@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.tubeless.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,12 +19,12 @@ import ir.moslem_deris.apps.zarinpal.listeners.OnPaymentListener;
 import ir.moslem_deris.apps.zarinpal.models.Payment;
 import ir.sajjadyosefi.android.tubeless.asyncTask.other.AsyncPeymentResult;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.xTubeless.activity.Splash_Screen;
+import ir.sajjadyosefi.android.xTubeless.activity.common.Splash_Screen;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.AppStatus;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.RequestConfirmPayment;
 import ir.sajjadyosefi.android.tubeless.R;
 
-public class PaymentActivity extends _BaseDrawerActivity {
+public class PaymentActivity extends Activity {
 
     public Context context;
     public EditText phone,email,discription;

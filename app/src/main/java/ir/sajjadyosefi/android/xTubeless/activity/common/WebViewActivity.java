@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity;
+package ir.sajjadyosefi.android.xTubeless.activity.common;
 
 import android.Manifest;
 import android.app.Activity;
@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.core.app.ActivityCompat;
 
 import android.webkit.WebSettings;
@@ -24,7 +24,7 @@ import java.io.Writer;
 
 
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 
 /**
  * Created by Sajad on 2/11/2017.
@@ -108,7 +108,7 @@ public class WebViewActivity extends TubelessActivity {
             }else {
                 if (bundle.getString("WebType").equals("about")) {
                     htmlFilename = "about.html";
-                    //textViewTitle.setText("درباره همسو");
+
                 } else if (bundle.getString("WebType").equals("feedback")) {
                     htmlFilename = "feedback.html";
                     //textViewTitle.setText("بازخورد");

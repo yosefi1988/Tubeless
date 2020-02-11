@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import ir.sajjadyosefi.android.tubeless.BuildConfig;
+import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 
 
@@ -244,6 +246,7 @@ public class CommonClass {
         });
 
     }
+
 
 
     public static void ShowPardakht(final Context context){

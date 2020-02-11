@@ -37,6 +37,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 
+import static ir.sajjadyosefi.android.xTubeless.utility.CommonClass.GetAppVersion;
+
 public class RestApiHelper {
     HttpUrlconnectionHelper httpUrlconnectionHelper = new HttpUrlconnectionHelper();
 
@@ -409,7 +411,7 @@ public class RestApiHelper {
             BlogItemListResponse aaaaaaaaaaaaaaa = (BlogItemListResponse) httpUrlconnectionHelper.GetDataFromServer(String.format(Url.GET_RECEIVE_BLOG_ITEMS, idHeader, mIndex)
                     , "" +
                             "AppID=" + mContext.getString(R.string.app_id) + "&" +
-                            "AppVersion=" + CommonClass.GetAppVersion(mContext),
+                            "AppVersion=" + GetAppVersion(mContext),
                     BlogItemListResponse.class
                     );
             return aaaaaaaaaaaaaaa;
@@ -417,7 +419,7 @@ public class RestApiHelper {
             BlogItemListResponse aaaaaaaaaaaaaaa = (BlogItemListResponse) httpUrlconnectionHelper.GetDataFromServer(
                     String.format(Url.GET_RECEIVE_BLOG_ITEMS_NEW, mIndex), "" +
                             "AppID=" + mContext.getString(R.string.app_id) + "&" +
-                            "AppVersion=" + CommonClass.GetAppVersion(mContext),
+                            "AppVersion=" + GetAppVersion(mContext),
                     BlogItemListResponse.class
                     );
             return aaaaaaaaaaaaaaa;
@@ -428,7 +430,7 @@ public class RestApiHelper {
         BlogItemListResponse aaaaaaaaaaaaaaa = (BlogItemListResponse) httpUrlconnectionHelper.GetDataFromServer(
                 String.format(Url.GET_SEARCH_YAFTE, term,idHeader), "" +
                         "AppID=" + mContext.getString(R.string.app_id) + "&" +
-                        "AppVersion=" + CommonClass.GetAppVersion(mContext),
+                        "AppVersion=" + GetAppVersion(mContext),
                 BlogItemListResponse.class
                 );
         return aaaaaaaaaaaaaaa;

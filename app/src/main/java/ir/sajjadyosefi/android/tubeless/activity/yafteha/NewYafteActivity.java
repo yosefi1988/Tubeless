@@ -44,7 +44,6 @@ import eu.janmuller.android.simplecropimage.CropImage;
 import ir.adad.client.Adad;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.asyncTask.yafte.AsyncRegNewYafte;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
 import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.HttpFileUploadAsync;
 import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.Url;
@@ -75,7 +74,7 @@ public class NewYafteActivity extends AppCompatActivity {
 
     Context context;
     DilatingDotsProgressBar dilatingDotsProgressBar;
-    PersianTextView tvRadio1,tvRadio2,tvRadio3,tvField1,tvField2;
+    PersianTextView tvField1,tvField2;
     TextView tvTitle;
     RadioButton radioButton1,radioButton2,radioButton3;
     TextView tvTitleText02;
@@ -109,12 +108,12 @@ public class NewYafteActivity extends AppCompatActivity {
 
 
         final Random rnd = new Random();
-        ImageView imageView1 = (ImageView) findViewById(R.id.imageView1);
+//        ImageView imageView1 = (ImageView) findViewById(R.id.imageView1);
         ImageView imageView2 = (ImageView) findViewById(R.id.imageView2);
         ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
         int aaa = (rnd.nextInt(3));
         if (aaa == 0){
-            imageView1.setVisibility(View.VISIBLE);
+//            imageView1.setVisibility(View.VISIBLE);
         }
         if (aaa == 1){
             imageView2.setVisibility(View.VISIBLE);
@@ -130,9 +129,6 @@ public class NewYafteActivity extends AppCompatActivity {
         radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
-        tvRadio1 = (PersianTextView) findViewById(R.id.tvRadio1);
-        tvRadio2 = (PersianTextView) findViewById(R.id.tvRadio2);
-        tvRadio3 = (PersianTextView) findViewById(R.id.tvRadio3);
         tvField1 = (PersianTextView) findViewById(R.id.tvField1);
         tvField2 = (PersianTextView) findViewById(R.id.tvField2);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
@@ -297,8 +293,8 @@ public class NewYafteActivity extends AppCompatActivity {
                                             blogItem.setText(etField4.getText().toString());
                                             blogItem.setTextPicture(etField4.getText().toString());
 
-                                            AsyncRegNewYafte asyncRegNewYafte = new AsyncRegNewYafte(context,dilatingDotsProgressBar,blogItem);
-                                            asyncRegNewYafte.execute();
+//                                            AsyncRegNewYafte asyncRegNewYafte = new AsyncRegNewYafte(context,dilatingDotsProgressBar,blogItem);
+//                                            asyncRegNewYafte.execute();
 
                                         }
                                 }

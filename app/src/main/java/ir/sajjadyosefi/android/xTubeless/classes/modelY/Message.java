@@ -1,9 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless.classes.modelY;
 
-import com.orm.SugarRecord;
-
-import java.io.Serializable;
-
 public class Message {
 
 	private int	ApplicationID;

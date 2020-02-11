@@ -30,7 +30,7 @@ public class AsyncEstelam extends AsyncTask {
 
         requestEstelam.AndroidID        = CommonClass.GetAndroidId(context);
         requestEstelam.AndroidVersion   = Build.VERSION.CODENAME;
-        requestEstelam.AppVersion       = CommonClass.GetAppVersion(context);
+//        requestEstelam.AppVersion       = CommonClass.GetAppVersion(context);
 
         requestEstelam.AppID            = context.getString(R.string.app_id);
         requestEstelam.SERIAL           = Build.SERIAL;

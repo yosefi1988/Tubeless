@@ -43,7 +43,7 @@ public class AsyncCheckServerConfing extends AsyncTask<String, Void, ServerRespo
             if(serverResponseConfig.getResponseStatus() != null){
                 if (serverResponseConfig.getResponseStatus().getCode() == 200)
                 {
-                    CurrentVersion = CommonClass.GetAppVersion(context);
+//                    CurrentVersion = CommonClass.GetAppVersion(context);
 //                    Toast.makeText(context,CurrentVersion,Toast.LENGTH_LONG).show();
 //                    Toast.makeText(context,context.getApplicationContext().getPackageName(),Toast.LENGTH_LONG).show();
 
@@ -68,8 +68,6 @@ public class AsyncCheckServerConfing extends AsyncTask<String, Void, ServerRespo
             }catch (Exception ex){}
         }
 
-//        _BaseDrawerActivity bbbbbbbbbbbb = new _BaseDrawerActivity();
-//        bbbbbbbbbbbb.onUserStatusChange();
     }
     public void ShowDownloadPromp2(final Context context, final ServerResponseConfig serverResponseConfig){
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();

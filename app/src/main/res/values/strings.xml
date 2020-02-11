@@ -217,9 +217,16 @@
     <string name="text_pic">text pic</string>
     <string name="location_of_miss">آدرس تغریبی شما (مثال : استان و شهر)</string>
     <string name="what_date">شماره تماس شما و تا چه تاریخی این درخواست معتبر است (مثال تا زمستان 99)</string>
+    <string name="what_date2">چه زمانی گم کردید/پیدا کردید/به سرقت رفت؟</string>
+
     <string name="where_miss">مدل خودروی (شامل تیپ - مدل و کلاس و...)</string>
     <string name="text2">مشخصات شامل نام؛ مدل , کشور سازنده؛ وارد کننده ؛رنگ ؛شکل؛علامت و هرچیزی که مشخص کننده ی قطعه ی مورد نظر شماست
     </string>
+
+    <string name="text22">مشخصات شامل نام؛ نام خانوادگی؛ تاریخ صدور؛رنگ؛شکل؛علامت و هرچیزی که مشخص کننده ی مالکیت شما بر
+        آن مدارک می باشد
+    </string>
+
     <string name="new_yafte_new_yafte_inserted">مورد جدید با موفقیت اضافه شد.</string>
     <string name="tray_again">لطفا مجدد تلاش کنید.</string>
     <string name="tray_error_again">با خطا مواجه شدیم کمی بعد تلاش کنید.</string>
@@ -378,6 +385,7 @@
     <string name="lost_documents1">مدارک گم شده</string>
     <string name="find_documents1">مدارک پیدا شده</string>
     <string name="stolen_documents1">مدارک به سرقت رفته</string>
+    <string name="where_miss_2">محل : کجا گم کردید / کجا پیدا کردید</string>
 
 
 </resources>

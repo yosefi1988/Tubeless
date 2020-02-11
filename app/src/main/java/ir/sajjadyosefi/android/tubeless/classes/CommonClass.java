@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.AppStatus;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.ServerResponseConfig;
@@ -564,17 +563,6 @@ public class CommonClass {
         TelephonyManager telephonyManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
         androidID = telephonyManager.getDeviceId();
         return androidID;
-    }
-
-
-
-    public static String GetAppVersion(Context context) {
-        try {
-            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            return pInfo.versionName;
-        }catch (Exception ex){
-            return "0";
-        }
     }
 
 

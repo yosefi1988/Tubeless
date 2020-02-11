@@ -41,6 +41,12 @@ public interface ApiServiceTubeless {
     @POST("Api/Blog/SaveNewBlog")
     Call<Object> newYafte(@Body NewBlogRequest request);
 
+    @GET("Api/Timeline/getYadakTimelineItem")
+    Call<Object> getTimelineItem(@Query("id") int id);
+
+
+
+
 
 
 
@@ -91,9 +97,6 @@ public interface ApiServiceTubeless {
 
     @POST("Api/Common/ContactUs")
     Call<Object> contactUs(@Body ContactUsRequest request);
-
-    @GET("Api/Timeline/getYadakTimelineItem")
-    Call<Object> getTimelineItem(@Query("id") int id);
 
     @GET("Api/Blog/deleteBlog")
     Call<Object> deleteTimelineItem(@Query("id") int id,

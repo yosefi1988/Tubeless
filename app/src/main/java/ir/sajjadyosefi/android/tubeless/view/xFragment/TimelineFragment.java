@@ -26,11 +26,10 @@ import java.util.List;
 
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.ContactUsActivity;
-import ir.sajjadyosefi.android.tubeless.activity.blog.NewBlogActivity;
 import ir.sajjadyosefi.android.tubeless.activity.yafteha.NewYafteActivity;
 import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
 import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 
 
 /**
@@ -226,7 +225,7 @@ public class TimelineFragment extends Fragment {
                     ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
                 }else {
 //                    context.startActivity(new Intent(context, UploadPictureActivity.class));
-                    context.startActivity(new Intent(context, NewBlogActivity.class));
+//                    context.startActivity(new Intent(context, NewBlogActivity.class));
                 }
             }
         });

@@ -24,8 +24,7 @@ import androidx.core.content.ContextCompat;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.ContactUsActivity;
-import ir.sajjadyosefi.android.tubeless.activity._BaseDrawerActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.tubeless.adapter.list.SpinnerAdapter;
 import ir.sajjadyosefi.android.tubeless.R;
 
@@ -35,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchActivity extends _BaseDrawerActivity {
+public class SearchActivity extends Activity {
 
     Context context;
     EditText editText_name ,editText_family ,editText_father_name ,editText_code_melli;

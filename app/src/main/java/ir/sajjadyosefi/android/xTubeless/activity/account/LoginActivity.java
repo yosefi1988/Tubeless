@@ -1,7 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.activity.account;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +25,6 @@ import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
@@ -39,7 +37,6 @@ import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.Validation;
 import retrofit2.Call;
-import retrofit2.Response;
 
 public class LoginActivity extends TubelessActivity {
 

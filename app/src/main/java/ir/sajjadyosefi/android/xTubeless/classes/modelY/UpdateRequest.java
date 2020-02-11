@@ -4,10 +4,6 @@ import android.content.Context;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
-import com.orm.SugarRecord;
-
-import java.io.Serializable;
-
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
 
 /**
@@ -29,7 +25,7 @@ public class UpdateRequest{
         sbankDetails.installDate = "xx/xx/xx";
 
         ////////////////////////////////////////////////////version//////////////////////////////////////////////////
-        sbankDetails.version = CommonClass.GetAppVersion(context);
+//        sbankDetails.version = CommonClass.GetAppVersion(context);
 
         //F
         sbankDetails.countOfRunSbank = -1;

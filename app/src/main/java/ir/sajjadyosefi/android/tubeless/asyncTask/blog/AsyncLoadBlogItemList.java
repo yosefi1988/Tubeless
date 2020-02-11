@@ -19,13 +19,13 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 import java.util.List;
 
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.ContactUsActivity;
 import ir.sajjadyosefi.android.tubeless.activity.yafteha.NewYafteActivity;
 import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
 import ir.sajjadyosefi.android.tubeless.networkLayout.networkLayout.RestApiHelper;
 
 import ir.sajjadyosefi.android.tubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItemListResponse;
 

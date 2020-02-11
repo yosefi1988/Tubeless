@@ -17,11 +17,9 @@ import java.util.List;
 
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity.innerActivity.ReadBlogActivity;
-import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
-import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncDeleteBlogItem;
 import ir.sajjadyosefi.android.tubeless.classes.DateConverterSjd;
 import ir.sajjadyosefi.android.tubeless.classes.JsonDateDeserializer;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.YafteItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.utility.RoundedCornersTransformation;
 

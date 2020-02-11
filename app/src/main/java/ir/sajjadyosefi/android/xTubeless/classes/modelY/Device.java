@@ -1,9 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless.classes.modelY;
 
-import com.orm.SugarRecord;
-
-import java.io.Serializable;
-
 public class Device {
 	private static final long serialVersionUID = 1L;
 

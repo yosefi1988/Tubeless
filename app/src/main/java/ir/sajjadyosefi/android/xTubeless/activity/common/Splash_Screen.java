@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity;
+package ir.sajjadyosefi.android.xTubeless.activity.common;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,8 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.widget.Toast;
@@ -17,12 +16,12 @@ import android.widget.Toast;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.splunk.mint.Mint;
 
-import ir.adad.client.Adad;
 //import ir.sajjadyosefi.android.tubeless.Class.model.AppStatus;
 import ir.sajjadyosefi.android.tubeless.Global;
 import ir.sajjadyosefi.android.tubeless.R;
 import ir.sajjadyosefi.android.tubeless.asyncTask.account.AsyncDeviceRegister;
 import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Device;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
@@ -130,7 +129,7 @@ public class Splash_Screen extends AppCompatActivity {
                 Global.GetAndroidID(context, device);
                 device.setApplicationID(17);                                                                //OK
                 device.setVersionID(100);                                                                   //OK
-                device.setBOARD(CommonClass.GetAppVersion(context));                                        //new
+//                device.setBOARD(CommonClass.GetAppVersion(context));                                        //new
                 device.setBRAND(Build.BRAND);                                                               //OK
                 //device.setBuildID(Build.VERSION.SDK_INT + "-" + Build.VERSION.RELEASE  + "-" + Build.ID);   //new
                 device.setDISPLAY(Build.DISPLAY);                                                           //

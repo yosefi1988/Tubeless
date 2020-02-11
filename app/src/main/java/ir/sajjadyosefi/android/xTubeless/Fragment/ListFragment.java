@@ -22,8 +22,8 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 import java.util.ArrayList;
 import java.util.List;
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.RegNewYadakActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.RegNewYafteActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Tag;
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
@@ -208,6 +208,7 @@ public class ListFragment extends Fragment {
                         scrollHelper.getToolbarHeight() ,
                         height,
                         hasAppBarLayout,
+                        mSwipeRefreshLayout,
                         null));
 
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
@@ -291,46 +292,53 @@ public class ListFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 //        new AsyncLoad_Timeline().execute();
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-//                timelineItemList = new ArrayList<Object>();
-//                if(listType == FragmentTimelineAdapter.LIST_TIMELINE) {
-//                    adapter_Posts = new EndlessList_Adapter(
-//                            context,
-//                            navigationHeight,
-//                            scrollHelper,
-//                            activity.hasAppBarLayout(),
-//                            mProgressBar,
-//                            mTextViewNoting,
-//                            mSwipeRefreshLayout,
-//                            mRecyclerView,
-//                            timelineItemList,
-//                            mLayoutManager,
-//                            listType);
-//                    Global.resetListIndex(0);
-//                }else if(listType == FragmentTimelineAdapter.LIST_BLOG) {
-//                    adapter_Posts = new EndlessList_Adapter(
-//                            context,
-//                            navigationHeight,
-//                            scrollHelper,
-//                            activity.hasAppBarLayout(),
-//                            mProgressBar,
-//                            mTextViewNoting,
-//                            mSwipeRefreshLayout,
-//                            mRecyclerView,
-//                            timelineItemList,
-//                            mLayoutManager,
-//                            listType,
-//                            idHeader);
-//                    Global.resetListIndex(idHeader);
+//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//
+////                timelineItemList = new ArrayList<Object>();
+////                if(listType == FragmentTimelineAdapter.LIST_TIMELINE) {
+////                    adapter_Posts = new EndlessList_Adapter(
+////                            context,
+////                            navigationHeight,
+////                            scrollHelper,
+////                            activity.hasAppBarLayout(),
+////                            mProgressBar,
+////                            mTextViewNoting,
+////                            mSwipeRefreshLayout,
+////                            mRecyclerView,
+////                            timelineItemList,
+////                            mLayoutManager,
+////                            listType);
+////                    Global.resetListIndex(0);
+////                }else if(listType == FragmentTimelineAdapter.LIST_BLOG) {
+////                    adapter_Posts = new EndlessList_Adapter(
+////                            context,
+////                            navigationHeight,
+////                            scrollHelper,
+////                            activity.hasAppBarLayout(),
+////                            mProgressBar,
+////                            mTextViewNoting,
+////                            mSwipeRefreshLayout,
+////                            mRecyclerView,
+////                            timelineItemList,
+////                            mLayoutManager,
+////                            listType,
+////                            idHeader);
+////                    Global.resetListIndex(idHeader);
+////                }
+////                mRecyclerView.setAdapter(adapter_Posts);
+//                Toast.makeText(getActivity(),"commented refresh",Toast.LENGTH_SHORT).show();
+//
+//                if(listType == TYPE_YAFTE){
+//
+//                }else if(listType == TYPE_YADAK){
+//
+//                }else if(listType == TYPE_IMAGE){
+//
 //                }
-//                mRecyclerView.setAdapter(adapter_Posts);
-                Toast.makeText(getActivity(),"commented refresh",Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//            }
+//        });
 
 
 

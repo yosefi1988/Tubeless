@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.tubeless.activity.yafteha;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -10,12 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.activity._BaseDrawerActivity;
 import ir.sajjadyosefi.android.tubeless.adapter.list.SearchResultAdapter;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.yafte.search.SearchResultObject;
 
 
-public class SearchResultActivity extends _BaseDrawerActivity {
+public class SearchResultActivity  extends Activity {
 
     public Context context;
     public static List<SearchResultObject> searchResponse;

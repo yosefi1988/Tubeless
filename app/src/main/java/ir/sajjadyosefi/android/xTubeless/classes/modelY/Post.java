@@ -1,9 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.classes.modelY;
 
 
-import com.orm.SugarRecord;
-
-import java.io.Serializable;
 import java.util.List;
 
 public class Post {

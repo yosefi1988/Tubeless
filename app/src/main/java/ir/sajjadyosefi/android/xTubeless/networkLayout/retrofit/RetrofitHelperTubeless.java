@@ -54,6 +54,15 @@ public class RetrofitHelperTubeless {
         userCall.enqueue(callback);
     }
 
+    public void getTimelineItem(int id, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.getTimelineItem(id);
+        userCall.enqueue(callback);
+    }
+
+
+
+
+
 
 
 
@@ -104,10 +113,7 @@ public class RetrofitHelperTubeless {
         Call<Object> userCall = service.contactUs(request);
         userCall.enqueue(callback);
     }
-    public void getTimelineItem(int id, TubelessRetrofitCallback<Object> callback) {
-        Call<Object> userCall = service.getTimelineItem(id);
-        userCall.enqueue(callback);
-    }
+
     public void deleteTimelineItem(int id, String userId, TubelessRetrofitCallback<Object> callback) {
         Call<Object> userCall = service.deleteTimelineItem(id,userId);
         userCall.enqueue(callback);

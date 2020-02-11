@@ -4,8 +4,6 @@ package ir.sajjadyosefi.android.xTubeless.classes.modelY.radyab;
 import java.io.Serializable;
 import java.util.Date;
 
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.radyab.SlaveDetails;
-
 
 /**
  * Created by sajjad on 5/13/2018.
