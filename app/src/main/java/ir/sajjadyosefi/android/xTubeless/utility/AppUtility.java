@@ -12,8 +12,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
-import ir.sajjadyosefi.android.tubeless.Global;
+
+import ir.sajjadyosefi.android.xTubeless.Global;
+
 /**
  * Created by Sajad on 2/11/2017.
  */

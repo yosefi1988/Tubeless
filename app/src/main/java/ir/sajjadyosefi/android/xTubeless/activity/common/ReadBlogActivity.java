@@ -9,25 +9,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
-import ir.sajjadyosefi.android.tubeless.classes.DateConverterSjd;
-import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
-
+import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.LoginResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallback;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.Responses.blog.TimelineItemResponse;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
+import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,7 +38,7 @@ import retrofit2.Response;
  * Created by sajjad on 2/11/2018.
  */
 
-public class ReadBlogActivity extends TubelessActivity {
+public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
     Context mContext = null;
 
@@ -102,6 +104,46 @@ public class ReadBlogActivity extends TubelessActivity {
         };
         Global.apiManagerTubeless.getTimelineItem(blogItem.getBlogID(), ssssssss);
      }
+
+    @Override
+    public SystemBarTintManager getSystemBarTint() {
+        return null;
+    }
+
+    @Override
+    public boolean hasTranslucentNavigation() {
+        return false;
+    }
+
+    @Override
+    public boolean hasTranslucentStatusBar() {
+        return false;
+    }
+
+    @Override
+    public BottomNavigation getBottomNavigation() {
+        return null;
+    }
+
+    @Override
+    public int getNavigationBarHeight() {
+        return 0;
+    }
+
+    @Override
+    public boolean hasManagedToolbarScroll() {
+        return false;
+    }
+
+    @Override
+    public boolean hasAppBarLayout() {
+        return false;
+    }
+
+    @Override
+    public Toolbar getToolbar() {
+        return null;
+    }
 
 
     TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewShare,textViewText;
@@ -221,7 +263,7 @@ public class ReadBlogActivity extends TubelessActivity {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EndlessList_Adapter.prepareToShare(mContext, timelineItem.getTitle(), timelineItem.getText(), false);
+//                EndlessList_Adapter.prepareToShare(mContext, timelineItem.getTitle(), timelineItem.getText(), false);
 //                Toast.makeText(mContext,"Share" ,Toast.LENGTH_SHORT).show();
 
             }

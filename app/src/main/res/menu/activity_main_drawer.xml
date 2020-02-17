@@ -30,12 +30,12 @@
             android:title="جستجوی مدارک" />
 
         <item
-                android:id="@+id/nav_add_new_item"
+                android:id="@+id/nav_add_new_yafte_item"
                 android:icon="@drawable/ic_menu_camera"
                 android:title="ثبت مدارک گم شده" />
 
         <item
-            android:id="@+id/nav_search_by_national_code"
+            android:id="@+id/nav_add_new_yadak_item"
             android:icon="@drawable/ic_menu_camera"
             android:title="ثبت درخواست قطعه" />
 

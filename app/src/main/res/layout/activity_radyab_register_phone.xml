@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
                         android:id="@+id/tvField1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
                         android:id="@+id/tvField2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

@@ -84,7 +84,7 @@
             android:text="درخواست میزان شارژ" />
     </LinearLayout>
 
-    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
         android:id="@+id/nothing_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

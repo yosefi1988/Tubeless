@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.Fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +22,8 @@ import com.readystatesoftware.systembartint.SystemBarTintManager.SystemBarConfig
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 import java.util.ArrayList;
 import java.util.List;
-import ir.sajjadyosefi.android.tubeless.R;
+import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Tag;
@@ -44,7 +46,7 @@ public class ListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private CoordinatorLayout mCoordinatorLayout;
     private View fragmentRootView;
-    private MainActivity activity;
+    private TubelessActivity activity;
     private int listType;
     private FloatingActionButton floatingActionButton ,floatingActionButtonList;
     private LinearLayoutManager mLayoutManager;
@@ -54,8 +56,6 @@ public class ListFragment extends Fragment {
 
     //public
     private SystemBarConfig config;
-    private ToolbarScrollHelper scrollHelper;
-    private int navigationHeight;
     private ViewGroup mRoot;
 
     //static
@@ -118,86 +118,38 @@ public class ListFragment extends Fragment {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        activity            = (MainActivity) getActivity();
-        config              = activity.getSystemBarTint().getConfig();
+        activity            = (TubelessActivity) getActivity();
+
+        if (activity.getSystemBarTint() != null)
+            config              = activity.getSystemBarTint().getConfig();
+
         mRoot               = (ViewGroup) activity.findViewById(R.id.CoordinatorLayout01);
         if (mRoot instanceof CoordinatorLayout) {
             mCoordinatorLayout = (CoordinatorLayout) mRoot;
         }
 
-        final int navigationHeight;
-        final int actionbarHeight;
-
-        if (activity.hasTranslucentNavigation()) {
-            navigationHeight = config.getNavigationBarHeight();
-        } else {
-            navigationHeight = 0;
-        }
-
-        if (activity.hasTranslucentStatusBar()) {
-            actionbarHeight = config.getActionBarHeight();
-        } else {
-            actionbarHeight = 0;
-        }
-
-        final BottomNavigation navigation = activity.getBottomNavigation();
-        if (null != navigation) {
-            navigation.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                @Override
-                public void onGlobalLayout() {
-                    navigation.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-
-                    final ViewGroup.LayoutParams params = navigation.getLayoutParams();
-                    final CoordinatorLayout.Behavior behavior;
-
-                    if (params instanceof CoordinatorLayout.LayoutParams) {
-                        final CoordinatorLayout.LayoutParams coordinatorLayoutParams = (CoordinatorLayout.LayoutParams) params;
-                        behavior = coordinatorLayoutParams.getBehavior();
-                    } else {
-                        behavior = null;
-                    }
-
-                    if (behavior instanceof BottomBehavior) {
-                        final boolean scrollable = ((BottomBehavior) behavior).isScrollable();
-                        int systemBottomNavigation = activity.hasTranslucentNavigation() ? activity.getNavigationBarHeight() : 0;
-
-
-                        int totalHeight;
-
-                        if (scrollable) {
-                            if (systemBottomNavigation > 0) {
-                                totalHeight = systemBottomNavigation;
-                            } else {
-                                totalHeight = navigationHeight;
-                            }
-                        } else {
-                            totalHeight = navigation.getNavigationHeight();
-                        }
-
-                        createAdater(totalHeight, activity.hasManagedToolbarScroll());
-                    } else {
-                        createAdater(navigationHeight, activity.hasAppBarLayout());
-                    }
-                }
-            });
-        } else {
-            createAdater(navigationHeight, activity.hasAppBarLayout());
-        }
-
-        if (!activity.hasManagedToolbarScroll()) {
-            scrollHelper = new ToolbarScrollHelper(activity, activity.getToolbar());
-            scrollHelper.initialize(mRecyclerView);
-        }
-
+        createAdater();
         loadTimeline(fragmentRootView,listType);
     }
 
 
-    private void createAdater(int height, final boolean hasAppBarLayout) {
+    private void createAdater( ) {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+//        mRecyclerView.setAdapter(
+//                new XAdapter(
+//                        listType,
+//                        getContext(),
+//                        mRoot,
+//                        mRecyclerView,
+//                        mLayoutManager,
+//                        scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
+//                        height,
+//                        hasAppBarLayout,
+//                        mSwipeRefreshLayout,
+//                        null));
         mRecyclerView.setAdapter(
                 new XAdapter(
                         listType,
@@ -205,14 +157,13 @@ public class ListFragment extends Fragment {
                         mRoot,
                         mRecyclerView,
                         mLayoutManager,
-                        scrollHelper.getToolbarHeight() ,
-                        height,
-                        hasAppBarLayout,
+                        100 ,
+                        500,
+                        false,
                         mSwipeRefreshLayout,
                         null));
 
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-        navigationHeight = height;
     }
 
 
@@ -291,153 +242,56 @@ public class ListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-//        new AsyncLoad_Timeline().execute();
-//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//
-////                timelineItemList = new ArrayList<Object>();
-////                if(listType == FragmentTimelineAdapter.LIST_TIMELINE) {
-////                    adapter_Posts = new EndlessList_Adapter(
-////                            context,
-////                            navigationHeight,
-////                            scrollHelper,
-////                            activity.hasAppBarLayout(),
-////                            mProgressBar,
-////                            mTextViewNoting,
-////                            mSwipeRefreshLayout,
-////                            mRecyclerView,
-////                            timelineItemList,
-////                            mLayoutManager,
-////                            listType);
-////                    Global.resetListIndex(0);
-////                }else if(listType == FragmentTimelineAdapter.LIST_BLOG) {
-////                    adapter_Posts = new EndlessList_Adapter(
-////                            context,
-////                            navigationHeight,
-////                            scrollHelper,
-////                            activity.hasAppBarLayout(),
-////                            mProgressBar,
-////                            mTextViewNoting,
-////                            mSwipeRefreshLayout,
-////                            mRecyclerView,
-////                            timelineItemList,
-////                            mLayoutManager,
-////                            listType,
-////                            idHeader);
-////                    Global.resetListIndex(idHeader);
-////                }
-////                mRecyclerView.setAdapter(adapter_Posts);
-//                Toast.makeText(getActivity(),"commented refresh",Toast.LENGTH_SHORT).show();
-//
-//                if(listType == TYPE_YAFTE){
-//
-//                }else if(listType == TYPE_YADAK){
-//
-//                }else if(listType == TYPE_IMAGE){
-//
-//                }
-//            }
-//        });
+
+
+        if (floatingActionButton != null)
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+    //                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
+    //                    Intent intent = new Intent(context, NewYafteActivity.class);
+    //                    Bundle bundle = new Bundle();
+    //                    bundle.putInt(ContactUsActivity.Type,16);
+    //                    intent.putExtras(bundle);
+    //                    startActivity(intent);
+    //                    ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+    //                }else {
+    //                    context.startActivity(new Intent(context, UploadPictureActivity.class));
+    //                    context.startActivity(new Intent(context, NewBlogActivity.class));
+    //                }
 
 
 
-//        if(term == null && id == 0) {
-//            if (listType == FragmentTimelineAdapter.LIST_TIMELINE) {
-//                adapter_Posts = new EndlessList_Adapter(
-//                        context,
-//                        navigationHeight,
-//                        scrollHelper,
-//                        activity.hasAppBarLayout(),
-//                        mProgressBar,
-//                        mTextViewNoting,
-//                        mSwipeRefreshLayout,
-//                        mRecyclerView,
-//                        timelineItemList,
-//                        mLayoutManager,
-//                        listType);
-//            } else if (listType == FragmentTimelineAdapter.LIST_BLOG) {
-//                adapter_Posts = new EndlessList_Adapter(
-//                        context,
-//                        navigationHeight,
-//                        scrollHelper,
-//                        activity.hasAppBarLayout(),
-//                        mProgressBar,
-//                        mTextViewNoting,
-//                        mSwipeRefreshLayout,
-//                        mRecyclerView,
-//                        timelineItemList,
-//                        mLayoutManager,
-//                        listType,
-//                        idHeader);
-//            }
-//            mRecyclerView.setLayoutManager(mLayoutManager);
-//            mRecyclerView.setAdapter(adapter_Posts);
-//        }else {
-//            adapter_Posts = new EndlessList_Adapter(
-//                    context,
-//                    navigationHeight,
-//                    scrollHelper,
-//                    activity.hasAppBarLayout(),
-//                    mProgressBar,
-//                    mTextViewNoting,
-//                    mSwipeRefreshLayout,
-//                    mRecyclerView,
-//                    timelineItemList,
-//                    mLayoutManager,
-//                    term,
-//                    FragmentTimelineAdapter.LIST_YAFTE_RESULT,
-//                    id);
-//
-//            mRecyclerView.setLayoutManager(mLayoutManager);
-//            mRecyclerView.setAdapter(adapter_Posts);
-//        }
+                    if (listType == TYPE_YAFTE){
+                        context.startActivity(new Intent(context, RegNewYafteActivity.class));
+                    }else if (listType == TYPE_YADAK){
+                        context.startActivity(new Intent(context, RegNewYadakActivity.class));
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
-//                    Intent intent = new Intent(context, NewYafteActivity.class);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putInt(ContactUsActivity.Type,16);
-//                    intent.putExtras(bundle);
-//                    startActivity(intent);
-//                    ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-//                }else {
-//                    context.startActivity(new Intent(context, UploadPictureActivity.class));
-//                    context.startActivity(new Intent(context, NewBlogActivity.class));
-//                }
+                    }else if (listType == TYPE_IMAGE){
 
+                    }
+                }
+            });
 
-
-                if (listType == TYPE_YAFTE){
-                    context.startActivity(new Intent(context, RegNewYafteActivity.class));
-                }else if (listType == TYPE_YADAK){
-                    context.startActivity(new Intent(context, RegNewYadakActivity.class));
-
-                }else if (listType == TYPE_IMAGE){
+        if (floatingActionButtonList != null)
+            floatingActionButtonList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+    //                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
+    //                    Intent intent = new Intent(context, NewYafteActivity.class);
+    //                    Bundle bundle = new Bundle();
+    //                    bundle.putInt(ContactUsActivity.Type,16);
+    //                    intent.putExtras(bundle);
+    //                    startActivity(intent);
+    //                    ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+    //                }else {
+    ////                    context.startActivity(new Intent(context, UploadPictureActivity.class));
+    //                    context.startActivity(new Intent(context, NewBlogActivity.class));
+    //                }
+                    Toast.makeText(getActivity(),"commented onClick 2",Toast.LENGTH_SHORT).show();
 
                 }
-            }
-        });
-        floatingActionButtonList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
-//                    Intent intent = new Intent(context, NewYafteActivity.class);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putInt(ContactUsActivity.Type,16);
-//                    intent.putExtras(bundle);
-//                    startActivity(intent);
-//                    ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-//                }else {
-////                    context.startActivity(new Intent(context, UploadPictureActivity.class));
-//                    context.startActivity(new Intent(context, NewBlogActivity.class));
-//                }
-                Toast.makeText(getActivity(),"commented onClick 2",Toast.LENGTH_SHORT).show();
-
-            }
-        });
+            });
 
 //        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override

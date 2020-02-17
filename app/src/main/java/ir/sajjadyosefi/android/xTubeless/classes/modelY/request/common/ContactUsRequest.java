@@ -1,6 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common;
 
-import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
+
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 
 public class ContactUsRequest {
 

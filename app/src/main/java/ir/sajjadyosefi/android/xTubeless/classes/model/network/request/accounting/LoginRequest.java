@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting;
-import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
+
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 
 public class LoginRequest {
 

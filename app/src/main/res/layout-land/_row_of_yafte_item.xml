@@ -51,7 +51,7 @@
                 android:orientation="vertical">
 
 
-                <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
                     android:id="@+id/textViewTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                     android:textColor="@color/day_title"
                     android:textStyle="bold" />
 
-                <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
                     android:id="@+id/textViewStatment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                     android:text="متن کوتاه"
                     android:textColor="@color/day_content_text"  />
 
-                <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
                     android:id="@+id/textViewStatment2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

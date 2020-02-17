@@ -9,16 +9,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import org.litepal.LitePal;
+import androidx.appcompat.widget.Toolbar;
 
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
+import org.litepal.LitePal;
+import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
+import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 
-public class ProfileActivity extends TubelessActivity {
+public class ProfileActivity extends TubelessTransparentStatusBarActivity {
 
 
     EditText ueditTextNameUserId , editTextName , editTextEmail;
@@ -77,6 +82,46 @@ public class ProfileActivity extends TubelessActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public SystemBarTintManager getSystemBarTint() {
+        return null;
+    }
+
+    @Override
+    public boolean hasTranslucentNavigation() {
+        return false;
+    }
+
+    @Override
+    public boolean hasTranslucentStatusBar() {
+        return false;
+    }
+
+    @Override
+    public BottomNavigation getBottomNavigation() {
+        return null;
+    }
+
+    @Override
+    public int getNavigationBarHeight() {
+        return 0;
+    }
+
+    @Override
+    public boolean hasManagedToolbarScroll() {
+        return false;
+    }
+
+    @Override
+    public boolean hasAppBarLayout() {
+        return false;
+    }
+
+    @Override
+    public Toolbar getToolbar() {
+        return null;
     }
 
 //    private void accounts() {

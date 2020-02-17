@@ -27,6 +27,7 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
     public static int TYPE_YAFTE  = 3;
     public static int TYPE_YADAK  = 2;
     public static int TYPE_IMAGE  = 1;
+    public static int TYPE_POST_SEARCH_RESULT  = 4;
 
     public FirstFragmentsAdapter(Context context, ViewPager viewPager, FragmentManager supportFragmentManager) {
         super(supportFragmentManager);

@@ -9,23 +9,28 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+import androidx.appcompat.widget.Toolbar;
 
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
+import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.request.yafte.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.basic.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.tubeless.Global.NOT_LOGN_USER;
+import static ir.sajjadyosefi.android.xTubeless.Global.NOT_LOGN_USER;
 
 
-public class RegNewYafteActivity extends TubelessActivity {
+public class RegNewYafteActivity extends TubelessTransparentStatusBarActivity {
 
 
     public static final int GO_TO_LOGIN = 20;
@@ -155,6 +160,46 @@ public class RegNewYafteActivity extends TubelessActivity {
 //        ss.setPassword(systemPassword);
 //        ss.setAndroidId(androidId);
 //        sendAvatar(ss,((File) files),(((File) files).getUri()));
+    }
+
+    @Override
+    public SystemBarTintManager getSystemBarTint() {
+        return null;
+    }
+
+    @Override
+    public boolean hasTranslucentNavigation() {
+        return false;
+    }
+
+    @Override
+    public boolean hasTranslucentStatusBar() {
+        return false;
+    }
+
+    @Override
+    public BottomNavigation getBottomNavigation() {
+        return null;
+    }
+
+    @Override
+    public int getNavigationBarHeight() {
+        return 0;
+    }
+
+    @Override
+    public boolean hasManagedToolbarScroll() {
+        return false;
+    }
+
+    @Override
+    public boolean hasAppBarLayout() {
+        return false;
+    }
+
+    @Override
+    public Toolbar getToolbar() {
+        return null;
     }
 
 //    private void accounts() {

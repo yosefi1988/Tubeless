@@ -13,8 +13,7 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import ir.sajjadyosefi.android.tubeless.R;
+import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Tag;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.TwoLinesViewHolder;

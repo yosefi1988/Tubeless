@@ -55,7 +55,7 @@
                     android:scaleType="centerCrop"
                     android:visibility="visible" />
 
-                <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
                     android:id="@+id/txtUsername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             </GridLayout>
 
 
-            <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+            <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
                 android:id="@+id/txtEditProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

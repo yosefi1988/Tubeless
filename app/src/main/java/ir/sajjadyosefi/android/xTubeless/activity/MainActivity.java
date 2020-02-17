@@ -28,6 +28,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.andremion.counterfab.CounterFab;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -35,16 +36,18 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import org.litepal.LitePal;
 
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.post.SearchByNameActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
 import it.sephiroth.android.library.bottomnavigation.BadgeProvider;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import it.sephiroth.android.library.bottomnavigation.FloatingActionButtonBehavior;
@@ -58,11 +61,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     //val
     private static int LOGIN_REQUEST_CODE = 101 ;
 
-    private SystemBarTintManager mSystemBarTint;
-    private boolean mTranslucentStatus;
-    private boolean mTranslucentStatusSet;
-    private boolean mTranslucentNavigation;
-    private boolean mTranslucentNavigationSet;
     private BottomNavigation mBottomNavigation;
     private DrawerLayout drawer_layout;
     private ViewPager viewPager;
@@ -173,7 +171,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         header.setOnClickListener(onClickListener);
         ////////////////////////////////// end on click ///////////////////////////////////
 
-
     }
 
     private void loadTubelessAccountData() {
@@ -259,24 +256,11 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 ////                } else if (id == R.id.nav_gallery) {
 ////                    Intent autoActivityIntent =  new Intent(getContext(), ProfileActivity.class);
 ////                    getActivity().startActivity(autoActivityIntent);
-                } else if (id == R.id.nav_add_new_item) {
+                } else if (id == R.id.nav_add_new_yafte_item) {
 //                    Intent autoActivityIntent =  new Intent(getContext(), RegYafteActivity.class);
 //                    getContext().startActivity(autoActivityIntent);
 
-                } else if (id == R.id.nav_search_by_name) {
-//                    if (getContext().getPackageName().contains("yadak")){
-//                        final BottomSheetDialog progressDialog = new BottomSheetDialog(getContext());
-//                        TubelessException.ShowSheetDialogMessage(getContext(), progressDialog, getContext().getString(R.string.yadakMessage) , "ok" , new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                progressDialog.dismiss();
-//                            }
-//                        });
-//                    }else {
-//                        getActivity().startActivity(new Intent(getContext(), SearchByNameActivity.class));
-//                        getActivity().finish();
-//                    }
-                } else if (id == R.id.nav_search_by_national_code) {
+                } else if (id == R.id.nav_add_new_yadak_item) {
 //                    if (getContext().getPackageName().contains("yadak")){
 //                        final BottomSheetDialog progressDialog = new BottomSheetDialog(getContext());
 //                        TubelessException.ShowSheetDialogMessage(getContext(), progressDialog, getContext().getString(R.string.yadakMessage) , "ok" , new View.OnClickListener() {
@@ -289,6 +273,20 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                        getActivity().startActivity(new Intent(getContext(), SearchByNationalCodeActivity.class));
 //                        getActivity().finish();
 //                    }
+
+                } else if (id == R.id.nav_search_by_name) {
+                    if (getContext().getPackageName().contains("yadak")){
+                        final BottomSheetDialog progressDialog = new BottomSheetDialog(getContext());
+                        TubelessException.ShowSheetDialogMessage(getContext(), progressDialog, getContext().getString(R.string.yadakMessage) , "ok" , new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                progressDialog.dismiss();
+                            }
+                        });
+                    }else {
+                        getActivity().startActivity(new Intent(getContext(), SearchByNameActivity.class));
+                        getActivity().finish();
+                    }
 
                 } else if (id == R.id.nav_contact_us) {
 //                    ContainerActivity.type = 2 ;
@@ -512,6 +510,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         return mBottomNavigation;
     }
 
+    @Override
     public SystemBarTintManager getSystemBarTint() {
         if (null == mSystemBarTint) {
             mSystemBarTint = new SystemBarTintManager(this);

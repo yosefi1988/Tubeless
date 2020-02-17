@@ -18,14 +18,11 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 import java.util.Date;
 import java.util.List;
 
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.adapter.EndlessList_Adapter;
-import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncDeleteBlogItem;
-import ir.sajjadyosefi.android.tubeless.asyncTask.blog.AsyncFavouriteBlogItem;
-import ir.sajjadyosefi.android.tubeless.classes.JsonDateDeserializer;
-import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.JsonDateDeserializer;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog.BlogItem;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.BlogItemViewHolder;
@@ -473,7 +470,7 @@ public class TimelineItem implements IItems {
         final BlogItem blogItem = gson.fromJson(json0000,BlogItem.class);
 
 
-        ir.sajjadyosefi.android.tubeless.classes.DateConverterSjd dateUtiliti = new ir.sajjadyosefi.android.tubeless.classes.DateConverterSjd();
+        DateConverterSjd dateUtiliti = new DateConverterSjd();
         holder.textViewTitle.setText(blogItem.getTitle());
 //        holder.textViewTitle2.setText(blogItem.getTitle());
         holder.textViewStatment.setText(blogItem.getStatement());
@@ -488,7 +485,7 @@ public class TimelineItem implements IItems {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EndlessList_Adapter.prepareToShare(mContext,blogItem.getTitlePicture(), blogItem.getStatement(), loadedImage[0]);
+//                EndlessList_Adapter.prepareToShare(mContext,blogItem.getTitlePicture(), blogItem.getStatement(), loadedImage[0]);
             }
         };
         holder.textViewShare.setOnClickListener(onClickListener);
@@ -500,8 +497,8 @@ public class TimelineItem implements IItems {
                 if(Global.user == null){
                     Global.ShowMessageDialog(mContext,"",mContext.getString(R.string.NotLoggedIn3));
                 }else {
-                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.user.getUserId(),blogItem.isInMyFavList());
-                    asyncFavouriteBlogItem.execute();
+//                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.user.getUserId(),blogItem.isInMyFavList());
+//                    asyncFavouriteBlogItem.execute();
                 }
 
 
@@ -562,8 +559,8 @@ public class TimelineItem implements IItems {
                                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                                     public void onClick(DialogInterface dialog, int whichButton) {
-                                        AsyncDeleteBlogItem asyncDeleteBlogItem = new AsyncDeleteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.user.getUserId());
-                                        asyncDeleteBlogItem.execute();
+//                                        AsyncDeleteBlogItem asyncDeleteBlogItem = new AsyncDeleteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.user.getUserId());
+//                                        asyncDeleteBlogItem.execute();
                                     }})
                                 .setNegativeButton(android.R.string.no, null).show();
 

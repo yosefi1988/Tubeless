@@ -11,10 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import ir.sajjadyosefi.android.tubeless.BuildConfig;
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
 
 public class AndroidOs {
 

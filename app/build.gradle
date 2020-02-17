@@ -15,7 +15,7 @@ android {
 
     lintOptions { disable 'MissingTranslation', 'ExtraTranslation' }
     defaultConfig {
-        applicationId "ir.sajjadyosefi.tubeless"
+        applicationId "ir.sajjadyosefi.android.xTubeless"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 23
@@ -33,14 +33,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //manifestPlaceholders = [pn: "com.hamsa"]
             //manifestPlaceholders = [pn: "com.hamsa.debug"]
-            manifestPlaceholders = [pn: "ir.sajjadyosefi.tubeless"]
+            manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
         }
         debug {
             minifyEnabled false
             //useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //versionNameSuffix "-dev"
-            manifestPlaceholders = [pn: "ir.sajjadyosefi.tubeless"]
+            manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
         }
     }
 //    productFlavors {

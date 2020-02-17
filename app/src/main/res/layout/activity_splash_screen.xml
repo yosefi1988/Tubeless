@@ -12,7 +12,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/jpg_back2"  />
 
-    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+
+    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

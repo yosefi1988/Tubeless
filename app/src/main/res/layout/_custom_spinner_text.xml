@@ -17,7 +17,7 @@
         android:src="@drawable/ic_launcher"
         tools:srcCompat="@drawable/ic_launcher" />
 
-    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
         android:id="@+id/textview"
         android:text="kkkk"
         android:textSize="18dp"
@@ -26,6 +26,5 @@
         android:gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:textColor="@color/colorPrimary"
-        android:layout_height="wrap_content" >
-    </ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView>
+        android:layout_height="wrap_content" />
 </LinearLayout>

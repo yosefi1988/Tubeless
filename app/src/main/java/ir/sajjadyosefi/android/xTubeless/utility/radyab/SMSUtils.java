@@ -12,8 +12,7 @@ import android.telephony.SmsManager;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
-import ir.sajjadyosefi.android.tubeless.R;
+import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.model.common.Sms;
 
 /**

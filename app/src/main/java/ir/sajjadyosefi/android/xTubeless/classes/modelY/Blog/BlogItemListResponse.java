@@ -3,7 +3,7 @@ package ir.sajjadyosefi.android.xTubeless.classes.modelY.Blog;
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.post.ServerResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
 
 
 /**

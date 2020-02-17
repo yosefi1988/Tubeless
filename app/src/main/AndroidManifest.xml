@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ir.sajjadyosefi.android.tubeless"
+    package="ir.sajjadyosefi.android.xTubeless"
     android:installLocation="preferExternal">
 
     <uses-permission
@@ -63,6 +63,11 @@
 <!--            android:name="ir.sajjadyosefi.android.xTubeless.xMainActivity"-->
 <!--            android:configChanges="orientation|screenSize" />-->
 
+
+
+
+
+
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.MainActivity"
             android:label="@string/app_name"
@@ -70,69 +75,111 @@
         </activity>
 
         <activity
-            android:name=".activity.yafteha.SearchActivity"
-            android:configChanges="orientation|screenSize">
+            android:name=".activity.post.SearchByNationalCodeActivity"
+            android:theme="@style/ThemeFullSCreen"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
+        <activity
+            android:name=".activity.post.SearchByNameActivity"
+            android:theme="@style/ThemeFullSCreen"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-        <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity"
-            android:configChanges="orientation|screenSize"
-            android:isScrollContainer="true"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity"
-            android:configChanges="orientation|screenSize"
-            android:isScrollContainer="true"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity"
             android:configChanges="orientation|screenSize"
+            android:theme="@style/ThemeFullSCreen"
             android:isScrollContainer="true"
             android:windowSoftInputMode="stateHidden|adjustResize"  />
 
-
+        <activity
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity"
+            android:theme="@style/ThemeFullSCreen"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity"
+            android:theme="@style/ThemeFullSCreen"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:configChanges="orientation|screenSize" />
 
+        <activity
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity"
+            android:theme="@style/ThemeFullSCreen"
+            android:configChanges="orientation|screenSize"
+            android:isScrollContainer="true"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
-            android:name=".activity.yafteha.SearchResultActivity"
-            android:configChanges="orientation|screenSize" />
-        <activity
-            android:name=".activity.tools.Noise"
-            android:configChanges="orientation|screenSize" />
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity"
+            android:theme="@style/ThemeFullSCreen"
+            android:configChanges="orientation|screenSize"
+            android:isScrollContainer="true"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity"
-            android:windowSoftInputMode="stateAlwaysVisible" />
-        <activity android:name=".activity.blog.NewBlogActivity" />
-        <activity android:name="ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity" />
-        <activity android:name=".activity.radyab.SelectCarForRadyab" />
-        <activity android:name=".activity.radyab.RegisterPhoneActivity" />
+            android:theme="@style/ThemeFullSCreen"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
-        <activity android:name=".activity.PaymentActivity" />
-        <activity android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity" />
+
         <activity
-            android:name=".activity.innerActivity.ImageAndVideoPlayer"
-            android:isScrollContainer="true"
-            android:theme="@style/TranslucentSajjad2"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name="ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity" />
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity"
+            android:theme="@style/ThemeFullSCreen"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+
+        <activity
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity"
+            android:theme="@style/ThemeFullSCreen"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+
+
+        <activity
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.Splash_Screen"
+            android:theme="@style/ThemeFullSCreen">
+        </activity>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--        <activity-->
+        <!--            android:name=".activity.innerActivity.ImageAndVideoPlayer"-->
+        <!--            android:isScrollContainer="true"-->
+        <!--            android:theme="@style/TranslucentSajjad2"-->
+        <!--            android:windowSoftInputMode="adjustPan" />-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <activity android:name="ir.moslem_deris.apps.zarinpal.PaymentActivity" />
-        <activity android:name=".activity.uploadPicture.UploadPictureActivity" />
-        <activity android:name=".activity.yafteha.NewYafteActivity" />
-        <activity android:name=".activity.radyab.EditRadyabCarActivity" />
-        <activity android:name=".activity.innerActivity.SearchResultActivity" />
-        <activity
-            android:name=".activity.uploadPicture.CategorySelectActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/TRANS_BACKListActivity"
-            android:windowSoftInputMode="adjustPan"
-            app:theme="@style/TRANS_BACKListActivity" />
+
         <activity
             android:name="eu.janmuller.android.simplecropimage.CropImage"
             android:screenOrientation="landscape" />
@@ -140,13 +187,6 @@
             android:name="ir.adad.client.AdadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
-
-        <activity android:name="ir.sajjadyosefi.android.xTubeless.activity.common.Splash_Screen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <!-- <receiver -->
         <!-- android:name="ir.sls.android.slspush.Receiver.GcmBroadcastReceiver" -->
@@ -221,9 +261,6 @@
                 android:resource="@xml/authenticator" />
         </service>
 
-        <activity
-            android:name=".activity.radyab.MainRadyabActivity"
-            android:label="@string/title_activity_main_radyab"></activity>
     </application>
 
 </manifest>

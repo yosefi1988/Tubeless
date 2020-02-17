@@ -19,7 +19,7 @@
         android:background="@color/day_white"
         app:srcCompat="@drawable/add_new_car" />
 
-    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="20dp"

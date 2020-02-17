@@ -12,8 +12,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import ir.sajjadyosefi.android.tubeless.R;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
+import ir.sajjadyosefi.android.xTubeless.R;
+import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 //import com.crashlytics.android.Crashlytics;
@@ -35,6 +39,7 @@ public abstract class TubelessActivity extends AppCompatActivity {
         progressDialog = new Dialog(getContext());
         progressDialog.setContentView(R.layout.x_main_progress);
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
 
 //        Fabric.with(this, new Crashlytics());
 
@@ -119,4 +124,25 @@ public abstract class TubelessActivity extends AppCompatActivity {
     }
 
 
+    protected SystemBarTintManager mSystemBarTint;
+    protected boolean mTranslucentStatus;
+    protected boolean mTranslucentStatusSet;
+    protected boolean mTranslucentNavigation;
+    protected boolean mTranslucentNavigationSet;
+
+    public abstract SystemBarTintManager getSystemBarTint() ;
+
+    public abstract boolean hasTranslucentNavigation();
+
+    public abstract boolean hasTranslucentStatusBar();
+
+    public abstract BottomNavigation getBottomNavigation();
+
+    public abstract int getNavigationBarHeight();
+
+    public abstract boolean hasManagedToolbarScroll();
+
+    public abstract boolean hasAppBarLayout();
+
+    public abstract Toolbar getToolbar();
 }

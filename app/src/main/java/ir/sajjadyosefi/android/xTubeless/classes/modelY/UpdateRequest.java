@@ -4,7 +4,6 @@ import android.content.Context;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
-import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
 
 /**
  * Created by sajjad on 12/22/2016.
@@ -48,7 +47,7 @@ public class UpdateRequest{
         deviceDetails.androidVersion = "1" ;
 
         //imei
-        deviceDetails.imei = ((TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
+//        deviceDetails.imei = ((TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
 //        deviceDetails.imei = "";
         deviceDetails.phoneNumber = "1" ;
 

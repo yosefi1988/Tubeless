@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -17,18 +19,19 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.orm.SugarContext;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 //import com.vansuita.gaussianblur.GaussianBlur;
 
 import ir.adad.client.Adad;
-import ir.sajjadyosefi.android.tubeless.asyncTask.account.AsyncSendMessage;
+import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Message;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView;
+import ir.sajjadyosefi.android.xTubeless.R;
+import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 
-public class ContactUsActivity extends AppCompatActivity {
+public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
 
     //Bundle String list
     public static final String Type = "TYPE";
@@ -193,6 +196,45 @@ public class ContactUsActivity extends AppCompatActivity {
         },200);
     }
 
+    @Override
+    public SystemBarTintManager getSystemBarTint() {
+        return null;
+    }
+
+    @Override
+    public boolean hasTranslucentNavigation() {
+        return false;
+    }
+
+    @Override
+    public boolean hasTranslucentStatusBar() {
+        return false;
+    }
+
+    @Override
+    public BottomNavigation getBottomNavigation() {
+        return null;
+    }
+
+    @Override
+    public int getNavigationBarHeight() {
+        return 0;
+    }
+
+    @Override
+    public boolean hasManagedToolbarScroll() {
+        return false;
+    }
+
+    @Override
+    public boolean hasAppBarLayout() {
+        return false;
+    }
+
+    @Override
+    public Toolbar getToolbar() {
+        return null;
+    }
 
 
     @Override

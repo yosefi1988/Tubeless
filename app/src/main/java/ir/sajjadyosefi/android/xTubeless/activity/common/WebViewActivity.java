@@ -8,11 +8,14 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
+
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,13 +26,15 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 
-import ir.sajjadyosefi.android.tubeless.R;
+import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 /**
  * Created by Sajad on 2/11/2017.
  */
-public class WebViewActivity extends TubelessActivity {
+public class WebViewActivity extends TubelessTransparentStatusBarActivity {
     Context context;
     WebSettings wSettings;
 
@@ -135,6 +140,46 @@ public class WebViewActivity extends TubelessActivity {
                 }
             }
         }
+    }
+
+    @Override
+    public SystemBarTintManager getSystemBarTint() {
+        return null;
+    }
+
+    @Override
+    public boolean hasTranslucentNavigation() {
+        return false;
+    }
+
+    @Override
+    public boolean hasTranslucentStatusBar() {
+        return false;
+    }
+
+    @Override
+    public BottomNavigation getBottomNavigation() {
+        return null;
+    }
+
+    @Override
+    public int getNavigationBarHeight() {
+        return 0;
+    }
+
+    @Override
+    public boolean hasManagedToolbarScroll() {
+        return false;
+    }
+
+    @Override
+    public boolean hasAppBarLayout() {
+        return false;
+    }
+
+    @Override
+    public Toolbar getToolbar() {
+        return null;
     }
 
 

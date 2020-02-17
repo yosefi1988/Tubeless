@@ -1,8 +1,8 @@
 package ir.sajjadyosefi.android.xTubeless.classes.modelY.request.account;
 
 
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 
 public class DeviceRequest {
 

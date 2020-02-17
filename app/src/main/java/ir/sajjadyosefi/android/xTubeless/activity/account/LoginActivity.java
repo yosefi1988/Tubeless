@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -19,10 +21,11 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
+import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.R;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
@@ -36,6 +39,7 @@ import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.Validation;
+import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
 public class LoginActivity extends TubelessActivity {
@@ -339,6 +343,48 @@ public class LoginActivity extends TubelessActivity {
     public void onBackPressed() {
         super.onBackPressed();
         retCancel();
+    }
+
+
+
+    @Override
+    public SystemBarTintManager getSystemBarTint() {
+        return null;
+    }
+
+    @Override
+    public boolean hasTranslucentNavigation() {
+        return false;
+    }
+
+    @Override
+    public boolean hasTranslucentStatusBar() {
+        return false;
+    }
+
+    @Override
+    public BottomNavigation getBottomNavigation() {
+        return null;
+    }
+
+    @Override
+    public int getNavigationBarHeight() {
+        return 0;
+    }
+
+    @Override
+    public boolean hasManagedToolbarScroll() {
+        return false;
+    }
+
+    @Override
+    public boolean hasAppBarLayout() {
+        return false;
+    }
+
+    @Override
+    public Toolbar getToolbar() {
+        return null;
     }
 
 }

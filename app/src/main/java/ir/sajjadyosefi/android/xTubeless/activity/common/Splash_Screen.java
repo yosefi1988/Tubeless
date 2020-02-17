@@ -17,12 +17,11 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.splunk.mint.Mint;
 
 //import ir.sajjadyosefi.android.tubeless.Class.model.AppStatus;
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.asyncTask.account.AsyncDeviceRegister;
-import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
+import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Device;
+import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
 
@@ -141,8 +140,8 @@ public class Splash_Screen extends AppCompatActivity {
                 device.setAndroidVersion(Build.VERSION.RELEASE);   //new
                 device.setAndroidAPI(Build.VERSION.SDK_INT);   //new
 
-                AsyncDeviceRegister asyncDeviceRegister = new AsyncDeviceRegister(context,device);
-                asyncDeviceRegister.execute();
+//                AsyncDeviceRegister asyncDeviceRegister = new AsyncDeviceRegister(context,device);
+//                asyncDeviceRegister.execute();
             }
 
 

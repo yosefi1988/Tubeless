@@ -17,13 +17,10 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import ir.sajjadyosefi.android.tubeless.Global;
-import ir.sajjadyosefi.android.tubeless.R;
-import ir.sajjadyosefi.android.tubeless.classes.CommonClass;
+import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallback;
-import ir.sajjadyosefi.android.tubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.TextItem;
@@ -32,6 +29,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostViewHolde
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.TwoLinesViewHolder;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
+import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -119,38 +118,6 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
             @Override
             public void onRefresh() {
 
-//                timelineItemList = new ArrayList<Object>();
-//                if(listType == FragmentTimelineAdapter.LIST_TIMELINE) {
-//                    adapter_Posts = new EndlessList_Adapter(
-//                            context,
-//                            navigationHeight,
-//                            scrollHelper,
-//                            activity.hasAppBarLayout(),
-//                            mProgressBar,
-//                            mTextViewNoting,
-//                            mSwipeRefreshLayout,
-//                            mRecyclerView,
-//                            timelineItemList,
-//                            mLayoutManager,
-//                            listType);
-//                    Global.resetListIndex(0);
-//                }else if(listType == FragmentTimelineAdapter.LIST_BLOG) {
-//                    adapter_Posts = new EndlessList_Adapter(
-//                            context,
-//                            navigationHeight,
-//                            scrollHelper,
-//                            activity.hasAppBarLayout(),
-//                            mProgressBar,
-//                            mTextViewNoting,
-//                            mSwipeRefreshLayout,
-//                            mRecyclerView,
-//                            timelineItemList,
-//                            mLayoutManager,
-//                            listType,
-//                            idHeader);
-//                    Global.resetListIndex(idHeader);
-//                }
-//                mRecyclerView.setAdapter(adapter_Posts);
                 loadTimeline(context,1,false);
 
                 mSwipeRefreshLayout.setRefreshing(false);
@@ -186,6 +153,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
                             adapter.notifyItemInserted(data.size());
                         }
                     }
+
+
 //                Gson gson = new Gson();
 //                JsonElement jsonElement = gson.toJsonTree(response.body());
 //                TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);
@@ -206,7 +175,6 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
                 }
             }));
-
         }else if (type == TYPE_YAFTE) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
                 @Override
@@ -265,9 +233,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
                 }
             };
             Global.apiManagerTubeless.getYafteTimeline(current_page - 1, ssssssss);
-
         }else if (type == TYPE_YADAK) {
-
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
@@ -310,7 +276,6 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
                 }
             };
             Global.apiManagerTubeless.getYadakTimeline(current_page - 1, ssssssss);
-
         }
     }
 
@@ -336,7 +301,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
     public void onBindViewHolder(final PostViewHolder holder, final int position) {
         ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).topMargin = 0;
         if (position == getItemCount() - 1) {
-            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).bottomMargin = holder.marginBottom + navigationHeight;
+//            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).bottomMargin = holder.marginBottom + navigationHeight;
 
 //        } else if (position == 0 && !hasAppBarLayout) {       <= فاصله اولین آیتم از بالای لیست
 //            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).topMargin = scrollHeight;
@@ -395,43 +360,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
     void sssss( final RecyclerView recyclerViewTimeline,final Context context){
 
         if (CommonClass.isNetworkConnected(context)) {
-//            if(listType == FragmentTimelineAdapter.LIST_TIMELINE) {
-//                new AsyncLoadTimeline(
-//                        context,
-//                        mProgressBar,
-//                        mTextViewNoting,
-//                        mSwipeRefreshLayout,
-//                        mRecyclerViewTimeline,
-//                        mTimelineItemList,
-//                        mPostsAdapter,
-//                        listType
-//                ).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-//            }else if(listType == FragmentTimelineAdapter.LIST_BLOG) {
-//                new AsyncLoadBlogItemList(
-//                        context,
-//                        mProgressBar,
-//                        mTextViewNoting,
-//                        mSwipeRefreshLayout,
-//                        mRecyclerViewTimeline,
-//                        mTimelineItemList,
-//                        mPostsAdapter,
-//                        listType,
-//                        idHeader
-//                ).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-//            }else if(listType == FragmentTimelineAdapter.LIST_YAFTE_RESULT) {
-//                new AsyncLoadBlogItemList(
-//                        context,
-//                        mProgressBar,
-//                        mTextViewNoting,
-//                        mSwipeRefreshLayout,
-//                        mRecyclerViewTimeline,
-//                        mTimelineItemList,
-//                        mPostsAdapter,
-//                        listType,
-//                        term,
-//                        idHeader
-//                ).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-//            }
+
         }else{
             try {
                 Global.ShowMessageDialog(context,"",context.getString(R.string.errorInInternetConnection));

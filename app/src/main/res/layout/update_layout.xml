@@ -8,7 +8,7 @@
     android:background="#fcfff8"
     android:padding="10dp" >
 
-    <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

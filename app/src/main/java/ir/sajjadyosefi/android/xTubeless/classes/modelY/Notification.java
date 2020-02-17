@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Vector;
 
-import ir.sajjadyosefi.android.tubeless.classes.NotifyItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.NotifyItem;
+
 
 public class Notification implements Serializable {
 

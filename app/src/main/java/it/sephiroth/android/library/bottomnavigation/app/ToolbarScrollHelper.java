@@ -38,7 +38,9 @@ public class ToolbarScrollHelper
         this.scrollHelper = new ScrollHelper();
         this.toolbar = toolbar;
         this.toolbarHeight = setupToolbar(activity);
-        this.toolbar.addOnLayoutChangeListener(this);
+
+        if (this.toolbar != null)
+            this.toolbar.addOnLayoutChangeListener(this);
 
         if (toolbarHeight > 0) {
             scrollHelper.setRange(-toolbarHeight, 0);
@@ -54,21 +56,23 @@ public class ToolbarScrollHelper
     private int setupToolbar(final Activity activity) {
         SystemBarTintManager manager = new SystemBarTintManager(activity);
         final SystemBarTintManager.SystemBarConfig config = manager.getConfig();
-        if (config.getPixelInsetTop(false) > 0) {
+        if (config.getPixelInsetTop(false) > 0 && toolbar != null) {
             ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) toolbar.getLayoutParams();
 
             params.topMargin = -100;
             params.height = config.getActionBarHeight() + config.getStatusBarHeight() + 50;
 
             //hamburger menu
-            toolbar.setLayoutParams(params);
+            if (toolbar != null)
+                toolbar.setLayoutParams(params);
 
             if (count <= 1) {
-                toolbar.setPadding(
-                        toolbar.getPaddingLeft(),
-                        toolbar.getPaddingTop() + config.getStatusBarHeight(),
-                        toolbar.getPaddingRight(),
-                        toolbar.getPaddingBottom()
+                if (toolbar != null)
+                    toolbar.setPadding(
+                            toolbar.getPaddingLeft(),
+                            toolbar.getPaddingTop() + config.getStatusBarHeight(),
+                            toolbar.getPaddingRight(),
+                            toolbar.getPaddingBottom()
                 );
                 count++;
             }
@@ -126,8 +130,12 @@ public class ToolbarScrollHelper
 
         if (scrollHelper.inRange() || dragging) {
             // MiscUtils.log(TAG, Log.DEBUG, "inRange: " + toolbar.getTranslationY() + ", " + scrollHelper.getCurrentScroll());
-            toolbar.setTranslationY(scrollHelper.clamp(toolbar.getTranslationY() - dy));
-            dragging = scrollHelper.valueInRange(toolbar.getTranslationY());
+            if (toolbar != null) {
+                toolbar.setTranslationY(scrollHelper.clamp(toolbar.getTranslationY() - dy));
+                dragging = scrollHelper.valueInRange(toolbar.getTranslationY());
+            }else {
+
+            }
         } else {
             if (dy < 0 && scrollHelper.getCurrentScroll() > -toolbarHeight / 2) {
                 if (!expanding) {
@@ -144,37 +152,41 @@ public class ToolbarScrollHelper
     private void expand(final boolean animate) {
         if (animate) {
             expanding = true;
-            toolbar.animate().cancel();
-            toolbar
-                .animate()
-                .translationY(0)
-                .setListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(final Animator animation) {
+            if (toolbar != null) {
+                toolbar.animate().cancel();
+                toolbar
+                        .animate()
+                        .translationY(0)
+                        .setListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(final Animator animation) {
 
-                    }
+                            }
 
-                    @Override
-                    public void onAnimationEnd(final Animator animation) {
-                        onAnimationCompleted();
-                        expanding = false;
-                    }
+                            @Override
+                            public void onAnimationEnd(final Animator animation) {
+                                onAnimationCompleted();
+                                expanding = false;
+                            }
 
-                    @Override
-                    public void onAnimationCancel(final Animator animation) {
-                        onAnimationCompleted();
-                        expanding = false;
-                    }
+                            @Override
+                            public void onAnimationCancel(final Animator animation) {
+                                onAnimationCompleted();
+                                expanding = false;
+                            }
 
-                    @Override
-                    public void onAnimationRepeat(final Animator animation) {
+                            @Override
+                            public void onAnimationRepeat(final Animator animation) {
 
-                    }
-                })
-                .setDuration(ANIMATION_DURATION)
-                .start();
+                            }
+                        })
+                        .setDuration(ANIMATION_DURATION)
+                        .start();
+            }
         } else {
-            toolbar.setTranslationY(0);
+            if (toolbar != null) {
+                toolbar.setTranslationY(0);
+            }
             onAnimationCompleted();
         }
     }
@@ -182,43 +194,49 @@ public class ToolbarScrollHelper
     private void collapse(final boolean animate) {
         if (animate) {
             collapsing = true;
-            toolbar.animate().cancel();
-            toolbar
-                .animate()
-                .translationY(-toolbarHeight)
-                .setDuration(ANIMATION_DURATION)
-                .setListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(final Animator animation) {
+            if (toolbar != null) {
+                toolbar.animate().cancel();
+                toolbar
+                        .animate()
+                        .translationY(-toolbarHeight)
+                        .setDuration(ANIMATION_DURATION)
+                        .setListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(final Animator animation) {
 
-                    }
+                            }
 
-                    @Override
-                    public void onAnimationEnd(final Animator animation) {
-                        onAnimationCompleted();
-                        collapsing = false;
-                    }
+                            @Override
+                            public void onAnimationEnd(final Animator animation) {
+                                onAnimationCompleted();
+                                collapsing = false;
+                            }
 
-                    @Override
-                    public void onAnimationCancel(final Animator animation) {
-                        onAnimationCompleted();
-                        collapsing = false;
-                    }
+                            @Override
+                            public void onAnimationCancel(final Animator animation) {
+                                onAnimationCompleted();
+                                collapsing = false;
+                            }
 
-                    @Override
-                    public void onAnimationRepeat(final Animator animation) {
+                            @Override
+                            public void onAnimationRepeat(final Animator animation) {
 
-                    }
-                })
-                .start();
+                            }
+                        })
+                        .start();
+            }
         } else {
-            toolbar.setTranslationY(-toolbarHeight);
+            if (toolbar != null) {
+                toolbar.setTranslationY(-toolbarHeight);
+            }
             onAnimationCompleted();
         }
     }
 
     private void onAnimationCompleted() {
-        scrollHelper.setCurrent(toolbar.getTranslationY());
+        if (toolbar != null) {
+            scrollHelper.setCurrent(toolbar.getTranslationY());
+        }
     }
 
     public boolean isCollapsing() {
@@ -229,7 +247,11 @@ public class ToolbarScrollHelper
         if (isAnimating()) {
             return isExpanding();
         } else {
-            return toolbar.getTranslationY() == 0;
+            if (toolbar != null) {
+                return toolbar.getTranslationY() == 0;
+            }else {
+                return false;
+            }
         }
     }
 

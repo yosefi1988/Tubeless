@@ -18,7 +18,7 @@
         android:padding="2dp">
 
 
-        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+        <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
             android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+        <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
             android:id="@+id/textViewName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"  />
 
 
-        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+        <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
             android:id="@+id/textViewStatment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"  />
 
 
-        <ir.sajjadyosefi.android.tubeless.view.widget.view.PersianTextView
+        <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
             android:id="@+id/textViewStatment2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
