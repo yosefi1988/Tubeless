@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,8 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
         setContentView(R.layout.activity_read_blog);
         mContext = this;
 
@@ -204,7 +207,11 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
         textViewLocation.setText(timelineItem.getLocation());
-        textViewText.setText(timelineItem.getText());
+
+        if (timelineItem.getText() == null)
+            textViewText.setVisibility(View.GONE);
+        else
+            textViewText.setText(timelineItem.getText());
 
 
         StringBuilder stringBuilder = new StringBuilder();

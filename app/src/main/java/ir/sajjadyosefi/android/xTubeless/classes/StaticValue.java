@@ -15,8 +15,8 @@ public class StaticValue {
     public static int cat1 = 10018;
     public static int cat2 = 10019;
     public static int cat3 = 10020;
-    public static final int IDApplicationVersion = 105;
-    public static final int IDApplication = 22;
+    public static final int IDApplicationVersion = 106;
+    public static final int IDApplication = 23;
 
 
     public static final int Tubeless_ITEM_TYPE = 1;

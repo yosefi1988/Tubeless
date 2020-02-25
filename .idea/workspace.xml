@@ -11,7 +11,7 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="AvailableLibraryUpdateStorage">
@@ -109,233 +109,52 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="22 BAHMAN">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessTransparentStatusBarActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNameActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNationalCodeActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retroftPost/PostRetrofitCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_name.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_national_code.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" afterDir="false" />
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="28 BAHMAN">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/LoginActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/model/IUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/IPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/LoginPresenterCompl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/view/ILoginView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/tree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ListActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/PostItemViewHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/top_of_full_screen.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_post_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/rule.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/rule.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/Listener/RecyclerItemClickListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/ListActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/PaymentActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/innerActivity/ImageAndVideoPlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/radyab/EditRadyabCarActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/radyab/MainRadyabActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/radyab/RadyabCarActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/radyab/RegisterPhoneActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/radyab/SelectCarForRadyab.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/tools/Noise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/uploadPicture/CategorySelectActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/uploadPicture/UploadPictureActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/yafteha/NewYafteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/NewYafteActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/yafteha/SearchActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/activity/yafteha/SearchResultActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/EndlessList_Adapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FragmentGashtogozarAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FragmentMashinbazAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FragmentMyCarAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FragmentPoliceAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FragmentProfileAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FragmentTamirgahAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FragmentTimelineAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FragmentYaftehaAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/FriendRequest_AD_SajjadTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/fragment/Notify_AD_SajjadTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/list/SearchResultAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/list/SpinnerAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/radyab/CarListAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/adapter/xFragments/MainPagerAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/account/AsyncChangePassword.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/account/AsyncDeviceRegister.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/account/AsyncRegister.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/account/AsyncSendMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/blog/AsyncDeleteBlogItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/blog/AsyncFavouriteBlogItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/blog/AsyncLoadBlogItemList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/config/AsyncCarCategoriesByCompany.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/config/AsyncCarCategoriesRecently.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/config/AsyncCheckServerConfing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/other/AsyncEstelam.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/other/AsyncPeymentResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/radyab/AsyncSendSms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/radyab/RequestRadyabServiceAsyncTask.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/timeline/AsyncCredit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/timeline/AsyncLike.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/asyncTask/timeline/AsyncLoadTimeline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/CommonClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/CrashHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/DateConverterSjd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/DownloadingTask.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/FileOpen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/FileUtils2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/GetUsersWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/HamburgerMenuDrawable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/JsonDateDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/JsonDateDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/MonoPushClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/NotifyItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/NotifyItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/ScrollAwareFABBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/ScrollAwareFABBehavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/StaticValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/StaticValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/animation/ResizeAnimation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/business/Accounting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/business/Navigator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/business/RadyabBusiness.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/business/SearchResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/business/Validator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/business/Yafte.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/networkLayout/networkLayout/HttpFileUploadAsync.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/networkLayout/networkLayout/HttpUrlconnectionHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/networkLayout/networkLayout/INetwork.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/networkLayout/networkLayout/MultipartHttpUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/networkLayout/networkLayout/RestApiHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/networkLayout/networkLayout/Url.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/networkLayout/networkLayout/retrofit/APIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retroftPost/APIService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/networkLayout/networkLayout/retrofit/RetrofitHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retroftPost/RetrofitHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/provider/InternalStorageContentProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/provider/MyFileContentProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/services/GCMNotificationIntentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/services/MyFireBaseInstanceIDService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/ui/BaseDecorationActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/ui/BaseDecorationFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/ui/DoubleHeaderActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/ui/DoubleHeaderFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/ui/InlineDoubleHeaderFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/ui/InlineStickyHeaderFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/ui/StickyHeaderFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/AddCarFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/BlankFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/BlankFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/CarDetailsFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/major/FragmentTimeline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/minor/FragmentChats.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/minor/FragmentFirendRequests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/minor/FragmentGashtogozar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/minor/FragmentMashinbaz.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/minor/FragmentPolice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/minor/FragmentTamirgah.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/minor/FragmentTimelineMinor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/myCarFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/profile/FragmentMyCars.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/profile/FragmentProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/radyab/radyabDashbord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/fragment/radyab/radyabHome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/DepthPageTransformer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/JustifiedPersianTextView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/ScrollerCustomDuration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/TouchImageView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/ViewPagerCustomDuration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/view/ButtonPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/ButtonPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/view/IconTextView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/IconTextView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/view/ImageViewPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/ImageViewPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/view/PersianTextView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/PersianTextView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/widget/view/VerticalScrollview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/VerticalScrollview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/xFragment/FragmentNotifications.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/xFragment/FragmentYafteha.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/xFragment/HomeFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/view/xFragment/TimelineFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/DoubleHeaderTestAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/InlineDoubleHeaderTestAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/InlineStickyTestAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/StickyTestAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/recyclerview/EndlessRecyclerOnScrollListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/recyclerview/EndlessRecyclerOnScrollListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/recyclerview/decoration/DividerDecoration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/recyclerview/decoration/DividerDecoration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/recyclerview/decoration/DoubleHeaderAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/recyclerview/decoration/DoubleHeaderAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/recyclerview/decoration/DoubleHeaderDecoration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/recyclerview/decoration/DoubleHeaderDecoration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/recyclerview/decoration/StickyHeaderAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/recyclerview/decoration/StickyHeaderAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/tubeless/widget/recyclerview/decoration/StickyHeaderDecoration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/recyclerview/decoration/StickyHeaderDecoration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessTransparentStatusBarActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessTransparentStatusBarActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/ProfileActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContactUsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContactUsActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ReadBlogActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ReadBlogActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/Splash_Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/Splash_Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/WebViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/WebViewActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNameActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNameActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNationalCodeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNationalCodeActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYafteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYafteActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/SAccounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/SAccounts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/request/accounting/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/request/accounting/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Blog/BlogItemListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Blog/BlogItemListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/StaticValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/StaticValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/responses/post/PostSearchResponseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/responses/post/PostSearchResponseItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Exception/TubelessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Exception/TubelessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/NetworkLayout/request/SearchRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/request/post/SearchRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/NetworkLayout/request/yafte/NewBlogRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/NetworkLayout/request/yafte/NewBlogRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/UpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/UpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/main/PostSearchResponseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/responses/post/PostSearchResponseItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/main/TimelineItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/main/TimelineItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/post/PictureItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/post/PictureItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/request/SearchRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/request/account/DeviceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/request/account/DeviceRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/request/common/ContactUsRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/request/common/ContactUsRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/responses/post/ServerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/responses/post/ServerResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/BlogItemViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/BlogItemViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/TimelineItemViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/TimelineItemViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/TwoLinesViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/TwoLinesViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/YafteItemViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/YafteItemViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/yafte/search/Search.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/yafte/search/SearchResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/yafte/search/SearchResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/AppUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/AppUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/CommonClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/radyab/SMSUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/radyab/SMSUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/xUtility/AndroidOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/xUtility/AndroidOs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/sephiroth/android/library/bottomnavigation/app/ToolbarScrollHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/sephiroth/android/library/bottomnavigation/app/ToolbarScrollHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/_row_of_blog_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/_row_of_blog_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/_row_of_yafte_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/_row_of_yafte_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_activity_navigation_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_activity_navigation_drawer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_activity_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_activity_search.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_activity_search_result.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_activity_search_result.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_custom_spinner_text.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_custom_spinner_text.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_part_admin_remove.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_part_admin_remove.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_part_download_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_part_download_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_part_favorative_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_part_favorative_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_part_share_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_part_share_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_part_user_avatar_land_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_part_user_avatar_land_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_part_user_avatar_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_part_user_avatar_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_blog_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_blog_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_search_result_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_search_result_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_radyab_car.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_radyab_car.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_radyab_register_phone.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_radyab_register_phone.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_radyab_status.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_radyab_status.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_upload_picture.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_upload_picture.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/addcar_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/addcar_fragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/eyyarth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yadak.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yadak.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yafte.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yafte.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_name.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_name.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_national_code.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_national_code.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/blank_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/blank_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/empty_fragment_sajjadtest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/empty_fragment_sajjadtest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_radyab_dashbord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_radyab_dashbord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_radyab_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_radyab_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_timeline_minor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_timeline_minor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/notfound_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/notfound_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/picture_type_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/picture_type_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/profile_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/profile_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/prompts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/prompts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_of_blog_item_with_image.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_of_blog_item_with_image.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_side_menu_exit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_side_menu_exit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/update_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/update_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_activity_container.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/x_activity_container.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_content_scrolling.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/x_content_scrolling.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/crop-image-lib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -347,7 +166,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.1.2:5555" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="5.4_FWVGA_API_25" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -404,114 +223,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="144" selection-start-line="144" selection-end-line="144" />
-              <folding>
-                <element signature="method#onCreate#0;class#ContainerActivity#0" />
-                <element signature="e#4738#4739#0" expanded="true" />
-                <element signature="e#4765#4766#0" expanded="true" />
-                <element signature="e#4828#4829#0" expanded="true" />
-                <element signature="e#4856#4857#0" expanded="true" />
-                <element signature="e#4918#4919#0" expanded="true" />
-                <element signature="e#4946#4947#0" expanded="true" />
-                <element signature="e#5013#5014#0" expanded="true" />
-                <element signature="e#5040#5041#0" expanded="true" />
-                <element signature="e#5097#5098#0" expanded="true" />
-                <element signature="e#5121#5122#0" expanded="true" />
-                <element signature="e#5183#5184#0" expanded="true" />
-                <element signature="e#5211#5212#0" expanded="true" />
-                <element signature="e#5265#5266#0" expanded="true" />
-                <element signature="e#5293#5294#0" expanded="true" />
-                <element signature="e#5342#5343#0" expanded="true" />
-                <element signature="e#5369#5370#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_activity_container.xml">
-          <provider editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="305">
+              <caret line="257" selection-start-line="257" selection-end-line="257" />
               <folding>
-                <element signature="e#2417#3065#0" />
-                <element signature="e#1046#1069#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_name.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="35" selection-end-line="85" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallback.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+            <state relative-caret-position="407">
+              <caret line="137" column="51" selection-start-line="137" selection-start-column="51" selection-end-line="137" selection-end-column="51" />
               <folding>
-                <element signature="method#createData#0;class#ListFragment#0" />
-                <element signature="method#createData0#0;class#ListFragment#0" />
-                <element signature="e#10172#10173#0" expanded="true" />
-                <element signature="e#10227#10228#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="97" selection-start-line="97" selection-end-line="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="116" selection-start-line="116" selection-end-line="116" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getItemCount#0;class#XAdapter#0" />
-                <element signature="method#onViewDetachedFromWindow#0;class#XAdapter#0" />
-                <element signature="method#prepareToShare#0;class#XAdapter#0" />
-                <element signature="method#SaveImage#0;class#XAdapter#0" />
-                <element signature="method#setAnimation#0;class#XAdapter#0" />
-                <element signature="method#getItemViewType#0;class#XAdapter#0" />
+                <element signature="method#afterResponse#0;class#TubelessRetrofitCallback#0" />
+                <element signature="e#4968#4969#0" expanded="true" />
+                <element signature="e#5010#5011#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -529,36 +269,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contain</find>
-      <find>FullScreenx</find>
-      <find>search</find>
-      <find>ynam</find>
-      <find>textViewSearchByNationalCode</find>
-      <find>setFlags</find>
-      <find>android:theme=&quot;@style/TubelessDayTheme.NoActionBar.NoTranslucent2&quot;</find>
-      <find>splasha</find>
-      <find>contact</find>
-      <find>nav_search_by_national_code</find>
-      <find>nav_add_new_item</find>
-      <find>RecyclerView</find>
-      <find>setconte</find>
-      <find>fabList</find>
-      <find>droid:id=&quot;@+id/fab&quot;</find>
-      <find>x_content_scrolling</find>
-      <find>floatingActionButton</find>
-      <find>oncl</find>
-      <find>XAdapter</find>
-      <find>fab</find>
-      <find>adapter</find>
-      <find>floatingActionButtonList</find>
-      <find>swipeRefreshLayout</find>
-      <find>incl</find>
-      <find>swipeRefresh</find>
-      <find>inclu</find>
-      <find>onclick</find>
-      <find>mSwipeRefreshLayout</find>
-      <find>hasTranslucentNavigation</find>
-      <find>config</find>
+      <find>User</find>
+      <find>login</find>
+      <find>clear</find>
+      <find>handler</find>
+      <find>submitBySimCard</find>
+      <find>forge</find>
+      <find>RC_SIGN_IN</find>
+      <find>tryToLoginBySimCard</find>
+      <find>mail</find>
+      <find>simcard</find>
+      <find>oginPresenterCompl.tryToLoginBySimCar</find>
+      <find>cance</find>
+      <find>retCancel</find>
+      <find>showProgressBar</find>
+      <find>rootActivity</find>
+      <find>sException</find>
+      <find>retData</find>
+      <find>tryToLoginByMail</find>
+      <find>sim</find>
+      <find>IUser</find>
+      <find>databaseError</find>
+      <find>handleServerMessage</find>
+      <find>sajjad Error</find>
+      <find>&quot;username&quot;</find>
+      <find>context</find>
+      <find>modal</find>
+      <find>LoginActivity</find>
+      <find>oncre</find>
+      <find>ret</find>
+      <find>retry</find>
     </findStrings>
     <replaceStrings>
       <replace>import androidx.viewpager.widget.ViewPager;</replace>
@@ -601,6 +341,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="sajjad &lt;yosefi1988@gmail.com&gt;" />
         <option value="sajjad yosefi &lt;yosefi1988@gmail.com&gt;" />
       </list>
     </option>
@@ -609,57 +350,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Exception/TubelessException.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/post/PictureItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/radyab/SMSUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/ImageViewPlus.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/CommonClass.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/_custom_spinner_text.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/ScrollAwareFABBehavior.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/_part_user_avatar_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/yafte/search/SearchResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/request/post/SearchRequest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Global.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/responses/post/ServerResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/responses/post/PostSearchResponseItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retroftPost/PostRetrofitCallback.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retroftPost/RetrofitHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retroftPost/APIService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/pos/SearchByNationalCodeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/sephiroth/android/library/bottomnavigation/app/ToolbarScrollHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/BlankFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/blank_fragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNationalCodeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_national_code.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessTransparentStatusBarActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/ProfileActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYafteActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yafte.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContactUsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/WebViewActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ReadBlogActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/assets/rule.html" />
-        <option value="$PROJECT_DIR$/app/src/main/assets/about.html" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/x_content_scrolling.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/_row_of_post_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNameActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yafte.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yadak.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNationalCodeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_name.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/x_activity_container.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_national_code.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessTransparentStatusBarActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ReadBlogActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/x_content_scrolling.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYafteActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/StaticValue.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/tree.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivityPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/NewLoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/ViewLoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/model/UserModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/Presenter/ILoginPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/View/ILoginView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login_2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/LoginActivityPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/Presenter/LoginPresenterCompl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/NewLoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/model/User.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/Presenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/LoginPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallbackMvp.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallbackss.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/model/IUser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/model/IUser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/Presenter/LoginPresenterCompl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/Presenter/ILoginPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/model/UserModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/LoginActivityPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/IPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Exception/TubelessException.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/view/ILoginView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/LoginPresenterCompl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallback.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java" />
       </list>
     </option>
   </component>
@@ -675,7 +416,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -775,8 +515,7 @@
               <item name="sajjadyosefi" type="462c0819:PsiDirectoryNode" />
               <item name="android" type="462c0819:PsiDirectoryNode" />
               <item name="xTubeless" type="462c0819:PsiDirectoryNode" />
-              <item name="activity" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
@@ -789,8 +528,8 @@
               <item name="sajjadyosefi" type="462c0819:PsiDirectoryNode" />
               <item name="android" type="462c0819:PsiDirectoryNode" />
               <item name="xTubeless" type="462c0819:PsiDirectoryNode" />
-              <item name="activity" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
@@ -803,8 +542,9 @@
               <item name="sajjadyosefi" type="462c0819:PsiDirectoryNode" />
               <item name="android" type="462c0819:PsiDirectoryNode" />
               <item name="xTubeless" type="462c0819:PsiDirectoryNode" />
-              <item name="activity" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
@@ -817,7 +557,7 @@
               <item name="sajjadyosefi" type="462c0819:PsiDirectoryNode" />
               <item name="android" type="462c0819:PsiDirectoryNode" />
               <item name="xTubeless" type="462c0819:PsiDirectoryNode" />
-              <item name="Adapter" type="462c0819:PsiDirectoryNode" />
+              <item name="networkLayout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
@@ -830,130 +570,28 @@
               <item name="sajjadyosefi" type="462c0819:PsiDirectoryNode" />
               <item name="android" type="462c0819:PsiDirectoryNode" />
               <item name="xTubeless" type="462c0819:PsiDirectoryNode" />
-              <item name="Fragment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="it" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="it" type="462c0819:PsiDirectoryNode" />
-              <item name="sephiroth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="it" type="462c0819:PsiDirectoryNode" />
-              <item name="sephiroth" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="it" type="462c0819:PsiDirectoryNode" />
-              <item name="sephiroth" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="library" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="it" type="462c0819:PsiDirectoryNode" />
-              <item name="sephiroth" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="library" type="462c0819:PsiDirectoryNode" />
-              <item name="bottomnavigation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="it" type="462c0819:PsiDirectoryNode" />
-              <item name="sephiroth" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="library" type="462c0819:PsiDirectoryNode" />
-              <item name="bottomnavigation" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="values" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tubelessx11" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tubelessx11" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="values-v21" type="462c0819:PsiDirectoryNode" />
+              <item name="networkLayout" type="462c0819:PsiDirectoryNode" />
+              <item name="retrofit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="192.168.1.2:5555" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-02-17T16:09:40.686Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="RZ8M74EVYJH" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-02-20T18:18:34.648Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Projects/Android/Tubelessx11/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/model/User/Device.java&#10;devi&#9;PSI&#9;JAVA://ir.sajjadyosefi.android.tubeless.classes.model.User.Device&#10;عقم&#9;PSI&#9;JAVA://ir.sajjadyosefi.android.tubeless.classes.networkLayout.Url&#10;BlogItem&#9;PSI&#9;JAVA://ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem&#10;prompts&#9;FILE&#9;file://D:/Projects/Android/Tubelessx11/app/src/main/res/layout/prompts.xml" />
     <property name="android.project.structure.last.selected" value="adad-sdk-banner-5.1.1" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="device.picker.selection" value="192.168.1.2:5555" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28328007" />
@@ -969,18 +607,18 @@
       <recent name="ir.sajjadyosefi.android.tubeless" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\main\java\ir\sajjadyosefi\android\xTubeless\Fragment" />
       <recent name="D:\Projects\Android\Tubelessx11\app\src\main\res\layout" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\model" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\main\java\ir\sajjadyosefi\android\xTubeless\widget" />
+      <recent name="D:\Projects\Android\Tubelessx11\app" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\main\res\drawable" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\modelY\viewHolder" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\main\java\ir\sajjadyosefi\android\xTubeless\Fragment" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.post" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.pos" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.classes.account" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.account" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.Fragment" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
@@ -1203,7 +841,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581454967853</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="28 BAHMAN">
+      <created>1581975728880</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1581975728880</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1219,8 +864,8 @@
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49659863" visible="true" weight="0.21580547" />
-      <window_info id="Structure" order="1" sideWeight="0.5017007" side_tool="true" weight="0.27355623" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4945055" visible="true" weight="0.2819149" />
+      <window_info id="Structure" order="1" sideWeight="0.50549453" side_tool="true" weight="0.21580547" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" sideWeight="0.5043988" side_tool="true" weight="0.28767124" />
       <window_info id="Image Layers" order="4" />
@@ -1228,11 +873,10 @@
       <window_info id="Captures" order="6" sideWeight="0.50340134" side_tool="true" weight="0.25227964" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Resources Explorer" order="8" weight="0.32978722" />
-      <window_info anchor="bottom" id="Messages" weight="0.32993197" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32993197" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5289116" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.22619048" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23639455" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32993197" />
@@ -1242,12 +886,13 @@
       <window_info anchor="bottom" id="Logcat" order="10" weight="0.7329932" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.85884356" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.3282313" />
-      <window_info anchor="right" x="684" y="544" width="267" height="150" id="Documentation" order="0" sideWeight="0.48129252" side_tool="true" weight="0.30547112" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32993197" />
+      <window_info anchor="right" x="845" y="556" width="267" height="150" id="Documentation" order="0" sideWeight="0.48809522" side_tool="true" type="FLOATING" weight="0.30547112" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Preview" order="5" sideWeight="0.51870745" weight="0.30547112" />
+      <window_info anchor="right" id="Preview" order="5" sideWeight="0.5119048" weight="0.30547112" />
       <window_info anchor="right" id="Gradle" order="6" sideWeight="0.49829933" weight="0.32978722" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -1268,7 +913,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="10 bahman" />
     <MESSAGE value="22 BAHMAN" />
-    <option name="LAST_COMMIT_MESSAGE" value="22 BAHMAN" />
+    <MESSAGE value="28 BAHMAN" />
+    <option name="LAST_COMMIT_MESSAGE" value="28 BAHMAN" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1323,31 +969,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>245</line>
+          <line>247</line>
           <properties />
           <option name="timeStamp" value="413" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>250</line>
+          <line>252</line>
           <properties />
           <option name="timeStamp" value="414" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>261</line>
+          <line>263</line>
           <properties />
           <option name="timeStamp" value="415" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>266</line>
+          <line>268</line>
           <properties />
           <option name="timeStamp" value="416" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>270</line>
+          <line>272</line>
           <properties />
           <option name="timeStamp" value="417" />
         </line-breakpoint>
@@ -1359,7 +1005,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>410</line>
+          <line>421</line>
           <properties />
           <option name="timeStamp" value="441" />
         </line-breakpoint>
@@ -1400,22 +1046,10 @@
           <option name="timeStamp" value="485" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/main/TimelineItem.java</url>
-          <line>362</line>
-          <properties />
-          <option name="timeStamp" value="486" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallback.java</url>
           <line>95</line>
           <properties />
           <option name="timeStamp" value="500" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java</url>
-          <line>147</line>
-          <properties />
-          <option name="timeStamp" value="515" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/sephiroth/android/library/bottomnavigation/app/ToolbarScrollHelper.java</url>
@@ -1428,12 +1062,6 @@
           <line>59</line>
           <properties />
           <option name="timeStamp" value="532" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java</url>
-          <line>140</line>
-          <properties />
-          <option name="timeStamp" value="534" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/sephiroth/android/library/bottomnavigation/app/ToolbarScrollHelper.java</url>
@@ -1461,659 +1089,553 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java</url>
-          <line>123</line>
+          <line>287</line>
           <properties />
-          <option name="timeStamp" value="547" />
+          <option name="timeStamp" value="570" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
+          <line>572</line>
+          <properties />
+          <option name="timeStamp" value="571" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivity.java</url>
+          <line>241</line>
+          <properties />
+          <option name="timeStamp" value="590" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivity.java</url>
+          <line>313</line>
+          <properties />
+          <option name="timeStamp" value="591" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivity.java</url>
+          <line>338</line>
+          <properties />
+          <option name="timeStamp" value="592" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java</url>
+          <line>261</line>
+          <properties />
+          <option name="timeStamp" value="616" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="app">
-        <watch expression="activity.hasAppBarLayout()" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_app_bar_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+        <state relative-caret-position="212">
+          <caret line="94" column="28" lean-forward="true" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_content_viewpager.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/BlogItemViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/viewHolder/PostViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.litepal.android/core/3.0.0/aee6bfbad95aadfd0903570b5d110eb3d02921ca/core-3.0.0-sources.jar!/org/litepal/crud/LitePalSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="346" column="19" selection-start-line="346" selection-start-column="19" selection-end-line="346" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
           <folding>
-            <element signature="e#310#2170#0" />
+            <element signature="e#292#325#0" expanded="true" />
+            <element signature="e#350#385#0" expanded="true" />
+            <element signature="e#411#446#0" expanded="true" />
+            <element signature="e#470#503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="jar://C:/Android/sdk/platforms/android-28/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="325" lean-forward="true" selection-start-line="325" selection-end-line="325" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/ViewLoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/NewLoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="46" column="71" lean-forward="true" selection-start-line="46" selection-start-column="71" selection-end-line="46" selection-end-column="71" />
+          <folding>
+            <element signature="method#onClearText#0;class#NewLoginActivity#0" />
+            <element signature="method#onLoginResult#0;class#NewLoginActivity#0" />
+            <element signature="e#4438#4439#0" expanded="true" />
+            <element signature="e#4471#4472#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Android/sdk/platforms/android-28/android.jar!/android/view/LayoutInflater.class">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="e#148#149#0" expanded="true" />
+            <element signature="e#175#176#0" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#179#180#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/Presenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#287#288#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="46" column="35" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallbackMvp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="83" column="37" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/76f3c69879d3e01c082f49d8661c5590838148e1/retrofit-2.3.0-sources.jar!/retrofit2/Callback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/ApiServiceTubeless.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/ICallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="242" column="75" lean-forward="true" selection-start-line="242" selection-start-column="75" selection-end-line="242" selection-end-column="75" />
+          <folding>
+            <element signature="method#onViewDetachedFromWindow#0;class#XAdapter#0" />
+            <element signature="method#sssss#0;class#XAdapter#0" />
+            <element signature="method#setAnimation#0;class#XAdapter#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallbackss.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="84" column="9" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="84" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContactUsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="242" column="31" selection-start-line="242" selection-start-column="31" selection-end-line="242" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/NewYafteActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="563" column="22" selection-start-line="563" selection-start-column="22" selection-end-line="563" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/ProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="58" column="50" lean-forward="true" selection-start-line="58" selection-start-column="50" selection-end-line="58" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.0.2/e38e7c85994112b70d4548176128c72b8477c110/appcompat-1.0.2-sources.jar!/androidx/appcompat/widget/AppCompatEditText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Android/sdk/platforms/android-28/android.jar!/android/text/SpannableStringBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="115" column="18" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="18" />
+          <folding>
+            <element signature="e#3279#3280#0" expanded="true" />
+            <element signature="e#3330#3331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/model/IUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/model/UserModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/Presenter/ILoginPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/View/ILoginView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/Presenter/LoginPresenterCompl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+          <folding>
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login0/LoginActivityPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/network/request/accounting/LoginRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="92" column="11" selection-start-line="92" selection-start-column="11" selection-end-line="92" selection-end-column="11" />
+          <folding>
+            <element signature="method#LoginRequest#0;class#LoginRequest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/model/IUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
+          <folding>
+            <element signature="method#setProgressDialog#0;class#TubelessActivity#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="388" selection-start-line="388" selection-end-line="388" />
+        <state relative-caret-position="152">
+          <caret line="282" column="46" lean-forward="true" selection-start-line="282" selection-start-column="46" selection-end-line="283" selection-end-column="46" />
           <folding>
-            <element signature="method#getInstance#0;class#LoginActivity#0" />
-            <element signature="e#2521#2581#1" />
-            <element signature="method#LoginActivity#0;class#LoginActivity#0" />
-            <element signature="method#getIntent#1;class#LoginActivity#0" />
-            <element signature="method#onRequestPermissionsResult#0;class#LoginActivity#0" />
-            <element signature="e#3210#3872#0" />
-            <element signature="e#3319#3681#1" />
-            <element signature="e#3687#3839#1" />
-            <element signature="e#4628#5035#1" />
-            <element signature="e#4733#4897#1" />
-            <element signature="e#5041#5403#1" />
-            <element signature="e#5843#6676#1" />
-            <element signature="e#5917#6311#1" />
-            <element signature="e#6360#6361#0" expanded="true" />
-            <element signature="e#6440#6441#0" expanded="true" />
-            <element signature="e#6316#6658#1" />
-            <element signature="e#6681#7044#1" />
-            <element signature="e#7109#7110#0" expanded="true" />
-            <element signature="e#7181#7182#0" expanded="true" />
-            <element signature="e#7248#7328#0" />
-            <element signature="e#7883#7965#0" />
-            <element signature="e#8363#8412#0" />
             <element signature="method#LoginOrRegisterSilent#0;class#LoginActivity#0" />
-            <element signature="e#8652#8806#0" />
-            <element signature="method#LoginOrRegister#0;class#LoginActivity#0" />
-            <element signature="class#9662:11087" />
-            <element signature="method#t_beforeSendRequest#0;class#9662:11087" />
-            <element signature="method#t_afterGetResponse#0;class#9662:11087" />
-            <element signature="method#t_complite#0;class#9662:11087" />
-            <element signature="method#t_responseNull#0;class#9662:11087" />
-            <element signature="method#t_retry#0;class#9662:11087" />
-            <element signature="method#t_onSuccess#0;class#9662:11087" />
-            <element signature="e#10493#10878#1" />
-            <element signature="e#10550#10741#1" />
-            <element signature="e#10746#10860#1" />
-            <element signature="e#10883#11062#1" />
-            <element signature="method#onActivityResult#0;class#LoginActivity#0" />
-            <element signature="e#11470#11733#1" />
-            <element signature="e#11484#11558#0" />
-            <element signature="method#handleGoogleSignInResult#0;class#LoginActivity#0" />
-            <element signature="e#11837#13283#0" />
-            <element signature="e#11927#12018#0" />
-            <element signature="e#13307#13601#0" />
-            <element signature="e#13321#13391#0" />
-            <element signature="method#onBackPressed#0;class#LoginActivity#0" />
-            <element signature="e#13972#13973#0" expanded="true" />
-            <element signature="e#13999#14000#0" expanded="true" />
-            <element signature="e#14062#14063#0" expanded="true" />
-            <element signature="e#14090#14091#0" expanded="true" />
-            <element signature="e#14152#14153#0" expanded="true" />
-            <element signature="e#14180#14181#0" expanded="true" />
-            <element signature="e#14247#14248#0" expanded="true" />
-            <element signature="e#14274#14275#0" expanded="true" />
-            <element signature="e#14331#14332#0" expanded="true" />
-            <element signature="e#14355#14356#0" expanded="true" />
-            <element signature="e#14417#14418#0" expanded="true" />
-            <element signature="e#14445#14446#0" expanded="true" />
-            <element signature="e#14499#14500#0" expanded="true" />
-            <element signature="e#14527#14528#0" expanded="true" />
-            <element signature="e#14576#14577#0" expanded="true" />
-            <element signature="e#14603#14604#0" expanded="true" />
+            <element signature="e#12191#12282#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.0.2/e38e7c85994112b70d4548176128c72b8477c110/appcompat-1.0.2-sources.jar!/androidx/appcompat/app/AppCompatActivity.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/76f3c69879d3e01c082f49d8661c5590838148e1/retrofit-2.3.0-sources.jar!/retrofit2/Response.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="128" column="16" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/737ed074833745f70e811fe67001f89d/jars/classes.jar!/com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Android/sdk/platforms/android-28/android.jar!/android/app/Instrumentation.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        <state relative-caret-position="186">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
           <folding>
-            <element signature="e#1166#1167#0" expanded="true" />
-            <element signature="e#1217#1218#0" expanded="true" />
+            <element signature="e#4239#4240#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.fragment/fragment/1.0.0/bcd167792ec03e930d5c8345c99ae07b2627de84/fragment-1.0.0-sources.jar!/androidx/fragment/app/FragmentManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/responses/basic/ServerResponseBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="2250" column="5" lean-forward="true" selection-start-line="2250" selection-start-column="5" selection-end-line="2250" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.readystatesoftware.systembartint/systembartint/1.0.4/6404f77b92ec723cc132e825afe85a07da85ee6/systembartint-1.0.4.jar!/com/readystatesoftware/systembartint/SystemBarTintManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="352" column="19" selection-start-line="352" selection-start-column="19" selection-end-line="352" selection-end-column="19" />
+        <state relative-caret-position="153">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
           <folding>
-            <element signature="e#12442#12443#0" expanded="true" />
-            <element signature="e#12498#12499#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.0.0/2151d26c3b241f0a887f2dadb9ab091649fcf020/recyclerview-1.0.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/IPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1698" column="7" lean-forward="true" selection-start-line="1698" selection-start-column="7" selection-end-line="1698" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/sephiroth/android/library/bottomnavigation/app/ToolbarScrollHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="32" />
-          <folding>
-            <element signature="docComment;class#ToolbarScrollHelper#0" />
-            <element signature="e#1935#2744#1" />
-            <element signature="e#2316#2699#1" />
-            <element signature="e#2831#2832#0" expanded="true" />
-            <element signature="e#2867#2868#0" expanded="true" />
-            <element signature="method#initialize#0;class#ToolbarScrollHelper#0" />
-            <element signature="e#3243#3274#1" />
-            <element signature="e#3405#3450#1" />
-            <element signature="e#3570#3631#1" />
-            <element signature="e#3713#3833#1" />
-            <element signature="e#3752#3815#1" />
-            <element signature="e#4040#4071#1" />
-            <element signature="e#4156#4539#1" />
-            <element signature="e#4319#4508#1" />
-            <element signature="e#4661#4714#1" />
-            <element signature="method#expand#0;class#ToolbarScrollHelper#0" />
-            <element signature="e#4994#6248#1" />
-            <element signature="e#5059#6238#1" />
-            <element signature="class#5246:6132" />
-            <element signature="method#onAnimationStart#0;class#5246:6132" />
-            <element signature="method#onAnimationEnd#0;class#5246:6132" />
-            <element signature="method#onAnimationCancel#0;class#5246:6132" />
-            <element signature="method#onAnimationRepeat#0;class#5246:6132" />
-            <element signature="e#6254#6394#1" />
-            <element signature="e#6289#6348#1" />
-            <element signature="method#collapse#0;class#ToolbarScrollHelper#0" />
-            <element signature="e#6474#7744#1" />
-            <element signature="e#6540#7734#1" />
-            <element signature="class#6797:7685" />
-            <element signature="method#onAnimationStart#0;class#6797:7685" />
-            <element signature="method#onAnimationEnd#0;class#6797:7685" />
-            <element signature="method#onAnimationCancel#0;class#6797:7685" />
-            <element signature="method#onAnimationRepeat#0;class#6797:7685" />
-            <element signature="e#7750#7903#1" />
-            <element signature="e#7785#7857#1" />
-            <element signature="method#onAnimationCompleted#0;class#ToolbarScrollHelper#0" />
-            <element signature="e#7982#8057#1" />
-            <element signature="method#isExpanded#0;class#ToolbarScrollHelper#0" />
-            <element signature="e#8196#8241#1" />
-            <element signature="e#8247#8412#1" />
-            <element signature="e#8282#8352#1" />
-            <element signature="e#8357#8402#1" />
-            <element signature="method#setExpanded#0;class#ToolbarScrollHelper#0" />
-            <element signature="e#8657#8688#1" />
-            <element signature="e#8711#8751#1" />
-            <element signature="e#8757#8799#1" />
-            <element signature="method#onViewAttachedToWindow#0;class#ToolbarScrollHelper#0" />
-            <element signature="e#9114#9186#1" />
-            <element signature="method#onLayoutChange#0;class#ToolbarScrollHelper#0" />
-            <element signature="e#9567#9766#1" />
-            <element signature="class#ScrollHelper#0;class#ToolbarScrollHelper#0" />
-            <element signature="method#setRange#0;class#ScrollHelper#0;class#ToolbarScrollHelper#0" />
-            <element signature="method#scroll#0;class#ScrollHelper#0;class#ToolbarScrollHelper#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f044624aaa8ad4ca6f0dc18eeb63b333/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="2789" column="17" selection-start-line="2789" selection-start-column="17" selection-end-line="2789" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Android/sdk/platforms/android-28/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="199" column="28" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/blank_fragment.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/BlankFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="54" column="57" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+        <state relative-caret-position="204">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1258#1259#0" expanded="true" />
-            <element signature="e#1296#1297#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="237" column="32" selection-start-line="237" selection-start-column="17" selection-end-line="237" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNationalCodeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
-          <folding>
-            <element signature="e#6966#6967#0" expanded="true" />
-            <element signature="e#6993#6994#0" expanded="true" />
-            <element signature="method#showManyResultDialog#0;class#SearchByNationalCodeActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_national_code.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="10" selection-end-column="52" />
-          <folding>
-            <element signature="e#447#1844#0" />
-            <element signature="e#1850#2498#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessTransparentStatusBarActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="47" column="56" lean-forward="true" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
-          <folding>
-            <element signature="e#39#3136#0" />
-            <element signature="e#1376#1393#0" expanded="true" />
-            <element signature="e#1622#1638#0" expanded="true" />
-            <element signature="e#2045#2068#0" expanded="true" />
-            <element signature="e#2475#2497#0" expanded="true" />
-            <element signature="e#3115#4260#0" />
-            <element signature="e#3655#3673#0" expanded="true" />
-            <element signature="e#4093#4107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_yafte.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#4633#4656#0" expanded="true" />
-            <element signature="e#5709#5734#0" expanded="true" />
-            <element signature="e#6169#6194#0" expanded="true" />
-            <element signature="e#6569#6596#0" expanded="true" />
-            <element signature="e#6944#6959#0" expanded="true" />
-            <element signature="e#7514#7536#0" expanded="true" />
-            <element signature="e#8045#8065#0" expanded="true" />
-            <element signature="e#8588#8604#0" expanded="true" />
-            <element signature="e#9561#9579#0" expanded="true" />
-            <element signature="e#9953#9967#0" expanded="true" />
-            <element signature="e#10576#10589#0" expanded="true" />
-            <element signature="e#11049#11063#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_yadak.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_read_blog.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ReadBlogActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="50" />
-          <folding>
-            <element signature="e#3580#3581#0" expanded="true" />
-            <element signature="e#3607#3608#0" expanded="true" />
-            <element signature="e#3670#3671#0" expanded="true" />
-            <element signature="e#3698#3699#0" expanded="true" />
-            <element signature="e#3760#3761#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#3855#3856#0" expanded="true" />
-            <element signature="e#3882#3883#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3963#3964#0" expanded="true" />
-            <element signature="e#4025#4026#0" expanded="true" />
-            <element signature="e#4053#4054#0" expanded="true" />
-            <element signature="e#4107#4108#0" expanded="true" />
-            <element signature="e#4135#4136#0" expanded="true" />
-            <element signature="e#4184#4185#0" expanded="true" />
-            <element signature="e#4211#4212#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="271" column="46" selection-start-line="271" selection-start-column="46" selection-end-line="271" selection-end-column="46" />
+          <folding>
+            <element signature="e#9780#9841#0" expanded="true" />
+            <element signature="e#9969#9970#0" expanded="true" />
+            <element signature="e#10033#10034#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="378" column="18" selection-start-line="378" selection-start-column="18" selection-end-line="378" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/Exception/TubelessException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+          <folding>
+            <element signature="method#handleServerMessage#0;class#TubelessException#0" />
+            <element signature="e#8027#8028#0" expanded="true" />
+            <element signature="e#8083#8084#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Android/sdk/platforms/android-28/android.jar!/android/content/Intent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="338" column="11" selection-start-line="338" selection-start-column="11" selection-end-line="338" selection-end-column="11" />
+          <folding>
+            <element signature="e#26435#26436#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/view/ILoginView.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/presenter/LoginPresenterCompl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
-            <element signature="e#7096#7097#0" expanded="true" />
-            <element signature="e#7123#7124#0" expanded="true" />
+            <element signature="method#LoginPresenterCompl#0;class#LoginPresenterCompl#0" />
+            <element signature="method#tryToLoginByMail#0;class#LoginPresenterCompl#0" />
+            <element signature="method#tryToLoginBySimCard#0;class#LoginPresenterCompl#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYafteActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7058#7059#0" expanded="true" />
-            <element signature="e#7085#7086#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding>
-            <element signature="e#3430#3431#0" expanded="true" />
-            <element signature="e#3457#3458#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/_activity_contact_us.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContactUsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="74" column="47" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="47" />
-          <folding>
-            <element signature="e#7533#7534#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
-            <element signature="e#7623#7624#0" expanded="true" />
-            <element signature="e#7651#7652#0" expanded="true" />
-            <element signature="e#7713#7714#0" expanded="true" />
-            <element signature="e#7741#7742#0" expanded="true" />
-            <element signature="e#7808#7809#0" expanded="true" />
-            <element signature="e#7835#7836#0" expanded="true" />
-            <element signature="e#7892#7893#0" expanded="true" />
-            <element signature="e#7916#7917#0" expanded="true" />
-            <element signature="e#7978#7979#0" expanded="true" />
-            <element signature="e#8006#8007#0" expanded="true" />
-            <element signature="e#8060#8061#0" expanded="true" />
-            <element signature="e#8088#8089#0" expanded="true" />
-            <element signature="e#8137#8138#0" expanded="true" />
-            <element signature="e#8164#8165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_webview.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/WebViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
-          <folding>
-            <element signature="e#1796#1828#0" />
-            <element signature="e#5937#5938#0" expanded="true" />
-            <element signature="e#5964#5965#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/rule.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="37" column="49" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="434" column="49" selection-start-line="434" selection-start-column="49" selection-end-line="434" selection-end-column="49" />
+        <state relative-caret-position="85">
+          <caret line="288" column="31" selection-start-line="288" selection-start-column="31" selection-end-line="288" selection-end-column="31" />
           <folding>
-            <element signature="method#onActivityResult#0;class#MainActivity#0" />
-            <element signature="method#loadTubelessAccountData#0;class#MainActivity#0" />
-            <element signature="e#10010#10064#0" />
-            <element signature="e#12199#12200#0" expanded="true" />
-            <element signature="e#12287#12288#0" expanded="true" />
-            <element signature="e#13125#13144#0" />
-            <element signature="method#updatedrawableMenuItems#0;class#MainActivity#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4819#5155#1" />
+            <element signature="e#5192#5765#1" />
+            <element signature="e#5297#5755#1" />
+            <element signature="e#5458#5502#0" />
+            <element signature="e#6199#6281#0" />
+            <element signature="e#7535#7661#0" />
+            <element signature="e#8015#8041#0" />
+            <element signature="e#9064#9202#1" />
+            <element signature="e#9232#9486#1" />
+            <element signature="e#9520#9776#1" />
+            <element signature="e#12679#12724#0" expanded="true" />
+            <element signature="e#12860#12861#0" expanded="true" />
+            <element signature="e#12948#12949#0" expanded="true" />
             <element signature="method#initializeBottomNavigation#0;class#MainActivity#0" />
+            <element signature="method#initializeUI#0;class#MainActivity#0" />
+            <element signature="method#hasTranslucentStatusBar#0;class#MainActivity#0" />
             <element signature="method#hasTranslucentNavigation#0;class#MainActivity#0" />
-            <element signature="e#21293#21294#0" expanded="true" />
-            <element signature="e#21352#21353#0" expanded="true" />
-            <element signature="e#21551#21552#0" expanded="true" />
-            <element signature="e#21622#21623#0" expanded="true" />
+            <element signature="method#getNavigationBarHeight#0;class#MainActivity#0" />
+            <element signature="method#hasManagedToolbarScroll#0;class#MainActivity#0" />
+            <element signature="method#getBottomNavigation#0;class#MainActivity#0" />
+            <element signature="method#getSystemBarTint#0;class#MainActivity#0" />
             <element signature="method#onMenuItemSelect#0;class#MainActivity#0" />
             <element signature="method#onMenuItemReselect#0;class#MainActivity#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/SAccounts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline0.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_app_bar_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="94" column="30" lean-forward="true" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_content_viewpager.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/modelY/main/TimelineItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="207" column="13" lean-forward="true" selection-start-line="207" selection-start-column="13" selection-end-line="207" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/post/SearchByNameActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="303" column="46" lean-forward="true" selection-start-line="303" selection-start-column="46" selection-end-line="303" selection-end-column="46" />
-          <folding>
-            <element signature="method#showNotAnyResultDialog#0;class#SearchByNameActivity#0" />
-            <element signature="e#11245#11246#0" expanded="true" />
-            <element signature="e#11298#11299#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="370">
+          <caret line="82" column="53" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+        <state relative-caret-position="115">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
         </state>
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="275">
+          <caret line="207" selection-start-line="207" selection-end-line="207" />
+          <folding>
+            <element signature="e#2165#2754#0" />
+            <element signature="e#2322#2748#0" />
+            <element signature="e#2431#2557#1" />
+            <element signature="e#2563#2715#1" />
+            <element signature="e#2761#3693#0" />
+            <element signature="e#3067#3687#1" />
+            <element signature="e#3086#3641#0" />
+            <element signature="class#4613:5345" />
+            <element signature="method#onClick#0;class#4613:5345" />
+            <element signature="e#4783#5189#1" />
+            <element signature="e#4887#5051#1" />
+            <element signature="e#5195#5321#1" />
+            <element signature="class#5741:5999" />
+            <element signature="e#6267#6268#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#7310#7411#0" />
+            <element signature="e#7355#7489#0" />
+            <element signature="e#7492#7507#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
+        <state relative-caret-position="187">
+          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="257" selection-start-line="257" selection-end-line="257" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getItemCount#0;class#XAdapter#0" />
-            <element signature="method#onViewDetachedFromWindow#0;class#XAdapter#0" />
-            <element signature="method#prepareToShare#0;class#XAdapter#0" />
-            <element signature="method#SaveImage#0;class#XAdapter#0" />
-            <element signature="method#setAnimation#0;class#XAdapter#0" />
-            <element signature="method#getItemViewType#0;class#XAdapter#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_content_scrolling.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="18" selection-start-line="18" selection-end-line="30" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_by_name.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="35" selection-end-line="85" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/x_activity_container.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        <state relative-caret-position="407">
+          <caret line="137" column="51" selection-start-line="137" selection-start-column="51" selection-end-line="137" selection-end-column="51" />
           <folding>
-            <element signature="e#2417#3065#0" />
-            <element signature="e#1046#1069#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="144" selection-start-line="144" selection-end-line="144" />
-          <folding>
-            <element signature="method#onCreate#0;class#ContainerActivity#0" />
-            <element signature="e#4738#4739#0" expanded="true" />
-            <element signature="e#4765#4766#0" expanded="true" />
-            <element signature="e#4828#4829#0" expanded="true" />
-            <element signature="e#4856#4857#0" expanded="true" />
-            <element signature="e#4918#4919#0" expanded="true" />
-            <element signature="e#4946#4947#0" expanded="true" />
-            <element signature="e#5013#5014#0" expanded="true" />
-            <element signature="e#5040#5041#0" expanded="true" />
-            <element signature="e#5097#5098#0" expanded="true" />
-            <element signature="e#5121#5122#0" expanded="true" />
-            <element signature="e#5183#5184#0" expanded="true" />
-            <element signature="e#5211#5212#0" expanded="true" />
-            <element signature="e#5265#5266#0" expanded="true" />
-            <element signature="e#5293#5294#0" expanded="true" />
-            <element signature="e#5342#5343#0" expanded="true" />
-            <element signature="e#5369#5370#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
-          <folding>
-            <element signature="method#createData#0;class#ListFragment#0" />
-            <element signature="method#createData0#0;class#ListFragment#0" />
-            <element signature="e#10172#10173#0" expanded="true" />
-            <element signature="e#10227#10228#0" expanded="true" />
+            <element signature="method#afterResponse#0;class#TubelessRetrofitCallback#0" />
+            <element signature="e#4968#4969#0" expanded="true" />
+            <element signature="e#5010#5011#0" expanded="true" />
           </folding>
         </state>
       </provider>

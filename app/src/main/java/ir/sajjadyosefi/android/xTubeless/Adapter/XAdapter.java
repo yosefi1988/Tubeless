@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TimelineItem;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallback;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.PictureItem;
@@ -36,6 +40,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
 import static org.litepal.LitePalApplication.getContext;
@@ -44,16 +49,16 @@ import static org.litepal.LitePalApplication.getContext;
 public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     private final View rootView;
-    private final int scrollHeight;
+    //private final int scrollHeight;
     private final SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView recyclerView;
     private Picasso picasso;
-    private int navigationHeight;
+    //private int navigationHeight;
     private List<IItems> data;
 
     XAdapter adapter;
     int type;
-    private boolean hasAppBarLayout;
+    //private boolean hasAppBarLayout;
     private Context context;
 
     //scroll
@@ -62,19 +67,18 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
     EndlessRecyclerOnScrollListener onScrollListener;
 
 
-    public XAdapter(int type, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, int ToolbarHeight, final int navigationHeight, final boolean hasAppBarLayout, SwipeRefreshLayout mSwipeRefreshLayout, final List<IItems> data) {
+    public XAdapter(int type, final Context context, View rootView, RecyclerView recyclerView,LinearLayoutManager linearLayoutManager,SwipeRefreshLayout mSwipeRefreshLayout, final List<IItems> data) {
         this.type = type;
-        this.navigationHeight = navigationHeight;
+        //this.navigationHeight = navigationHeight;
         this.data = data;
-        this.hasAppBarLayout = hasAppBarLayout;
+        //this.hasAppBarLayout = hasAppBarLayout;
         this.picasso = Picasso.get();
         this.context = context;
         this.rootView = rootView;
-        this.scrollHeight = ToolbarHeight;
+        //this.scrollHeight = ToolbarHeight;
         this.mLayoutManager = linearLayoutManager ;
         this.recyclerView = recyclerView;
         this.mSwipeRefreshLayout = mSwipeRefreshLayout ;
-
         this.adapter = this;
 
         onScrollListener = new EndlessRecyclerOnScrollListener(mLayoutManager) {
@@ -233,6 +237,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
                 }
             };
             Global.apiManagerTubeless.getYafteTimeline(current_page - 1, ssssssss);
+        }else if (type == TYPE_POST_SEARCH_RESULT) {
+            adapter.notifyDataSetChanged();
         }else if (type == TYPE_YADAK) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
                 @Override
@@ -289,6 +295,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
         }else if (type == TYPE_YAFTE) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_yafte_item, parent, false);
             holder = new TimelineItemViewHolder(view);
+
+        }else if (type == TYPE_POST_SEARCH_RESULT) {
+            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_post_item, parent, false);
+            holder = new PostItemViewHolder(view);
+
         }else if (type == 1) {
 
             final View view = LayoutInflater.from(context).inflate(R.layout._row_image_of_a_car, parent, false);
@@ -299,15 +310,19 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     @Override
     public void onBindViewHolder(final PostViewHolder holder, final int position) {
-        ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).topMargin = 0;
+        //first Item
+        if (position == 0 && ((Activity)context) instanceof ContainerActivity) {                 //  <= فاصله اولین آیتم از بالای لیست
+            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).topMargin = 60;
+        }
+
+
+        //last Item
         if (position == getItemCount() - 1) {
 //            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).bottomMargin = holder.marginBottom + navigationHeight;
-
-//        } else if (position == 0 && !hasAppBarLayout) {       <= فاصله اولین آیتم از بالای لیست
-//            ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).topMargin = scrollHeight;
         } else {
             ((ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams()).bottomMargin = holder.marginBottom;
         }
+
 
         if (data.get(position) instanceof PictureItem) {
             final PictureItem item = (PictureItem) data.get(position);
@@ -315,6 +330,10 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
         }else if (data.get(position) instanceof TimelineItem) {
             final TimelineItem item = (TimelineItem) data.get(position);
+            item.fill(context ,type, holder, item);
+
+        }else if (data.get(position) instanceof PostSearchResponseItem) {
+            final PostSearchResponseItem item = (PostSearchResponseItem) data.get(position);
             item.fill(context ,type, holder, item);
 
         }else if (data.get(position) instanceof TextItem) {

@@ -48,6 +48,7 @@ public class ListFragment extends Fragment {
     private View fragmentRootView;
     private TubelessActivity activity;
     private int listType;
+    private List<IItems> list;
     private FloatingActionButton floatingActionButton ,floatingActionButtonList;
     private LinearLayoutManager mLayoutManager;
     private TextView mTextViewNoting;
@@ -80,6 +81,11 @@ public class ListFragment extends Fragment {
     public ListFragment(Context context, int listType) {
         this.context = context;
         this.listType = listType;
+    }
+    public ListFragment(Context context,List<IItems> list, int listType) {
+        this.context = context;
+        this.listType = listType;
+        this.list = list;
     }
 
     //0
@@ -138,18 +144,6 @@ public class ListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-//        mRecyclerView.setAdapter(
-//                new XAdapter(
-//                        listType,
-//                        getContext(),
-//                        mRoot,
-//                        mRecyclerView,
-//                        mLayoutManager,
-//                        scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
-//                        height,
-//                        hasAppBarLayout,
-//                        mSwipeRefreshLayout,
-//                        null));
         mRecyclerView.setAdapter(
                 new XAdapter(
                         listType,
@@ -157,11 +151,11 @@ public class ListFragment extends Fragment {
                         mRoot,
                         mRecyclerView,
                         mLayoutManager,
-                        100 ,
-                        500,
-                        false,
+                        //scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
+                        //height,
+                        //hasAppBarLayout,
                         mSwipeRefreshLayout,
-                        null));
+                        list));
 
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
     }
@@ -273,22 +267,23 @@ public class ListFragment extends Fragment {
                 }
             });
 
+        floatingActionButtonList.setBackgroundResource(R.drawable.benz);
         if (floatingActionButtonList != null)
             floatingActionButtonList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-    //                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
-    //                    Intent intent = new Intent(context, NewYafteActivity.class);
-    //                    Bundle bundle = new Bundle();
-    //                    bundle.putInt(ContactUsActivity.Type,16);
-    //                    intent.putExtras(bundle);
-    //                    startActivity(intent);
-    //                    ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-    //                }else {
-    ////                    context.startActivity(new Intent(context, UploadPictureActivity.class));
-    //                    context.startActivity(new Intent(context, NewBlogActivity.class));
-    //                }
-                    Toast.makeText(getActivity(),"commented onClick 2",Toast.LENGTH_SHORT).show();
+//                    if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
+//                        Intent intent = new Intent(context, NewYafteActivity.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt(ContactUsActivity.Type,16);
+//                        intent.putExtras(bundle);
+//                        startActivity(intent);
+//                        ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//                    }else {
+//                        //                    context.startActivity(new Intent(context, UploadPictureActivity.class));
+//                        context.startActivity(new Intent(context, NewBlogActivity.class));
+//                    }
+
 
                 }
             });

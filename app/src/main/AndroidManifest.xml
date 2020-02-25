@@ -83,15 +83,11 @@
             android:name=".activity.post.SearchByNameActivity"
             android:theme="@style/ThemeFullSCreen"
             android:windowSoftInputMode="adjustResize|stateHidden">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
+
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity"
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/ThemeFullSCreen"
             android:isScrollContainer="true"
@@ -102,22 +98,17 @@
             android:theme="@style/ThemeFullSCreen"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
-        <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity"
-            android:theme="@style/ThemeFullSCreen"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:configChanges="orientation|screenSize" />
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity"
-            android:theme="@style/ThemeFullSCreen"
+            android:theme="@style/ThemeFullSCreenX"
             android:configChanges="orientation|screenSize"
             android:isScrollContainer="true"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity"
-            android:theme="@style/ThemeFullSCreen"
+            android:theme="@style/ThemeFullSCreenX"
             android:configChanges="orientation|screenSize"
             android:isScrollContainer="true"
             android:windowSoftInputMode="stateHidden|adjustResize" />
@@ -128,20 +119,33 @@
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
-        <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity"
-            android:theme="@style/ThemeFullSCreen"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity"
             android:theme="@style/ThemeFullSCreen"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
+        <activity
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ListActivity"  />
+
+        <activity
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity"
+            android:theme="@style/ThemeFullSCreenX"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:configChanges="orientation|screenSize" />
+
+        <activity
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity"
+            android:theme="@style/ThemeFullSCreenX"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.common.Splash_Screen"
             android:theme="@style/ThemeFullSCreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 

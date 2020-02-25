@@ -19,6 +19,10 @@ import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.basic.ServerRe
 
 public class TubelessException extends Exception{
 
+    public static final int TUBELESS_RESPONSE_BODY_IS_NULL = 2001;
+    public static final int TUBELESS_DATABASE_ERROR = 2002;
+
+
     public static final int NATIONAL_CODE_NOT_TRUE = 1001;
     public static final int NAME_NOT_TRUE = 1002;
     public static final int FAMILY_NOT_TRUE = 1003;
@@ -75,6 +79,15 @@ public class TubelessException extends Exception{
             }
             case NATIONAL_CODE_NOT_TRUE:{
                 message = "sajjad Error : National Code Not true.";
+                break;
+            }
+
+            case TUBELESS_DATABASE_ERROR:{
+                message = "saajjad Error : CRUD database Error";
+                break;
+            }
+            case TUBELESS_RESPONSE_BODY_IS_NULL:{
+                message = "sajjad Error : we get null in body of response";
                 break;
             }
 
@@ -210,4 +223,13 @@ public class TubelessException extends Exception{
     }
 
 
+    public void handleServerMessage(Context context, Throwable t) {
+        final BottomSheetDialog progressDialog = new BottomSheetDialog(context);
+        TubelessException.ShowSheetDialogMessage(context, progressDialog, t.getMessage() , "ok" , new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                progressDialog.dismiss();
+            }
+        });
+    }
 }

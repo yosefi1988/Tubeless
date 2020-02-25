@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
@@ -36,6 +38,8 @@ import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 
 
 public class SearchByNationalCodeActivity extends TubelessTransparentStatusBarActivity {
@@ -273,6 +277,14 @@ public class SearchByNationalCodeActivity extends TubelessTransparentStatusBarAc
 //        intent.putExtras(bundle);
 //        startActivity(intent);
         //                                    getActivity().overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+
+
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("type" , TYPE_POST_SEARCH_RESULT);
+        bundle.putSerializable("LIST", (Serializable) responseX.getData());
+        getActivity().startActivity(ContainerActivity.getIntent(getContext(),bundle));
+
     }
 
 }

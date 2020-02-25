@@ -44,6 +44,8 @@ import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.post.SearchByNameActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
@@ -54,6 +56,7 @@ import it.sephiroth.android.library.bottomnavigation.FloatingActionButtonBehavio
 import it.sephiroth.android.library.bottomnavigation.MiscUtils;
 
 import static android.util.Log.VERBOSE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 
 @TargetApi (Build.VERSION_CODES.KITKAT_WATCH)
 public class MainActivity extends TubelessActivity implements BottomNavigation.OnMenuItemSelectionListener {
@@ -241,7 +244,12 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                      Bundle bundle = new Bundle();
                      bundle.putInt("type" , 1);
 
-                     getActivity().startActivityForResult(LoginActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+//                     getActivity().startActivityForResult(LoginActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+
+
+                    Intent intent = new Intent(getContext(), ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity.class);
+                    getActivity().startActivity(intent);
+
 
 //                }else  if (id == R.id.nav_account) {
 //                    // Handle the camera action
@@ -260,6 +268,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                    Intent autoActivityIntent =  new Intent(getContext(), RegYafteActivity.class);
 //                    getContext().startActivity(autoActivityIntent);
 
+                    getContext().startActivity(new Intent(getContext(), RegNewYafteActivity.class));
+
                 } else if (id == R.id.nav_add_new_yadak_item) {
 //                    if (getContext().getPackageName().contains("yadak")){
 //                        final BottomSheetDialog progressDialog = new BottomSheetDialog(getContext());
@@ -273,6 +283,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                        getActivity().startActivity(new Intent(getContext(), SearchByNationalCodeActivity.class));
 //                        getActivity().finish();
 //                    }
+                    getContext().startActivity(new Intent(getContext(), RegNewYadakActivity.class));
+
 
                 } else if (id == R.id.nav_search_by_name) {
                     if (getContext().getPackageName().contains("yadak")){
@@ -285,7 +297,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         });
                     }else {
                         getActivity().startActivity(new Intent(getContext(), SearchByNameActivity.class));
-                        getActivity().finish();
                     }
 
                 } else if (id == R.id.nav_contact_us) {
@@ -534,8 +545,16 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     public void onMenuItemSelect(final int itemId, final int position, final boolean fromUser) {
         if (fromUser) {
             getBottomNavigation().getBadgeProvider().remove(itemId);
-            if (null != getViewPager()) {
+            if (null != getViewPager() && position != 2) {
                 getViewPager().setCurrentItem(position);
+            }
+
+            if (position == 2) {
+                if(Global.user != null) {
+                    getActivity().startActivity(ProfileActivity.getIntent(getContext()));
+                }else {
+                    Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
+                }
             }
         }
     }
@@ -551,6 +570,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                fragment.scrollToTop();
 //            }
 //        }
-        Toast.makeText(getContext(),position+"",Toast.LENGTH_LONG).show();
+//        Toast.makeText(getContext(),position+"",Toast.LENGTH_LONG).show();
     }
 }

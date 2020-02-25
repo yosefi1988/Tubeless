@@ -33,23 +33,18 @@
                 android:id="@+id/editTextName"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
-                android:text="علی"
                 android:hint="@string/name"  />
 
             <EditText
                 android:id="@+id/editTextFamily"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
-                android:text="علی"
-
                 android:hint="@string/family" />
 
             <EditText
                 android:id="@+id/editTextFather"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
-                android:text="علی"
-
                 android:hint="@string/father_name"  />
 
             <TextView
@@ -69,8 +64,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="20dp"
+        android:padding="5dp"
         android:orientation="horizontal" >
+
         <Button
             android:id="@+id/button_search"
             android:layout_width="0dp"

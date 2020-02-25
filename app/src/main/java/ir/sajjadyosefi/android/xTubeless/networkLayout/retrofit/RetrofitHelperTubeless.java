@@ -8,6 +8,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUs
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -34,6 +35,11 @@ public class RetrofitHelperTubeless {
     }
 
     public void loginOrRregister(LoginRequest request, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.login(request);
+        userCall.enqueue(callback);
+    }
+
+    public void loginOrRregisterMVP(LoginRequest request, Callback callback) {
         Call<Object> userCall = service.login(request);
         userCall.enqueue(callback);
     }

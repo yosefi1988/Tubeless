@@ -47,6 +47,8 @@ public abstract class TubelessTransparentStatusBarActivity extends TubelessActiv
 //            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(Color.TRANSPARENT);
         }
+
+
     }
 
 

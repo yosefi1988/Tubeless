@@ -265,25 +265,28 @@ public class LoginActivity extends TubelessActivity {
             @Override
             public void t_retry(Call<Object> call) {
 
+
             }
 
 
             @Override
             public void t_onSuccess(Object response) {
-                Global.user = (User) response;
+                User tmpUser = (User) response;
 
                 SAccounts sAccounts = new SAccounts(getContext());
-                sAccounts.performAccount(UserName,(int) Global.user.getUserId());
+                sAccounts.performAccount(UserName,(int) tmpUser.getUserId());
 
                 //save to db
                 if (Global.user == null){
-                    if ((new User(Global.user)).save()){
+                    if ((new User(tmpUser)).save()){
                         Toast.makeText(getContext(),getContext().getString(R.string.welcome) ,Toast.LENGTH_LONG).show();
+                        Global.user = tmpUser;
                         retData(new Intent());
                     }else {
                         Toast.makeText(getContext(),"613458872",Toast.LENGTH_LONG).show();
                     }
                 }else {
+                    Global.user = tmpUser;
                     Toast.makeText(getContext(),getContext().getString(R.string.welcome) ,Toast.LENGTH_LONG).show();
                     retData(new Intent());
                 }

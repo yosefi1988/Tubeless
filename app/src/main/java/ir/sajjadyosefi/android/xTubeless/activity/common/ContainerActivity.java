@@ -14,9 +14,12 @@ import android.view.WindowManager;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.appbar.AppBarLayout;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
+
+import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
@@ -24,6 +27,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
@@ -33,6 +37,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
 
     private Context mContext;
     private int type = 0 ;
+    private List<IItems> list;
     private Toolbar toolbar;
 
 
@@ -71,9 +76,14 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
         setContentView(R.layout.x_activity_container);
         mContext = this;
         type = getIntent().getIntExtra("type",0);
+        list = (List<IItems>) getIntent().getSerializableExtra("LIST");
 
 
         if (type == TYPE_POST_SEARCH_RESULT){
@@ -83,9 +93,19 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
 //            ft.commit();
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.include, new ListFragment(getContext(),2));
+            ft.replace(R.id.include, new ListFragment(this,list ,TYPE_POST_SEARCH_RESULT));
 //            ft.replace(R.id.include, new BlankFragment(getContext()));
             ft.commit();
+
+
+
+
+//            ListFragment2 newFragment = new ListFragment2(getContext(),2);
+//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//            transaction.replace(R.id.include, newFragment);
+//            transaction.addToBackStack(null);
+//            transaction.commit();
+
         }else if (type == 1){
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -113,36 +133,12 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
             ft.commit();
         }
 
-        Activity ddd = getActivity();
-        Context ssss = getContext();
-        View view = getRootActivity();
 
-        Activity ddd2 = (Activity) getContext();
-        Context ssss2 = getActivity();
+
 
         int a = 5 ;
         a++;
     }
-
-
-
-    Fragment prepareFragment() {
-
-        int id = getIntent().getExtras().getInt("id");
-        String term = getIntent().getExtras().getString("term");
-
-        Bundle args = new Bundle();
-        args.putString("term", term);
-        args.putInt("id", id);
-//        FragmentTimelineMinor fragment = new FragmentTimelineMinor();
-//        fragment.setArguments(args);
-        //this.values = context.getSharedPreferences(Statics.MAHAN, 0);
-//        return fragment;
-        return null;
-    }
-
-
-
 
     @Override
     public SystemBarTintManager getSystemBarTint() {
@@ -185,7 +181,20 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
     }
 
 
+    Fragment prepareFragment() {
 
+        int id = getIntent().getExtras().getInt("id");
+        String term = getIntent().getExtras().getString("term");
+
+        Bundle args = new Bundle();
+        args.putString("term", term);
+        args.putInt("id", id);
+//        FragmentTimelineMinor fragment = new FragmentTimelineMinor();
+//        fragment.setArguments(args);
+        //this.values = context.getSharedPreferences(Statics.MAHAN, 0);
+//        return fragment;
+        return null;
+    }
 
 
 

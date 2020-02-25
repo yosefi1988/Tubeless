@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
@@ -45,6 +47,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
 
 
 public class SearchByNameActivity extends TubelessTransparentStatusBarActivity{
@@ -72,6 +76,7 @@ public class SearchByNameActivity extends TubelessTransparentStatusBarActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_name);
+
         setRootActivity((ViewGroup) ((ViewGroup) this.findViewById(android.R.id.content)).getChildAt(0));
 
         editTextName = (EditText) findViewById(R.id.editTextName);
@@ -103,7 +108,7 @@ public class SearchByNameActivity extends TubelessTransparentStatusBarActivity{
             public void onClick(View v) {
                 final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
 
-                if (editTextName.getText().toString().length() < 2 || editTextFamily.getText().toString().length() < 2 || editTextFather.getText().toString().length() < 2 ) {
+                if (editTextName.getText().toString().length() < 3 || editTextFamily.getText().toString().length() < 3 || editTextFather.getText().toString().length() < 3 ) {
                     TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.data_not_true), new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -301,6 +306,15 @@ public class SearchByNameActivity extends TubelessTransparentStatusBarActivity{
 
         Bundle bundle = new Bundle();
         bundle.putInt("type" , TYPE_POST_SEARCH_RESULT);
+        bundle.putSerializable("LIST", (Serializable) responseX.getData());
         getActivity().startActivity(ContainerActivity.getIntent(getContext(),bundle));
+
+
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("type" , TYPE_YADAK);
+//        getActivity().startActivity(ListActivity.getIntent(getContext(),bundle));
+
+
+
     }
 }

@@ -8,14 +8,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:436191597727:android:9a8d6f53ff357a79f3beaa",
+        "mobilesdk_app_id": "1:436191597727:android:3df31d866f00e0d2f3beaa",
         "android_client_info": {
           "package_name": "ir.sajjadyosefi.android.xTubeless"
         }
       },
       "oauth_client": [
         {
-          "client_id": "436191597727-l8gi0tu372faso9q96ov0ifhgagasq93.apps.googleusercontent.com",
+          "client_id": "436191597727-9qc5kl370gkf02mqpjekp412c1tnjhlf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "ir.sajjadyosefi.android.xTubeless",
@@ -29,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAirlj6jP45-7PkYKiayc1vJSC0GTucP2w"
+          "current_key": "AIzaSyBZggN5Dvj_8d-tr1KrrtUvumQGV5D9PE0"
         }
       ],
       "services": {

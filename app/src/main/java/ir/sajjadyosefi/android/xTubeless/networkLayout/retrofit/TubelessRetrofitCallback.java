@@ -148,8 +148,4 @@ public class TubelessRetrofitCallback<Object> implements Callback<java.lang.Obje
     }
 
 
-
-    public void retry(Call<java.lang.Object> call, Throwable t) {
-
-    }
 }

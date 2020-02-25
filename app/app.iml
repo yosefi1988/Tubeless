@@ -258,8 +258,5 @@
     <orderEntry type="module" module-name="PagerSlidingTabStrip" />
     <orderEntry type="module" module-name="faboptions" />
     <orderEntry type="module" module-name="crop-image-lib" />
-    <orderEntry type="module" module-name="PagerSlidingTabStrip" />
-    <orderEntry type="module" module-name="faboptions" />
-    <orderEntry type="module" module-name="crop-image-lib" />
   </component>
 </module>
