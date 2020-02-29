@@ -3,7 +3,6 @@ package ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost;
 import android.graphics.Movie;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.yafte.search.SearchResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

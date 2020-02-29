@@ -25,7 +25,6 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import ir.adad.client.Adad;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Message;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.R;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;

@@ -1,15 +1,13 @@
 package ir.sajjadyosefi.android.xTubeless.Fragment;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
@@ -26,15 +24,11 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Tag;
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.PictureItem;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.TextItem;
-import it.sephiroth.android.library.bottomnavigation.BottomBehavior;
-import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
-import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
-import it.sephiroth.android.library.bottomnavigation.app.ToolbarScrollHelper;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Tag;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
@@ -231,10 +225,10 @@ public class ListFragment extends Fragment {
 
     private void loadTimeline(View view, final int listType) {
 
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mLayoutManager = new LinearLayoutManager(context);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mRecyclerView.setHasFixedSize(true);
+//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+//        mLayoutManager = new LinearLayoutManager(context);
+//        mRecyclerView.setLayoutManager(mLayoutManager);
 
 
 

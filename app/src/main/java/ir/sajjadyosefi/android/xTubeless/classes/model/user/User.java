@@ -1,43 +1,30 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.user;
 
 import android.content.Context;
-import android.content.Intent;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.internal.Primitives;
 
+import org.litepal.LitePal;
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
 import java.lang.reflect.Type;
-import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.view.ILoginView;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.IPresenter;
-import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.LoginResponse;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Post;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Device;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Car.Car;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.basic.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.PostRetrofitCallback;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
-import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException.TUBELESS_DATABASE_ERROR;
-import static ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException.TUBELESS_RESPONSE_BODY_IS_NULL;
-import static ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallback.showConnectionLostDialog;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_DATABASE_ERROR;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_RESPONSE_BODY_IS_NULL;
+import static ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss.showConnectionLostDialog;
 
 public class User extends LitePalSupport implements IUser {
 
@@ -185,9 +172,7 @@ public class User extends LitePalSupport implements IUser {
 		this.loginPassword = loginPassword;
 	}
 
-	public void CheckUserValidity(IPresenter presenter , LoginRequest request) {
-
-
+	public void CheckUserValidity(ILoginPresenterI presenter , LoginRequest request) {
 		Callback callback = new Callback() {
 			@Override
 			public void onResponse(Call call, Response response) {
@@ -216,8 +201,14 @@ public class User extends LitePalSupport implements IUser {
 											Global.user = tmpUser;
 											presenter.onSuccess(tmpUser);
 										}else {
-											Global.user = null;
-											presenter.onThrowException(new TubelessException(TUBELESS_DATABASE_ERROR));
+											User dbUser = LitePal.where("userId like ?", tmpUser.getUserId() + "").findFirst(User.class);
+											if (dbUser != null) {
+												Global.user = dbUser;
+												presenter.onSuccess(dbUser);
+											}else {
+												Global.user = null;
+												presenter.onThrowException(new TubelessException(TUBELESS_DATABASE_ERROR));
+											}
 										}
 									}else {
 										Global.user = tmpUser;

@@ -3,7 +3,8 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post;
 
 import java.util.List;
 
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.basic.ServerStatus;
+import ir.sajjadyosefi.android.xTubeless.classes.model.ServerStatus;
+
 
 /**
  * Created by sajjad on 3/1/2017.

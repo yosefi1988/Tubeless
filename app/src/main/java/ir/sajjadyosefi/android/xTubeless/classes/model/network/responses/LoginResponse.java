@@ -1,7 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.network.responses;
 
 
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 
 /**

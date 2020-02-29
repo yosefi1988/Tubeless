@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.TwoLinesViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TwoLinesViewHolder;
 
 public abstract class adapter extends RecyclerView.Adapter<TwoLinesViewHolder> {
 

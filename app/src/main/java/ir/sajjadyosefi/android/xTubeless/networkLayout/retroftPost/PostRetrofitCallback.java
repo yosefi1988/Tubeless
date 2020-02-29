@@ -11,8 +11,8 @@ import com.google.gson.JsonElement;
 
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.basic.ServerResponseBase;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

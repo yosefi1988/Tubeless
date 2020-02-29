@@ -24,10 +24,10 @@ import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarAc
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.LoginResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TimelineItem;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallback;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.Responses.blog.TimelineItemResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.TimelineItem;
+
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
@@ -74,12 +74,12 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineItemResponse.class) {
             @Override
             public void t_beforeSendRequest() {
-
+                progressDialog.show();
             }
 
             @Override
             public void t_afterGetResponse() {
-
+                progressDialog.hide();
             }
 
             @Override
@@ -160,7 +160,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         if (timelineItem.getPicture() != null && timelineItem.getPicture().length() > 10) {
             imageviewPicture.setVisibility(View.VISIBLE);
             Picasso.get()
-                    .load(timelineItem.getPictureTumble())
+                    .load(timelineItem.getPicture())
                     .placeholder(R.drawable.bg_search)
                     //.centerInside()
                     //.transform(transformation)

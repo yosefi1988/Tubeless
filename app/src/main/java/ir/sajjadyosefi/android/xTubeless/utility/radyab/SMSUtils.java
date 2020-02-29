@@ -13,7 +13,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.classes.model.common.Sms;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Sms;
+
 
 /**
  * Created by sajjad on 5/2/2018.
@@ -87,7 +88,7 @@ public class SMSUtils  extends BroadcastReceiver {
 //            method.invoke(stubObj, context.getPackageName(), toNum, centerNum, smsText, sentIntent, deliveryIntent);
 //        }catch (Exception e){}
 //    }
-    public static void sendSMS(final Context context,Sms sms) {
+    public static void sendSMS(final Context context, Sms sms) {
 
         if (!canSendSMS(context)) {
             Toast.makeText(context, context.getString(R.string.cannot_send_sms), Toast.LENGTH_LONG).show();

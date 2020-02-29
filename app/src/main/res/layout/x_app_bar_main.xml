@@ -186,7 +186,6 @@
 
     <com.astuetz.MainPagerSlidingTabStrip
         android:id="@+id/tabs"
-
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:background="@color/tubelessColor_blue_03"

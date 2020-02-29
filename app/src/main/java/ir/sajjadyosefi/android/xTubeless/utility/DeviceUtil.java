@@ -3,6 +3,7 @@ package ir.sajjadyosefi.android.xTubeless.utility;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
@@ -13,6 +14,25 @@ public class DeviceUtil {
 
     public static String GetAndroidId(Context context) {
         return Settings.Secure.getString(context.getContentResolver(),Settings.Secure.ANDROID_ID);
+
+
+
+        //Global
+//        TelephonyManager TelephonyMgr = (TelephonyManager) context.getSystemService(TELEPHONY_SERVICE);
+//        String m_deviceId = "";// = TelephonyMgr.getDeviceId();
+//        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+//            m_deviceId = TelephonyMgr.getDeviceId();
+//        }
+//
+////
+////            device.setAndroidID(m_deviceId);
+//        if(m_deviceId != "")
+//            device.setAndroidID(m_deviceId);                                                                    //
+//        else
+//            device.setAndroidID(Build.SERIAL);
+
+
+
     }
 
 

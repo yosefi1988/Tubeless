@@ -140,7 +140,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.Splash_Screen"
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.SplashScreen"
             android:theme="@style/ThemeFullSCreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

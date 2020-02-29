@@ -1,33 +1,22 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common;
 
 
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
-import com.google.android.material.appbar.AppBarLayout;
+
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.List;
 
-import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;

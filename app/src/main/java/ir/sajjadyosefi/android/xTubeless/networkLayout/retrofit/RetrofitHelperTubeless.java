@@ -1,16 +1,18 @@
 package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit;
 
 
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.request.yafte.NewBlogRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.account.DeviceRequest;
+import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUsRequest;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.IDApplication;
 
 public class RetrofitHelperTubeless {
     private static ApiServiceTubeless service;
@@ -44,11 +46,15 @@ public class RetrofitHelperTubeless {
         userCall.enqueue(callback);
     }
 
-    public void getYadakTimeline(int index, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.getYadakTimeline(index,15);
+//    public void getYadakTimeline(int index, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.getYadakTimeline(index,15);
+//        userCall.enqueue(callback);
+//    }
+
+    public void getTimelineYadak(int index, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.getTimelineYadak(index,15);
         userCall.enqueue(callback);
     }
-
 
     public void getYafteTimeline(int index, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.getYafteTimeline(index,15);
@@ -68,43 +74,44 @@ public class RetrofitHelperTubeless {
 
 
 
+    public void getTubelessNews(TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.getTubelessNews(IDApplication,0,1);
+        userCall.enqueue(callback);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void deviceRregister(DeviceRequest request, TubelessRetrofitCallback<Object> callback) {
+    public void deviceRregister(DeviceRequest request, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.deviceRegister(request);
         userCall.enqueue(callback);
     }
 
 
-    public void getTimelineYadak(int index, TubelessRetrofitCallback<Object> callback) {
-        Call<Object> userCall = service.getTimelineYadak(index,15);
-        userCall.enqueue(callback);
-    }
 
 
-    public void getTimelineYafte(int index, TubelessRetrofitCallback<Object> callback) {
-        Call<Object> userCall = service.getTimelineYadak(index,15);
-        userCall.enqueue(callback);
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public void getTimelineYafte(int index, TubelessRetrofitCallback<Object> callback) {
+//        Call<Object> userCall = service.getTimelineYadak(index,15);
+//        userCall.enqueue(callback);
+//    }
 
 
 //    public void createUser(SearchRequest searchRequest, Callback<ServerResponse> callback) {
@@ -115,24 +122,24 @@ public class RetrofitHelperTubeless {
 
 
 
-    public void newContactUs(ContactUsRequest request, TubelessRetrofitCallback<Object> callback) {
-        Call<Object> userCall = service.contactUs(request);
-        userCall.enqueue(callback);
-    }
+//    public void newContactUs(ContactUsRequest request, TubelessRetrofitCallback<Object> callback) {
+//        Call<Object> userCall = service.contactUs(request);
+//        userCall.enqueue(callback);
+//    }
 
-    public void deleteTimelineItem(int id, String userId, TubelessRetrofitCallback<Object> callback) {
-        Call<Object> userCall = service.deleteTimelineItem(id,userId);
-        userCall.enqueue(callback);
-    }
-    public void invisibleTimelineItem(int id, String userId, TubelessRetrofitCallback<Object> callback) {
-        Call<Object> userCall = service.invisibleTimelineItem(id,userId);
-        userCall.enqueue(callback);
-    }
+//    public void deleteTimelineItem(int id, String userId, TubelessRetrofitCallback<Object> callback) {
+//        Call<Object> userCall = service.deleteTimelineItem(id,userId);
+//        userCall.enqueue(callback);
+//    }
+//    public void invisibleTimelineItem(int id, String userId, TubelessRetrofitCallback<Object> callback) {
+//        Call<Object> userCall = service.invisibleTimelineItem(id,userId);
+//        userCall.enqueue(callback);
+//    }
 
 
-    public void requestUpload2(MultipartBody.Part file, RequestBody userName, RequestBody password, RequestBody androidId , RequestBody serialRequestCode , RequestBody fileType , RequestBody senderType, TubelessRetrofitCallback<Object> callback) {
-        Call<Object> userCall = service.upload2(file , userName,password,androidId, serialRequestCode , fileType , senderType);
-        userCall.enqueue(callback);
-    }
+//    public void requestUpload2(MultipartBody.Part file, RequestBody userName, RequestBody password, RequestBody androidId , RequestBody serialRequestCode , RequestBody fileType , RequestBody senderType, TubelessRetrofitCallback<Object> callback) {
+//        Call<Object> userCall = service.upload2(file , userName,password,androidId, serialRequestCode , fileType , senderType);
+//        userCall.enqueue(callback);
+//    }
 
 }

@@ -5,14 +5,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.squareup.picasso.Picasso;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
@@ -22,24 +20,20 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TimelineItem;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostItemViewHolder;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallback;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.PictureItem;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.TextItem;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.responses.blog.TimelineListResponse;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostViewHolder;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.TimelineItemViewHolder;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.TwoLinesViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.TimelineItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostItemViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TwoLinesViewHolder;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
@@ -105,8 +99,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
 
 
+
         firstLoadAndRefresh(context);
     }
+
+
 
     private void firstLoadAndRefresh(Context context) {
 //        mSwipeRefreshLayout.setOnRefreshListener(() -> {
@@ -139,46 +136,49 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     private void loadTimeline(Context context,int current_page,boolean isRefresh) {
 
-        if (type == 2) {
-            Global.apiManagerTubeless.getTimelineYadak(current_page - 1, new TubelessRetrofitCallback<Object>(context, null, true, null, new Callback<Object>() {
+        if (type == TYPE_YADAK) {
+            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
                 @Override
-                public void onResponse(Call<Object> call, Response<Object> response) {
+                public void t_beforeSendRequest() {
 
-                    Gson gson = new Gson();
-                    JsonElement jsonElement = gson.toJsonTree(response.body());
-                    TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);
+                }
 
-                    for (IItems item : responseX.getTimelineList()){
-                        //item.setType(Tubeless_ITEM_TYPE);
+                @Override
+                public void t_afterGetResponse() {
+
+                }
+
+                @Override
+                public void t_complite() {
+
+                }
+
+                @Override
+                public void t_responseNull() {
+
+                }
+
+                @Override
+                public void t_retry(Call<Object> call) {
+
+                }
+
+                @Override
+                public void t_onSuccess(Object response) {
+                    TimelineListResponse responseX = (TimelineListResponse) response;
+                    for (TimelineItem item : responseX.getTimelineList()){
+//                        item.setType(Tubeless_ITEM_TYPE);
                         data.add(item);
-                        if (isRefresh) {
+//                        if (isRefresh) {
                             adapter.notifyDataSetChanged();
-                        }else {
-                            adapter.notifyItemInserted(data.size());
-                        }
+//                        }else {
+//                            adapter.notifyItemInserted(data.size());
+//                        }
                     }
-
-
-//                Gson gson = new Gson();
-//                JsonElement jsonElement = gson.toJsonTree(response.body());
-//                TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);
-//                for (TimelineItem item : responseX.getTimelineList()){
-//                    item.setType(Tubeless_ITEM_TYPE);
-//                    data.add(item);
-//                    if (isRefresh) {
-//                        adapter.notifyDataSetChanged();
-//                    }else {
-//                        adapter.notifyItemInserted(data.size());
-//                    }
-//                }
-//                adapter.notifyDataSetChanged();
                 }
+            };
+            Global.apiManagerTubeless.getTimelineYadak(current_page - 1, ssssssss);
 
-                @Override
-                public void onFailure(Call<Object> call, Throwable t) {
-
-                }
-            }));
         }else if (type == TYPE_YAFTE) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
                 @Override
@@ -239,50 +239,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
             Global.apiManagerTubeless.getYafteTimeline(current_page - 1, ssssssss);
         }else if (type == TYPE_POST_SEARCH_RESULT) {
             adapter.notifyDataSetChanged();
-        }else if (type == TYPE_YADAK) {
-            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
-                @Override
-                public void t_beforeSendRequest() {
-
-                }
-
-                @Override
-                public void t_afterGetResponse() {
-
-                }
-
-                @Override
-                public void t_complite() {
-
-                }
-
-                @Override
-                public void t_responseNull() {
-
-                }
-
-                @Override
-                public void t_retry(Call<Object> call) {
-
-                }
-
-                @Override
-                public void t_onSuccess(Object response) {
-                    TimelineListResponse responseX = (TimelineListResponse) response;
-                    for (TimelineItem item : responseX.getTimelineList()){
-//                        item.setType(Tubeless_ITEM_TYPE);
-                        data.add(item);
-//                        if (isRefresh) {
-//                            adapter.notifyDataSetChanged();
-//                        }else {
-//                            adapter.notifyItemInserted(data.size());
-//                        }
-                    }
-                    adapter.notifyDataSetChanged();
-                }
-            };
-            Global.apiManagerTubeless.getYadakTimeline(current_page - 1, ssssssss);
         }
+
     }
 
     @Override
@@ -348,18 +306,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
     }
 
     @Override
-
     public int getItemCount() {
         if (data == null)
             data = new ArrayList<>();
 
         return data.size();
-    }
-
-
-
-    public void notifyDataSetChanged(boolean animationAvalable) {
-        notifyDataSetChanged();
     }
 
     @Override
@@ -390,6 +341,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
     private void setAnimation(View viewToAnimate, int position) {
 
     }
+
+
 
     @Override
     public int getItemViewType(int position) {

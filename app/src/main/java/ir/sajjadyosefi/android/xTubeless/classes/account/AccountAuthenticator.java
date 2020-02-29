@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 
-import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity;
 
 import static android.accounts.AccountManager.KEY_BOOLEAN_RESULT;
 

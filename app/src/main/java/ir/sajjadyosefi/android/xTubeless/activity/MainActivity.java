@@ -3,6 +3,7 @@ package ir.sajjadyosefi.android.xTubeless.activity;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -28,20 +29,24 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.andremion.counterfab.CounterFab;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
+import com.squareup.picasso.Picasso;
 
 import org.litepal.LitePal;
 
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.post.SearchByNameActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
@@ -49,14 +54,17 @@ import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.TimelineItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import it.sephiroth.android.library.bottomnavigation.BadgeProvider;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import it.sephiroth.android.library.bottomnavigation.FloatingActionButtonBehavior;
 import it.sephiroth.android.library.bottomnavigation.MiscUtils;
+import retrofit2.Call;
 
 import static android.util.Log.VERBOSE;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 
 @TargetApi (Build.VERSION_CODES.KITKAT_WATCH)
 public class MainActivity extends TubelessActivity implements BottomNavigation.OnMenuItemSelectionListener {
@@ -70,7 +78,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     ViewGroup root;
 
     //Top of page
-    private ImageView header;
+    private ImageView headerImageView;
+    private CollapsingToolbarLayout toolbar_layout;
     private TextView headerText;
     private Toolbar toolbar;
     private AppBarLayout AppBarLayout01;
@@ -97,7 +106,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
         root = findViewById(R.id.CoordinatorLayout01);
         counterFab = (CounterFab) findViewById(R.id.fabx);
-        header = (ImageView) findViewById(R.id.header);
+        headerImageView = (ImageView) findViewById(R.id.header);
+        toolbar_layout =  findViewById(R.id.toolbar_layout);
         headerText = (TextView) findViewById(R.id.headerText);
         toolbar = findViewById(R.id.toolbar);
         AppBarLayout01 = findViewById(R.id.AppBarLayout01);
@@ -107,7 +117,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
 
-        loadTubelessAccountData();
+        loadTubelessAccountData(getContext());
 
 
         setSupportActionBar(toolbar);
@@ -152,7 +162,14 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         initializeUI(savedInstanceState);
 
 
-        ////////////////////////////////// on click ///////////////////////////////////
+
+
+        loadNews();
+    }
+
+    private void loadNews() {
+
+
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,25 +184,106 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             }
         };
 
-        counterFab.setOnClickListener(onClickListener);
-        AppBarLayout01.setOnClickListener(onClickListener);
-        toolbar.setOnClickListener(onClickListener);
-        headerText.setOnClickListener(onClickListener);
-        header.setOnClickListener(onClickListener);
-        ////////////////////////////////// end on click ///////////////////////////////////
+        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
+            @Override
+            public void t_beforeSendRequest() {
 
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+
+            }
+
+            @Override
+            public void t_complite() {
+
+            }
+
+            @Override
+            public void t_responseNull() {
+
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                TimelineListResponse responseX = (TimelineListResponse) response;
+                counterFab.setCount(responseX.getTimelineList().size());
+
+
+                for (TimelineItem item : responseX.getTimelineList()){
+
+                    ////////////////////////////////// on click ///////////////////////////////////
+                    View.OnClickListener goToReadNews = new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+//                            counterFab.setCount(10); // Set the count value to show on badge
+//                            counterFab.increase(); // Increase the current count value by 1
+
+                            Intent intent = new Intent(getContext(), ReadBlogActivity.class);
+                            Gson gson = new Gson();
+                            String json = gson.toJson(item);
+                            intent.putExtra("Object", json);
+                            getContext().startActivity(intent);
+                            ((Activity) getContext()).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+                        }
+                    };
+
+                    counterFab.setOnClickListener(goToReadNews);
+                    AppBarLayout01.setOnClickListener(goToReadNews);
+                    toolbar.setOnClickListener(goToReadNews);
+                    headerText.setOnClickListener(goToReadNews);
+                    headerImageView.setOnClickListener(goToReadNews);
+
+
+                    Picasso.get()
+                            .load(item.getPicture())
+                            .placeholder(R.drawable.jpg_paeez)
+                            //.centerInside()
+                            //.transform(transformation)
+                            .into(headerImageView, new com.squareup.picasso.Callback() {
+                                @Override
+                                public void onSuccess() {
+
+                                }
+
+                                @Override
+                                public void onError(Exception e) {
+
+                                    Picasso.get()
+                                            .load(R.drawable.jpg_paeez)
+                                            //.transform(transformation)
+                                            .into(headerImageView);
+                                }
+                            } );
+
+                    toolbar.setTitle(item.getTitle());
+                    toolbar_layout.setTitle(item.getTitle());
+                    headerText.setText(item.getText() + "\n" + item.getRegisterDate());
+                    ////////////////////////////////// end on click ///////////////////////////////////
+                }
+            }
+        };
+        Global.apiManagerTubeless.getTubelessNews( ssssssss);
     }
 
-    private void loadTubelessAccountData() {
-        SAccounts sAccounts = new SAccounts(getContext());
+    public static User loadTubelessAccountData(Context context) {
+        SAccounts sAccounts = new SAccounts(context);
         if (sAccounts.hasUserAccount()){
             int accountId = sAccounts.getUserAccountID();
             Global.user = LitePal.where("userId like ?", accountId + "").findFirst(User.class);
 
-
             if (Global.user == null){
-                Toast.makeText(getContext(),"618716848872",Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"618716848872",Toast.LENGTH_LONG).show();
             }
+            return Global.user;
+        }else {
+            return null;
         }
     }
 
@@ -244,11 +342,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                      Bundle bundle = new Bundle();
                      bundle.putInt("type" , 1);
 
-//                     getActivity().startActivityForResult(LoginActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
-
-
-                    Intent intent = new Intent(getContext(), ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity.class);
-                    getActivity().startActivity(intent);
+                     getActivity().startActivityForResult(LoginActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
 
 
 //                }else  if (id == R.id.nav_account) {
@@ -502,6 +596,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     public int getNavigationBarHeight() {
         return getSystemBarTint().getConfig().getNavigationBarHeight();
     }
+
     public Toolbar getToolbar() {
         return (Toolbar) findViewById(R.id.toolbar);
     }

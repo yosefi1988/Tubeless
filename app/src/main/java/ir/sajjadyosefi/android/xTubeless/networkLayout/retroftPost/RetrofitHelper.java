@@ -1,6 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.yafte.search.SearchResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;

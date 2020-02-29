@@ -24,6 +24,7 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
             "\uE800",
             "\uE803"};
 
+    public static int TYPE_TUBELESS_NEWS  = 4;
     public static int TYPE_YAFTE  = 3;
     public static int TYPE_YADAK  = 2;
     public static int TYPE_IMAGE  = 1;

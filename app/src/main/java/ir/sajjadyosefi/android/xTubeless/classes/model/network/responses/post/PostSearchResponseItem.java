@@ -10,14 +10,11 @@ import java.io.Serializable;
 
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TimelineItem;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TubelessObject;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.post.IItems;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostItemViewHolder;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.PostViewHolder;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.viewHolder.TimelineItemViewHolder;
-import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
+import ir.sajjadyosefi.android.xTubeless.classes.model.TubelessObject;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostItemViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
+
 
 public class PostSearchResponseItem extends TubelessObject implements Serializable ,IItems{
 
@@ -104,7 +101,7 @@ public class PostSearchResponseItem extends TubelessObject implements Serializab
         this.nationalCode = nationalCode;
     }
 
-    public void fill(Context mContext,int listType , PostViewHolder holder0, IItems item) {
+    public void fill(Context mContext, int listType , PostViewHolder holder0, IItems item) {
         PostItemViewHolder holder = (PostItemViewHolder) holder0;
         final PostSearchResponseItem timelineItem = (PostSearchResponseItem)item;
 

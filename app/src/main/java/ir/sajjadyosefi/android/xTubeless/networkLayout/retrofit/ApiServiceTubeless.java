@@ -5,10 +5,12 @@ import android.graphics.Movie;
 import java.util.List;
 
 
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.NetworkLayout.request.yafte.NewBlogRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.account.DeviceRequest;
+//import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
+//import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUsRequest;
+//import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUsRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -26,22 +28,30 @@ import retrofit2.http.Query;
 
 public interface ApiServiceTubeless {
 
+
+    @GET("Api/TimeLine/getTubelessProjectLastTimelineNews")
+    Call<Object> getTubelessNews(@Query("id") int projectId,
+                                 @Query("index") int index,
+                                 @Query("count") int count);
+
+    @POST("Api/Device/deviceRegister")
+    Call<Object> deviceRegister(@Body DeviceRequest request);
+
     @POST("Api/User/Login")
     Call<Object> login(@Body LoginRequest request);
-
-
-    @GET("Api/TimeLine/getYadakTimeline")
-    Call<Object> getYadakTimeline(@Query("index") int index,
-                                  @Query("count") int count);
-
-    @GET("Api/TimeLine/getTimeline")
-    Call<Object> getYafteTimeline(@Query("index") int index,
-                             @Query("count") int count);
 
     @POST("Api/Blog/SaveNewBlog")
     Call<Object> newYafte(@Body NewBlogRequest request);
 
-    @GET("Api/Timeline/getYadakTimelineItem")
+    @GET("Api/TimeLine/getTubelessTimeline")
+    Call<Object> getYafteTimeline(@Query("index") int index,
+                                  @Query("count") int count);
+
+    @GET("Api/TimeLine/getTubelessYadakTimeline")
+    Call<Object> getTimelineYadak(@Query("index") int index,
+                                  @Query("count") int count);
+
+    @GET("Api/Timeline/getTubelessTimelineItem")
     Call<Object> getTimelineItem(@Query("id") int id);
 
 
@@ -50,6 +60,9 @@ public interface ApiServiceTubeless {
 
 
 
+//    @GET("Api/TimeLine/getYadakTimeline")
+//    Call<Object> getYadakTimeline(@Query("index") int index,
+//                                  @Query("count") int count);
 
 
 
@@ -66,6 +79,12 @@ public interface ApiServiceTubeless {
 
 
 
+
+
+
+
+//    @POST("Api/Common/ContactUs")
+//    Call<Object> contactUs(@Body ContactUsRequest request);
 
 //    @GET("questions")
 //    Call<Question> getQuestionsService(@Query("page") int page,
@@ -84,19 +103,10 @@ public interface ApiServiceTubeless {
 //            @Field("token") String token);
 
 
-    @POST("Api/Device/deviceRegister")
-    Call<Object> deviceRegister(@Body DeviceRequest request);
 
 
 
-    @GET("Api/TimeLine/getYadakTimeline")
-    Call<Object> getTimelineYadak(@Query("index") int index,
-                             @Query("count") int count);
 
-
-
-    @POST("Api/Common/ContactUs")
-    Call<Object> contactUs(@Body ContactUsRequest request);
 
     @GET("Api/Blog/deleteBlog")
     Call<Object> deleteTimelineItem(@Query("id") int id,
@@ -125,6 +135,7 @@ public interface ApiServiceTubeless {
     @Headers({"Content-Type: multipart/form-data",
             "Accept: application/json",
             "Accept-Encoding: gzip, deflate"})
+
     Call<Object> upload(
             @Part MultipartBody.Part file,
             @Part("userName") RequestBody userName,

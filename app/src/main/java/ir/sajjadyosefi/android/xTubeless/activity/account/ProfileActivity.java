@@ -14,6 +14,9 @@ import androidx.appcompat.widget.Toolbar;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import org.litepal.LitePal;
+
+import java.util.List;
+
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
@@ -54,6 +57,10 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
         buttonSignOut = findViewById(R.id.buttonSignOut);
         buttonBack = findViewById(R.id.buttonBack);
 
+        if (Global.user == null){
+            finish();
+        }
+
         ueditTextNameUserId.setText(Global.user.getUserId() == 0 ? "" : Global.user.getUserId() + "");
         editTextName.setText(Global.user.getUserName() == null ? "" : Global.user.getUserName());
         editTextEmail.setText(Global.user.getEmail() == null ? "" : Global.user.getEmail());
@@ -65,7 +72,10 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
                 Account user = sAccounts.getUserAccount();
                 if (sAccounts.removeAccount(user)){
                     //db
-                    LitePal.deleteAll(User.class, "userId = ?", String.valueOf(Global.IDUser));
+//                    int aaa = LitePal.deleteAll(User.class, "userId = ?", String.valueOf(Global.IDUser));
+                    int bbbb = LitePal.deleteAll(User.class);
+//                    List<User> dbUser = LitePal.where("userId like ?", String.valueOf(Global.IDUser) + "").find(User.class);
+//                    List<User> dbUser2 = LitePal.findAll(User.class);
 
                     Global.user = null;
                     Global.IDUser = 0;

@@ -36,7 +36,8 @@ import java.util.Random;
 //import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTamirgahAdapter;
 //import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter;
 //import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentYaftehaAdapter;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Device;
+import dagger.Component;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
@@ -55,6 +56,7 @@ public class Global extends MultiDexApplication {
     //_________________________________
 
 
+
     public static String token;
     public static RetrofitHelper apiManagerPost;
     public static int NOT_LOGN_USER = 20053 ;
@@ -67,6 +69,7 @@ public class Global extends MultiDexApplication {
         super.onCreate();
         MultiDex.install(this);
         apiManagerPost = RetrofitHelper.getInstance();
+
 
         apiManagerTubeless = RetrofitHelperTubeless.getInstance();
         LitePal.initialize(this);
@@ -337,15 +340,6 @@ public class Global extends MultiDexApplication {
         return  new File(Environment.getExternalStorageDirectory() + "/"  + downloadDirectory );
     }
 
-    public static final boolean isFirstRun(Context context){
-        SharedPreferences prefs = null;
-        prefs =  context.getSharedPreferences("ir.sajjadyosefi.android.tubeless", MODE_PRIVATE);
-        if (prefs.getBoolean("firstrun", true)) {
-            prefs.edit().putBoolean("firstrun", false).commit();
-            return true;
-        }else
-            return false;
-    }
 
     public static final void SaveLogedInUser(Context context,User user){
         SharedPreferences prefs = null;
@@ -416,20 +410,6 @@ public class Global extends MultiDexApplication {
         }
     }
 
-    public static void GetAndroidID(Context context, Device device) {
-        TelephonyManager TelephonyMgr = (TelephonyManager) context.getSystemService(TELEPHONY_SERVICE);
-        String m_deviceId = "";// = TelephonyMgr.getDeviceId();
-        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
-            m_deviceId = TelephonyMgr.getDeviceId();
-        }
-
-//
-//            device.setAndroidID(m_deviceId);
-        if(m_deviceId != "")
-            device.setAndroidID(m_deviceId);                                                                    //
-        else
-            device.setAndroidID(Build.SERIAL);
-    }
 
     public static void ShowSelectSturceDialog(final Context context,String title,String text,String btn1Text,View.OnClickListener onClickListener1,String btn2Text,View.OnClickListener onClickListener2){
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();

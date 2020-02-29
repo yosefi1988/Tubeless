@@ -31,14 +31,15 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.account.LoginActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ListActivity;
+
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.main.TubelessObject;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.TubelessObject;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.PostRetrofitCallback;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;

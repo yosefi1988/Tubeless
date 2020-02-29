@@ -2,17 +2,16 @@ package ir.sajjadyosefi.android.xTubeless.activity.account.login;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -27,19 +26,17 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.LoginPresenterCompl;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.LoginPresenterComplI;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.view.ILoginView;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.classes.modelY.Exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 public class LoginActivity extends TubelessActivity implements ILoginView {
-    LoginPresenterCompl loginPresenterCompl;
+    LoginPresenterComplI loginPresenterCompl;
 
     //val
     private static final String     TAG                         = "sssssssssssssss";
@@ -90,10 +87,38 @@ public class LoginActivity extends TubelessActivity implements ILoginView {
     }
 
 
+
+    //singletone instance
+    private static LoginActivity loginActivity;
+
+    //singletone
+    public synchronized static LoginActivity getInstance(){
+        if (loginActivity == null){
+            loginActivity = new LoginActivity();
+        }
+        return loginActivity;
+    }
+
+    //default constractor
+    public LoginActivity() { }
+
+
+    public synchronized static Intent getIntent(Context context) {
+        return getIntent(context,null);
+    }
+
+    public synchronized static Intent getIntent(Context context, Bundle bundle) {
+        bundle.putString("item1","value1");
+        Intent intent = new Intent(context,LoginActivity.class);
+        intent.putExtras(bundle);
+        return intent;
+    }
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        loginPresenterCompl = new LoginPresenterCompl(this,this);
+        loginPresenterCompl = new LoginPresenterComplI(this,this);
         setContentView(R.layout.activity_login);
         setRootActivity();
 
