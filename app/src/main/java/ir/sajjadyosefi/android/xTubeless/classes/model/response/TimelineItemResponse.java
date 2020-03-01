@@ -1,7 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.response;
 
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.TimelineItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 
 /**
  * Created by sajjad on 1/20/2018.

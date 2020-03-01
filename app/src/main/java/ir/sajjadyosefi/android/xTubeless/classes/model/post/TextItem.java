@@ -11,7 +11,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder
  * Created by sajjad on 7/30/2017.
  */
 
-public class TextItem implements IItems {
+public class TextItem  extends ParentItem{
 
     public int id;
     public String CarID;
@@ -80,6 +80,12 @@ public class TextItem implements IItems {
 
     @Override
     public void fill(Context context, int listType, PostViewHolder holder, IItems item) {
+        super.fill(context,listType,holder,item);
+
+    }
+
+    @Override
+    protected void share(Context mContext, int listType, TimelineItem timelineItem) {
 
     }
 }

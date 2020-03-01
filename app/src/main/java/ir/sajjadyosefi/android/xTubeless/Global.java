@@ -52,7 +52,6 @@ public class Global extends MultiDexApplication {
 
     //_____________ ok ________________
     public static User user = null;
-
     //_________________________________
 
 

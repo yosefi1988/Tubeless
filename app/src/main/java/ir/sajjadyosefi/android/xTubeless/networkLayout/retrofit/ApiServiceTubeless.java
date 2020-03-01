@@ -55,14 +55,19 @@ public interface ApiServiceTubeless {
     Call<Object> getTimelineItem(@Query("id") int id);
 
 
+    @GET("Api/Blog/deleteBlog")
+    Call<Object> deleteTimelineItem(@Query("id") int id,
+                                    @Query("userId") String userId);
+
+    @GET("Api/Blog/invisibleBlog")
+    Call<Object> invisibleTimelineItem(@Query("id") int id,
+                                       @Query("userId") String userId);
 
 
 
 
 
-//    @GET("Api/TimeLine/getYadakTimeline")
-//    Call<Object> getYadakTimeline(@Query("index") int index,
-//                                  @Query("count") int count);
+
 
 
 
@@ -107,14 +112,6 @@ public interface ApiServiceTubeless {
 
 
 
-
-    @GET("Api/Blog/deleteBlog")
-    Call<Object> deleteTimelineItem(@Query("id") int id,
-                                    @Query("userId") String userId);
-
-    @GET("Api/Blog/invisibleBlog")
-    Call<Object> invisibleTimelineItem(@Query("id") int id,
-                                       @Query("userId") String userId);
 
 
 

@@ -133,7 +133,7 @@ public class PostSearchResponseItem extends TubelessObject implements Serializab
             if (holder.linearLayoutAdmin != null)
                 holder.linearLayoutAdmin.setVisibility(View.GONE);
         }else {
-            if (Global.user.getUserId() == 140241 || Global.user.getUserName().equals("yosefi1988@gmail.com")|| Global.user.getUserName().equals("09123978522")) {
+            if (Global.user.getUserId() == 140241 || Global.user.getUserName().equals("yosefi1988@gmail.com")|| Global.user.getUserName().equals("09123678522")) {
                 holder.linearLayoutAdmin.setVisibility(View.VISIBLE);
             } else {
                 holder.linearLayoutAdmin.setVisibility(View.GONE);

@@ -22,7 +22,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TwoLinesViewHo
  * Created by sajjad on 7/30/2017.
  */
 
-public class PictureItem implements IItems{
+public class PictureItem  extends ParentItem{
 
     public int id;
     public String CarID;
@@ -85,6 +85,8 @@ public class PictureItem implements IItems{
 
     @Override
     public void fill(Context context , int listType, PostViewHolder holder , IItems item) {
+        super.fill(context,listType,holder,item);
+
         PictureItem sssss = ((PictureItem)item);
         TwoLinesViewHolder hhhhhh = ((TwoLinesViewHolder)holder);
 
@@ -178,6 +180,11 @@ public class PictureItem implements IItems{
         (hhhhhh.imageView).setOnClickListener(onClickListener);
         (hhhhhh.imageViewCarLogo).setOnClickListener(onClickListener);
         (hhhhhh.imageViewMenu).setOnClickListener(onClickListener);
+    }
+
+    @Override
+    protected void share(Context mContext, int listType, TimelineItem timelineItem) {
+
     }
 }
 

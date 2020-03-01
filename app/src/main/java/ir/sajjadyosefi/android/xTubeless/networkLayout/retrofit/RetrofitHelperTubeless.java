@@ -72,8 +72,6 @@ public class RetrofitHelperTubeless {
     }
 
 
-
-
     public void getTubelessNews(TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.getTubelessNews(IDApplication,0,1);
         userCall.enqueue(callback);
@@ -84,7 +82,15 @@ public class RetrofitHelperTubeless {
         userCall.enqueue(callback);
     }
 
+    public void deleteTimelineItem(int id, String userId, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.deleteTimelineItem(id,userId);
+        userCall.enqueue(callback);
+    }
 
+    public void invisibleTimelineItem(int id, String userId, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.invisibleTimelineItem(id,userId);
+        userCall.enqueue(callback);
+    }
 
 
 
@@ -127,14 +133,7 @@ public class RetrofitHelperTubeless {
 //        userCall.enqueue(callback);
 //    }
 
-//    public void deleteTimelineItem(int id, String userId, TubelessRetrofitCallback<Object> callback) {
-//        Call<Object> userCall = service.deleteTimelineItem(id,userId);
-//        userCall.enqueue(callback);
-//    }
-//    public void invisibleTimelineItem(int id, String userId, TubelessRetrofitCallback<Object> callback) {
-//        Call<Object> userCall = service.invisibleTimelineItem(id,userId);
-//        userCall.enqueue(callback);
-//    }
+
 
 
 //    public void requestUpload2(MultipartBody.Part file, RequestBody userName, RequestBody password, RequestBody androidId , RequestBody serialRequestCode , RequestBody fileType , RequestBody senderType, TubelessRetrofitCallback<Object> callback) {

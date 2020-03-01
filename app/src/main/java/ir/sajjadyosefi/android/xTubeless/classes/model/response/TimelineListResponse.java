@@ -5,9 +5,7 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.response;
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.TimelineItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.TimelineItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 
 /**
  * Created by sajjad on 1/20/2018.

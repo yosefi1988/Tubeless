@@ -117,8 +117,8 @@
 
                 <ImageView
                     android:id="@+id/imageViewDelete"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:clickable="true"
                     app:srcCompat="@android:drawable/ic_delete" />
 
@@ -129,7 +129,6 @@
                     android:gravity="right"
                     android:layoutDirection="rtl"
                     android:textColor="@color/colorTextGry"
-                    android:layout_marginTop="5dp"
                     android:paddingRight="5dp"
                     android:text="حذف"  />
 
@@ -145,8 +144,8 @@
 
                 <ImageView
                     android:id="@+id/imageViewInvisible"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:clickable="true"
                     app:srcCompat="@android:drawable/ic_delete" />
 
@@ -157,7 +156,6 @@
                     android:gravity="right"
                     android:layoutDirection="rtl"
                     android:textColor="@color/colorTextGry"
-                    android:layout_marginTop="5dp"
                     android:paddingRight="5dp"
                     android:text="غیرفعال"  />
 

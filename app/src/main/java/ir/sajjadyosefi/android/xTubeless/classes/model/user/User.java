@@ -15,6 +15,7 @@ import java.lang.reflect.Type;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
@@ -42,6 +43,8 @@ public class User extends LitePalSupport implements IUser {
 	private String Password;
 	private String loginPhone = null;
 	private String loginPassword = null;
+	private boolean isAdmin = false;
+
 	//_________________________________
 
 //	@Column(ignore = true)
@@ -69,7 +72,6 @@ public class User extends LitePalSupport implements IUser {
 //	private Boolean canSendPicture;
 
 	public User(Context context) {
-
 		this.context = context;
 	}
 
@@ -85,6 +87,7 @@ public class User extends LitePalSupport implements IUser {
 		setPassword(source.getPassword());
 		setLoginPassword(getLoginPassword());
 		setLoginPhone(source.getLoginPhone());
+		setAdmin(source.isAdmin());
 	}
 
 	public User() {
@@ -172,6 +175,14 @@ public class User extends LitePalSupport implements IUser {
 		this.loginPassword = loginPassword;
 	}
 
+	public void setAdmin(boolean admin) {
+		isAdmin = admin;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
 	public void CheckUserValidity(ILoginPresenterI presenter , LoginRequest request) {
 		Callback callback = new Callback() {
 			@Override
@@ -194,6 +205,7 @@ public class User extends LitePalSupport implements IUser {
 								if (call != null && response != null) {
 									Object object = gson.fromJson(jsonElement.getAsString(), (Type) User.class);
 									User tmpUser = Primitives.wrap(User.class).cast(object);
+									tmpUser.setAdmin(CheckUserIsAdmin(tmpUser));
 
 									//save to db
 									if (Global.user == null){
@@ -262,5 +274,21 @@ public class User extends LitePalSupport implements IUser {
 //		call.clone().enqueue(this);
 //	}
 
+	private boolean CheckUserIsAdmin(User user) {
 
+		if (    user.getUserId() == StaticValue.AdminUserID1 ||
+				user.getUserId() == StaticValue.AdminUserID2 ||
+				user.getUserId() == StaticValue.AdminUserID3 ||
+
+				user.getUserName().equals(StaticValue.AdminMail1) ||
+				user.getUserName().equals(StaticValue.AdminMail2) ||
+				user.getUserName().equals(StaticValue.AdminMail3) ||
+
+				user.getUserName().equals(StaticValue.AdminMobile1) ||
+				user.getUserName().equals(StaticValue.AdminMobile2) ||
+				user.getUserName().equals(StaticValue.AdminMobile3))
+			return true;
+		else
+			return false;
+	}
 }
