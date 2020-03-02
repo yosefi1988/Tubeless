@@ -3,6 +3,7 @@ import android.content.Context;
 
 import java.util.List;
 
+import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Tag;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 
@@ -79,8 +80,8 @@ public class TextItem  extends ParentItem{
 
 
     @Override
-    public void fill(Context context, int listType, PostViewHolder holder, IItems item) {
-        super.fill(context,listType,holder,item);
+    public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
+        super.fill(mContext, xAdapter, listType, holder0,item, position);
 
     }
 

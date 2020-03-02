@@ -20,9 +20,12 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBa
 
 public class TubelessException extends Exception{
 
+    public static final int TUBELESS_OPERATION_NOT_COMPLETE = 10;
+    public static final int TUBELESS_TRY_AGAIN = 11;
+
+
     public static final int TUBELESS_RESPONSE_BODY_IS_NULL = 2001;
     public static final int TUBELESS_DATABASE_ERROR = 2002;
-
     public static final int DEVICE_NOT_REGISTER = 2004;
 
 

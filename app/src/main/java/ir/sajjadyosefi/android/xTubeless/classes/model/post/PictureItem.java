@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Tag;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
@@ -84,16 +86,16 @@ public class PictureItem  extends ParentItem{
 
 
     @Override
-    public void fill(Context context , int listType, PostViewHolder holder , IItems item) {
-        super.fill(context,listType,holder,item);
+    public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
+        super.fill(mContext, xAdapter, listType, holder0,item, position);
 
         PictureItem sssss = ((PictureItem)item);
-        TwoLinesViewHolder hhhhhh = ((TwoLinesViewHolder)holder);
+        TwoLinesViewHolder hhhhhh = ((TwoLinesViewHolder) holder0);
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"You Selected : " + view.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"You Selected : " + view.toString(),Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -107,7 +109,7 @@ public class PictureItem  extends ParentItem{
         hhhhhh.imageViewMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu popup = new PopupMenu(context, hhhhhh.imageViewMenu);
+                PopupMenu popup = new PopupMenu(mContext, hhhhhh.imageViewMenu);
                 popup.getMenuInflater().inflate(R.menu.menupic, popup.getMenu());
 
                 for (int i = 0; i < popup.getMenu().size(); i++) {
@@ -118,7 +120,7 @@ public class PictureItem  extends ParentItem{
                 }
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(context,"You Selected : " + item.getTitle(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext,"You Selected : " + item.getTitle(),Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 });

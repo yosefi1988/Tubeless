@@ -39,7 +39,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static org.litepal.LitePalApplication.getContext;
 
 
-public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
+public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements ITubelessAdapter {
 
     private final View rootView;
     //private final int scrollHeight;
@@ -283,15 +283,15 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
         if (data.get(position) instanceof PictureItem) {
             final PictureItem item = (PictureItem) data.get(position);
-            item.fill(context ,type, holder, item);
+            item.fill(context , this, type, holder, item, position);
 
         }else if (data.get(position) instanceof TimelineItem) {
             final TimelineItem item = (TimelineItem) data.get(position);
-            item.fill(context ,type, holder, item);
+            item.fill(context,this ,type, holder, item, position);
 
         }else if (data.get(position) instanceof PostSearchResponseItem) {
-            final PostSearchResponseItem item = (PostSearchResponseItem) data.get(position);
-            item.fill(context ,type, holder, item);
+            PostSearchResponseItem item = (PostSearchResponseItem) data.get(position);
+            item.fill(context , this, type, holder, item,position);
 
         }else if (data.get(position) instanceof TextItem) {
 //            final TextItem item = (TextItem) data.get(position);
@@ -302,6 +302,14 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> {
 //                    .placeholder(R.drawable.progress_animation)
 //                    .into(holder.imageView);
         }
+
+
+    }
+
+    @Override
+    public void removeItem (int listType , int removeIndex ){
+        data.remove(removeIndex);
+        adapter.notifyItemRemoved(removeIndex);
     }
 
     @Override

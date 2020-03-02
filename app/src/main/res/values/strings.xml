@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name" translatable="false">تیوبلس</string>
     <string name="app_id">17</string>
+
+        <string name="HOST" translatable="false">http://www.example.com</string>
+
 
     <string name="app_price">1000</string>
     <string name="app_pardakht_text" formatted="false">با پرداخت مبلغ %s تومان به صورت نامحدود از مطالب این نرم افزار استفاده کنید.\nقسمتی از این مبلغ صرف ایتام خواهد شد.\nدر صورت عدم تمایل به پرداخت مبلغ ، میتوانید تمام مطالب را به صورت رایگان در سایت ما مشاهده کنید :\n\n %s</string>

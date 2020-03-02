@@ -6,17 +6,23 @@ import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 
+import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import retrofit2.Call;
 
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_DATABASE_ERROR;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
+
 public abstract class ParentItem implements IItems {
 
-    public void fill(Context mContext, int listType, PostViewHolder holder0, IItems item) {
+    public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
 
         TimelineItemViewHolder holder = (TimelineItemViewHolder) holder0;
         final TimelineItem timelineItem = (TimelineItem) item;
@@ -45,12 +51,12 @@ public abstract class ParentItem implements IItems {
         }
 
 
-        onclicks(mContext, listType, holder, timelineItem);
+        onclicks(mContext,xAdapter, listType, holder, timelineItem,position);
     }
 
 
 
-    private void onclicks(Context mContext, int listType, TimelineItemViewHolder holder, TimelineItem timelineItem) {
+    private void onclicks(Context mContext, XAdapter xAdapter, int listType, TimelineItemViewHolder holder, TimelineItem timelineItem, int position) {
         View.OnClickListener onShareClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,11 +74,7 @@ public abstract class ParentItem implements IItems {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                //1
-//                                        AsyncDeleteBlogItem asyncDeleteBlogItem = new AsyncDeleteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.user.getUserId());
-//                                        asyncDeleteBlogItem.execute();
 
-                                //2
                                 String userId = "";
 
                                 if (Global.user.getUserId() == 0){
@@ -84,34 +86,32 @@ public abstract class ParentItem implements IItems {
                                 Global.apiManagerTubeless.deleteTimelineItem(timelineItem.getBlogID(), userId, new TubelessRetrofitCallbackss(mContext, ServerResponseBase.class) {
                                     @Override
                                     public void t_beforeSendRequest() {
+                                        ((TubelessActivity)mContext).progressDialog.show();
 
                                     }
 
                                     @Override
                                     public void t_afterGetResponse() {
-
+                                        ((TubelessActivity)mContext).progressDialog.hide();
                                     }
 
                                     @Override
                                     public void t_complite() {
-
                                     }
 
                                     @Override
                                     public void t_responseNull() {
-
+                                        new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
                                     }
 
                                     @Override
                                     public void t_retry(Call<Object> call) {
-
+                                        new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_TRY_AGAIN));
                                     }
 
                                     @Override
                                     public void t_onSuccess(Object response) {
-
-                                        int a = 3 ;
-                                        a++;
+                                        xAdapter.removeItem(listType,position);
                                     }
                                 });
                             }})
@@ -142,34 +142,32 @@ public abstract class ParentItem implements IItems {
                                 Global.apiManagerTubeless.invisibleTimelineItem(timelineItem.getBlogID(), userId, new TubelessRetrofitCallbackss(mContext, ServerResponseBase.class) {
                                     @Override
                                     public void t_beforeSendRequest() {
+                                        ((TubelessActivity)mContext).progressDialog.show();
 
                                     }
 
                                     @Override
                                     public void t_afterGetResponse() {
-
+                                        ((TubelessActivity)mContext).progressDialog.hide();
                                     }
 
                                     @Override
                                     public void t_complite() {
-
                                     }
 
                                     @Override
                                     public void t_responseNull() {
-
+                                        new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
                                     }
 
                                     @Override
                                     public void t_retry(Call<Object> call) {
-
+                                        new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_TRY_AGAIN));
                                     }
 
                                     @Override
                                     public void t_onSuccess(Object response) {
-
-                                        int a = 3 ;
-                                        a++;
+                                        xAdapter.removeItem(listType,position);
                                     }
                                 });
                             }})

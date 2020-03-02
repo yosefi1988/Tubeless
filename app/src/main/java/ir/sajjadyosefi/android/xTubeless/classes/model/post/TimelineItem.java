@@ -2,12 +2,9 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.post;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,6 +15,7 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 import java.util.Date;
 import java.util.List;
 
+import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
@@ -159,8 +157,14 @@ public class TimelineItem extends ParentItem{
         this.categoryID = categoryID;
     }
 
-    public void fill(Context mContext, int listType , PostViewHolder holder0, IItems item) {
-        super.fill(mContext,listType,holder0,item);
+    public void fill(Context mContext,
+                     XAdapter xAdapter,
+                     int listType,
+                     PostViewHolder holder0,
+                     IItems item,
+                     int position) {
+
+        super.fill(mContext, xAdapter, listType,holder0,item, position);
 
         TimelineItemViewHolder holder = (TimelineItemViewHolder) holder0;
         final TimelineItem timelineItem = (TimelineItem)item;
@@ -208,7 +212,7 @@ public class TimelineItem extends ParentItem{
 
     }
 
-    private void onclicks(Context mContext, int listType, TimelineItemViewHolder holder, TimelineItem timelineItem) {
+    private void onclicks(Context mContext , int listType, TimelineItemViewHolder holder, TimelineItem timelineItem) {
 
 
 
@@ -273,6 +277,7 @@ public class TimelineItem extends ParentItem{
 //                EndlessList_Adapter.prepareToShare(mContext,blogItem.getTitlePicture(), blogItem.getStatement(), loadedImage[0]);
 
     }
+
 
     private void loadImage(TimelineItemViewHolder holder, TimelineItem timelineItem) {
         if (timelineItem.getUserImage().length() < 5){

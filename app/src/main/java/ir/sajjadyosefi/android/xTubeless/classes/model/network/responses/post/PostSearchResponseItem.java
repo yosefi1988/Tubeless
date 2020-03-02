@@ -8,6 +8,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 
+import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.model.TubelessObject;
@@ -101,7 +102,7 @@ public class PostSearchResponseItem extends TubelessObject implements Serializab
         this.nationalCode = nationalCode;
     }
 
-    public void fill(Context mContext, int listType , PostViewHolder holder0, IItems item) {
+    public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
         PostItemViewHolder holder = (PostItemViewHolder) holder0;
         final PostSearchResponseItem timelineItem = (PostSearchResponseItem)item;
 
