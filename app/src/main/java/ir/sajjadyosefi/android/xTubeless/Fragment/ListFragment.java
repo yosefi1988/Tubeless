@@ -34,7 +34,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
 
-public class ListFragment extends Fragment {
+public class ListFragment extends Fragment  {
 
     //private
     private RecyclerView mRecyclerView;
@@ -132,28 +132,33 @@ public class ListFragment extends Fragment {
         loadTimeline(fragmentRootView,listType);
     }
 
-
+    XAdapter xAdapter;
     private void createAdater( ) {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mRecyclerView.setAdapter(
-                new XAdapter(
-                        listType,
-                        getContext(),
-                        mRoot,
-                        mRecyclerView,
-                        mLayoutManager,
-                        //scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
-                        //height,
-                        //hasAppBarLayout,
-                        mSwipeRefreshLayout,
-                        list));
+        xAdapter = new XAdapter(
+                listType,
+                getContext(),
+                mRoot,
+                mRecyclerView,
+                mLayoutManager,
+                //scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
+                //height,
+                //hasAppBarLayout,
+                mSwipeRefreshLayout,
+                list);
+        mRecyclerView.setAdapter(xAdapter);
+
 
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
     }
 
+
+    public void refreshForAdmin(){
+        xAdapter.notifyDataSetChanged();
+    }
 
     public static List<IItems> createData() {
         List<IItems> list = new ArrayList<>();

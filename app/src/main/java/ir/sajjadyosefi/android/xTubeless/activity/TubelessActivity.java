@@ -16,12 +16,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-//import com.crashlytics.android.Crashlytics;
-//import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
+
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
 public abstract class TubelessActivity extends AppCompatActivity {
 
@@ -41,7 +44,13 @@ public abstract class TubelessActivity extends AppCompatActivity {
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
 
-//        Fabric.with(this, new Crashlytics());
+        Crashlytics.setUserIdentifier((Global.user == null ? NOT_LOGN_USER : Global.user.getUserId()) + "");
+//        Crashlytics.setUserName(<USER_NAME>);
+//        Crashlytics.setUserEmail(<USER_EMAIL>);
+        Fabric.with(this, new Crashlytics());
+
+
+
 
         int width  = Resources.getSystem().getDisplayMetrics().widthPixels;
 

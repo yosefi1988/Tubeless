@@ -2,12 +2,17 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.post;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
@@ -16,7 +21,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemVi
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_DATABASE_ERROR;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
@@ -55,8 +59,19 @@ public abstract class ParentItem implements IItems {
     }
 
 
-
+    View.OnClickListener onDeleteClickListener = null;
     private void onclicks(Context mContext, XAdapter xAdapter, int listType, TimelineItemViewHolder holder, TimelineItem timelineItem, int position) {
+
+        holder.imageViewMenu.setClickable(true);
+        holder.imageViewMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                modal(mContext,view,listType,timelineItem);
+            }
+        });
+
+
+
         View.OnClickListener onShareClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,14 +79,14 @@ public abstract class ParentItem implements IItems {
             }
         };
 
-        View.OnClickListener onDeleteClickListener = new View.OnClickListener() {
+        onDeleteClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(mContext)
-                        .setTitle("Delete Post")
-                        .setMessage("Do you really want to Delete this Post?")
+                        .setTitle(mContext.getString(R.string.Delete))
+                        .setMessage(mContext.getString(R.string.DeletePostMessage))
                         .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(mContext.getString(R.string.yes), new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
 
@@ -115,7 +130,7 @@ public abstract class ParentItem implements IItems {
                                     }
                                 });
                             }})
-                        .setNegativeButton(android.R.string.no, null).show();
+                        .setNegativeButton(mContext.getString(R.string.cancel), null).show();
             }
         };
 
@@ -188,5 +203,43 @@ public abstract class ParentItem implements IItems {
     }
 
 
+    public void modal(Context mContext, View view, int listType, TimelineItem timelineItem){
+        PopupMenu popup = new PopupMenu(mContext, view);
+        MenuInflater inflater = popup.getMenuInflater();
+        if (Global.user != null && Global.user.isAdmin())
+            inflater.inflate(R.menu.actions_for_admin, popup.getMenu());
+        else if (Global.user != null && timelineItem.getUserID() == Global.user.getUserId())
+            inflater.inflate(R.menu.actions_for_owner, popup.getMenu());
+        else if (Global.user != null)
+            inflater.inflate(R.menu.actions_for_users, popup.getMenu());
+        else
+            inflater.inflate(R.menu.actions_for_everyone, popup.getMenu());
+
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.pmnuDelete:
+
+                        onDeleteClickListener.onClick(view);
+
+                        break;
+                    case R.id.pmnuReport:
+
+
+                        break;
+                    case R.id.pmnuShare:
+                        share(mContext ,listType, timelineItem);
+                        break;
+                }
+                return false;
+            }
+        });
+        popup.show();
+    }
+
+
     protected abstract void share(Context mContext, int listType, TimelineItem timelineItem);
+
 }

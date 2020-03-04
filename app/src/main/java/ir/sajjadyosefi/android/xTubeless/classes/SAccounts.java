@@ -5,7 +5,7 @@ import android.accounts.AccountManager;
 import android.content.Context;
 import android.os.Bundle;
 
-import static ir.sajjadyosefi.android.xTubeless.Global.NOT_LOGN_USER;
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
 
 public class SAccounts {

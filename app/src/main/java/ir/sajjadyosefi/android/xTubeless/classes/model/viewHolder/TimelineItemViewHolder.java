@@ -15,6 +15,7 @@ public class TimelineItemViewHolder extends PostViewHolder {
     public LinearLayout linearLayoutAdmin;
 
     public ImageView imageViewShare;
+    public ImageView imageViewMenu;
     public TextView textViewShare;
 
     public ImageView imageViewDelete;
@@ -43,6 +44,7 @@ public class TimelineItemViewHolder extends PostViewHolder {
         imageViewInvisible               = (ImageView) itemView.findViewById(R.id.imageViewInvisible);
         textViewInvisible                = (TextView) itemView.findViewById(R.id.textViewInvisible);
         imageViewShare               = (ImageView) itemView.findViewById(R.id.imageViewShare);
+        imageViewMenu               = (ImageView) itemView.findViewById(R.id.imageViewMenu);
         textViewShare                = (TextView) itemView.findViewById(R.id.textViewShare);
 
         imageViewDelete               = (ImageView) itemView.findViewById(R.id.imageViewDelete);

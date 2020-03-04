@@ -13,13 +13,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.splunk.mint.Mint;
 
 //import ir.sajjadyosefi.android.tubeless.Class.model.AppStatus;
+import ir.adad.ad.AdadAdListener;
+import ir.adad.banner.AdadBannerAd;
+import ir.adad.core.Adad;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
@@ -117,30 +128,60 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 
 
 
-    }
+        Adad.initialize("357418d6-115d-47d3-8fb4-a228d2c1b882");// جایگاه وارد کردن توکن یا شناسه ی اپلیکیشن مورد نظر
+        Adad.setTestMode(false);//فعال و غیر فعال کردن حالت تست
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+        //تعریف کردن یک listener برای آگاهی از وضعیت تبلیغ بنری
+        ( (AdadBannerAd)findViewById(R.id.banner_1)).setAdListener(new AdadAdListener() {
+            @Override
+            public void onLoaded() {
 
-
-        if (peresenter.isFirstRun()) {
-            if (!AndroidOs.checkPermission(context, wantPermission)) {
-                if (AndroidOs.shouldShowRequestPermissionRationale(this, wantPermission)){
-                    Toast.makeText(this, this.getString(R.string.loginBySimcardDescription), Toast.LENGTH_LONG).show();
-                }
-                AndroidOs.requestPermissions(this, new String[]{wantPermission},PERMISSION_REQUEST_CODE);
-            } else {
-                peresenter.registerDevice();
             }
-        }else {
-            peresenter.goToMainPage();
-        }
 
+            @Override
+            public void onShowed() {
 
-//        getSupportActionBar().hide();
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+            }
+
+            @Override
+            public void onActionOccurred(int i) {
+                System.out.println();
+            }
+
+            @Override
+            public void onError(int i, String s) {
+
+            }
+
+            @Override
+            public void onClosed() {
+
+            }
+        });
     }
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//
+//        if (peresenter.isFirstRun()) {
+////            if (!AndroidOs.checkPermission(context, wantPermission)) {
+////                if (AndroidOs.shouldShowRequestPermissionRationale(this, wantPermission)){
+////                    Toast.makeText(this, this.getString(R.string.loginBySimcardDescription), Toast.LENGTH_LONG).show();
+////                }
+////                AndroidOs.requestPermissions(this, new String[]{wantPermission},PERMISSION_REQUEST_CODE);
+////            } else {
+//                peresenter.registerDevice();
+////            }
+//        }else {
+//            peresenter.goToMainPage();
+//        }
+//
+//
+////        getSupportActionBar().hide();
+////        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//    }
 
 
     private void mint() {

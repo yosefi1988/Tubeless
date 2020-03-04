@@ -3,9 +3,16 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.post;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.PopupMenu;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Callback;
@@ -137,6 +144,31 @@ public class TimelineItem extends ParentItem{
         return userName;
     }
 
+    public String getUserNameMasked() {
+        if (userName.equals("ثبت نام نکرده")){
+            return userName;
+        }else {
+            if (userName.length() > 10) {
+                try {
+
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.append(userName.substring(0, 4));
+                    stringBuilder.append("***");
+                    stringBuilder.append(userName.substring(8, userName.length()));
+                    return stringBuilder.toString();
+                }catch (Exception ex){
+
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.append(userName.substring(0, 4));
+                    stringBuilder.append("***");
+                    return stringBuilder.toString();
+                }
+            }else {
+                return userName;
+            }
+        }
+    }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -199,7 +231,7 @@ public class TimelineItem extends ParentItem{
         }
         holder.textViewTitle.setText(partType.toString());
         holder.textViewLocation.setText(timelineItem.getLocation());
-        holder.textViewUserName.setText(timelineItem.getUserName());
+        holder.textViewUserName.setText(timelineItem.getUserNameMasked());
         holder.textViewCount.setText(timelineItem.getViewCount() + "");
 
 
@@ -213,7 +245,6 @@ public class TimelineItem extends ParentItem{
     }
 
     private void onclicks(Context mContext , int listType, TimelineItemViewHolder holder, TimelineItem timelineItem) {
-
 
 
         View.OnClickListener onStarClickListener = new View.OnClickListener() {
@@ -266,8 +297,6 @@ public class TimelineItem extends ParentItem{
         holder.textViewLocation.setOnClickListener(onContentClick);
         holder.textViewTitle.setOnClickListener(onContentClick);
         holder.linearLayoutCenter.setOnClickListener(onContentClick);
-
-        holder.imageViewUserAvatar.setOnClickListener(onclick2);
         holder.textViewUserName.setOnClickListener(onclick2);
 
     }
@@ -276,8 +305,102 @@ public class TimelineItem extends ParentItem{
     protected void share(Context mContext, int listType, TimelineItem timelineItem) {
 //                EndlessList_Adapter.prepareToShare(mContext,blogItem.getTitlePicture(), blogItem.getStatement(), loadedImage[0]);
 
+        StringBuilder stringBuilder0 = new StringBuilder();
+        stringBuilder0.append(timelineItem.getTitle());
+        if (timelineItem.getCategoryID() == StaticValue.cat1) {
+//            stringBuilder0.append(" (");
+            stringBuilder0.append("مدارک گمشده");
+//            stringBuilder0.append(")");
+
+        }
+        if (timelineItem.getCategoryID() == StaticValue.cat2) {
+//            stringBuilder0.append(" (");
+            stringBuilder0.append("مدارک پیداشده");
+//            stringBuilder0.append(")");
+        }
+        if (timelineItem.getCategoryID() == StaticValue.cat3) {
+//            stringBuilder0.append(" (");
+            stringBuilder0.append("مدارک سرقتی");
+//            stringBuilder0.append(")");
+        }
+        stringBuilder0.append("\n");
+        stringBuilder0.append("\n");
+
+
+        stringBuilder0.append(timelineItem.getTitle());
+        stringBuilder0.append("-");
+        stringBuilder0.append(timelineItem.getDate());
+
+        stringBuilder0.append(" در ");
+        stringBuilder0.append(timelineItem.getLocation());
+        stringBuilder0.append("\n");
+        stringBuilder0.append("\n");
+        stringBuilder0.append(" ثبت شده در اپلیکیشن تیوبلس در تاریخ ");
+        stringBuilder0.append(timelineItem.getRegisterDate());
+
+        stringBuilder0.append("\n");
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, stringBuilder0.toString() );
+        intent.setType("text/plain");
+        ((Activity)mContext).startActivityForResult(intent , 60);
     }
 
+
+    public void modal1(Context mContext){
+        final BottomSheetDialog dialog = new BottomSheetDialog(mContext);
+
+        View view = ((Activity)mContext).getLayoutInflater().inflate(R.layout.a_b_bottom_sheet_dialog_delete2, null);
+        dialog.setContentView(view);
+
+
+
+        final TextView buttonDelete = view.findViewById(R.id.textViewDelete);
+//        final TextView textViewChangeToDiscountCard = view.findViewById(R.id.textViewChangeToDiscountCard);
+        final View textViewChangeToDiscountCardHr = view.findViewById(R.id.textViewChangeToDiscountCardHr);
+//        final TextView textViewDiscountCenters = view.findViewById(R.id.textViewDiscountCenters);
+
+//        textViewDiscountCenters.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse("https://www.sep.ir/searchStore"));
+////                            intent.setPackage("com.cloudacl");  // package of SafeBrowser App
+//                ((Activity)mContext).startActivity(intent);
+//
+//            }
+//        });
+
+//        if (bankCard.getDiscountRequestStatusID() == 1 || bankCard.getDiscountRequestStatusID() == 0) {
+//            textViewChangeToDiscountCard.setVisibility(View.GONE);
+//            textViewChangeToDiscountCardHr.setVisibility(View.GONE);
+//        }else {
+//            textViewChangeToDiscountCard.setVisibility(View.VISIBLE);
+//            textViewChangeToDiscountCardHr.setVisibility(View.VISIBLE);
+//
+//            textViewChangeToDiscountCard.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent = new Intent(mContext, DiscountCardRequestActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("CardNo", bankCard.getCardNo());
+//                    intent.putExtras(bundle);
+//                    dialog.dismiss();
+//                    mContext.startActivity(intent);
+//                }
+//            });
+//        }
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
 
     private void loadImage(TimelineItemViewHolder holder, TimelineItem timelineItem) {
         if (timelineItem.getUserImage().length() < 5){
@@ -314,7 +437,7 @@ public class TimelineItem extends ParentItem{
             holder.imageviewPicture.setVisibility(View.VISIBLE);
             Picasso.get()
                 .load(timelineItem.getPictureTumble())
-                .placeholder(R.drawable.bg_search)
+                .placeholder(R.drawable.circle_border)
                 //.centerInside()
 //                .transform(transformation)
                 .into(holder.imageviewPicture, new Callback() {

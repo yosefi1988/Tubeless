@@ -38,7 +38,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="@android:color/transparent"
-            android:src="@drawable/common_full_open_on_phone"
+            android:src="@android:drawable/ic_menu_add"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="40dp"
             android:layout_marginLeft="30dp"

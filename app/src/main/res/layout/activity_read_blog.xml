@@ -17,6 +17,7 @@
         android:padding="2dp">
 
         <include
+            android:id="@+id/header"
             layout="@layout/_part_user_avatar_layout">
         </include>
 

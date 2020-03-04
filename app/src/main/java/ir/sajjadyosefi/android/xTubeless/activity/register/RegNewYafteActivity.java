@@ -28,7 +28,7 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofit
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.Global.NOT_LOGN_USER;
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
 
 public class RegNewYafteActivity extends TubelessTransparentStatusBarActivity {
@@ -126,7 +126,7 @@ public class RegNewYafteActivity extends TubelessTransparentStatusBarActivity {
                         aaaa.setCategoryID(StaticValue.catYafte3);
                     }
 
-                    aaaa.setUserID(Global.IDUser);
+                    aaaa.setUserID((int)Global.user.getUserId());
 
                     aaaa.setStatement(editTextTitleStatment.getText().toString());
 

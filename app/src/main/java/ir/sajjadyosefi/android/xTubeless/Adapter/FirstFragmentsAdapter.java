@@ -49,20 +49,30 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
         return PAGE_COUNT;
     }
 
+    public int notifyList() {
+        ((ListFragment)fragmentx1).refreshForAdmin();
+        ((ListFragment)fragmentx2).refreshForAdmin();
+        return 0;
+    }
+
+
+    Fragment fragmentx1;
+    Fragment fragmentx2;
+
     @Override
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                Fragment fragmentx;
 //                FragmentNotifications d33333 = new FragmentNotifications();
 //                fragmentx = d33333.newInstance(position,LIST_TIMELINE );
 //
 //                fragment = new ListFragment(context);
-                fragmentx = new ListFragment(context,TYPE_YAFTE);
-                return fragmentx;
+                fragmentx1 = new ListFragment(context,TYPE_YAFTE);
+                return fragmentx1;
 
             case 1:
-                return new ListFragment(context,TYPE_YADAK);
+                fragmentx2 =  new ListFragment(context,TYPE_YADAK);
+                return fragmentx2;
 
             case 2:
                 Fragment fragment;

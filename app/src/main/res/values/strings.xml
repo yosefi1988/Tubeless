@@ -379,7 +379,7 @@
     </string>
 
     <string name="yadakMessage">درخواست ها هنوز به حد نصاب نرسیده اند. به اطلاع شما خواهیم رساند.</string>
-    <string name="simcardPermissionError">برای ادامه ی ورود با سیم کارت به این دسترسی اجتیاج است.</string>
+    <string name="simcardPermissionError">برای ادامه ی ورود با سیم کارت به این دسترسی احتیاج است.</string>
     <string name="loginBySimcardDescription">برای ورود با سیم کارت به این دسترسی احتیاج است.</string>
     <string name="passwordError">رمز عبور حداقل باید 6 کاراکتر داشته باشند</string>
     <string name="phoneError">شماره موبایل صحیح نیست</string>
@@ -388,6 +388,11 @@
     <string name="find_documents1">مدارک پیدا شده</string>
     <string name="stolen_documents1">مدارک به سرقت رفته</string>
     <string name="where_miss_2">محل : کجا گم کردید / کجا پیدا کردید</string>
+    <string name="Delete">حذف</string>
+    <string name="Share">بازنشر</string>
+    <string name="Report">گزارش</string>
+    <string name="DeletePostMessage">آیا از حذف این مورد مطمئن هستید ؟</string>
+    <string name="yes">بله</string>
 
 
 </resources>

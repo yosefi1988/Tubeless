@@ -28,6 +28,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.andremion.counterfab.CounterFab;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -71,10 +77,12 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
     //val
     private static int LOGIN_REQUEST_CODE = 101 ;
+    private static int OPEN_PROFILE_REQUEST_CODE = 102 ;
 
     private BottomNavigation mBottomNavigation;
     private DrawerLayout drawer_layout;
     private ViewPager viewPager;
+    private FirstFragmentsAdapter firstFragmentsAdapter;
     ViewGroup root;
 
     //Top of page
@@ -90,11 +98,16 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        if (requestCode == LOGIN_REQUEST_CODE) {
+        if (requestCode == LOGIN_REQUEST_CODE || requestCode == OPEN_PROFILE_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 updatedrawableMenuItems();
+
+                if (Global.user.isAdmin())
+                    firstFragmentsAdapter.notifyList();
+
             }
         }
+
     }
 
     @Override
@@ -165,6 +178,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
         loadNews();
+
+
     }
 
     private void loadNews() {
@@ -264,12 +279,14 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
                     toolbar.setTitle(item.getTitle());
                     toolbar_layout.setTitle(item.getTitle());
-                    headerText.setText(item.getText() + "\n" + item.getRegisterDate());
+//                    headerText.setText(item.getText() + "\n" + item.getRegisterDate());
+                    headerText.setText("\n" + item.getRegisterDate());
                     ////////////////////////////////// end on click ///////////////////////////////////
                 }
             }
         };
         Global.apiManagerTubeless.getTubelessNews( ssssssss);
+
     }
 
     public static User loadTubelessAccountData(Context context) {
@@ -532,12 +549,13 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             }
         }
 
-        final ViewPager viewPager = getViewPager();
+//        final ViewPager viewPager = getViewPager();
         if (null != viewPager) {
 
             getBottomNavigation().setMenuChangedListener(parent -> {
+                firstFragmentsAdapter = new FirstFragmentsAdapter(getContext(),getActivity(), parent.getMenuItemCount());
 
-                viewPager.setAdapter(new FirstFragmentsAdapter(getContext(),getActivity(), parent.getMenuItemCount()));
+                viewPager.setAdapter(firstFragmentsAdapter);
                 viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                     @Override
                     public void onPageScrolled(
@@ -646,7 +664,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
             if (position == 2) {
                 if(Global.user != null) {
-                    getActivity().startActivity(ProfileActivity.getIntent(getContext()));
+                    getActivity().startActivityForResult(ProfileActivity.getIntent(getContext()),OPEN_PROFILE_REQUEST_CODE);
                 }else {
                     Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
                 }
@@ -656,6 +674,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
     @Override
     public void onMenuItemReselect(@IdRes final int itemId, final int position, final boolean fromUser) {
+        onMenuItemSelect(itemId,position,fromUser);
+
 //        MiscUtils.INSTANCE.log(INFO, "onMenuItemReselect(" + itemId + ", " + position + ", " + fromUser + ")");
 
 //        if (fromUser) {

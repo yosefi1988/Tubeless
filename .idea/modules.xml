@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tubelessx11.iml" filepath="$PROJECT_DIR$/Tubelessx11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adad-sdk-ad-5.1.1/adad-sdk-ad-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-ad-5.1.1/adad-sdk-ad-5.1.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adad-sdk-banner-5.1.1/adad-sdk-banner-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-banner-5.1.1/adad-sdk-banner-5.1.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/crop-image-lib/crop-image-lib.iml" filepath="$PROJECT_DIR$/crop-image-lib/crop-image-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/faboptions/faboptions.iml" filepath="$PROJECT_DIR$/faboptions/faboptions.iml" />

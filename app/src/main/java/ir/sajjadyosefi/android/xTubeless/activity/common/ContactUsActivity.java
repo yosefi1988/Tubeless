@@ -22,7 +22,7 @@ import com.orm.SugarContext;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 //import com.vansuita.gaussianblur.GaussianBlur;
 
-import ir.adad.client.Adad;
+
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
@@ -66,7 +66,7 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
         //init
         context = this;
         SugarContext.init(this);
-        Adad.initialize(getApplicationContext());
+
 
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);

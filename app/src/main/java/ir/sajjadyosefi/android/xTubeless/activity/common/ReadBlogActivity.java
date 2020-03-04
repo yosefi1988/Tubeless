@@ -54,6 +54,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         imageViewUserAvatar = findViewById(R.id.imageViewUserAvatar);
         imageViewShare = findViewById(R.id.imageViewShare);
         imageviewPicture = findViewById(R.id.imageviewPicture);
+        viewHeader = findViewById(R.id.header);
 
 
 
@@ -143,10 +144,17 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
     TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewShare,textViewText;
     ImageView imageViewUserAvatar, imageViewShare,imageviewPicture;
+    View viewHeader;
 
     private void firstFillData(TimelineItem timelineItem) {
 
         DateConverterSjd dateUtiliti = new DateConverterSjd();
+
+        if (timelineItem.getCategoryID() == StaticValue.newsCategory){
+            viewHeader.setVisibility(View.GONE);
+        }else {
+            viewHeader.setVisibility(View.VISIBLE);
+        }
 
 
         if (timelineItem.getPicture() != null && timelineItem.getPicture().length() > 10) {

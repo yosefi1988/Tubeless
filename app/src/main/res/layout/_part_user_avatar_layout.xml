@@ -47,7 +47,7 @@
                 android:textColor="@color/day_username_text"
                 android:gravity="right"
                 android:textSize="12dp"
-                android:layoutDirection="rtl"
+                android:layoutDirection="ltr"
                 android:paddingRight="10dp"
                 android:text="@string/app_name"  />
         </LinearLayout>

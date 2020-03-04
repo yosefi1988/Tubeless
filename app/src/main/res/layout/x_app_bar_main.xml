@@ -101,7 +101,7 @@
         app:layout_anchor="@id/AppBarLayout01"
         app:layout_anchorGravity="end|bottom"
         android:layout_marginTop="100dp"
-        app:srcCompat="@drawable/car" />
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
 
 
 
@@ -202,6 +202,7 @@
         app:pstsUnderlineHeight="3dp"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="start|bottom"/>
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -37,6 +37,7 @@ import java.util.Random;
 //import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter;
 //import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentYaftehaAdapter;
 import dagger.Component;
+
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
 
@@ -44,6 +45,9 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.RetrofitHelper;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
+//اس دی کی های تبلیغاتی عدد
+import ir.adad.banner.AdadBannerAd;
+import ir.adad.core.Adad;
 
 /**
  * Created by Sajad on 2/11/2017.
@@ -58,8 +62,6 @@ public class Global extends MultiDexApplication {
 
     public static String token;
     public static RetrofitHelper apiManagerPost;
-    public static int NOT_LOGN_USER = 20053 ;
-    public static int IDUser = NOT_LOGN_USER ;
     public static RetrofitHelperTubeless apiManagerTubeless;
 
 
@@ -68,6 +70,10 @@ public class Global extends MultiDexApplication {
         super.onCreate();
         MultiDex.install(this);
         apiManagerPost = RetrofitHelper.getInstance();
+
+        Adad.setTestMode(true);
+        Adad.initialize("357418d6-115d-47d3-8fb4-a228d2c1b882");// جایگاه وارد کردن توکن یا شناسه ی اپلیکیشن مورد نظر
+        Adad.setEnabled(true);
 
 
         apiManagerTubeless = RetrofitHelperTubeless.getInstance();

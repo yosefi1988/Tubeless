@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_login"
-            android:icon="@drawable/ic_menu_login"
+            android:icon="@drawable/png_login"
             android:title="@string/login" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/png_profile"
             android:title="@string/profile" />
 <!--        <item-->
 <!--            android:id="@+id/nav_account"-->
@@ -26,17 +26,17 @@
 
         <item
             android:id="@+id/nav_search_by_name"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/png_find_doc"
             android:title="جستجوی مدارک" />
 
         <item
                 android:id="@+id/nav_add_new_yafte_item"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/png_id_card"
                 android:title="ثبت مدارک گم شده" />
 
         <item
             android:id="@+id/nav_add_new_yadak_item"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/png_car_part"
             android:title="ثبت درخواست قطعه" />
 
     </group>
@@ -46,16 +46,16 @@
         <menu>
             <item
                 android:id="@+id/nav_about_us"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/png_info"
                 android:title="درباره ما" />
             <item
                 android:id="@+id/nav_contact_us"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/png_contact_us2"
                 android:title="تماس با ما" />
 
             <item
                 android:id="@+id/nav_role"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/png_role"
                 android:title="قوانین" />
 
         </menu>
@@ -66,11 +66,11 @@
         <menu>
             <item
                 android:id="@+id/nav_telegram"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/png_telegram"
                 android:title="تلگرام" />
             <item
                 android:id="@+id/nav_instagram"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/png_instagram"
                 android:title="اینستاگرام" />
             <item
                 android:title=" " />

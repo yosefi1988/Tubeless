@@ -41,7 +41,7 @@ import java.net.MalformedURLException;
 import java.util.Random;
 
 import eu.janmuller.android.simplecropimage.CropImage;
-import ir.adad.client.Adad;
+
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
@@ -85,7 +85,7 @@ public class NewYafteActivity extends AppCompatActivity {
         //init
         context = this;
         SugarContext.init(this);
-        Adad.initialize(getApplicationContext());
+
 
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);

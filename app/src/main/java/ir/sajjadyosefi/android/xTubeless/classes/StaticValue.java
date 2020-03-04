@@ -15,6 +15,7 @@ public class StaticValue {
     public static String AdminMobile3 = "111";
 
 
+    public static int NOT_LOGN_USER = 20053 ;
 
     public static String Instagram = "https://www.instagram.com/tubeless_sn/";
     //    public static String Telegram = "tg://resolve?domain=partsilicon";
@@ -23,6 +24,7 @@ public class StaticValue {
 
 
 
+    public static int newsCategory = 11;
     public static int cat1 = 10018;
     public static int cat2 = 10019;
     public static int cat3 = 10020;
