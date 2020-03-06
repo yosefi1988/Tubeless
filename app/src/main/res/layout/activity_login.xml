@@ -26,7 +26,6 @@
             style="@style/AppTheme.DayEditText"
             android:drawableLeft="@android:drawable/stat_sys_vp_phone_call"
             android:hint="@string/mobile_number"
-            android:text="09123678522"
             android:inputType="phone" />
 
         <EditText
@@ -34,7 +33,6 @@
             style="@style/AppTheme.DayEditText"
             android:drawableLeft="@android:drawable/ic_secure"
             android:hint="@string/password"
-            android:text="aaassd"
             android:inputType="textPassword"/>
 
 

@@ -19,6 +19,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.NotiesItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
@@ -50,7 +51,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     private List<IItems> data;
 
     XAdapter adapter;
-    int type;
+    int listType;
     //private boolean hasAppBarLayout;
     private Context context;
 
@@ -60,8 +61,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     EndlessRecyclerOnScrollListener onScrollListener;
 
 
-    public XAdapter(int type, final Context context, View rootView, RecyclerView recyclerView,LinearLayoutManager linearLayoutManager,SwipeRefreshLayout mSwipeRefreshLayout, final List<IItems> data) {
-        this.type = type;
+    public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView,LinearLayoutManager linearLayoutManager,SwipeRefreshLayout mSwipeRefreshLayout, final List<IItems> data) {
+        this.listType = listType;
         //this.navigationHeight = navigationHeight;
         this.data = data;
         //this.hasAppBarLayout = hasAppBarLayout;
@@ -122,11 +123,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                 mSwipeRefreshLayout.setRefreshing(false);
 
-//                if(type == TYPE_YAFTE){
+//                if(listType == TYPE_YAFTE){
 //
-//                }else if(type == TYPE_YADAK){
+//                }else if(listType == TYPE_YADAK){
 //
-//                }else if(type == TYPE_IMAGE){
+//                }else if(listType == TYPE_IMAGE){
 //
 //                }
             }
@@ -135,7 +136,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     private void loadTimeline(Context context,int current_page,boolean isRefresh) {
 
-        if (type == TYPE_YADAK) {
+        if (listType == TYPE_YADAK) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
@@ -165,6 +166,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 @Override
                 public void t_onSuccess(Object response) {
                     TimelineListResponse responseX = (TimelineListResponse) response;
+//                    data.add(new NotiesItem());
+
                     for (TimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
                         data.add(item);
@@ -178,7 +181,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             };
             Global.apiManagerTubeless.getTimelineYadak(current_page - 1, ssssssss);
 
-        }else if (type == TYPE_YAFTE) {
+        }else if (listType == TYPE_YAFTE) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
@@ -236,7 +239,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 }
             };
             Global.apiManagerTubeless.getYafteTimeline(current_page - 1, ssssssss);
-        }else if (type == TYPE_POST_SEARCH_RESULT) {
+        }else if (listType == TYPE_POST_SEARCH_RESULT) {
             adapter.notifyDataSetChanged();
         }
 
@@ -246,19 +249,18 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     public PostViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
 
         PostViewHolder holder = null;
-        if (type == TYPE_YADAK) {
+        if (listType == TYPE_YADAK) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_of_yafte_item, parent, false);
             holder = new TimelineItemViewHolder(view);
-        }else if (type == TYPE_YAFTE) {
+        }else if (listType == TYPE_YAFTE) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_yafte_item, parent, false);
             holder = new TimelineItemViewHolder(view);
 
-        }else if (type == TYPE_POST_SEARCH_RESULT) {
+        }else if (listType == TYPE_POST_SEARCH_RESULT) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_post_item, parent, false);
             holder = new PostItemViewHolder(view);
 
-        }else if (type == 1) {
-
+        }else if (listType == 1) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_image_of_a_car, parent, false);
             holder = new TwoLinesViewHolder(view);
         }
@@ -283,15 +285,15 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
         if (data.get(position) instanceof PictureItem) {
             final PictureItem item = (PictureItem) data.get(position);
-            item.fill(context , this, type, holder, item, position);
+            item.fill(context , this, listType, holder, item, position);
 
         }else if (data.get(position) instanceof TimelineItem) {
             final TimelineItem item = (TimelineItem) data.get(position);
-            item.fill(context,this ,type, holder, item, position);
+            item.fill(context,this , listType, holder, item, position);
 
         }else if (data.get(position) instanceof PostSearchResponseItem) {
             PostSearchResponseItem item = (PostSearchResponseItem) data.get(position);
-            item.fill(context , this, type, holder, item,position);
+            item.fill(context , this, listType, holder, item,position);
 
         }else if (data.get(position) instanceof TextItem) {
 //            final TextItem item = (TextItem) data.get(position);
@@ -301,6 +303,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //                    .load("http://sajjadyosefi.ir/img/profile.jpg")
 //                    .placeholder(R.drawable.progress_animation)
 //                    .into(holder.imageView);
+        }else if (data.get(position) instanceof NotiesItem) {
+
+            NotiesItem item = (NotiesItem) data.get(position);
+            item.fill(context , this, listType, holder, item,position);
+
         }
 
 

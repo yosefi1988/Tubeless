@@ -24,28 +24,45 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.utility.xUtility.Validation;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
+import retrofit2.Call;
+
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_CHECK_INPUT_VALUES;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_CONTENT_IS_COPIED;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
 
 public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
 
     //Bundle String list
     public static final String Type = "TYPE";
+    public static final String Title = "Title";
+    public static final String Text = "Text";
 
     //Create New Activity List
-    public static final int CONTACT_US              = 5;
-    public static final int ORDER_APP               = 6;
-    public static final int SUGGESTION              = 7;
+    public static final int SUGGESTION              = 1;
+    public static final int ORDER_APP               = 2;
+    public static final int CONTACT_US              = 3;
     public static int messageType = 0;
 
 
     Context context;
     RadioButton radioButton1,radioButton2,radioButton3;
 
-
+    EditText editTextTitle , editTextText , editTextPhone;
+    Button buttonReg , buttonBack;
+    ContactUsRequest message = new ContactUsRequest();
 
 
     public synchronized static Intent getIntent(Context context) {
@@ -77,77 +94,59 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
         radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
+        editTextTitle = (EditText) findViewById(R.id.editTextTitle);
+        editTextText = (EditText) findViewById(R.id.editTextText);
+        editTextPhone = (EditText) findViewById(R.id.editTextPhone);
+
+        buttonReg = (Button) findViewById(R.id.buttonReg);
+        buttonBack = (Button) findViewById(R.id.buttonBack);
 
 
 
 
 
         if(Global.user != null){
+            editTextPhone.setVisibility(View.GONE);
 //            etField1.setText(Global.user.getMobileNumber());
 //            etField1.setEnabled(false);
+        }else {
+            editTextPhone.setVisibility(View.VISIBLE);
         }
 
-//        btn1.setText(context.getString(R.string.send));
-//        btn2.setText(context.getString(R.string.cancel));
-//        btn2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
-//        btn1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                if((etField1.getText().toString().length()>10 ||etField1.getText().toString().length()>10 ) && etField3.getText().toString().length()>10 ){
-////                    Message message = new Message();
-////                    message.setApplicationID(17);
-////                    message.setPhoneNumber(etField1.getText().toString());
-////                    message.setText(etField3.getText().toString());
-////                    switch (messageType) {
-////                        case ContactUsActivity.CONTACT_US:{
-////                            message.setTitle("تماس با ما");
-////                            break;
-////                        }
-////                        case ContactUsActivity.ORDER_APP:{
-////                            message.setTitle("سفارش نرم افزار");
-////                            break;
-////                        }
-////                        case ContactUsActivity.SUGGESTION:{
-////                            message.setTitle("پیشنهادات و انتقادات");
-////                            break;
-////                        }
-////                    }
-////                    message.setType(messageType + "");
-////                    AsyncSendMessage asyncSendMessage = new AsyncSendMessage(context,message);
-////                    asyncSendMessage.execute();
-////                }else
-//                    Global.ShowMessageDialog(context,"",context.getString(R.string.notCorrectInput));
-//
-//
-//            }
-//        });
+
 
         //getType
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        switch (bundle.getInt(ContactUsActivity.Type)) {
-            case ContactUsActivity.CONTACT_US:{
-                messageType = ContactUsActivity.CONTACT_US;
-                break;
-            }
-            case ContactUsActivity.ORDER_APP:{
-                messageType = ContactUsActivity.ORDER_APP;
-                break;
-            }
-            case ContactUsActivity.SUGGESTION:{
-                messageType = ContactUsActivity.SUGGESTION;
-                break;
+
+        if (intent.hasExtra((Type))) {
+            switch (bundle.getInt(Type)) {
+                case CONTACT_US: {
+                    messageType = CONTACT_US;
+                    radioButton1.setChecked(false);
+                    radioButton2.setChecked(false);
+                    radioButton3.setChecked(true);
+                    break;
+                }
+                case ORDER_APP: {
+                    messageType = ORDER_APP;
+                    radioButton1.setChecked(false);
+                    radioButton2.setChecked(true);
+                    radioButton3.setChecked(false);
+                    break;
+                }
+                case SUGGESTION: {
+                    messageType = SUGGESTION;
+                    radioButton1.setChecked(true);
+                    radioButton2.setChecked(false);
+                    radioButton3.setChecked(false);
+                    break;
+                }
             }
         }
 
         //get Checked Radio
-        ((RadioGroup)findViewById(R.id.rgRadios)).setOnCheckedChangeListener(
-                new RadioGroup.OnCheckedChangeListener() {
+        ((RadioGroup)findViewById(R.id.rgRadios)).setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                         switch (checkedId) {
@@ -155,36 +154,166 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
                                 radioButton1.setChecked(true);
                                 radioButton2.setChecked(false);
                                 radioButton3.setChecked(false);
-
-                                messageType = ContactUsActivity.CONTACT_US;
+                                messageType = SUGGESTION;
                                 break;
                             case R.id.radioButton2:
                                 radioButton1.setChecked(false);
                                 radioButton2.setChecked(true);
                                 radioButton3.setChecked(false);
-
-                                messageType = ContactUsActivity.ORDER_APP;
+                                messageType = ORDER_APP;
                                 break;
                             case R.id.radioButton3:
                                 radioButton1.setChecked(false);
                                 radioButton2.setChecked(false);
                                 radioButton3.setChecked(true);
-
-                                messageType = ContactUsActivity.SUGGESTION;
+                                messageType = CONTACT_US;
                                 break;
+
+
                         }
                     }
-                }
-        );
+                });
 
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        buttonReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isValid = true;
+
+                if (Global.user == null){
+                    if (Validation.validatePhoneNumber(editTextPhone.getText().toString())){
+                        message.setPhoneNumber(editTextPhone.getText().toString());
+                    }else {
+                        isValid = false;
+                    }
+                } else {
+                    if (Validation.validatePhoneNumber(Global.user.getUserName())){
+                        message.setPhoneNumber(Global.user.getUserName());
+                    }else {
+                        message.setPhoneNumber("");
+                    }
+                }
+
+
+                if (intent.hasExtra((Title))) {
+                    if (bundle.getString(Title).contains("محتوی نامناسب")){
+
+
+                    }else {
+                        if (editTextTitle.getText().toString().length() < 5) {
+                            isValid = false;
+                        }
+                    }
+                }else {
+                    if (editTextTitle.getText().toString().length() < 5) {
+                        isValid = false;
+
+                    }
+                }
+
+                if (editTextText.getText().toString().length() < 15) {
+                    isValid = false;
+
+                }
+
+
+                if (isValid) {
+
+                    switch (messageType) {
+                        case CONTACT_US: {
+                            message.setTitle(radioButton3.getText().toString());
+                            break;
+                        }
+                        case ORDER_APP: {
+                            message.setTitle(radioButton2.getText().toString());
+                            break;
+                        }
+                        case SUGGESTION: {
+                            message.setTitle(radioButton1.getText().toString());
+                            break;
+                        }
+                    }
+                    message.setTitle(message.getTitle() + " " + editTextTitle.getText().toString());
+
+                    if (Global.user == null)
+                        message.setSenderUserID(20053);
+                    else
+                        message.setSenderUserID(Global.user.getUserId());
+
+                    message.setReciverUserID(49);
+
+                    if (message.getText() != null && message.getText().toString().contains(editTextText.getText().toString())){
+                        new TubelessException().handleServerMessage(context,new TubelessException(TUBELESS_CONTENT_IS_COPIED));
+                    }else {
+                        message.setText(editTextText.getText().toString() + "\n" + message.getPhoneNumber());
+                        sendMessage(message);
+                    }
+                }else {
+                    new TubelessException().handleServerMessage(context,new TubelessException(TUBELESS_CHECK_INPUT_VALUES));
+                }
+            }
+        });
+
+
+        if (intent.hasExtra((Title))) {
+            if (bundle.getString(Title).contains("محتوی نامناسب")){
+                editTextTitle.setText(bundle.getString(Title));
+                editTextTitle.setEnabled(false);
+                radioButton1.setEnabled(false);
+                radioButton2.setEnabled(false);
+            }else {
+                editTextTitle.setEnabled(true);
+            }
+        }
+    }
+
+    private void sendMessage(ContactUsRequest request) {
+
+        Global.apiManagerTubeless.newContactUs(request, new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {
+            @Override
+            public void t_beforeSendRequest() {
+                ((TubelessActivity)getContext()).progressDialog.show();
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+                ((TubelessActivity)getContext()).progressDialog.hide();
+            }
+
+            @Override
+            public void t_complite() {
+            }
+
+            @Override
+            public void t_responseNull() {
+                request.setText("");
+                new TubelessException().handleServerMessage(getContext(),new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+                request.setText("");
+                new TubelessException().handleServerMessage(getContext(),new TubelessException(TUBELESS_TRY_AGAIN));
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                editTextText.setText("");
+                new TubelessException().handleServerMessage(getContext(),new TubelessException(TUBELESS_OPERATION_COMPLETE));
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        radioButton2.performClick();
-        radioButton1.performClick();
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -235,15 +364,4 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
         return null;
     }
 
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Global.user = new User();
-//        Intent intent = new Intent(this,xMainActivity.class);
-//        startActivity(intent);
-
-        finish();
-        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-    }
 }

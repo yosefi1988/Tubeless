@@ -9,6 +9,7 @@ import java.util.List;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 //import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUsRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import okhttp3.MultipartBody;
@@ -63,6 +64,8 @@ public interface ApiServiceTubeless {
     Call<Object> invisibleTimelineItem(@Query("id") int id,
                                        @Query("userId") String userId);
 
+    @POST("Api/Message/SendMessage")
+    Call<Object> contactUs(@Body ContactUsRequest request);
 
 
 
@@ -88,8 +91,6 @@ public interface ApiServiceTubeless {
 
 
 
-//    @POST("Api/Common/ContactUs")
-//    Call<Object> contactUs(@Body ContactUsRequest request);
 
 //    @GET("questions")
 //    Call<Question> getQuestionsService(@Query("page") int page,

@@ -128,60 +128,30 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 
 
 
-        Adad.initialize("357418d6-115d-47d3-8fb4-a228d2c1b882");// جایگاه وارد کردن توکن یا شناسه ی اپلیکیشن مورد نظر
-        Adad.setTestMode(false);//فعال و غیر فعال کردن حالت تست
-
-        //تعریف کردن یک listener برای آگاهی از وضعیت تبلیغ بنری
-        ( (AdadBannerAd)findViewById(R.id.banner_1)).setAdListener(new AdadAdListener() {
-            @Override
-            public void onLoaded() {
-
-            }
-
-            @Override
-            public void onShowed() {
-
-            }
-
-            @Override
-            public void onActionOccurred(int i) {
-                System.out.println();
-            }
-
-            @Override
-            public void onError(int i, String s) {
-
-            }
-
-            @Override
-            public void onClosed() {
-
-            }
-        });
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//
-//        if (peresenter.isFirstRun()) {
-////            if (!AndroidOs.checkPermission(context, wantPermission)) {
-////                if (AndroidOs.shouldShowRequestPermissionRationale(this, wantPermission)){
-////                    Toast.makeText(this, this.getString(R.string.loginBySimcardDescription), Toast.LENGTH_LONG).show();
-////                }
-////                AndroidOs.requestPermissions(this, new String[]{wantPermission},PERMISSION_REQUEST_CODE);
-////            } else {
-//                peresenter.registerDevice();
-////            }
-//        }else {
-//            peresenter.goToMainPage();
-//        }
-//
-//
-////        getSupportActionBar().hide();
-////        getSupportActionBar().setDisplayShowTitleEnabled(false);
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+        if (peresenter.isFirstRun()) {
+//            if (!AndroidOs.checkPermission(context, wantPermission)) {
+//                if (AndroidOs.shouldShowRequestPermissionRationale(this, wantPermission)){
+//                    Toast.makeText(this, this.getString(R.string.loginBySimcardDescription), Toast.LENGTH_LONG).show();
+//                }
+//                AndroidOs.requestPermissions(this, new String[]{wantPermission},PERMISSION_REQUEST_CODE);
+//            } else {
+                peresenter.registerDevice();
+//            }
+        }else {
+            peresenter.goToMainPage();
+        }
+
+
+//        getSupportActionBar().hide();
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
 
 
     private void mint() {

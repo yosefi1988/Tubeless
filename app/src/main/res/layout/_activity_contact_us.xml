@@ -89,15 +89,25 @@
             <EditText
                 android:id="@+id/editTextTitle"
                 style="@style/AppTheme.DayEditText"
-                android:drawableLeft="@android:drawable/ic_secure"
-                android:hint="@string/title" />
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:hint="@string/subject" />
+
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                style="@style/AppTheme.DayEditText"
+                android:inputType="phone"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:hint="@string/phoneNumber" />
 
 
             <EditText
                 android:id="@+id/editTextText"
                 style="@style/AppTheme.DayEditText"
-                android:drawableLeft="@android:drawable/ic_secure"
-                android:hint="@string/text2" />
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:hint="@string/contact_us_hint" />
 
 
             <LinearLayout

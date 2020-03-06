@@ -20,8 +20,11 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBa
 
 public class TubelessException extends Exception{
 
+    public static final int TUBELESS_OPERATION_COMPLETE = 0;
     public static final int TUBELESS_OPERATION_NOT_COMPLETE = 10;
     public static final int TUBELESS_TRY_AGAIN = 11;
+    public static final int TUBELESS_CHECK_INPUT_VALUES = 12;
+    public static final int TUBELESS_CONTENT_IS_COPIED = 13;
 
 
     public static final int TUBELESS_RESPONSE_BODY_IS_NULL = 2001;
@@ -77,12 +80,6 @@ public class TubelessException extends Exception{
 
     public TubelessException(int errorCode) {
         switch (errorCode){
-            case 0:{
-                message = "ssssssssssssssss";
-                //log
-
-                break;
-            }
             case NATIONAL_CODE_NOT_TRUE:{
                 message = "sajjad Error : National Code Not true.";
                 break;
@@ -94,6 +91,22 @@ public class TubelessException extends Exception{
             }
             case TUBELESS_RESPONSE_BODY_IS_NULL:{
                 message = "sajjad Error : we get null in body of response";
+                break;
+            }
+            case TUBELESS_OPERATION_COMPLETE:{
+                message = "با موفقیت انجام شد.";
+                break;
+            }
+            case TUBELESS_CHECK_INPUT_VALUES:{
+                message = "مقادریر وارد شده صحیح نیست.";
+                break;
+            }
+            case TUBELESS_CONTENT_IS_COPIED:{
+                message = "قبلا این پیام را ارسال کرده اید.";
+                break;
+            }
+            case TUBELESS_OPERATION_NOT_COMPLETE:{
+                message = "انجام نشد.";
                 break;
             }
 

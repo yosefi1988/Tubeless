@@ -527,8 +527,6 @@ public class NewYafteActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
 
         switch (selectedRadio){
             case(SERGHATI):

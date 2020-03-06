@@ -103,8 +103,10 @@ public class Validation {
     }
 
     public static boolean validatePhoneNumber(String phoneNo) {
+        String newString = changePersianNumbers(phoneNo.trim());
+
         //validate phone numbers of format "1234567890"
-        if (phoneNo.matches("^09[-.\\s]?\\d{2}[-.\\s]?\\d{3}[-.\\s]?\\d{4}$")) return true;
+        if (newString.matches("^09[-.\\s]?\\d{2}[-.\\s]?\\d{3}[-.\\s]?\\d{4}$")) return true;
             //validating phone number with -, . or spaces
 //        else if(phoneNo.matches("\\d{3}[-\\.\\s]\\d{3}[-\\.\\s]\\d{4}")) return true;
 //            //validating phone number with extension length from 3 to 5
@@ -114,6 +116,20 @@ public class Validation {
 //            //return false if nothing matches the input
         else return false;
 
+    }
+
+    public static String changePersianNumbers(String old){
+        old = old.replace("۰","0");
+        old = old.replace("۹","9");
+        old = old.replace("۸","8");
+        old = old.replace("۷","7");
+        old = old.replace("۶","6");
+        old = old.replace("۵","5");
+        old = old.replace("۴","4");
+        old = old.replace("۳","3");
+        old = old.replace("۲","2");
+        old = old.replace("۱","1");
+        return old;
     }
 
 }

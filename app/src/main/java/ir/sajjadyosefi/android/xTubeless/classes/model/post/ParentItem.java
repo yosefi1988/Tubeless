@@ -1,7 +1,9 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.post;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +16,7 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
@@ -227,7 +230,11 @@ public abstract class ParentItem implements IItems {
                         break;
                     case R.id.pmnuReport:
 
-
+                        Bundle bundle = new Bundle();
+                        bundle.putInt(ContactUsActivity.Type , ContactUsActivity.CONTACT_US);
+                        bundle.putString(ContactUsActivity.Title , "محتوی نامناسب , کد : " + timelineItem.getBlogID());
+                        bundle.putString(ContactUsActivity.Text , "توضیح : ");
+                        ((Activity)mContext).startActivity(ContactUsActivity.getIntent(mContext,bundle));
                         break;
                     case R.id.pmnuShare:
                         share(mContext ,listType, timelineItem);

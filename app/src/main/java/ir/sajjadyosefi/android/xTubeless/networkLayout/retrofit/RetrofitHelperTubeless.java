@@ -2,6 +2,7 @@ package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit;
 
 
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
@@ -46,11 +47,6 @@ public class RetrofitHelperTubeless {
         userCall.enqueue(callback);
     }
 
-//    public void getYadakTimeline(int index, TubelessRetrofitCallbackss callback) {
-//        Call<Object> userCall = service.getYadakTimeline(index,15);
-//        userCall.enqueue(callback);
-//    }
-
     public void getTimelineYadak(int index, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.getTimelineYadak(index,15);
         userCall.enqueue(callback);
@@ -92,6 +88,10 @@ public class RetrofitHelperTubeless {
         userCall.enqueue(callback);
     }
 
+    public void newContactUs(ContactUsRequest request, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.contactUs(request);
+        userCall.enqueue(callback);
+    }
 
 
 
@@ -110,29 +110,12 @@ public class RetrofitHelperTubeless {
 
 
 
-
-
-
-
-//    public void getTimelineYafte(int index, TubelessRetrofitCallback<Object> callback) {
-//        Call<Object> userCall = service.getTimelineYadak(index,15);
-//        userCall.enqueue(callback);
-//    }
 
 
 //    public void createUser(SearchRequest searchRequest, Callback<ServerResponse> callback) {
 //        Call<ServerResponse> userCall = service.search(searchRequest);
 //        userCall.enqueue(callback);
 //    }.
-
-
-
-
-//    public void newContactUs(ContactUsRequest request, TubelessRetrofitCallback<Object> callback) {
-//        Call<Object> userCall = service.contactUs(request);
-//        userCall.enqueue(callback);
-//    }
-
 
 
 

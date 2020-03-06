@@ -46,6 +46,9 @@ import com.squareup.picasso.Picasso;
 
 import org.litepal.LitePal;
 
+import ir.adad.ad.AdadAdListener;
+import ir.adad.banner.AdadBannerAd;
+import ir.adad.core.Adad;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
@@ -102,7 +105,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             if (resultCode == Activity.RESULT_OK) {
                 updatedrawableMenuItems();
 
-                if (Global.user.isAdmin())
+                if (Global.user != null && Global.user.isAdmin())
                     firstFragmentsAdapter.notifyList();
 
             }
@@ -180,6 +183,47 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         loadNews();
 
 
+    }
+
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+//        View noticeView = (View) findViewById(R.id.noticeView);
+//        AdadBannerAd bannerAd = (AdadBannerAd) findViewById(R.id.banner_1);
+//
+//        //تعریف کردن یک listener برای آگاهی از وضعیت تبلیغ بنری
+//        bannerAd.setAdListener(new AdadAdListener() {
+//            @Override
+//            public void onLoaded() {
+//                Toast.makeText(getContext(),"با کلیک روی تبلیغ آن را حذف خواهید کرد" ,Toast.LENGTH_LONG).show();
+//            }
+//
+//            @Override
+//            public void onShowed() {
+//
+//            }
+//
+//            @Override
+//            public void onActionOccurred(int i) {
+//                System.out.println();
+//                noticeView.setVisibility(View.GONE);
+//            }
+//
+//            @Override
+//            public void onError(int i, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onClosed() {
+//
+//            }
+//        });
     }
 
     private void loadNews() {
@@ -414,7 +458,9 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                    ContainerActivity.type = 2 ;
 //                    getContext().startActivity(new Intent(getContext(), ContainerActivity.class));
 
-                    getActivity().startActivity(ContactUsActivity.getIntent(getContext()));
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(ContactUsActivity.Type , ContactUsActivity.CONTACT_US);
+                    getActivity().startActivity(ContactUsActivity.getIntent(getContext(),bundle));
                 } else if (id == R.id.nav_telegram) {
                     //share on telegram
 

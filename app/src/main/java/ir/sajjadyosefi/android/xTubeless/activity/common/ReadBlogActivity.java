@@ -61,7 +61,6 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         Gson gson = new Gson();
         String objectString = getIntent().getStringExtra("Object");
         TimelineItem blogItem = gson.fromJson(objectString, TimelineItem.class);
-
         firstFillData(blogItem);
 
         TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineItemResponse.class) {

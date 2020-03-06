@@ -71,9 +71,9 @@ public class Global extends MultiDexApplication {
         MultiDex.install(this);
         apiManagerPost = RetrofitHelper.getInstance();
 
-        Adad.setTestMode(true);
-        Adad.initialize("357418d6-115d-47d3-8fb4-a228d2c1b882");// جایگاه وارد کردن توکن یا شناسه ی اپلیکیشن مورد نظر
         Adad.setEnabled(true);
+        Adad.setTestMode(false);
+        Adad.initialize("357418d6-115d-47d3-8fb4-a228d2c1b882");// جایگاه وارد کردن توکن یا شناسه ی اپلیکیشن مورد نظر
 
 
         apiManagerTubeless = RetrofitHelperTubeless.getInstance();

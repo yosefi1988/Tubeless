@@ -13,6 +13,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessExcepti
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import retrofit2.Call;
 
@@ -42,7 +43,7 @@ public class Device implements IRegisterDeviceModel {
 		this.setAndroidID(DeviceUtil.GetAndroidId(context));
 		this.setApplicationID(17);                                                                //OK
 		this.setVersionID(100);                                                                   //OK
-//                this.setBOARD(CommonClass.GetAppVersion(context));                                        //new
+		this.setBOARD(CommonClass.GetAppVersion(context));                                        //new
 		this.setBRAND(Build.BRAND);                                                               //OK
 		//this.setBuildID(Build.VERSION.SDK_INT + "-" + Build.VERSION.RELEASE  + "-" + Build.ID);   //new
 		this.setDISPLAY(Build.DISPLAY);                                                           //

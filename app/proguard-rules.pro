@@ -31,6 +31,10 @@
 
 -keep class ir.sajjadyosefi.** {*;}
 -keep class * extends ir.sajjadyosefi.android.** {*;}
+
+-keep class it.sephiroth.** {*;}
+-keep class * extends it.sephiroth.android.** {*;}
+
 #-keep class com.orm.**{*;}
 
 

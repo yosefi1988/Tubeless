@@ -6,7 +6,7 @@ def final appName = 'MyAppx1'
 
 
 android {
-    def versionname = "3.01"
+    def versionname = "4.0.0"
     flavorDimensions "default"
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
@@ -18,9 +18,20 @@ android {
 
     def final appNamex2 = 'MyAppx2'
 
+    signingConfigs {
+        TubelessSajjadSigning {
+            storeFile file("D:\\Documents\\sajjad\\Key\\xTubeless\\xTubeless98")
+            storePassword "sajjadolsvutv@42viubdvf"
+            keyAlias "keySajjad"
+            keyPassword 'Yosefi$24s;dgoj'
+        }
+    }
 
 
-    lintOptions { disable 'MissingTranslation', 'ExtraTranslation' }
+    lintOptions {
+        checkReleaseBuilds false
+        disable 'MissingTranslation', 'ExtraTranslation'
+    }
     defaultConfig {
         applicationId "ir.sajjadyosefi.android.xTubeless"
         minSdkVersion 16
@@ -36,7 +47,8 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            //useProguard false
+            useProguard true
+            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //manifestPlaceholders = [pn: "com.hamsa"]
             //manifestPlaceholders = [pn: "com.hamsa.debug"]
@@ -46,6 +58,8 @@ android {
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"api\""
             resValue "string", "app_name", appName
+            signingConfig signingConfigs.TubelessSajjadSigning
+
 
 
         }
@@ -77,27 +91,20 @@ android {
 //        }
 //    }
 
-//    signingConfigs {
-//        hamsaa {
-//            storeFile file("hamsaa.jks")
-//            storePassword "uh8Y8vL5YD"
-//            keyAlias "hamsaa"
-//            keyPassword "ba38idF8ASs"
-//        }
-//    }
+
     productFlavors {
         playStore {
             versionName "${versionname}"
             versionNameSuffix "-a"
 
-            applicationId "ir.sajjadyosefi.tubeless.tubeless"
+//            applicationId "ir.sajjadyosefi.tubeless.tubeless"
             versionCode 3
         }
         bazaar {
             versionName "${versionname}"
             versionNameSuffix "-b"
 
-            applicationId "ir.sajjadyosefi.tubeless.tubeless"
+//            applicationId "ir.sajjadyosefi.tubeless.tubeless"
             //versionCode 3
         }
 
@@ -110,7 +117,8 @@ android {
             versionName "${versionname}-m"
         }
         iranapps {
-            versionName "${versionname}-i"
+            versionName "${versionname}"
+            versionNameSuffix "-i"
         }
         jhobin {
             versionName "${versionname}-j"
@@ -118,6 +126,22 @@ android {
         kandoo {
             versionName "${versionname}"
             versionNameSuffix "-k"
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def project = "tubeless"
+            def SEP = "_"
+            def flavor = variant.productFlavors[0].name
+            def buildType = variant.variantData.variantConfiguration.buildType.name
+            def version = variant.versionName
+            def date = new Date();
+            def formattedDate = date.format('yyMMdd_HHmm')
+
+            def newApkName = project + SEP + flavor + SEP + buildType + SEP + version + SEP + formattedDate + ".apk"
+
+            outputFileName = new File(newApkName)
         }
     }
 
