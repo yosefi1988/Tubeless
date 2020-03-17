@@ -39,6 +39,11 @@
             android:icon="@drawable/png_car_part"
             android:title="ثبت درخواست قطعه" />
 
+        <item
+            android:id="@+id/nav_karte_sokht"
+            android:icon="@drawable/png_gast"
+            android:title="استعلام کارت سوخت" />
+
     </group>
 
 

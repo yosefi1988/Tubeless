@@ -25,6 +25,8 @@ public class TubelessException extends Exception{
     public static final int TUBELESS_TRY_AGAIN = 11;
     public static final int TUBELESS_CHECK_INPUT_VALUES = 12;
     public static final int TUBELESS_CONTENT_IS_COPIED = 13;
+    public static final int TUBELESS_PASSWORD_NOT_CORRECT = 14;
+    public static final int TUBELESS_PASSWORD_IS_EMPTY = 15;
 
 
     public static final int TUBELESS_RESPONSE_BODY_IS_NULL = 2001;
@@ -103,6 +105,14 @@ public class TubelessException extends Exception{
             }
             case TUBELESS_CONTENT_IS_COPIED:{
                 message = "قبلا این پیام را ارسال کرده اید.";
+                break;
+            }
+            case TUBELESS_PASSWORD_NOT_CORRECT:{
+                message = "رمز عبور صحیح نیست";
+                break;
+            }
+            case TUBELESS_PASSWORD_IS_EMPTY:{
+                message = "رمز عبور کوتاه است.";
                 break;
             }
             case TUBELESS_OPERATION_NOT_COMPLETE:{

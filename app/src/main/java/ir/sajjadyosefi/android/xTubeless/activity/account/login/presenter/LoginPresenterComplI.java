@@ -6,9 +6,13 @@ import android.os.Looper;
 
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.view.ILoginView;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
+
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_PASSWORD_IS_EMPTY;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_PASSWORD_NOT_CORRECT;
 
 public class LoginPresenterComplI implements ILoginPresenterI {
     IUser iUser;
@@ -28,9 +32,13 @@ public class LoginPresenterComplI implements ILoginPresenterI {
 
     @Override
     public void tryToLoginByPhoneNumber(String phoneNumber, String password) {
-        LoginRequest loginRequest = new LoginRequest(phoneNumber, password, getAndroidId(context));
-        iLoginView.showProgressBar();
-        iUser.CheckUserValidity(presenter, loginRequest);
+        if(password.length() < 2){
+            onThrowException(new TubelessException(TUBELESS_PASSWORD_IS_EMPTY));
+        }else {
+            LoginRequest loginRequest = new LoginRequest(phoneNumber, password, getAndroidId(context));
+            iLoginView.showProgressBar();
+            iUser.CheckUserValidity(presenter, loginRequest);
+        }
     }
 
     @Override

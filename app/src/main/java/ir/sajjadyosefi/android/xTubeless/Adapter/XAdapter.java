@@ -31,12 +31,14 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemVi
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TwoLinesViewHolder;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
+
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
+
 import static org.litepal.LitePalApplication.getContext;
 
 
@@ -254,6 +256,13 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             holder = new TimelineItemViewHolder(view);
         }else if (listType == TYPE_YAFTE) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_yafte_item, parent, false);
+
+
+            //font 5
+//            FontChangeCrawler fontChanger = new FontChangeCrawler(context.getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
+//            fontChanger.replaceFonts((ViewGroup)view);
+
+
             holder = new TimelineItemViewHolder(view);
 
         }else if (listType == TYPE_POST_SEARCH_RESULT) {
@@ -264,6 +273,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             final View view = LayoutInflater.from(context).inflate(R.layout._row_image_of_a_car, parent, false);
             holder = new TwoLinesViewHolder(view);
         }
+
+
         return holder;
     }
 

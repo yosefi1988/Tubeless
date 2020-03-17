@@ -2,12 +2,20 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 
-def final appName = 'MyAppx1'
+def final appNameTubeless = 'Tubeless'
+def final Tubeless_VersionName = "4.0.0"
+def final Tubeless_VersionCode = 26
+
+def final appNameYafte = 'مدارک گم شده'
+def final Yadak_VersionName = "1.0.0"
+def final Yadak_VersionCode = 4
 
 
 android {
-    def versionname = "4.0.0"
-    flavorDimensions "default"
+    def final appId = 'ir.sajjadyosefi.android'
+
+//    flavorDimensions "default"
+    flavorDimensions("version_name", "market")
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
@@ -16,7 +24,7 @@ android {
         all*.exclude module: 'okio'
     }
 
-    def final appNamex2 = 'MyAppx2'
+
 
     signingConfigs {
         TubelessSajjadSigning {
@@ -33,11 +41,12 @@ android {
         disable 'MissingTranslation', 'ExtraTranslation'
     }
     defaultConfig {
-        applicationId "ir.sajjadyosefi.android.xTubeless"
+        applicationId "${appId}"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 23
-        versionName "${versionname}"
+
+        //versionCode Tubeless_VersionCode
+        //versionName "${Tubeless_VersionName}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true //important
@@ -47,37 +56,28 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            useProguard true
-            debuggable true
+            useProguard false
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //manifestPlaceholders = [pn: "com.hamsa"]
             //manifestPlaceholders = [pn: "com.hamsa.debug"]
             manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
-//            buildConfigField "String", "app_name2", "app_name"
 
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"api\""
-            resValue "string", "app_name", appName
             signingConfig signingConfigs.TubelessSajjadSigning
-
-
 
         }
         debug {
             minifyEnabled false
             //useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //versionNameSuffix "-dev"
+            versionNameSuffix "-dev"
             manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
-//            buildConfigField "String", "app_name2", "app_name"
-
 
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"devapi\""
-            resValue "string", "app_name", appName + "-debug"
-
-
-
+            //resValue "string", "app_name", appName + "-debug"
         }
     }
 //    productFlavors {
@@ -93,40 +93,82 @@ android {
 
 
     productFlavors {
-        playStore {
-            versionName "${versionname}"
-            versionNameSuffix "-a"
+        tubeless {
+            dimension "version_name"
+            resValue "string", "app_name", appNameTubeless
 
-//            applicationId "ir.sajjadyosefi.tubeless.tubeless"
-            versionCode 3
+
+            applicationIdSuffix ".xTubeless"
+            versionName "${Tubeless_VersionName}"
+            versionCode Tubeless_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+
+
         }
-        bazaar {
-            versionName "${versionname}"
-            versionNameSuffix "-b"
+        yafte {
+            dimension "version_name"
+            resValue "string", "app_name", appNameYafte
 
-//            applicationId "ir.sajjadyosefi.tubeless.tubeless"
-            //versionCode 3
-        }
+            applicationId "ir.sajjadyosefi.tubelessyafte"
+//            applicationIdSuffix ".xYafte"
 
-        avvalMarket {
-            versionName "${versionname}"
-            versionNameSuffix "-a"
+            versionName "${Yadak_VersionName}"
+            versionCode Yadak_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/dot"
+            ]
+
         }
 
         myket {
-            versionName "${versionname}-m"
+            dimension "market"
+            versionNameSuffix "-m"
         }
-        iranapps {
-            versionName "${versionname}"
-            versionNameSuffix "-i"
-        }
-        jhobin {
-            versionName "${versionname}-j"
-        }
-        kandoo {
-            versionName "${versionname}"
-            versionNameSuffix "-k"
-        }
+//        iranApps {
+//            dimension "market"
+//            versionNameSuffix "-i"
+//        }
+
+
+//        playStore {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-a"
+//            versionCode Tubeless_VersionCode
+//        }
+//        bazaar {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-b"
+//            versionCode Tubeless_VersionCode
+//        }
+//
+//        avvalMarket {
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-a"
+//            versionCode Tubeless_VersionCode
+//        }
+//
+//
+//        iranapps {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-i"
+//            versionCode Tubeless_VersionCode
+//        }
+//        jhobin {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}-j"
+//            versionCode Tubeless_VersionCode
+//        }
+//        kandoo {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-k"
+//            versionCode Tubeless_VersionCode
+//        }
     }
 
     applicationVariants.all { variant ->
@@ -148,6 +190,29 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+//            java.srcDirs = ['other/java']
+            java.srcDirs = ['src/main/java']
+
+//            res.srcDirs = ['other/res1', 'other/res2']
+            res.srcDirs = ['src/main/res']
+
+//            manifest.srcFile 'other/AndroidManifest.xml'
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+        yafte {
+//            java.srcDirs = ['other/java']
+//            java.srcDirs = ['src/main/java']
+
+//            res.srcDirs = ['other/res1', 'other/res2']
+            res.srcDirs = ['src/yafte/res']
+
+//            manifest.srcFile 'other/AndroidManifest.xml'
+//            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
     }
 }
 
@@ -193,6 +258,7 @@ dependencies {
     //    implementation 'com.github.mmoamenn:ProgressWindow_Android:0.0.2'
     implementation 'com.tuyenmonkey:mkloader:1.4.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
 
 
     implementation "me.henrytao:smooth-app-bar-layout:25.3.1.0"
@@ -234,6 +300,8 @@ dependencies {
     implementation project(':adad-sdk-banner-5.1.1')
     implementation project(path: ':adad-sdk-core-5.1.1')
     implementation project(path: ':adad-sdk-ad-5.1.1')
+
+
 
 }
 

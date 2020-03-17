@@ -39,15 +39,21 @@ import java.util.Random;
 import dagger.Component;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.retrofit.RetrofitHelper2;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.retrofit.RetrofitHelperEpolice;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.RetrofitHelper;
+import ir.sajjadyosefi.android.xTubeless.utility.FontChanger;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 //اس دی کی های تبلیغاتی عدد
 import ir.adad.banner.AdadBannerAd;
 import ir.adad.core.Adad;
+
+import static ir.sajjadyosefi.android.xTubeless.widget.CustomEditText.FONT_IRANSANS_MOBILE_NORMAL_TTF;
+
 
 /**
  * Created by Sajad on 2/11/2017.
@@ -63,6 +69,8 @@ public class Global extends MultiDexApplication {
     public static String token;
     public static RetrofitHelper apiManagerPost;
     public static RetrofitHelperTubeless apiManagerTubeless;
+    public static RetrofitHelperEpolice retrofitHelperEpolice;
+    public static RetrofitHelper2 retrofit2;
 
 
     @Override
@@ -70,6 +78,18 @@ public class Global extends MultiDexApplication {
         super.onCreate();
         MultiDex.install(this);
         apiManagerPost = RetrofitHelper.getInstance();
+        retrofitHelperEpolice = RetrofitHelperEpolice.getInstance(this);
+        retrofit2 = RetrofitHelper2.getInstance(this);
+
+        //font 1
+//        FontChanger.overrideDefaultFont(this, "DEFAULT", FONT_IRANSANS_MOBILE_NORMAL_TTF);
+
+        //font 6 ok
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath(FONT_IRANSANS_MOBILE_NORMAL_TTF)
+                .setFontAttrId(R.attr.fontPath)
+                .build());
+
 
         Adad.setEnabled(true);
         Adad.setTestMode(false);
@@ -79,10 +99,6 @@ public class Global extends MultiDexApplication {
         apiManagerTubeless = RetrofitHelperTubeless.getInstance();
         LitePal.initialize(this);
 
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/BYekan.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build());
 
 
 

@@ -43,14 +43,14 @@
                 android:background="@drawable/circle_background_glass"
                 android:orientation="vertical" >
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/changePassword"
                     android:layout_marginTop="10dp"
                     android:textSize="35dp" />
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
@@ -81,7 +81,7 @@
                     android:hint="@string/rePassword" />
 
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -127,14 +127,14 @@
                 android:background="@drawable/circle_background_glass"
                 android:orientation="vertical" >
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/forgetPassword"
                     android:layout_marginTop="10dp"
                     android:textSize="35dp" />
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
@@ -154,7 +154,7 @@
                     android:hint="@string/emailAddress" />
 
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -199,14 +199,14 @@
                 android:background="@drawable/circle_background_glass"
                 android:orientation="vertical" >
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/login"
                     android:layout_marginTop="10dp"
                     android:textSize="35dp" />
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
@@ -237,7 +237,7 @@
                     android:hint="@string/password" />
 
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -282,7 +282,7 @@
                 android:background="@drawable/circle_background_glass"
                 android:orientation="vertical" >
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/search"
@@ -300,7 +300,7 @@
                     android:orientation="horizontal" >
 
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/with_code_melli"   />
@@ -311,7 +311,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_height="wrap_content"/>
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/with_name2"   />
@@ -327,7 +327,7 @@
                     android:orientation="vertical" >
 
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
@@ -358,7 +358,7 @@
                     android:orientation="vertical" >
 
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
@@ -405,7 +405,7 @@
                 </LinearLayout>
 
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
@@ -445,7 +445,7 @@
                 </RelativeLayout>
 
 
-                <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"

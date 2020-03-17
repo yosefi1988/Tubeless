@@ -45,7 +45,6 @@ import eu.janmuller.android.simplecropimage.CropImage;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.widget.PersianTextView;
 
 //import com.vansuita.gaussianblur.GaussianBlur;
 
@@ -66,7 +65,7 @@ public class NewYafteActivity extends AppCompatActivity {
 
     Context context;
     DilatingDotsProgressBar dilatingDotsProgressBar;
-    PersianTextView tvField1,tvField2;
+    TextView tvField1,tvField2;
     TextView tvTitle;
     RadioButton radioButton1,radioButton2,radioButton3;
     TextView tvTitleText02;
@@ -121,8 +120,8 @@ public class NewYafteActivity extends AppCompatActivity {
         radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
-        tvField1 = (PersianTextView) findViewById(R.id.tvField1);
-        tvField2 = (PersianTextView) findViewById(R.id.tvField2);
+        tvField1 = (TextView) findViewById(R.id.tvField1);
+        tvField2 = (TextView) findViewById(R.id.tvField2);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         svScroll = (ScrollView) findViewById(R.id.svScroll);
 

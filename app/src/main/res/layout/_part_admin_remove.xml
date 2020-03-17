@@ -17,7 +17,7 @@
         android:layout_height="30dp"
         app:srcCompat="@android:drawable/ic_delete" />
 
-    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+    <TextView
         android:id="@+id/textViewDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

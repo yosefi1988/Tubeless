@@ -64,8 +64,8 @@
                 app:fabSize="normal"
                 android:visibility="gone"
                 app:layout_anchor="@id/recyclerView"
-                app:layout_anchorGravity="bottom|start"
-                app:layout_behavior=".classes.ScrollAwareFABBehavior" />
+                app:layout_anchorGravity="bottom|start" />
+<!--                app:layout_behavior=".classes.ScrollAwareFABBehavior" />-->
 
             <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
             <!--android:id="@+id/fab2"-->
@@ -85,7 +85,7 @@
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+        <TextView
             android:id="@+id/nothing_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

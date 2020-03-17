@@ -14,7 +14,6 @@
         <item name="editTextStyle">@style/AppTheme.DayEditText</item>
 
 
-
     </style>
 
     <style name="AppNightTheme" parent="Theme.AppCompat.DayNight" >
@@ -37,9 +36,12 @@
         <item name="android:textViewStyle">@style/AppTheme.DayTextView</item>
     </style>
 
+
+
     <style name="AppTheme.AllActivities"  parent="AppDayTheme">
         <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
     </style>
+
 
     <style name="AppTheme.MainActivityTheme"  parent="AppTheme.AllActivities">
         <item name="windowActionBar">false</item>
@@ -57,24 +59,27 @@
 
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <!-- android:textColorPrimary is the color of the text text in the Toolbar  -->
-        <item name="android:textColorPrimary">@android:color/holo_blue_light</item>
-        <!-- actionMenuTextColor is the color of the text of action (menux) items  -->
-        <item name="actionMenuTextColor">@android:color/holo_green_light</item>
-        <!-- Tints the input fields like checkboxes and text fields -->
-        <item name="colorAccent">@color/colorAccent</item>
-        <!-- Applies to views in their normal state. -->
-        <item name="colorControlNormal">@color/colorBlack</item>
-        <!-- Applies to views in their activated state (i.e checked or switches) -->
-        <item name="colorControlActivated">@color/colorBlack</item>
-        <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
-        <item name="colorControlHighlight">@color/colorBlack</item>
+<!--        &lt;!&ndash; android:textColorPrimary is the color of the text text in the Toolbar  &ndash;&gt;-->
+<!--        <item name="android:textColorPrimary">@android:color/holo_blue_light</item>-->
+<!--        &lt;!&ndash; actionMenuTextColor is the color of the text of action (menux) items  &ndash;&gt;-->
+<!--        <item name="actionMenuTextColor">@android:color/holo_green_light</item>-->
+<!--        &lt;!&ndash; Tints the input fields like checkboxes and text fields &ndash;&gt;-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+
+
+<!--        &lt;!&ndash; Applies to views in their normal state. &ndash;&gt;-->
+<!--        <item name="colorControlNormal">@color/colorBlack</item>-->
+<!--        &lt;!&ndash; Applies to views in their activated state (i.e checked or switches) &ndash;&gt;-->
+<!--        <item name="colorControlActivated">@color/colorBlack</item>-->
+<!--        &lt;!&ndash; Applied to framework control highlights (i.e ripples or list selectors) &ndash;&gt;-->
+<!--        <item name="colorControlHighlight">@color/colorBlack</item>-->
 
         <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
         <!--
         <item name="selectableItemBackground">?android:selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
         -->
+
     </style>
 
     <!-- This configures the styles for the text within the Toolbar  -->
@@ -120,7 +125,7 @@
         <item name="android:paddingBottom">10dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#4267b2</item>
+        <item name="android:textColor">@color/tubelessColor_blue_02</item>
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -259,4 +264,5 @@
         <item name="android:windowFullscreen">false</item>
     </style>
 
+    <string name="font_secondary_bold">fonts/byekan.ttf</string>
 </resources>

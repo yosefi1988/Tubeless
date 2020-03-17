@@ -37,7 +37,9 @@
 
 #-keep class com.orm.**{*;}
 
-
+#-libraryjars libs/litepal-1.5.1.jar
+-dontwarn org.litepal.**
+-keep class org.litepal.** {*; }
 
 # without this line, I was having ClassCastException
 #-keepattributes Signature, *Annotation*

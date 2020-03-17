@@ -29,7 +29,7 @@
 
     <!-- SMS -->
     <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
-
+<!--    android:icon="@drawable/png_icon"-->
     <application
         android:name=".Global"
         android:allowBackup="true"
@@ -78,16 +78,17 @@
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.MainActivity"
             android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize|stateHidden"
             android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2">
         </activity>
 
         <activity
-            android:name=".activity.post.SearchByNationalCodeActivity"
+            android:name=".bussines.post.activity.SearchByNationalCodeActivity"
             android:theme="@style/ThemeFullSCreen"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name=".activity.post.SearchByNameActivity"
+            android:name=".bussines.post.activity.SearchByNameActivity"
             android:theme="@style/ThemeFullSCreen"
             android:windowSoftInputMode="adjustResize|stateHidden">
         </activity>
@@ -115,6 +116,12 @@
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity"
+            android:theme="@style/ThemeFullSCreenX"
+            android:configChanges="orientation|screenSize"
+            android:isScrollContainer="true"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.register.KarteSokhtActivity"
             android:theme="@style/ThemeFullSCreenX"
             android:configChanges="orientation|screenSize"
             android:isScrollContainer="true"

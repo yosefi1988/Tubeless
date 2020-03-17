@@ -39,6 +39,7 @@
         <TextView
             android:id="@+id/textViewForgetpass"
             style="@style/AppTheme.DayTextView"
+            android:visibility="gone"
             android:text="forget_password" />
 
         <Button

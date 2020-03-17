@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Tubelessx11.iml" filepath="$PROJECT_DIR$/Tubelessx11.iml" />
-      <module fileurl="file://$PROJECT_DIR$/adad-sdk-ad-5.1.1/adad-sdk-ad-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-ad-5.1.1/adad-sdk-ad-5.1.1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/adad-sdk-banner-5.1.1/adad-sdk-banner-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-banner-5.1.1/adad-sdk-banner-5.1.1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/crop-image-lib/crop-image-lib.iml" filepath="$PROJECT_DIR$/crop-image-lib/crop-image-lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/faboptions/faboptions.iml" filepath="$PROJECT_DIR$/faboptions/faboptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" group="Tubelessx11/PagerSlidingTabStrip" />
+      <module fileurl="file://$PROJECT_DIR$/Tubelessx11.iml" filepath="$PROJECT_DIR$/Tubelessx11.iml" group="Tubelessx11" />
+      <module fileurl="file://$PROJECT_DIR$/adad-sdk-ad-5.1.1/adad-sdk-ad-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-ad-5.1.1/adad-sdk-ad-5.1.1.iml" group="Tubelessx11/adad-sdk-ad-5.1.1" />
+      <module fileurl="file://$PROJECT_DIR$/adad-sdk-banner-5.1.1/adad-sdk-banner-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-banner-5.1.1/adad-sdk-banner-5.1.1.iml" group="Tubelessx11/adad-sdk-banner-5.1.1" />
+      <module fileurl="file://$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" group="Tubelessx11/adad-sdk-core-5.1.1" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Tubelessx11/app" />
+      <module fileurl="file://$PROJECT_DIR$/crop-image-lib/crop-image-lib.iml" filepath="$PROJECT_DIR$/crop-image-lib/crop-image-lib.iml" group="Tubelessx11/crop-image-lib" />
+      <module fileurl="file://$PROJECT_DIR$/faboptions/faboptions.iml" filepath="$PROJECT_DIR$/faboptions/faboptions.iml" group="Tubelessx11/faboptions" />
     </modules>
   </component>
 </project>

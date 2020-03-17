@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
+
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -26,11 +28,12 @@ import io.fabric.sdk.android.Fabric;
 
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
+
 public abstract class TubelessActivity extends AppCompatActivity {
 
     private Context context;
     private AppCompatActivity activity;
-    private View rootActivity;
+    private ViewGroup rootActivity;
     public Dialog progressDialog;
 
     @Override
@@ -62,6 +65,13 @@ public abstract class TubelessActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
 //        getSupportActionBar().hide();
+
+
+//        if (rootActivity != null)
+//            overrideFonts(this,rootActivity);
+
+
+
 
     }
 
@@ -96,7 +106,7 @@ public abstract class TubelessActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    protected void setRootActivity(View childAt) {
+    protected void setRootActivity(ViewGroup childAt) {
         rootActivity = childAt;
     }
     protected void setRootActivity() {
@@ -106,6 +116,11 @@ public abstract class TubelessActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         rootActivity = (ViewGroup) ((ViewGroup) this.findViewById(android.R.id.content)).getChildAt(0);
+
+        //font 3 ok
+//        FontChangeCrawler fontChanger = new FontChangeCrawler(getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
+//        fontChanger.replaceFonts(rootActivity);
+
     }
 
 

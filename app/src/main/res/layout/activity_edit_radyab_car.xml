@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:id="@+id/tvField1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
                     android:visibility="visible">
 
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:id="@+id/tvField2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
                     android:visibility="visible">
 
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center"
@@ -192,7 +192,7 @@
                     android:orientation="horizontal"
                     android:visibility="visible">
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:id="@+id/tvField22"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                     android:orientation="horizontal"
                     android:visibility="visible">
 
-                    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+                    <TextView
                         android:id="@+id/tvField4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

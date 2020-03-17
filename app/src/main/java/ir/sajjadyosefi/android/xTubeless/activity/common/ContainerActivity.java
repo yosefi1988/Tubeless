@@ -16,10 +16,12 @@ import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 
 public class ContainerActivity extends TubelessTransparentStatusBarActivity {
@@ -85,16 +87,16 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
             ft.replace(R.id.include, new ListFragment(this,list ,TYPE_POST_SEARCH_RESULT));
 //            ft.replace(R.id.include, new BlankFragment(getContext()));
             ft.commit();
-
-
-
-
-//            ListFragment2 newFragment = new ListFragment2(getContext(),2);
+ //            ListFragment2 newFragment = new ListFragment2(getContext(),2);
 //            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 //            transaction.replace(R.id.include, newFragment);
 //            transaction.addToBackStack(null);
 //            transaction.commit();
 
+        }else if (type == TYPE_SEARCH_POST_BY_NAME){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.include, new SearchByNameFragment());
+            ft.commit();
         }else if (type == 1){
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

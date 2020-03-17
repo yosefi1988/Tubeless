@@ -30,9 +30,12 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 
+
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
+
 
 public class ListFragment extends Fragment  {
 
@@ -130,6 +133,12 @@ public class ListFragment extends Fragment  {
 
         createAdater();
         loadTimeline(fragmentRootView,listType);
+
+
+
+        //font 4
+//        FontChangeCrawler fontChanger = new FontChangeCrawler(getContext().getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
+//        fontChanger.replaceFonts((ViewGroup) this.getView());
     }
 
     XAdapter xAdapter;
@@ -262,6 +271,8 @@ public class ListFragment extends Fragment  {
 
                     }else if (listType == TYPE_IMAGE){
 
+                    }else if (listType == TYPE_POST_SEARCH_RESULT){
+                        context.startActivity(new Intent(context, RegNewYafteActivity.class));
                     }
                 }
             });

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +30,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.andremion.counterfab.CounterFab;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -46,20 +42,24 @@ import com.squareup.picasso.Picasso;
 
 import org.litepal.LitePal;
 
-import ir.adad.ad.AdadAdListener;
-import ir.adad.banner.AdadBannerAd;
-import ir.adad.core.Adad;
+import java.io.Serializable;
+
+
+import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.post.SearchByNameActivity;
+import ir.sajjadyosefi.android.xTubeless.bussines.post.activity.SearchByNameActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
+import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
@@ -70,10 +70,13 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofit
 import it.sephiroth.android.library.bottomnavigation.BadgeProvider;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import it.sephiroth.android.library.bottomnavigation.FloatingActionButtonBehavior;
+import it.sephiroth.android.library.bottomnavigation.MenuParser;
 import it.sephiroth.android.library.bottomnavigation.MiscUtils;
 import retrofit2.Call;
 
 import static android.util.Log.VERBOSE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 @TargetApi (Build.VERSION_CODES.KITKAT_WATCH)
 public class MainActivity extends TubelessActivity implements BottomNavigation.OnMenuItemSelectionListener {
@@ -182,7 +185,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
         loadNews();
 
-
+////        toolbar
+////          mBottomNavigation
     }
 
 
@@ -340,7 +344,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             Global.user = LitePal.where("userId like ?", accountId + "").findFirst(User.class);
 
             if (Global.user == null){
-                Toast.makeText(context,"618716848872",Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"must Get User Data From Server",Toast.LENGTH_LONG).show();
             }
             return Global.user;
         }else {
@@ -441,6 +445,19 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     getContext().startActivity(new Intent(getContext(), RegNewYadakActivity.class));
 
 
+                } else if (id == R.id.nav_karte_sokht) {
+                    try {
+                        PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
+                        String versionName = pInfo.versionName;
+                        if (versionName.contains("4.0.0")) {
+                            Toast.makeText(getContext(),"در حال آماده سازی هستیم." , Toast.LENGTH_LONG).show();
+                        } else {
+                            getContext().startActivity(new Intent(getContext(), KarteSokhtActivity.class));
+                        }
+                    }catch (Exception ex){
+
+                    }
+
                 } else if (id == R.id.nav_search_by_name) {
                     if (getContext().getPackageName().contains("yadak")){
                         final BottomSheetDialog progressDialog = new BottomSheetDialog(getContext());
@@ -451,7 +468,11 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                             }
                         });
                     }else {
-                        getActivity().startActivity(new Intent(getContext(), SearchByNameActivity.class));
+//                        getActivity().startActivity(new Intent(getContext(), SearchByNameActivity.class));
+
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("type" , TYPE_SEARCH_POST_BY_NAME);
+                        getActivity().startActivity(ContainerActivity.getIntent(getContext(),bundle));
                     }
 
                 } else if (id == R.id.nav_contact_us) {
@@ -560,7 +581,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     protected void initializeBottomNavigation(final Bundle savedInstanceState) {
 
         if (null == savedInstanceState) {
-            getBottomNavigation().setDefaultSelectedIndex(0);
+            BottomNavigation x = getBottomNavigation();
+            x.setDefaultSelectedIndex(0);
             final BadgeProvider provider = getBottomNavigation().getBadgeProvider();
             provider.show(R.id.bbn_item3);
             provider.show(R.id.bbn_item2);
@@ -704,17 +726,38 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     public void onMenuItemSelect(final int itemId, final int position, final boolean fromUser) {
         if (fromUser) {
             getBottomNavigation().getBadgeProvider().remove(itemId);
-            if (null != getViewPager() && position != 2) {
-                getViewPager().setCurrentItem(position);
-            }
 
-            if (position == 2) {
-                if(Global.user != null) {
-                    getActivity().startActivityForResult(ProfileActivity.getIntent(getContext()),OPEN_PROFILE_REQUEST_CODE);
-                }else {
-                    Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
+
+            if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
+                //tubeless
+                if (null != getViewPager() && position != 2) {
+                    getViewPager().setCurrentItem(position);
+                }
+                if (position == 2) {
+                    if(Global.user != null) {
+                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext()),OPEN_PROFILE_REQUEST_CODE);
+                    }else {
+                        Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
+                    }
+                }
+            }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+                if (null != getViewPager()) {
+                    getViewPager().setCurrentItem(position);
+                }
+            }else {
+                //Default , tubeless
+                if (null != getViewPager() && position != 2) {
+                    getViewPager().setCurrentItem(position);
+                }
+                if (position == 2) {
+                    if(Global.user != null) {
+                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext()),OPEN_PROFILE_REQUEST_CODE);
+                    }else {
+                        Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
+                    }
                 }
             }
+
         }
     }
 

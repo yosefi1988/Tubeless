@@ -59,6 +59,7 @@
 
     <color name="colorProgress">@color/colorWhite</color>
     <color name="fb_background_color">#e9ebee</color>
+    <color name="fb_foreground_color">#4267b2</color>
 
 
 

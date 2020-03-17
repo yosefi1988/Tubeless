@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="ToggleButton" />
 
-    <ir.sajjadyosefi.android.xTubeless.widget.PersianTextView
+    <TextView
         android:id="@+id/nothing_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
