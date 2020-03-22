@@ -5,10 +5,12 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,6 +53,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
@@ -62,11 +65,14 @@ import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.Validator;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import it.sephiroth.android.library.bottomnavigation.BadgeProvider;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import it.sephiroth.android.library.bottomnavigation.FloatingActionButtonBehavior;
@@ -228,6 +234,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //
 //            }
 //        });
+        if (checkIsFirstRun()){
+            drawer_layout.openDrawer(Gravity.LEFT);
+            setFirstRunIsDone();
+        }
     }
 
     private void loadNews() {
@@ -344,7 +354,20 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             Global.user = LitePal.where("userId like ?", accountId + "").findFirst(User.class);
 
             if (Global.user == null){
-                Toast.makeText(context,"must Get User Data From Server",Toast.LENGTH_LONG).show();
+                String accountName = sAccounts.getUserAccountName();
+                LoginRequest loginRequest = null;
+                IUser iUser;
+                iUser = new User(context);
+                Validator validator = new Validator();
+                if (validator.isIranianMobileNumber(accountName)){
+                    loginRequest = new LoginRequest(accountName, sAccounts.getUserAccountPassword(), DeviceUtil.GetAndroidId(context));
+                }else if (validator.isIranianMobileNumber(accountName)) {
+                    loginRequest = new LoginRequest(accountName, "");
+                }else {
+                    loginRequest = new LoginRequest(accountName);
+                }
+                iUser.CheckUserValidity(null, loginRequest);
+
             }
             return Global.user;
         }else {
@@ -776,4 +799,24 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //        }
 //        Toast.makeText(getContext(),position+"",Toast.LENGTH_LONG).show();
     }
+
+
+    public boolean checkIsFirstRun() {
+        SharedPreferences prefs = null;
+        prefs =  this.getSharedPreferences("ir.sajjadyosefi.android.tubeless", MODE_PRIVATE);
+        return prefs.getBoolean("firstrun", true);
+    }
+
+    public boolean setFirstRunIsDone() {
+        SharedPreferences prefs = null;
+        prefs =  this.getSharedPreferences("ir.sajjadyosefi.android.tubeless", MODE_PRIVATE);
+
+        try {
+            prefs.edit().putBoolean("firstrun", false).commit();
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
 }

@@ -197,22 +197,23 @@ public class Device implements IRegisterDeviceModel {
 	}
 
 	@Override
-	public boolean checkIsFirstRun() {
+	public boolean checkDeviceIsRegistered() {
 		SharedPreferences prefs = null;
 		prefs =  context.getSharedPreferences("ir.sajjadyosefi.android.tubeless", MODE_PRIVATE);
-		return prefs.getBoolean("firstrun", true);
+		return prefs.getBoolean("RegisterDevice", true);
 	}
 
 	@Override
-	public boolean setFirstRunIsDone() {
+	public boolean setRegisterDeviceIsDone() {
 		SharedPreferences prefs = null;
 		prefs =  context.getSharedPreferences("ir.sajjadyosefi.android.tubeless", MODE_PRIVATE);
 
 		try {
-			prefs.edit().putBoolean("firstrun", false).commit();
+			prefs.edit().putBoolean("RegisterDevice", false).commit();
 			return true;
 		}catch (Exception e) {
 			return false;
 		}
 	}
+
 }

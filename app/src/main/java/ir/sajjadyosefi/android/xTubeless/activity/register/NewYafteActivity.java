@@ -40,7 +40,7 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.util.Random;
 
-import eu.janmuller.android.simplecropimage.CropImage;
+
 
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
@@ -504,14 +504,14 @@ public class NewYafteActivity extends AppCompatActivity {
     public static File mFileTemp;
     private void startCropImage() {
 
-        Intent intent = new Intent(this, CropImage.class);
-        intent.putExtra(CropImage.IMAGE_PATH, mFileTemp.getPath());
-        intent.putExtra(CropImage.SCALE, true);
-
-        intent.putExtra(CropImage.ASPECT_X, 3);
-        intent.putExtra(CropImage.ASPECT_Y, 2);
-
-//        startActivityForResult(intent, REQUEST_CODE_CROP_IMAGE);
+//        Intent intent = new Intent(this, CropImage.class);
+//        intent.putExtra(CropImage.IMAGE_PATH, mFileTemp.getPath());
+//        intent.putExtra(CropImage.SCALE, true);
+//
+//        intent.putExtra(CropImage.ASPECT_X, 3);
+//        intent.putExtra(CropImage.ASPECT_Y, 2);
+//
+////        startActivityForResult(intent, REQUEST_CODE_CROP_IMAGE);
     }
     public static void copyStream(InputStream input, OutputStream output) throws IOException {
 

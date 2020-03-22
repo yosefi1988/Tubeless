@@ -31,15 +31,22 @@ public class SAccounts {
         return mAccountManager;
     }
 
-    public int performAccount(String name , int UserID) {
+    public int performAccount(String name , int UserID , String password) {
         SAccounts sAccounts = new SAccounts(context);
         if (!sAccounts.hasUserAccount()){
-            sAccounts.createAccount(name,UserID);
+            if (password == null){
+                sAccounts.createAccount(name,UserID);
+            }else {
+                sAccounts.createAccount(name,UserID,password);
+            }
             return UserID;
         }else {
             int userid = sAccounts.getUserAccountID();
             return userid;
         }
+    }
+    public int performAccount(String name , int UserID) {
+        return performAccount(name,UserID,null);
     }
 
 
@@ -56,6 +63,14 @@ public class SAccounts {
             return Integer.parseInt(mAccountManager.getUserData(getUserAccount(), "UserID"));
         }else {
             return NOT_LOGN_USER;
+        }
+    }
+
+    public String getUserAccountName() {
+        if (hasUserAccount()) {
+            return getUserAccount().name;
+        }else {
+            return null;
         }
     }
 
@@ -81,6 +96,20 @@ public class SAccounts {
         Bundle data = new Bundle();
         data.putString("UserID", String.valueOf(UserID));
         this.getAccountManager().addAccountExplicitly(account, "tubeless",data);
+    }
+    private void createAccount(String name,int UserID,String password) {
+        final Account account = new Account(name, ACCOUNT_TYPE) ;
+        Bundle data = new Bundle();
+        data.putString("UserID", String.valueOf(UserID));
+        data.putString("UserPassword",password);
+        this.getAccountManager().addAccountExplicitly(account, "tubeless",data);
+    }
 
+    public String getUserAccountPassword() {
+        if (hasUserAccount()) {
+            return mAccountManager.getUserData(getUserAccount(), "UserPassword");
+        }else {
+            return null;
+        }
     }
 }

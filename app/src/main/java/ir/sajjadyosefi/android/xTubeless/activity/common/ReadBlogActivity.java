@@ -221,7 +221,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         stringBuilder.append(" ) ");
         textViewDate.setText(stringBuilder.toString());
 
-        textViewUserName.setText(timelineItem.getUserName());
+        textViewUserName.setText(timelineItem.getUserNameMasked(timelineItem.getUserName()));
         textViewCount.setText(timelineItem.getViewCount() + "");
 
 

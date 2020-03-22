@@ -396,6 +396,7 @@
     <string name="subject">موضوع</string>
     <string name="contact_us_hint">متن</string>
     <string name="estelam_by_plak">استعلام با شماره پلاک</string>
+    <string name="save">save</string>
 
 
 </resources>

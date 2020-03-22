@@ -122,9 +122,13 @@ android {
 
         }
 
-        myket {
+//        myket {
+//            dimension "market"
+//            versionNameSuffix "-m"
+//        }
+        socialNetwork {
             dimension "market"
-            versionNameSuffix "-m"
+            versionNameSuffix "-s"
         }
 //        iranApps {
 //            dimension "market"
@@ -234,7 +238,7 @@ dependencies {
     implementation 'com.github.satyan:sugar:1.4'
     implementation project(':faboptions')
     implementation 'com.uncopt:android.justified:1.0'
-    implementation project(':crop-image-lib')
+//    implementation project(':crop-image-lib')
 //    implementation 'com.google.firebase:firebase-messaging:11.0.4'
 //    implementation 'com.google.firebase:firebase-core:11.0.4'
 //    implementation 'com.google.firebase:firebase-crash:11.0.4'
@@ -300,7 +304,7 @@ dependencies {
     implementation project(':adad-sdk-banner-5.1.1')
     implementation project(path: ':adad-sdk-core-5.1.1')
     implementation project(path: ':adad-sdk-ad-5.1.1')
-
+    implementation project(path: ':accountauthenticator')
 
 
 }

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -145,6 +146,10 @@ public class TimelineItem extends ParentItem{
     }
 
     public String getUserNameMasked() {
+        return getUserNameMasked(userName);
+    }
+
+    public static String getUserNameMasked(String userName) {
         if (userName.equals("ثبت نام نکرده")){
             return userName;
         }else {
@@ -168,6 +173,7 @@ public class TimelineItem extends ParentItem{
             }
         }
     }
+
 
     public void setUserName(String userName) {
         this.userName = userName;

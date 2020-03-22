@@ -16,6 +16,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
@@ -211,11 +212,19 @@ public class User extends LitePalSupport implements IUser {
 									if (Global.user == null){
 										if ((new User(tmpUser)).save()){
 											Global.user = tmpUser;
+
+
+											if ((new Validator()).isIranianMobileNumber(request.getUserName()))
+												tmpUser.setPassword(request.getPassword());
+
 											presenter.onSuccess(tmpUser);
 										}else {
 											User dbUser = LitePal.where("userId like ?", tmpUser.getUserId() + "").findFirst(User.class);
 											if (dbUser != null) {
 												Global.user = dbUser;
+
+												if ((new Validator()).isIranianMobileNumber(request.getUserName()))
+													tmpUser.setPassword(request.getPassword());
 												presenter.onSuccess(dbUser);
 											}else {
 												Global.user = null;
@@ -224,11 +233,15 @@ public class User extends LitePalSupport implements IUser {
 										}
 									}else {
 										Global.user = tmpUser;
+
+										if ((new Validator()).isIranianMobileNumber(request.getUserName()))
+											tmpUser.setPassword(request.getPassword());
 										presenter.onSuccess(tmpUser);
 									}
 								}
 							} else {
-								presenter.onThrowException(new TubelessException(responseX.getTubelessException().getCode()));
+								if (presenter != null)
+									presenter.onThrowException(new TubelessException(responseX.getTubelessException().getCode()));
 							}
 						}else {
 							presenter.onThrowException(new TubelessException(responseX.getTubelessException().getCode()));
@@ -237,7 +250,8 @@ public class User extends LitePalSupport implements IUser {
 						presenter.onThrowException(new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL));
 					}
 				}catch (Exception sException) {
-					presenter.onThrowException(sException);
+					if (presenter != null)
+						presenter.onThrowException(sException);
 				}
 			}
 

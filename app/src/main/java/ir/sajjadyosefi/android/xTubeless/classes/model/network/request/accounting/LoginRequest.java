@@ -89,7 +89,7 @@ public class LoginRequest {
 
 
 
-    //mamual
+    //manual
     public LoginRequest(String userName, String password, String androidID) {
         UserName = userName;
         Password = password;

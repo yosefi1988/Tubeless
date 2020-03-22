@@ -230,7 +230,13 @@ public class LoginActivity extends TubelessActivity implements ILoginView {
         User tmpUser = (User) xxxxxxxx;
         try {
             SAccounts sAccounts = new SAccounts(getContext());
-            sAccounts.performAccount(tmpUser.getUserName(), (int) tmpUser.getUserId());
+
+            if (tmpUser.getPassword() != null && tmpUser.getPassword().length() > 1){
+                sAccounts.performAccount(tmpUser.getUserName(), (int) tmpUser.getUserId(),tmpUser.getPassword());
+            }else {
+                sAccounts.performAccount(tmpUser.getUserName(), (int) tmpUser.getUserId());
+            }
+
             retData(new Intent());
         }catch (Exception ex){
             onThrowException(ex);
