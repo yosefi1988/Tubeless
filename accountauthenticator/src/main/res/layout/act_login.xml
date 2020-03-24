@@ -11,6 +11,7 @@
               android:layout_height="wrap_content"
               android:layout_marginTop="20dp"
               android:hint="Email address"
+        android:text="09123678522"
               android:inputType="textEmailAddress"
               android:padding="10dp"  />
 
@@ -19,6 +20,7 @@
               android:layout_height="wrap_content"
               android:layout_marginTop="10dp"
               android:inputType="textPassword"
+        android:text="aaassd"
               android:hint="Password"
               android:padding="10dp"  />
 

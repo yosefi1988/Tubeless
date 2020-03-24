@@ -3,21 +3,39 @@ package ir.sajjadyosefi.accountauthenticator.authentication;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.io.Serializable;
+import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+
+import ir.sajjadyosefi.accountauthenticator.model.User;
+import retrofit2.http.QueryMap;
 
 public class ParseComServerAuthenticate implements ServerAuthenticate {
     @Override
@@ -48,7 +66,7 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
 
             User createdUser = new Gson().fromJson(responseString, User.class);
 
-            authtoken = createdUser.sessionToken;
+            authtoken =" createdUser.sessionToken";
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,50 +77,100 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
 
     @Override
     public String userSignIn(String user, String pass, String authType) throws Exception {
-        Log.d("udini", "userSignIn");
-
         DefaultHttpClient httpClient = new DefaultHttpClient();
-        String url = "https://api.parse.com/1/login";
+        String url = "http://test.sajjadyosefi.ir/Api/User/Login";
+        HttpPost httpPost = new HttpPost(url);
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("UserName", user));
+        params.add(new BasicNameValuePair("Password", pass));
+        params.add(new BasicNameValuePair("AndroidID", "2d84302c2e2c1bcb"));
+        params.add(new BasicNameValuePair("IDApplicationVersion","106"));
+        httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
 
 
-        String query = null;
-        try {
-            query = String.format("%s=%s&%s=%s", "username", URLEncoder.encode(user, "UTF-8"), "password", pass);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        url += "?" + query;
 
-        HttpGet httpGet = new HttpGet(url);
 
-        httpGet.addHeader("X-Parse-Application-Id", "XUafJTkPikD5XN5HxciweVuSe12gDgk2tzMltOhr");
-        httpGet.addHeader("X-Parse-REST-API-Key", "8L9yTQ3M86O4iiucwWb4JS7HkxoSKo7ssJqGChWx");
 
-        HttpParams params = new BasicHttpParams();
-        params.setParameter("username", user);
-        params.setParameter("password", pass);
-        httpGet.setParams(params);
-//        httpGet.getParams().setParameter("username", user).setParameter("password", pass);
 
-        String authtoken = null;
-        try {
-            HttpResponse response = httpClient.execute(httpGet);
+        HttpResponse httpResponse = httpClient.execute(httpPost);
 
-            String responseString = EntityUtils.toString(response.getEntity());
-            if (response.getStatusLine().getStatusCode() != 200) {
-                ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
-                throw new Exception("Error signing-in ["+error.code+"] - " + error.error);
+        if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+            String authtoken = null;
+            try {
+                String responseString = EntityUtils.toString(httpResponse.getEntity());
+                if (httpResponse.getStatusLine().getStatusCode() != 200) {
+                    ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
+                    throw new Exception("Error signing-in ["+error.code+"] - " + error.error);
+                }
+
+                Log.d("sajjadx",responseString);
+                Log.d("sajjadx",responseString.substring(1));
+                Log.d("sajjadx",responseString.substring(1,responseString.length()-1));
+
+
+                User loggedUser = new Gson().fromJson(responseString.substring(1,responseString.length()-1).replace("\\" ,""), User.class);
+//                User loggedUser = new Gson().fromJson(responseString, User.class);
+//                Gson gson = new Gson();
+//                JsonElement jsonElement = gson.toJsonTree(httpResponse.getEntity());
+//                User object = gson.fromJson(jsonElement, User.class);
+
+
+                authtoken = loggedUser.getUserId() + "";
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
 
-            User loggedUser = new Gson().fromJson(responseString, User.class);
-            authtoken = loggedUser.sessionToken;
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            return authtoken;
         }
-
-        return authtoken;
+        return "401 UNAUTHORIZED";
     }
+//    public String userSignIn(String user, String pass, String authType) throws Exception {
+//        Log.d("udini", "userSignIn");
+//
+//        DefaultHttpClient httpClient = new DefaultHttpClient();
+//        String url = "https://api.parse.com/1/login";
+//
+//
+//        String query = null;
+//        try {
+//            query = String.format("%s=%s&%s=%s", "username", URLEncoder.encode(user, "UTF-8"), "password", pass);
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//        url += "?" + query;
+//
+//        HttpGet httpGet = new HttpGet(url);
+//
+//        httpGet.addHeader("X-Parse-Application-Id", "XUafJTkPikD5XN5HxciweVuSe12gDgk2tzMltOhr");
+//        httpGet.addHeader("X-Parse-REST-API-Key", "8L9yTQ3M86O4iiucwWb4JS7HkxoSKo7ssJqGChWx");
+//
+//        HttpParams params = new BasicHttpParams();
+//        params.setParameter("username", user);
+//        params.setParameter("password", pass);
+//        httpGet.setParams(params);
+////        httpGet.getParams().setParameter("username", user).setParameter("password", pass);
+//
+//        String authtoken = null;
+//        try {
+//            HttpResponse response = httpClient.execute(httpGet);
+//
+//            String responseString = EntityUtils.toString(response.getEntity());
+//            if (response.getStatusLine().getStatusCode() != 200) {
+//                ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
+//                throw new Exception("Error signing-in ["+error.code+"] - " + error.error);
+//            }
+//
+//            User loggedUser = new Gson().fromJson(responseString, User.class);
+//            authtoken = loggedUser.sessionToken;
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return authtoken;
+//    }
 
 
     private class ParseComError implements Serializable {
@@ -110,80 +178,4 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
         String error;
     }
 
-    private class User implements Serializable {
-
-        private String firstName;
-        private String lastName;
-        private String username;
-        private String phone;
-        private String objectId;
-        public String sessionToken;
-        private String gravatarId;
-        private String avatarUrl;
-
-
-        public String getFirstName() {
-            return firstName;
-        }
-
-        public void setFirstName(String firstName) {
-            this.firstName = firstName;
-        }
-
-        public String getLastName() {
-            return lastName;
-        }
-
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
-
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
-        public String getPhone() {
-            return phone;
-        }
-
-        public void setPhone(String phone) {
-            this.phone = phone;
-        }
-
-        public String getObjectId() {
-            return objectId;
-        }
-
-        public void setObjectId(String objectId) {
-            this.objectId = objectId;
-        }
-
-        public String getSessionToken() {
-            return sessionToken;
-        }
-
-        public void setSessionToken(String sessionToken) {
-            this.sessionToken = sessionToken;
-        }
-
-        public String getGravatarId() {
-            return gravatarId;
-        }
-
-        public void setGravatarId(String gravatarId) {
-            this.gravatarId = gravatarId;
-        }
-
-        public String getAvatarUrl() {
-            return avatarUrl;
-        }
-
-        public void setAvatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-        }
-    }
 }
