@@ -12,8 +12,6 @@
 
         <item name="android:editTextStyle">@style/AppTheme.DayEditText</item>
         <item name="editTextStyle">@style/AppTheme.DayEditText</item>
-
-
     </style>
 
     <style name="AppNightTheme" parent="Theme.AppCompat.DayNight" >

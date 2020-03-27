@@ -24,6 +24,11 @@ public class User {
     @SerializedName("profileImage")
     @Expose
     private String profileImage;
+
+    @SerializedName("authtoken")
+    @Expose
+    private String authtoken;
+
     @SerializedName("balanse")
     @Expose
     private Object balanse;
@@ -93,6 +98,15 @@ public class User {
 
     public void setTubelessException(TubelessException tubelessException) {
         this.tubelessException = tubelessException;
+    }
+
+
+    public String getAuthtoken() {
+        return authtoken;
+    }
+
+    public void setAuthtoken(String authtoken) {
+        this.authtoken = authtoken;
     }
 
 }

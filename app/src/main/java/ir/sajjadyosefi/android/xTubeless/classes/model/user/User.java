@@ -15,11 +15,13 @@ import java.lang.reflect.Type;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI;
+import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
+import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -282,6 +284,30 @@ public class User extends LitePalSupport implements IUser {
 		Global.apiManagerTubeless.loginOrRregisterMVP(request, callback);
 	}
 
+	@Override
+	public IUser loadUserData() {
+		SAccounts sAccounts = new SAccounts(context);
+		int accountId = sAccounts.getUserAccountID();
+
+		Global.user = LitePal.where("userId like ?", accountId + "").findFirst(User.class);
+		if (Global.user == null){
+
+//			String accountName = sAccounts.getUserAccountName();
+//			LoginRequest loginRequest = null;
+//			Validator validator = new Validator();
+//
+//			if (validator.isIranianMobileNumber(accountName)){
+//				loginRequest = new LoginRequest(accountName, sAccounts.getUserAccountPassword(), DeviceUtil.GetAndroidId(context));
+//			}else if (validator.isIranianMobileNumber(accountName)) {
+//				loginRequest = new LoginRequest(accountName, "");
+//			}else {
+//				loginRequest = new LoginRequest(accountName);
+//			}
+//			iUser.CheckUserValidity(null, loginRequest);
+
+		}
+		return Global.user;
+	}
 
 
 //	private void retry(Call<java.lang.Object> call) {

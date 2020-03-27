@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.accountauthenticator.authentication;
+package ir.sajjadyosefi.accountauthenticator.activity;
 
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
@@ -13,6 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ir.sajjadyosefi.accountauthenticator.R;
+import ir.sajjadyosefi.accountauthenticator.activity.SignUpActivity;
+import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.accountauthenticator.classes.util;
+import ir.sajjadyosefi.accountauthenticator.model.LoginRequest;
 
 import static ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral.sServerAuthenticate;
 
@@ -21,10 +25,10 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
     public final static String ARG_AUTH_TYPE = "AUTH_TYPE";
     public final static String ARG_ACCOUNT_NAME = "ACCOUNT_NAME";
     public final static String ARG_IS_ADDING_NEW_ACCOUNT = "IS_ADDING_ACCOUNT";
-
     public static final String KEY_ERROR_MESSAGE = "ERR_MSG";
-
     public final static String PARAM_USER_PASS = "USER_PASS";
+    public final static String PARAM_USER_NAME = "PARAM_USER_NAME";
+    public final static String PARAM_USER_ID = "USER_ID";
 
     private final int REQ_SIGNUP = 1;
 
@@ -88,11 +92,13 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 
             @Override
             protected Intent doInBackground(String... params) {
-                Log.d("udinic", TAG + "> Started authenticating");
+                Log.d("udinicSajjad", TAG + "> Started authenticating");
                 String authtoken = null;
                 Bundle data = new Bundle();
                 try {
-                    authtoken = sServerAuthenticate.userSignIn(userName, userPass, mAuthTokenType);
+                    LoginRequest loginRequest = new LoginRequest(userName,userPass, util.GetAndroidId(getApplicationContext()));
+
+                    authtoken = sServerAuthenticate.userSignIn(loginRequest);
 
                     data.putString(AccountManager.KEY_ACCOUNT_NAME, userName);
                     data.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
@@ -121,24 +127,31 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 
 
     private void finishLogin(Intent intent) {
-        Log.d("udinic", TAG + "> finishLogin");
+        Log.d("udinicSajjad", TAG + "> finishLogin");
 
         String accountName = intent.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-        String accountPassword = intent.getStringExtra(PARAM_USER_PASS);
+        String accountUserID = intent.getStringExtra(PARAM_USER_ID);
+        String accountUserName = intent.getStringExtra(PARAM_USER_NAME);
+        String accountUserPass = intent.getStringExtra(PARAM_USER_PASS);
+
         final Account account = new Account(accountName, intent.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE));
 
         if (getIntent().getBooleanExtra(ARG_IS_ADDING_NEW_ACCOUNT, false)) {
-            Log.d("udinic", TAG + "> finishLogin > addAccountExplicitly");
+            Log.d("udinicSajjad", TAG + "> finishLogin > addAccountExplicitly");
             String authtoken = intent.getStringExtra(AccountManager.KEY_AUTHTOKEN);
             String authtokenType = mAuthTokenType;
 
+            Bundle data = new Bundle();
+            data.putString(PARAM_USER_ID, String.valueOf(accountUserID));
+            data.putString(PARAM_USER_NAME,accountUserName);
+
             // Creating the account on the device and setting the auth token we got
             // (Not setting the auth token will cause another call to the server to authenticate the user)
-            mAccountManager.addAccountExplicitly(account, accountPassword, null);
+            mAccountManager.addAccountExplicitly(account, accountUserPass, data);
             mAccountManager.setAuthToken(account, authtokenType, authtoken);
         } else {
-            Log.d("udinic", TAG + "> finishLogin > setPassword");
-            mAccountManager.setPassword(account, accountPassword);
+            Log.d("udinicSajjad", TAG + "> finishLogin > setPassword");
+            mAccountManager.setPassword(account, accountUserPass);
         }
 
         setAccountAuthenticatorResult(intent.getExtras());

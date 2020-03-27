@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.accountauthenticator.authentication;
+package ir.sajjadyosefi.accountauthenticator.activity;
 
 import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
@@ -14,11 +14,17 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import ir.sajjadyosefi.accountauthenticator.R;
+import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.accountauthenticator.classes.util;
+import ir.sajjadyosefi.accountauthenticator.model.LoginRequest;
+import ir.sajjadyosefi.accountauthenticator.model.User;
 
+import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER_ID;
+import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER_NAME;
 import static ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral.sServerAuthenticate;
-import static ir.sajjadyosefi.accountauthenticator.authentication.AuthenticatorActivity.ARG_ACCOUNT_TYPE;
-import static ir.sajjadyosefi.accountauthenticator.authentication.AuthenticatorActivity.KEY_ERROR_MESSAGE;
-import static ir.sajjadyosefi.accountauthenticator.authentication.AuthenticatorActivity.PARAM_USER_PASS;
+import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.ARG_ACCOUNT_TYPE;
+import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.KEY_ERROR_MESSAGE;
+import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER_PASS;
 
 public class SignUpActivity extends Activity {
     private String TAG = getClass().getSimpleName();
@@ -53,7 +59,7 @@ public class SignUpActivity extends Activity {
         // Validation!
         new AsyncTask<String, Void, Intent>() {
 
-            String name = ((TextView) findViewById(R.id.name)).getText().toString().trim();
+            String userName = ((TextView) findViewById(R.id.userName)).getText().toString().trim();
             String accountName = ((TextView) findViewById(R.id.accountName)).getText().toString().trim();
             String accountPassword = ((TextView) findViewById(R.id.accountPassword)).getText().toString().trim();
 
@@ -61,24 +67,30 @@ public class SignUpActivity extends Activity {
             @Override
             protected Intent doInBackground(String... params) {
 
-                Log.d("udinic", TAG + "> Started authenticating");
+                Log.d("udinicSajjad", TAG + "> Started authenticating");
 
-                String authtoken = null;
-                Bundle data = new Bundle();
+                final Intent intent = new Intent();
+                Bundle bundle = new Bundle();
                 try {
-                    authtoken = sServerAuthenticate.userSignUp(name, accountName, accountPassword, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+                    LoginRequest loginRequest = new LoginRequest(userName,accountPassword, util.GetAndroidId(getApplicationContext()));
+                    User signUpUser = sServerAuthenticate.userSignUp(loginRequest);
 
-                    data.putString(AccountManager.KEY_ACCOUNT_NAME, accountName);
-                    data.putString(AccountManager.KEY_ACCOUNT_TYPE, mAccountType);
-                    data.putString(AccountManager.KEY_AUTHTOKEN, authtoken);
-                    data.putString(PARAM_USER_PASS, accountPassword);
+                    if (accountName != null && accountName.length() > 2)
+                        bundle.putString(AccountManager.KEY_ACCOUNT_NAME, accountName + "(" + signUpUser.getUserName() + ")");
+                    else
+                        bundle.putString(AccountManager.KEY_ACCOUNT_NAME, signUpUser.getUserName());
+
+                    bundle.putString(AccountManager.KEY_ACCOUNT_TYPE, mAccountType);
+                    bundle.putString(AccountManager.KEY_AUTHTOKEN, signUpUser.getAuthtoken());
+                    bundle.putString(PARAM_USER_ID, signUpUser.getUserId().toString());
+                    bundle.putString(PARAM_USER_NAME, signUpUser.getUserName());
+                    bundle.putString(PARAM_USER_PASS, accountPassword);
+
                 } catch (Exception e) {
-                    data.putString(KEY_ERROR_MESSAGE, e.getMessage());
+                    bundle.putString(KEY_ERROR_MESSAGE, e.getMessage());
                 }
-
-                final Intent res = new Intent();
-                res.putExtras(data);
-                return res;
+                intent.putExtras(bundle);
+                return intent;
             }
 
             @Override

@@ -42,7 +42,7 @@ android {
     }
     defaultConfig {
         applicationId "${appId}"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 28
 
         //versionCode Tubeless_VersionCode
@@ -304,6 +304,7 @@ dependencies {
     implementation project(':adad-sdk-banner-5.1.1')
     implementation project(path: ':adad-sdk-core-5.1.1')
     implementation project(path: ':adad-sdk-ad-5.1.1')
+    implementation project(path: ':accountauthenticator')
 
 
 }

@@ -1,8 +1,12 @@
 package ir.sajjadyosefi.accountauthenticator.authentication;
 
 public class AccountGeneral {
-    public static final String ACCOUNT_TYPE = "com.udinic.auth_example";    //ir.sajjadyosefi.android
-    public static final String ACCOUNT_NAME = "Udinic";
+
+    public static final int IDApplicationVersion = 106;
+    public static final int IDApplication = 23;
+
+    public static final String ACCOUNT_TYPE = "ir.sajjadyosefi.android";    // //com.udinic.auth_example
+    public static final String ACCOUNT_NAME = "Tubeless";
 
     public static final String AUTHTOKEN_TYPE_READ_ONLY = "Read only";
     public static final String AUTHTOKEN_TYPE_READ_ONLY_LABEL = "Read only access to an Udinic account";

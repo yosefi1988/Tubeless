@@ -1,6 +1,9 @@
 package ir.sajjadyosefi.accountauthenticator.authentication;
 
+import ir.sajjadyosefi.accountauthenticator.model.LoginRequest;
+import ir.sajjadyosefi.accountauthenticator.model.User;
+
 public interface ServerAuthenticate {
-    public String userSignUp(final String name, final String email, final String pass, String authType) throws Exception;
-    public String userSignIn(final String user, final String pass, String authType) throws Exception;
+    public User userSignUp(final LoginRequest loginRequest) throws Exception;
+    public String userSignIn(final LoginRequest loginRequest) throws Exception;
 }

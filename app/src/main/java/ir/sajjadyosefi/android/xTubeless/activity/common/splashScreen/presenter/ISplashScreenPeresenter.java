@@ -1,6 +1,8 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter;
 
 
+import android.content.Context;
+
 public interface ISplashScreenPeresenter {
 
     void registerDevice();

@@ -126,8 +126,6 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 //        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("ir.sajjadyosefi.tubelessyafte");
 //        startActivity( launchIntent );
 
-
-
     }
 
     @Override
@@ -270,4 +268,8 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 //                break;
 //        }
 //    }
+
+
+
+
 }

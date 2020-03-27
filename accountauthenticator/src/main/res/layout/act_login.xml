@@ -1,42 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:paddingLeft="17dp"
-              android:paddingRight="17dp" >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <EditText android:id="@+id/accountName"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="20dp"
-              android:hint="Email address"
-        android:text="09123678522"
-              android:inputType="textEmailAddress"
-              android:padding="10dp"  />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:textDirection="rtl"
+        android:layoutDirection="rtl"
+        android:padding="20dp"
+        android:paddingTop="130dp">
 
-    <EditText android:id="@+id/accountPassword"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="10dp"
-              android:inputType="textPassword"
-        android:text="aaassd"
-              android:hint="Password"
-              android:padding="10dp"  />
+        <TextView
+            android:id="@+id/login_title"
+            style="@style/AppTheme.DayTextViewBigTitle"
+            android:text="@string/account" />
 
-    <Button android:id="@+id/submit"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="10dp"
-              android:text="Sign in"
-              android:padding="10dp"/>
+        <EditText
+            android:id="@+id/name"
+            style="@style/AppTheme.DayEditText"
+            android:drawableLeft="@android:drawable/stat_sys_vp_phone_call"
+            android:hint="@string/mobile_number"
+            android:inputType="phone" />
 
-    <TextView android:id="@+id/signUp"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center"
-              android:text="New user?"
-              android:padding="10dp"/>
+        <EditText
+            android:id="@+id/accountName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Email address"
+            android:inputType="textEmailAddress"
+            android:text="sajjjjjjjjad_accountNameIsGone"
+            android:visibility="gone"
+            android:padding="10dp"   />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/accountPassword"
+            style="@style/AppTheme.DayEditText"
+            android:drawableLeft="@android:drawable/ic_secure"
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
+
+
+        <TextView
+            android:id="@+id/textViewForgetpass"
+            style="@style/AppTheme.DayTextView"
+            android:visibility="gone"
+            android:text="forget_password" />
+
+        <Button
+            android:id="@+id/submit"
+            android:text="@string/login"
+            style="@style/AppTheme.DayButton" />
+
+        <TextView
+            style="@style/AppTheme.DayTextView"
+            android:text="@string/login_with" />
+
+        <!--        <com.google.android.gms.common.SignInButton-->
+        <!--            android:id="@+id/submitByGoogle"-->
+        <!--            style="@style/AppTheme.DayButton"  />-->
+
+        <Button
+            android:id="@+id/submitBySimCard"
+            android:text="@string/simcart"
+            style="@style/AppTheme.DayButton" />
+
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="New user?"
+            style="@style/AppTheme.DayButton"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+</ScrollView>
 

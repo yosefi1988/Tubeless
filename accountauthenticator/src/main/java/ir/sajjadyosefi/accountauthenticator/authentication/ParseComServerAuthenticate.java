@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.accountauthenticator.authentication;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -34,62 +35,118 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import ir.sajjadyosefi.accountauthenticator.classes.util;
+import ir.sajjadyosefi.accountauthenticator.model.LoginRequest;
 import ir.sajjadyosefi.accountauthenticator.model.User;
+import okhttp3.internal.Util;
 import retrofit2.http.QueryMap;
+
 
 public class ParseComServerAuthenticate implements ServerAuthenticate {
     @Override
-    public String userSignUp(String name, String email, String pass, String authType) throws Exception {
-        String url = "https://api.parse.com/1/users";
-
-        DefaultHttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(url);
-
-        httpPost.addHeader("X-Parse-Application-Id","XUafJTkPikD5XN5HxciweVuSe12gDgk2tzMltOhr");
-        httpPost.addHeader("X-Parse-REST-API-Key", "8L9yTQ3M86O4iiucwWb4JS7HkxoSKo7ssJqGChWx");
-        httpPost.addHeader("Content-Type", "application/json");
-
-        String user = "{\"username\":\"" + email + "\",\"password\":\"" + pass + "\",\"phone\":\"415-392-0202\"}";
-        HttpEntity entity = new StringEntity(user);
-        httpPost.setEntity(entity);
-
-        String authtoken = null;
-        try {
-            HttpResponse response = httpClient.execute(httpPost);
-            String responseString = EntityUtils.toString(response.getEntity());
-
-            if (response.getStatusLine().getStatusCode() != 201) {
-                ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
-                throw new Exception("Error creating user["+error.code+"] - " + error.error);
-            }
-
-
-            User createdUser = new Gson().fromJson(responseString, User.class);
-
-            authtoken =" createdUser.sessionToken";
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return authtoken;
-    }
-
-    @Override
-    public String userSignIn(String user, String pass, String authType) throws Exception {
+    public User userSignUp(LoginRequest loginRequest) throws Exception {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         String url = "http://test.sajjadyosefi.ir/Api/User/Login";
         HttpPost httpPost = new HttpPost(url);
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("UserName", user));
-        params.add(new BasicNameValuePair("Password", pass));
-        params.add(new BasicNameValuePair("AndroidID", "2d84302c2e2c1bcb"));
-        params.add(new BasicNameValuePair("IDApplicationVersion","106"));
+        params.add(new BasicNameValuePair("AndroidID", loginRequest.getAndroidID()));
+        params.add(new BasicNameValuePair("IDApplicationVersion", loginRequest.getIDApplicationVersion() + ""));
+
+        params.add(new BasicNameValuePair("UserName", loginRequest.getUserName()));
+        params.add(new BasicNameValuePair("Password", loginRequest.getPassword()));
+        params.add(new BasicNameValuePair("Email", loginRequest.getEmail()));
+        params.add(new BasicNameValuePair("UserImage", loginRequest.getUserImage()));
+        params.add(new BasicNameValuePair("MobileNumber", loginRequest.getMobileNumber()));
+        params.add(new BasicNameValuePair("ProfileImage", loginRequest.getProfileImage()));
+        params.add(new BasicNameValuePair("UserMoarefID", loginRequest.getUserMoarefID()));
         httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
 
+        HttpResponse httpResponse = httpClient.execute(httpPost);
+
+        if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+            try {
+                String responseString = EntityUtils.toString(httpResponse.getEntity());
+                if (httpResponse.getStatusLine().getStatusCode() != 200) {
+                    ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
+                    throw new Exception("Error signing-in ["+error.code+"] - " + error.error);
+                }
+
+                Log.d("sajjadx",responseString);
+                Log.d("sajjadx",responseString.substring(1));
+                Log.d("sajjadx",responseString.substring(1,responseString.length()-1));
 
 
+                User loggedUser = new Gson().fromJson(responseString.substring(1,responseString.length()-1).replace("\\" ,""), User.class);
+//                User loggedUser = new Gson().fromJson(responseString, User.class);
+//                Gson gson = new Gson();
+//                JsonElement jsonElement = gson.toJsonTree(httpResponse.getEntity());
+//                User object = gson.fromJson(jsonElement, User.class);
+
+                loggedUser.setAuthtoken(loggedUser.getUserId() + "");
+                return loggedUser;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        return null;
+    }
+//    public String userSignUp(String name, String email, String pass, String authType) throws Exception {
+//        String url = "https://api.parse.com/1/users";
+//
+//        DefaultHttpClient httpClient = new DefaultHttpClient();
+//        HttpPost httpPost = new HttpPost(url);
+//
+//        httpPost.addHeader("X-Parse-Application-Id","XUafJTkPikD5XN5HxciweVuSe12gDgk2tzMltOhr");
+//        httpPost.addHeader("X-Parse-REST-API-Key", "8L9yTQ3M86O4iiucwWb4JS7HkxoSKo7ssJqGChWx");
+//        httpPost.addHeader("Content-Type", "application/json");
+//
+//        String user = "{\"username\":\"" + email + "\",\"password\":\"" + pass + "\",\"phone\":\"415-392-0202\"}";
+//        HttpEntity entity = new StringEntity(user);
+//        httpPost.setEntity(entity);
+//
+//        String authtoken = null;
+//        try {
+//            HttpResponse response = httpClient.execute(httpPost);
+//            String responseString = EntityUtils.toString(response.getEntity());
+//
+//            if (response.getStatusLine().getStatusCode() != 201) {
+//                ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
+//                throw new Exception("Error creating user["+error.code+"] - " + error.error);
+//            }
+//
+//
+//            User createdUser = new Gson().fromJson(responseString, User.class);
+//
+//            authtoken =" createdUser.sessionToken";
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return authtoken;
+//    }
+
+    @Override
+    public String userSignIn(LoginRequest loginRequest) throws Exception {
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        String url = "http://test.sajjadyosefi.ir/Api/User/Login";
+        HttpPost httpPost = new HttpPost(url);
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("AndroidID", loginRequest.getAndroidID()));
+        params.add(new BasicNameValuePair("IDApplicationVersion", loginRequest.getIDApplicationVersion() + ""));
+
+        params.add(new BasicNameValuePair("UserName", loginRequest.getUserName()));
+        params.add(new BasicNameValuePair("Password", loginRequest.getPassword()));
+        params.add(new BasicNameValuePair("Email", loginRequest.getEmail()));
+        params.add(new BasicNameValuePair("UserImage", loginRequest.getUserImage()));
+        params.add(new BasicNameValuePair("MobileNumber", loginRequest.getMobileNumber()));
+        params.add(new BasicNameValuePair("ProfileImage", loginRequest.getProfileImage()));
+        params.add(new BasicNameValuePair("UserMoarefID", loginRequest.getUserMoarefID()));
+        httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
 
 
 

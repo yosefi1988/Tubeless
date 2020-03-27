@@ -7,6 +7,8 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -29,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
     private AlertDialog mAlertDialog;
     private boolean mInvalidate;
 
+    Activity context ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
 
         setContentView(R.layout.activity_main);
         mAccountManager = AccountManager.get(this);
@@ -47,87 +51,74 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnGetAuthToken).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showAccountPicker(AUTHTOKEN_TYPE_FULL_ACCESS, false);
+
+                mInvalidate = false;
+                final Account availableAccounts[] = mAccountManager.getAccountsByType(AccountGeneral.ACCOUNT_TYPE);
+
+                if (availableAccounts.length == 0) {
+                    Toast.makeText(context, "No accounts", Toast.LENGTH_SHORT).show();
+                } else {
+                    String name[] = new String[availableAccounts.length];
+                    for (int i = 0; i < availableAccounts.length; i++) {
+                        name[i] = availableAccounts[i].name;
+                    }
+                    getExistingAccountAuthToken(availableAccounts[0], AUTHTOKEN_TYPE_FULL_ACCESS);
+                }
             }
         });
 
         findViewById(R.id.btnGetAuthTokenConvenient).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getTokenForAccountCreateIfNeeded(AccountGeneral.ACCOUNT_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+                final AccountManagerFuture<Bundle> future = mAccountManager.getAuthTokenByFeatures(
+                        AccountGeneral.ACCOUNT_TYPE,
+                        AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS,
+                        null,
+                        context,
+                        null,
+                        null,
+                        new AccountManagerCallback<Bundle>() {
+                            @Override
+                            public void run(AccountManagerFuture<Bundle> future) {
+                                Bundle bnd = null;
+                                try {
+                                    bnd = future.getResult();
+                                    final String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
+                                    showMessage(((authtoken != null) ? "SUCCESS!\ntoken: " + authtoken : "FAIL"));
+                                    Log.d("udinicSajjad", "GetTokenForAccount Bundle is " + bnd);
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    showMessage(e.getMessage());
+                                }
+                            }
+                        }
+                        , null);
             }
         });
         findViewById(R.id.btnInvalidateAuthToken).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showAccountPicker(AUTHTOKEN_TYPE_FULL_ACCESS, true);
+                mInvalidate = true;
+                final Account availableAccounts[] = mAccountManager.getAccountsByType(AccountGeneral.ACCOUNT_TYPE);
+                if (availableAccounts.length == 0) {
+                    Toast.makeText(context, "No accounts", Toast.LENGTH_SHORT).show();
+                } else {
+                    String name[] = new String[availableAccounts.length];
+                    for (int i = 0; i < availableAccounts.length; i++) {
+                        name[i] = availableAccounts[i].name;
+                    }
+                    invalidateAuthToken(availableAccounts[0], AUTHTOKEN_TYPE_FULL_ACCESS);
+                }
             }
         });
 
-        if (savedInstanceState != null) {
-            boolean showDialog = savedInstanceState.getBoolean(STATE_DIALOG);
-            boolean invalidate = savedInstanceState.getBoolean(STATE_INVALIDATE);
-            if (showDialog) {
-                showAccountPicker(AUTHTOKEN_TYPE_FULL_ACCESS, invalidate);
-            }
-        }
+
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (mAlertDialog != null && mAlertDialog.isShowing()) {
-            outState.putBoolean(STATE_DIALOG, true);
-            outState.putBoolean(STATE_INVALIDATE, mInvalidate);
-        }
-    }
 
-    private void getTokenForAccountCreateIfNeeded(String accountType, String authTokenType) {
-        final AccountManagerFuture<Bundle> future = mAccountManager.getAuthTokenByFeatures(accountType, authTokenType, null, this, null, null,
-                new AccountManagerCallback<Bundle>() {
-                    @Override
-                    public void run(AccountManagerFuture<Bundle> future) {
-                        Bundle bnd = null;
-                        try {
-                            bnd = future.getResult();
-                            final String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
-                            showMessage(((authtoken != null) ? "SUCCESS!\ntoken: " + authtoken : "FAIL"));
-                            Log.d("udinic", "GetTokenForAccount Bundle is " + bnd);
 
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            showMessage(e.getMessage());
-                        }
-                    }
-                }
-                , null);
-    }
 
-    private void showAccountPicker(final String authTokenType, final boolean invalidate) {
-        mInvalidate = invalidate;
-        final Account availableAccounts[] = mAccountManager.getAccountsByType(AccountGeneral.ACCOUNT_TYPE);
-
-        if (availableAccounts.length == 0) {
-            Toast.makeText(this, "No accounts", Toast.LENGTH_SHORT).show();
-        } else {
-            String name[] = new String[availableAccounts.length];
-            for (int i = 0; i < availableAccounts.length; i++) {
-                name[i] = availableAccounts[i].name;
-            }
-
-            // Account picker
-            mAlertDialog = new AlertDialog.Builder(this).setTitle("Pick Account").setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, name), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if(invalidate)
-                        invalidateAuthToken(availableAccounts[which], authTokenType);
-                    else
-                        getExistingAccountAuthToken(availableAccounts[which], authTokenType);
-                }
-            }).create();
-            mAlertDialog.show();
-        }
-    }
 
     private void getExistingAccountAuthToken(Account account, String authTokenType) {
         final AccountManagerFuture<Bundle> future = mAccountManager.getAuthToken(account, authTokenType, null, this, null, null);
@@ -140,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
                     final String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
                     showMessage((authtoken != null) ? "SUCCESS!\ntoken: " + authtoken : "FAIL");
-                    Log.d("udinic", "GetToken Bundle is " + bnd);
+                    Log.d("udinicSajjad", "GetToken Bundle is " + bnd);
                 } catch (Exception e) {
                     e.printStackTrace();
                     showMessage(e.getMessage());
@@ -177,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     Bundle bnd = future.getResult();
                     showMessage("Account was created");
-                    Log.d("udinic", "AddNewAccount Bundle is " + bnd);
+                    Log.d("udinicSajjad", "AddNewAccount Bundle is " + bnd);
 
                 } catch (Exception e) {
                     e.printStackTrace();
