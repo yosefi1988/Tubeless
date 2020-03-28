@@ -10,7 +10,9 @@ import android.accounts.AccountManagerFuture;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -114,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+//        Intent i = new Intent( Settings.ACTION_ADD_ACCOUNT );
+//        i.putExtra( Settings.EXTRA_AUTHORITIES, new String[] { AccountGeneral.ACCOUNT_TYPE } );
+//        context.startActivity( i );
     }
 
 

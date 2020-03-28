@@ -15,6 +15,7 @@ import java.lang.reflect.Type;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI;
+import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.ISplashScreenPeresenter;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
@@ -284,8 +285,100 @@ public class User extends LitePalSupport implements IUser {
 		Global.apiManagerTubeless.loginOrRregisterMVP(request, callback);
 	}
 
-	@Override
-	public IUser loadUserData() {
+	public void CheckUserValidity2(ISplashScreenPeresenter presenter , LoginRequest request) {
+		Callback callback = new Callback() {
+			@Override
+			public void onResponse(Call call, Response response) {
+//				t_afterGetResponse();
+
+				Gson gson = new Gson();
+				JsonElement jsonElement = gson.toJsonTree(response.body());
+				ServerResponseBase responseX = null;
+
+				try {
+					if (response.body() == null){
+						presenter.onThrowException(new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL));
+					}
+
+					responseX = gson.fromJson(jsonElement.getAsString(), ServerResponseBase.class);
+					if (response.body() != null ) {
+						if (responseX.getTubelessException().getCode() != 0) {
+							if (responseX.getTubelessException().getCode() > 0) {
+								if (call != null && response != null) {
+									Object object = gson.fromJson(jsonElement.getAsString(), (Type) User.class);
+									User tmpUser = Primitives.wrap(User.class).cast(object);
+									tmpUser.setAdmin(CheckUserIsAdmin(tmpUser));
+
+									//save to db
+									if (Global.user == null){
+										if ((new User(tmpUser)).save()){
+											Global.user = tmpUser;
+
+
+											if ((new Validator()).isIranianMobileNumber(request.getUserName()))
+												tmpUser.setPassword(request.getPassword());
+
+											presenter.goToMainPage();
+										}else {
+											User dbUser = LitePal.where("userId like ?", tmpUser.getUserId() + "").findFirst(User.class);
+											if (dbUser != null) {
+												Global.user = dbUser;
+
+												if ((new Validator()).isIranianMobileNumber(request.getUserName()))
+													tmpUser.setPassword(request.getPassword());
+												presenter.goToMainPage();
+											}else {
+												Global.user = null;
+											}
+										}
+									}else {
+										Global.user = tmpUser;
+
+										if ((new Validator()).isIranianMobileNumber(request.getUserName()))
+											tmpUser.setPassword(request.getPassword());
+										presenter.goToMainPage();
+									}
+								}
+							} else {
+								if (presenter != null)
+									presenter.onThrowException(new TubelessException(responseX.getTubelessException().getCode()));
+							}
+						}else {
+							presenter.onThrowException(new TubelessException(responseX.getTubelessException().getCode()));
+						}
+					}else {
+						presenter.onThrowException(new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL));
+					}
+				}catch (Exception sException) {
+					if (presenter != null)
+						presenter.onThrowException(sException);
+				}
+			}
+
+			@Override
+			public void onFailure(Call call, Throwable t) {
+//				presenter.onThrowException(t);
+				try {
+					showConnectionLostDialog(context, null , new Runnable() {
+						@Override
+						public void run() {
+							retry(call);
+						}
+					});
+				}catch (Exception ex){
+					int aX =0 ;
+					aX  ++;
+				}
+			}
+
+			private void retry(Call call) {
+				call.clone().enqueue(this);
+			}
+		};
+		Global.apiManagerTubeless.loginOrRregisterMVP(request, callback);
+	}
+
+	public IUser loadUserData(ISplashScreenPeresenter presenter , LoginRequest request) {
 		SAccounts sAccounts = new SAccounts(context);
 		int accountId = sAccounts.getUserAccountID();
 
@@ -305,6 +398,7 @@ public class User extends LitePalSupport implements IUser {
 //			}
 //			iUser.CheckUserValidity(null, loginRequest);
 
+			CheckUserValidity2(presenter , request);
 		}
 		return Global.user;
 	}
@@ -315,7 +409,6 @@ public class User extends LitePalSupport implements IUser {
 //	}
 
 	private boolean CheckUserIsAdmin(User user) {
-
 		if (    user.getUserId() == StaticValue.AdminUserID1 ||
 				user.getUserId() == StaticValue.AdminUserID2 ||
 				user.getUserId() == StaticValue.AdminUserID3 ||

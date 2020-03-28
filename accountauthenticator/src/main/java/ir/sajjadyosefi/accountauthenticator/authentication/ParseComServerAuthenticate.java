@@ -130,7 +130,7 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
 //    }
 
     @Override
-    public String userSignIn(LoginRequest loginRequest) throws Exception {
+    public User userSignIn(LoginRequest loginRequest) throws Exception {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         String url = "http://test.sajjadyosefi.ir/Api/User/Login";
         HttpPost httpPost = new HttpPost(url);
@@ -172,16 +172,14 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
 //                JsonElement jsonElement = gson.toJsonTree(httpResponse.getEntity());
 //                User object = gson.fromJson(jsonElement, User.class);
 
-
-                authtoken = loggedUser.getUserId() + "";
+                loggedUser.setAuthtoken(loggedUser.getUserId() + "");
+                return loggedUser;
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            return authtoken;
         }
-        return "401 UNAUTHORIZED";
+        return null;
     }
 //    public String userSignIn(String user, String pass, String authType) throws Exception {
 //        Log.d("udini", "userSignIn");

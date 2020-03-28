@@ -17,6 +17,7 @@ import ir.sajjadyosefi.accountauthenticator.activity.SignUpActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.classes.util;
 import ir.sajjadyosefi.accountauthenticator.model.LoginRequest;
+import ir.sajjadyosefi.accountauthenticator.model.User;
 
 import static ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral.sServerAuthenticate;
 
@@ -83,8 +84,9 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
     @SuppressLint("StaticFieldLeak")
     public void submit() {
 
-        final String userName = ((TextView) findViewById(R.id.accountName)).getText().toString();
-        final String userPass = ((TextView) findViewById(R.id.accountPassword)).getText().toString();
+        final String userName = ((TextView) findViewById(R.id.userName)).getText().toString();
+        final String accountName = ((TextView) findViewById(R.id.accountName)).getText().toString().trim();
+        final String accountPassword = ((TextView) findViewById(R.id.accountPassword)).getText().toString();
 
         final String accountType = getIntent().getStringExtra(ARG_ACCOUNT_TYPE);
 
@@ -93,25 +95,34 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
             @Override
             protected Intent doInBackground(String... params) {
                 Log.d("udinicSajjad", TAG + "> Started authenticating");
-                String authtoken = null;
-                Bundle data = new Bundle();
+
+
+                final Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+
+                User signInUser = null;
                 try {
-                    LoginRequest loginRequest = new LoginRequest(userName,userPass, util.GetAndroidId(getApplicationContext()));
+                    LoginRequest loginRequest = new LoginRequest(userName,accountPassword, util.GetAndroidId(getApplicationContext()));
 
-                    authtoken = sServerAuthenticate.userSignIn(loginRequest);
+                    signInUser = sServerAuthenticate.userSignIn(loginRequest);
 
-                    data.putString(AccountManager.KEY_ACCOUNT_NAME, userName);
-                    data.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
-                    data.putString(AccountManager.KEY_AUTHTOKEN, authtoken);
-                    data.putString(PARAM_USER_PASS, userPass);
 
+                    if (accountName != null && accountName.length() > 2)
+                        bundle.putString(AccountManager.KEY_ACCOUNT_NAME, accountName + "(" + signInUser.getUserName() + ")");
+                    else
+                        bundle.putString(AccountManager.KEY_ACCOUNT_NAME, signInUser.getUserName());
+
+                    bundle.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
+                    bundle.putString(AccountManager.KEY_AUTHTOKEN, signInUser.getAuthtoken());
+                    bundle.putString(PARAM_USER_ID, signInUser.getUserId().toString());
+                    bundle.putString(PARAM_USER_NAME, signInUser.getUserName());
+                    bundle.putString(PARAM_USER_PASS, accountPassword);
                 } catch (Exception e) {
-                    data.putString(KEY_ERROR_MESSAGE, e.getMessage());
+                    bundle.putString(KEY_ERROR_MESSAGE, e.getMessage());
                 }
 
-                final Intent res = new Intent();
-                res.putExtras(data);
-                return res;
+                intent.putExtras(bundle);
+                return intent;
             }
 
             @Override

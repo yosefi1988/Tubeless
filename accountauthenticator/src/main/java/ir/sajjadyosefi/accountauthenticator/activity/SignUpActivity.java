@@ -85,7 +85,6 @@ public class SignUpActivity extends Activity {
                     bundle.putString(PARAM_USER_ID, signUpUser.getUserId().toString());
                     bundle.putString(PARAM_USER_NAME, signUpUser.getUserName());
                     bundle.putString(PARAM_USER_PASS, accountPassword);
-
                 } catch (Exception e) {
                     bundle.putString(KEY_ERROR_MESSAGE, e.getMessage());
                 }

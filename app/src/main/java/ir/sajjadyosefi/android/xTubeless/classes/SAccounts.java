@@ -5,6 +5,7 @@ import android.accounts.AccountManager;
 import android.content.Context;
 import android.os.Bundle;
 
+import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
@@ -63,15 +64,36 @@ public class SAccounts {
 
     public int getUserAccountID() {
         if (hasUserAccount()) {
-            return Integer.parseInt(mAccountManager.getUserData(getUserAccount(), "UserID"));
+            return Integer.parseInt(mAccountManager.getUserData(getUserAccount(), AuthenticatorActivity.PARAM_USER_ID));
         }else {
             return NOT_LOGN_USER;
+        }
+    }
+    public String getUserName() {
+        if (hasUserAccount()) {
+            return mAccountManager.getUserData(getUserAccount(), AuthenticatorActivity.PARAM_USER_NAME);
+        }else {
+            return null;
+        }
+    }
+    public String getUserPassword() {
+        if (hasUserAccount()) {
+            return getAccountManager().getPassword(this.getAccountX());
+        }else {
+            return null;
         }
     }
 
     public String getUserAccountName() {
         if (hasUserAccount()) {
             return getUserAccount().name;
+        }else {
+            return null;
+        }
+    }
+    public Account getAccountX() {
+        if (hasUserAccount()) {
+            return getUserAccount();
         }else {
             return null;
         }

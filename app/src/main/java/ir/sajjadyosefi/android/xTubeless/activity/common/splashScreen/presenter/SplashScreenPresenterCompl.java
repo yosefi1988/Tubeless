@@ -55,7 +55,15 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
 
         SAccounts sAccounts = new SAccounts(context);
         if (sAccounts.hasUserAccount()){
-            if (iUser.loadUserData() != null);
+
+            //sAccounts get user and pass.
+            int accountId = sAccounts.getUserAccountID();
+            String accountName = sAccounts.getUserAccountName();
+            String userName = sAccounts.getUserName();
+            String password = sAccounts.getUserPassword();
+
+            LoginRequest loginRequest = new LoginRequest(userName, password , DeviceUtil.GetAndroidId(context));
+            if (iUser.loadUserData(this , loginRequest) != null)
                 splashScreen.onSplashScreenDone();
         }else {
             splashScreen.onSplashScreenDone();

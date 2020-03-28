@@ -14,6 +14,7 @@ import android.util.Log;
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.classes.util;
 import ir.sajjadyosefi.accountauthenticator.model.LoginRequest;
+import ir.sajjadyosefi.accountauthenticator.model.User;
 
 import static android.accounts.AccountManager.KEY_BOOLEAN_RESULT;
 import static ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS;
@@ -77,7 +78,10 @@ public class Authenticator extends AbstractAccountAuthenticator {
 
                     LoginRequest loginRequest = new LoginRequest("userNamee",password, util.GetAndroidId(mContext));
 
-                    authToken = sServerAuthenticate.userSignIn(loginRequest);
+                    User user = sServerAuthenticate.userSignIn(loginRequest);
+
+                    authToken = user.getAuthtoken();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

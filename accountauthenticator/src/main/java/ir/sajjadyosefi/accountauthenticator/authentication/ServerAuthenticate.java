@@ -5,5 +5,5 @@ import ir.sajjadyosefi.accountauthenticator.model.User;
 
 public interface ServerAuthenticate {
     public User userSignUp(final LoginRequest loginRequest) throws Exception;
-    public String userSignIn(final LoginRequest loginRequest) throws Exception;
+    public User userSignIn(final LoginRequest loginRequest) throws Exception;
 }
