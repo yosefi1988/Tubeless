@@ -40,7 +40,7 @@ android {
 
 dependencies {
     //compile "com.android.support:design:+"
-    implementation "com.android.support:design:25.3.1"
+    implementation 'com.google.android.material:material:1.0.0'
 
 }
 //apply from: 'https://raw.githubusercontent.com/JoaquimLey/jcenter-config/master/deploy.gradle'

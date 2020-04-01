@@ -408,7 +408,7 @@ public class User extends LitePalSupport implements IUser {
 //		call.clone().enqueue(this);
 //	}
 
-	private boolean CheckUserIsAdmin(User user) {
+	public boolean CheckUserIsAdmin(User user) {
 		if (    user.getUserId() == StaticValue.AdminUserID1 ||
 				user.getUserId() == StaticValue.AdminUserID2 ||
 				user.getUserId() == StaticValue.AdminUserID3 ||

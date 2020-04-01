@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.activity;
 
+import android.accounts.AccountManager;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -39,6 +40,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.google.gson.internal.Primitives;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
@@ -47,6 +49,9 @@ import org.litepal.LitePal;
 import java.io.Serializable;
 
 
+import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
@@ -81,6 +86,7 @@ import it.sephiroth.android.library.bottomnavigation.MiscUtils;
 import retrofit2.Call;
 
 import static android.util.Log.VERBOSE;
+import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
@@ -114,12 +120,62 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             if (resultCode == Activity.RESULT_OK) {
                 updatedrawableMenuItems();
 
-                if (Global.user != null && Global.user.isAdmin())
+                if ((Global.user != null && Global.user.isAdmin()) || (data.hasExtra("MustRefresh") && (data.getExtras().getBoolean("MustRefresh")) ))
                     firstFragmentsAdapter.notifyList();
+
+                if (requestCode == LOGIN_REQUEST_CODE){
+                    if (data.hasExtra(PARAM_USER)){
+                        Gson gson = new Gson();
+//                        ir.sajjadyosefi.accountauthenticator.model.User userLib = gson.fromJson(data.getExtras().getString(PARAM_USER),ir.sajjadyosefi.accountauthenticator.model.User.class);
+                        User user = gson.fromJson(data.getExtras().getString(PARAM_USER),User.class);
+
+                        if(savedToDataBase(user)){
+                            if (Global.user != null && Global.user.isAdmin()) {
+                                firstFragmentsAdapter.notifyList();
+                                updatedrawableMenuItems();
+                            }
+                        }
+                    }
+                }
 
             }
         }
 
+    }
+
+    private boolean savedToDataBase(User tmpUser) {
+        tmpUser.setAdmin(tmpUser.CheckUserIsAdmin(tmpUser));
+
+        //save to db
+        if (Global.user == null){
+            if ((new User(tmpUser)).save()){
+                Global.user = tmpUser;
+
+
+                if ((new Validator()).isIranianMobileNumber(tmpUser.getUserName()))
+                    tmpUser.setPassword(tmpUser.getPassword());
+
+                return true;
+            }else {
+                User dbUser = LitePal.where("userId like ?", tmpUser.getUserId() + "").findFirst(User.class);
+                if (dbUser != null) {
+                    Global.user = dbUser;
+
+                    if ((new Validator()).isIranianMobileNumber(tmpUser.getUserName()))
+                        tmpUser.setPassword(tmpUser.getPassword());
+                    return true;
+                }else {
+                    Global.user = null;
+                }
+            }
+        }else {
+            Global.user = tmpUser;
+
+            if ((new Validator()).isIranianMobileNumber(tmpUser.getUserName()))
+                tmpUser.setPassword(tmpUser.getPassword());
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -416,7 +472,12 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 int id = item.getItemId();
 
                 if (id == R.id.nav_profile) {
-                    getActivity().startActivityForResult(ProfileActivity.getIntent(getContext()), LOGIN_REQUEST_CODE);
+                    Bundle bundle = new Bundle();
+                    if (Global.user != null && Global.user.isAdmin())
+                        bundle.putBoolean("MustRefresh" , true);
+
+                    getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+
                 }else if (id == R.id.nav_role) {
 
                     Bundle bundle = new Bundle();
@@ -430,9 +491,20 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
                 }else  if (id == R.id.nav_login) {
                      Bundle bundle = new Bundle();
-                     bundle.putInt("type" , 1);
 
-                     getActivity().startActivityForResult(LoginActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+                    bundle.putInt("type" , 1);
+//                     getActivity().startActivityForResult(LoginActivity.getIntent(getContext(),bundle, LOGIN_REQUEST_CODE);
+
+
+                    Intent intent = SignInActivity.getIntent(getContext(),bundle);
+                    intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+                    intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+                    intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+                    //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+                    bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+                    getActivity().startActivityForResult(intent, LOGIN_REQUEST_CODE);
+
+
 
 
 //                }else  if (id == R.id.nav_account) {
@@ -760,7 +832,12 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 }
                 if (position == 2) {
                     if(Global.user != null) {
-                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext()),OPEN_PROFILE_REQUEST_CODE);
+
+                        Bundle bundle = new Bundle();
+                        if (Global.user != null && Global.user.isAdmin())
+                            bundle.putBoolean("MustRefresh" , true);
+
+                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle),OPEN_PROFILE_REQUEST_CODE);
                     }else {
                         Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
                     }
@@ -776,7 +853,11 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 }
                 if (position == 2) {
                     if(Global.user != null) {
-                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext()),OPEN_PROFILE_REQUEST_CODE);
+                        Bundle bundle = new Bundle();
+                        if (Global.user != null && Global.user.isAdmin())
+                            bundle.putBoolean("MustRefresh" , true);
+
+                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle),OPEN_PROFILE_REQUEST_CODE);
                     }else {
                         Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
                     }

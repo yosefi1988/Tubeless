@@ -21,11 +21,14 @@
             style="@style/AppTheme.DayTextViewBigTitle"
             android:text="@string/account" />
 
+
+
         <EditText
             android:id="@+id/userName"
             style="@style/AppTheme.DayEditText"
             android:drawableLeft="@android:drawable/stat_sys_vp_phone_call"
             android:hint="@string/mobile_number"
+            android:text="09123678522"
             android:inputType="phone" />
 
         <EditText
@@ -33,9 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Email address"
+            android:hint="نام(اختیاری)"
+            android:visibility="gone"
             android:inputType="textEmailAddress"
-            android:text=""
             android:padding="10dp"   />
 
         <EditText
@@ -43,6 +46,7 @@
             style="@style/AppTheme.DayEditText"
             android:drawableLeft="@android:drawable/ic_secure"
             android:hint="@string/password"
+            android:text="aaassd"
             android:inputType="textPassword"/>
 
 
@@ -61,9 +65,9 @@
             style="@style/AppTheme.DayTextView"
             android:text="@string/login_with" />
 
-        <!--        <com.google.android.gms.common.SignInButton-->
-        <!--            android:id="@+id/submitByGoogle"-->
-        <!--            style="@style/AppTheme.DayButton"  />-->
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/submitByGoogle"
+            style="@style/AppTheme.DayButton"  />
 
         <Button
             android:id="@+id/submitBySimCard"
@@ -75,11 +79,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:visibility="gone"
             android:text="New user?"
             style="@style/AppTheme.DayButton"
             android:padding="10dp"/>
 
 
     </LinearLayout>
+
+<!--    <com.tuyenmonkey.mkloader.MKLoader-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        app:mk_type="FishSpinner"-->
+<!--        android:background="#00000000"-->
+<!--        android:gravity="center"-->
+<!--        android:foregroundGravity="center"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        app:mk_color="@color/colorBlack"  />-->
 </ScrollView>
 

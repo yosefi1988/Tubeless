@@ -109,29 +109,35 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="8 Farvardin">
-      <change afterPath="$PROJECT_DIR$/accountauthenticator/src/main/res/drawable-hdpi/png_icon.png" afterDir="false" />
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="9 Farvardin">
+      <change afterPath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignInActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/AuthenticatorActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/AuthenticatorActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignUpActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignUpActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/Authenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/Authenticator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ServerAuthenticate.java" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ServerAuthenticate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/drawable-hdpi/ic_udinic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/AuthenticatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/AuthenticatorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/layout/act_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/res/layout/act_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/xml/authenticator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/res/xml/authenticator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/model/IUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/login/model/IUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/presenter/SplashScreenPresenterCompl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/presenter/SplashScreenPresenterCompl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/SAccounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/SAccounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/ProfileActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/tubeless/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/tubeless/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/yafte/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/yafte/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_activity_navigation_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_activity_navigation_drawer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_simple_spinner_dropdown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_simple_spinner_dropdown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_category_select.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_category_select.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_radyab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_radyab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_select_car_category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_select_car_category.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_car_radyab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_car_radyab.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/application1/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application1/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faboptions/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/faboptions/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faboptions/faboptions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/faboptions/faboptions.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +218,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="device.picker.selection" value="192.168.1.2:5555" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/accountauthenticator/src/main/res/drawable-hdpi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28328007" />
@@ -239,18 +245,18 @@
       <recent name="ir.sajjadyosefi.android.tubeless" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\java\ir\sajjadyosefi\accountauthenticator\activity" />
       <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable-hdpi" />
       <recent name="D:\Projects\Android\Tubelessx11\accountauthenticator\src\main\res\drawable" />
       <recent name="D:\Projects\Android\Tubelessx11\accountauthenticator\src\main\res\values" />
       <recent name="D:\Projects\Android\Tubelessx11\accountauthenticator\src\main\java\ir\sajjadyosefi\accountauthenticator\model" />
-      <recent name="D:\Projects\Android\Tubelessx11\accountauthenticator\src\main\res" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ir.sajjadyosefi.accountauthenticator.activity" />
       <recent name="ir.sajjadyosefi.accountauthenticator.model" />
       <recent name="ir.sajjadyosefi.android.xTubeless.classes.behavior" />
       <recent name="ir.sajjadyosefi.android.xTubeless.bussines.post.activity" />
       <recent name="ir.sajjadyosefi.android.xTubeless.utility" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.widget" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
@@ -271,7 +277,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.application1">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -602,7 +608,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585348484188</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="9 Farvardin">
+      <created>1585429995102</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1585429995122</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -642,7 +655,8 @@
     <MESSAGE value="3 Farvardin" />
     <MESSAGE value="4 Farvardin" />
     <MESSAGE value="8 Farvardin" />
-    <option name="LAST_COMMIT_MESSAGE" value="8 Farvardin" />
+    <MESSAGE value="9 Farvardin" />
+    <option name="LAST_COMMIT_MESSAGE" value="9 Farvardin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -709,7 +723,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>625</line>
+          <line>697</line>
           <option name="timeStamp" value="441" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -774,7 +788,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>801</line>
+          <line>882</line>
           <option name="timeStamp" value="571" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -849,7 +863,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java</url>
-          <line>142</line>
+          <line>150</line>
           <option name="timeStamp" value="829" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -864,23 +878,73 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java</url>
-          <line>119</line>
+          <line>127</line>
           <option name="timeStamp" value="950" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/AuthenticatorService.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="954" />
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/Authenticator.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="962" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/account/AccountAuthenticator.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="963" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="956" />
+          <line>195</line>
+          <option name="timeStamp" value="973" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java</url>
-          <line>174</line>
-          <option name="timeStamp" value="959" />
+          <line>200</line>
+          <option name="timeStamp" value="974" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java</url>
+          <line>191</line>
+          <option name="timeStamp" value="975" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/Authenticator.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="977" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/Authenticator.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="978" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/Authenticator.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="979" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/Authenticator.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="980" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
+          <line>859</line>
+          <option name="timeStamp" value="990" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/ProfileActivity.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="998" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignInActivity.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="1016" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
+          <line>164</line>
+          <option name="timeStamp" value="1020" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -7,11 +7,15 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import androidx.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -19,7 +23,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.accountauthenticator.authentication.Authenticator;
 
 import static ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS;
 
@@ -40,13 +47,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         context = this;
 
+
         setContentView(R.layout.activity_main);
         mAccountManager = AccountManager.get(this);
 
         findViewById(R.id.btnAddAccount).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addNewAccount(AccountGeneral.ACCOUNT_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+                addNewAccount(context, AccountGeneral.ACCOUNT_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
             }
         });
 
@@ -167,21 +175,34 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
 
-    private void addNewAccount(String accountType, String authTokenType) {
-        final AccountManagerFuture<Bundle> future = mAccountManager.addAccount(accountType, authTokenType, null, null, this, new AccountManagerCallback<Bundle>() {
-            @Override
-            public void run(AccountManagerFuture<Bundle> future) {
-                try {
-                    Bundle bnd = future.getResult();
-                    showMessage("Account was created");
-                    Log.d("udinicSajjad", "AddNewAccount Bundle is " + bnd);
+    private void addNewAccount(Context context , String accountType, String authTokenType) {
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    showMessage(e.getMessage());
-                }
-            }
-        }, null);
+        final Intent intent = new Intent(context, SignInActivity.class);
+        intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, accountType);
+        intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, authTokenType);
+        intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+//        intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+
+        final Bundle bundle = new Bundle();
+        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+        context.startActivity(intent);
+
+
+
+//        final AccountManagerFuture<Bundle> future = mAccountManager.addAccount(accountType, authTokenType, null, null, this, new AccountManagerCallback<Bundle>() {
+//            @Override
+//            public void run(AccountManagerFuture<Bundle> future) {
+//                try {
+//                    Bundle bnd = future.getResult();
+//                    showMessage("Account was created");
+//                    Log.d("udinicSajjad", "AddNewAccount Bundle is " + bnd);
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    showMessage(e.getMessage());
+//                }
+//            }
+//        }, null);
     }
     private void showMessage(final String msg) {
         if (TextUtils.isEmpty(msg))

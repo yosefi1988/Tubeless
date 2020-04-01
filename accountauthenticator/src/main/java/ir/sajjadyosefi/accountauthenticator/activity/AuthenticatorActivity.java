@@ -12,6 +12,15 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
+
 import ir.sajjadyosefi.accountauthenticator.R;
 import ir.sajjadyosefi.accountauthenticator.activity.SignUpActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
@@ -21,13 +30,14 @@ import ir.sajjadyosefi.accountauthenticator.model.User;
 
 import static ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral.sServerAuthenticate;
 
-public class AuthenticatorActivity extends AccountAuthenticatorActivity {
+public class AuthenticatorActivity extends AccountAuthenticatorActivity  {
     public final static String ARG_ACCOUNT_TYPE = "ACCOUNT_TYPE";
     public final static String ARG_AUTH_TYPE = "AUTH_TYPE";
     public final static String ARG_ACCOUNT_NAME = "ACCOUNT_NAME";
     public final static String ARG_IS_ADDING_NEW_ACCOUNT = "IS_ADDING_ACCOUNT";
     public static final String KEY_ERROR_MESSAGE = "ERR_MSG";
     public final static String PARAM_USER_PASS = "USER_PASS";
+    public final static String PARAM_USER = "USER";
     public final static String PARAM_USER_NAME = "PARAM_USER_NAME";
     public final static String PARAM_USER_ID = "USER_ID";
 
@@ -37,12 +47,16 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 
     private AccountManager mAccountManager;
     private String mAuthTokenType;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_login);
         mAccountManager = AccountManager.get(getBaseContext());
+
+        mAuth = FirebaseAuth.getInstance();
 
         String accountName = getIntent().getStringExtra(ARG_ACCOUNT_NAME);
         mAuthTokenType = getIntent().getStringExtra(ARG_AUTH_TYPE);
@@ -69,6 +83,7 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
                 startActivityForResult(signup, REQ_SIGNUP);
             }
         });
+
     }
 
     @Override

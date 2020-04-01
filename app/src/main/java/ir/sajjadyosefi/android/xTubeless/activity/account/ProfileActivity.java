@@ -45,6 +45,7 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
 
     public synchronized static Intent getIntent(Context context, Bundle bundle) {
         bundle.putString("item1","value1");
+        bundle.putString("item2","value1");
         Intent intent = new Intent(context,ProfileActivity.class);
         intent.putExtras(bundle);
         return intent;
@@ -54,8 +55,11 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
 
+
+
+
+        setContentView(R.layout.activity_profile);
         ueditTextNameUserId = findViewById(R.id.ueditTextNameUserId);
         editTextName = findViewById(R.id.editTextName);
         editTextEmail = findViewById(R.id.editTextEmail);
@@ -84,8 +88,9 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
 
                     Global.user = null;
                 }
-                Intent intent = new Intent();
-                setResult(Activity.RESULT_OK, intent);
+
+
+                setResult(Activity.RESULT_OK, getIntent());
                 finish();
             }
         });

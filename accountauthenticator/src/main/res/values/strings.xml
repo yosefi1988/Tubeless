@@ -16,5 +16,7 @@
     <string name="simcart">سیم کارت</string>
     <string name="username">نام کاربری</string>
     <string name="yourName">نام شما</string>
+    <string name="simcardPermissionError">simcardPermissionError</string>
+    <string name="loginBySimcardDescription">loginBySimcardDescription</string>
 
 </resources>

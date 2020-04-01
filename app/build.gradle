@@ -47,7 +47,7 @@ android {
 
         //versionCode Tubeless_VersionCode
         //versionName "${Tubeless_VersionName}"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true //important
 
@@ -229,8 +229,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation 'com.android.support:design:28.4.0'
-    implementation 'com.android.support:support-vector-drawable:28.4.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
 
     implementation 'org.fabiomsr:moneytextview:1.1.0'
     implementation 'com.github.justzak:dilatingdotsprogressbar:1.0.1'
@@ -245,17 +245,17 @@ dependencies {
 
 
 
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.multidex:multidex:2.0.0'
 
 //    ____________________________________________________________________________________________
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.okhttp:okhttp:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
@@ -297,7 +297,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-ads:19.0.0'
 //    implementation project(path: ':adad-sdk-banner-5.1.1')
 
-    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
     implementation 'com.goebl:david-webb:1.3.0'
 //    implementation 'android.arch.work:work-runtime:1.0.1'
