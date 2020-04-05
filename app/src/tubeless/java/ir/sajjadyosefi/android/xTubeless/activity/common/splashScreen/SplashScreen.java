@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -37,6 +38,7 @@ import ir.adad.ad.AdadAdListener;
 import ir.adad.banner.AdadBannerAd;
 import ir.adad.core.Adad;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
@@ -134,6 +136,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 //        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("ir.sajjadyosefi.tubelessyafte");
 //        startActivity( launchIntent );
 
+        ((TextView)(findViewById(R.id.textViewVersionName))).setText(BuildConfig.VERSION_NAME);
     }
 
     @Override

@@ -251,6 +251,9 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 ////          mBottomNavigation
 
 
+
+
+
     }
 
 
@@ -495,7 +498,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     bundle.putInt("type" , 1);
 //                     getActivity().startActivityForResult(LoginActivity.getIntent(getContext(),bundle, LOGIN_REQUEST_CODE);
 
-
+//call sync
                     Intent intent = SignInActivity.getIntent(getContext(),bundle);
                     intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
                     intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
@@ -504,7 +507,14 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                     getActivity().startActivityForResult(intent, LOGIN_REQUEST_CODE);
 
-
+//call direct
+//                    Intent intent = new Intent(getContext(), SignInActivity.class);
+//                    intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+//                    intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+//                    intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+////        intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+//                    bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+//                    getContext().startActivity(intent);
 
 
 //                }else  if (id == R.id.nav_account) {
@@ -546,7 +556,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     try {
                         PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
                         String versionName = pInfo.versionName;
-                        if (versionName.contains("4.0.0")) {
+                        //todo 1 change version if not complete
+                        if (versionName.contains("4.1.1") || versionName.contains("1.1.1")) {
                             Toast.makeText(getContext(),"در حال آماده سازی هستیم." , Toast.LENGTH_LONG).show();
                         } else {
                             getContext().startActivity(new Intent(getContext(), KarteSokhtActivity.class));

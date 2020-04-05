@@ -49,13 +49,12 @@
 <!--                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
 <!--            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
-
+<!--            android:src="@drawable/png_icon"-->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fabList"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/png_icon"
                 android:layout_marginRight="35dp"
                 android:layout_marginBottom="50dp"
                 android:layout_marginLeft="30dp"

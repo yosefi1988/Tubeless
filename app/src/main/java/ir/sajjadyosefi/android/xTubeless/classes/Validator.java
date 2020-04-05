@@ -364,8 +364,12 @@ public class Validator {
     }
 
     public boolean isIranianMobileNumber(String s){
-        String regexPattern = "^[0][9][0-9]{9,9}$";
-        return s.matches(regexPattern);
+        if (s == null){
+            return false;
+        }else {
+            String regexPattern = "^[0][9][0-9]{9,9}$";
+            return s.matches(regexPattern);
+        }
     }
 
     private boolean isEmpty(String s){

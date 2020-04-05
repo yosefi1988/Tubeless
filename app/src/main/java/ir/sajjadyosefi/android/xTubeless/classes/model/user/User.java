@@ -409,19 +409,23 @@ public class User extends LitePalSupport implements IUser {
 //	}
 
 	public boolean CheckUserIsAdmin(User user) {
-		if (    user.getUserId() == StaticValue.AdminUserID1 ||
-				user.getUserId() == StaticValue.AdminUserID2 ||
-				user.getUserId() == StaticValue.AdminUserID3 ||
+		try {
+			if (user.getUserId() == StaticValue.AdminUserID1 ||
+					user.getUserId() == StaticValue.AdminUserID2 ||
+					user.getUserId() == StaticValue.AdminUserID3 ||
 
-				user.getUserName().equals(StaticValue.AdminMail1) ||
-				user.getUserName().equals(StaticValue.AdminMail2) ||
-				user.getUserName().equals(StaticValue.AdminMail3) ||
+					user.getUserName().equals(StaticValue.AdminMail1) ||
+					user.getUserName().equals(StaticValue.AdminMail2) ||
+					user.getUserName().equals(StaticValue.AdminMail3) ||
 
-				user.getUserName().equals(StaticValue.AdminMobile1) ||
-				user.getUserName().equals(StaticValue.AdminMobile2) ||
-				user.getUserName().equals(StaticValue.AdminMobile3))
-			return true;
-		else
+					user.getUserName().equals(StaticValue.AdminMobile1) ||
+					user.getUserName().equals(StaticValue.AdminMobile2) ||
+					user.getUserName().equals(StaticValue.AdminMobile3))
+				return true;
+			else
+				return false;
+		}catch (Exception ex){
 			return false;
+		}
 	}
 }

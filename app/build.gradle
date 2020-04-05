@@ -3,12 +3,12 @@ apply plugin: 'io.fabric'
 
 
 def final appNameTubeless = 'Tubeless'
-def final Tubeless_VersionName = "4.0.0"
-def final Tubeless_VersionCode = 26
+def final Tubeless_VersionName = "4.1.1"    //todo 3 change version Name before publish
+def final Tubeless_VersionCode = 27         //todo 4 change version code before publish
 
 def final appNameYafte = 'مدارک گم شده'
-def final Yadak_VersionName = "1.0.0"
-def final Yadak_VersionCode = 4
+def final Yadak_VersionName = "1.1.1"   //todo 5 change version Name before publish
+def final Yadak_VersionCode = 5         //todo 6 change version code before publish
 
 
 android {
@@ -56,8 +56,12 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            useProguard false
+            useProguard true
             debuggable false
+
+//            minifyEnabled true
+//            useProguard false
+//            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //manifestPlaceholders = [pn: "com.hamsa"]
             //manifestPlaceholders = [pn: "com.hamsa.debug"]
@@ -122,10 +126,10 @@ android {
 
         }
 
-//        myket {
-//            dimension "market"
-//            versionNameSuffix "-m"
-//        }
+        myket {
+            dimension "market"
+            versionNameSuffix "-m"
+        }
         socialNetwork {
             dimension "market"
             versionNameSuffix "-s"

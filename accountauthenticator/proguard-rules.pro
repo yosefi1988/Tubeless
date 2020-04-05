@@ -19,3 +19,23 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontwarn **
+#-keep class ir.sajjadyosefi.android.tubeless.** { *; }
+#-keep class ir.sajjadyosefi.android.** { *; }
+#-keep class ir.sajjadyosefi.** { *; }
+
+-keep class ir.sajjadyosefi.** {*;}
+-keep class * extends ir.sajjadyosefi.android.** {*;}
+
+-keep class it.sephiroth.** {*;}
+-keep class * extends it.sephiroth.android.** {*;}
+
+#-keep class com.orm.**{*;}
+
+#-libraryjars libs/litepal-1.5.1.jar
+-dontwarn org.litepal.**
+-keep class org.litepal.** {*; }
+
+# without this line, I was having ClassCastException
+#-keepattributes Signature, *Annotation*

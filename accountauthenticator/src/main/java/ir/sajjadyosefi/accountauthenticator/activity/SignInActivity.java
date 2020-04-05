@@ -153,7 +153,7 @@ public class SignInActivity extends Activity {
         setContentView(R.layout.act_login);
 
         progressDialog = new Dialog(context);
-//        progressDialog.setContentView(R.layout.x_main_progress);
+        progressDialog.setContentView(R.layout.x_main_progress);
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
         mAccountManager = AccountManager.get(getBaseContext());
@@ -254,6 +254,7 @@ public class SignInActivity extends Activity {
     }
 
     protected void retData(Intent returnIntent){
+        hideProgressBar();
         setResult(Activity.RESULT_OK, returnIntent);
         finish();
     }
@@ -306,7 +307,7 @@ public class SignInActivity extends Activity {
     }
 
     public void tryToLoginBySimCard(final Intent intent, final String simId) {
-
+        showProgressBar();
         final String userName = simId;//((TextView) findViewById(R.id.userName)).getText().toString();
         final String accountName = "";//((TextView) findViewById(R.id.accountName)).getText().toString().trim();
         final String accountPassword = "";//((TextView) findViewById(R.id.accountPassword)).getText().toString();
@@ -364,7 +365,7 @@ public class SignInActivity extends Activity {
     }
 
     public void tryToLoginByMail(final Intent intent, final String email, final String photoUrl) {
-
+        showProgressBar();
 
         final String userName = email;//((TextView) findViewById(R.id.userName)).getText().toString();
         final String accountName = "";//((TextView) findViewById(R.id.accountName)).getText().toString().trim();
@@ -424,7 +425,7 @@ public class SignInActivity extends Activity {
 
     @SuppressLint("StaticFieldLeak")
     public void submit(final Intent intent) {
-
+        showProgressBar();
         final String userName = ((TextView) findViewById(R.id.userName)).getText().toString();
         final String accountName = ((TextView) findViewById(R.id.accountName)).getText().toString().trim();
         final String accountPassword = ((TextView) findViewById(R.id.accountPassword)).getText().toString();

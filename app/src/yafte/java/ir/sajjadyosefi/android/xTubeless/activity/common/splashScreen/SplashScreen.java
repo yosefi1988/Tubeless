@@ -43,6 +43,8 @@ import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
+
+import static org.litepal.LitePalApplication.getContext;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
 
@@ -246,7 +248,8 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 
     @Override
     public void onThrowException(Throwable t) {
-
+        TubelessException sException = new TubelessException();
+        sException.handleServerMessage(getContext(),t);
     }
 
 //    @Override

@@ -75,6 +75,9 @@ public class ListFragment extends Fragment  {
         return fragment;
     }
 
+    public ListFragment() {
+    }
+
     public ListFragment(Context context, int listType) {
         this.context = context;
         this.listType = listType;

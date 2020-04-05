@@ -14,10 +14,25 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+    signingConfigs {
+        TubelessSajjadSigning {
+            storeFile file("D:\\Documents\\sajjad\\Key\\xTubeless\\xTubeless98")
+            storePassword "sajjadolsvutv@42viubdvf"
+            keyAlias "keySajjad"
+            keyPassword 'Yosefi$24s;dgoj'
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+
+            minifyEnabled true
+            useProguard false
+            debuggable false
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.TubelessSajjadSigning
         }
     }
 
@@ -31,8 +46,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation project(path: ':accountauthenticator')
 
     implementation "androidx.preference:preference:1.1.0"
+    implementation project(path: ':accountauthenticator')
 
 }
