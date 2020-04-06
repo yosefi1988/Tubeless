@@ -4,7 +4,7 @@ apply plugin: 'io.fabric'
 
 def final appNameTubeless = 'Tubeless'
 def final Tubeless_VersionName = "4.1.1"    //todo 3 change version Name before publish
-def final Tubeless_VersionCode = 27         //todo 4 change version code before publish
+def final Tubeless_VersionCode = 28         //todo 4 change version code before publish
 
 def final appNameYafte = 'مدارک گم شده'
 def final Yadak_VersionName = "1.1.1"   //todo 5 change version Name before publish
@@ -115,8 +115,8 @@ android {
             dimension "version_name"
             resValue "string", "app_name", appNameYafte
 
-            applicationId "ir.sajjadyosefi.tubelessyafte"
-//            applicationIdSuffix ".xYafte"
+//            applicationId "ir.sajjadyosefi.tubelessyafte"
+            applicationIdSuffix ".xYafte"
 
             versionName "${Yadak_VersionName}"
             versionCode Yadak_VersionCode
@@ -134,11 +134,14 @@ android {
             dimension "market"
             versionNameSuffix "-s"
         }
-//        iranApps {
-//            dimension "market"
-//            versionNameSuffix "-i"
-//        }
-
+        iranApps {
+            dimension "market"
+            versionNameSuffix "-i"
+        }
+        jhobin {
+            dimension "market"
+            versionNameSuffix "-j"
+        }
 
 //        playStore {
 //            applicationId "${Tubeless_appId}"
@@ -166,11 +169,7 @@ android {
 //            versionNameSuffix "-i"
 //            versionCode Tubeless_VersionCode
 //        }
-//        jhobin {
-//            applicationId "${Tubeless_appId}"
-//            versionName "${Tubeless_VersionName}-j"
-//            versionCode Tubeless_VersionCode
-//        }
+
 //        kandoo {
 //            applicationId "${Tubeless_appId}"
 //            versionName "${Tubeless_VersionName}"

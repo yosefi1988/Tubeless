@@ -109,61 +109,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="13 Farvardin">
-      <change afterPath="$PROJECT_DIR$/accountauthenticator/src/main/res/layout/x_main_progress.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/tubeless/res/drawable/png_icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/yafte/java/ir/sajjadyosefi/android/xTubeless/classes/StaticValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="17 Farvardin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignInActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignInActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/drawable-hdpi/png_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/res/drawable/png_icon1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/layout/act_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/res/layout/act_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/xml/authenticator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accountauthenticator/src/main/res/xml/authenticator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/StaticValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/tubeless/java/ir/sajjadyosefi/android/xTubeless/classes/StaticValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_yafte_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_yafte_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yadak.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yadak.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yafte.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yafte.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/tubeless/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/tubeless/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/tubeless/res/drawable/png_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/yafte/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/yafte/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/yafte/res/drawable/png_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/yafte/res/drawable/png_icon2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/application1/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/generated/source/buildConfig/debug/eu/janmuller/android/simplecropimage/BuildConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/incremental/packageDebugResources/merged.dir/values-cs/values-cs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/incremental/packageDebugResources/merged.dir/values/values.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/incremental/packageDebugResources/merger.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/btn_crop_operator.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/btn_crop_pressed.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/camera_crop_height.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/camera_crop_width.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_rotate_left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_rotate_right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/indicator_autocrop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/drawable/selector_crop_button.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/layout/cropimage.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/layout/main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/values-cs/values-cs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/packaged_res/debug/values/values.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/intermediates/symbols/debug/R.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crop-image-lib/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +119,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CB5A2ALB6N" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="5.4_FWVGA_API_25" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -252,7 +200,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="CB5A2ALB6N" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-06T17:04:31.927Z" />
     <property name="ExportApk.ApkPath" value="D:\Projects\Android\TubelessX\Apks" />
-    <property name="ExportApk.BuildVariants" value="yafteMyketRelease" />
+    <property name="ExportApk.BuildVariants" value="tubelessJhobinRelease" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -262,7 +210,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="device.picker.selection" value="192.168.1.2:5555" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Apks/Yafte/1.1.1/tubeless_tubelessyafte_release_1.1.1-m_200405_1336.apk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Apks/tubelessIranApps/release/tubeless_tubeless_release_4.1.1-i_200406_0626.apk" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28328007" />
@@ -667,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585771988329</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="17 Farvardin">
+      <created>1586119821604</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1586119821605</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -709,7 +664,8 @@
     <MESSAGE value="8 Farvardin" />
     <MESSAGE value="9 Farvardin" />
     <MESSAGE value="13 Farvardin" />
-    <option name="LAST_COMMIT_MESSAGE" value="13 Farvardin" />
+    <MESSAGE value="17 Farvardin" />
+    <option name="LAST_COMMIT_MESSAGE" value="17 Farvardin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
