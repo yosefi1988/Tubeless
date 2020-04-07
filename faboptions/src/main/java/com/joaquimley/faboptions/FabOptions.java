@@ -68,7 +68,7 @@ public class FabOptions extends FrameLayout implements View.OnClickListener {
     private boolean mIsOpen;
     private View.OnClickListener mListener;
 
-    private Menu mMenu; // TODO: 22/11/2016 add items in runtime
+    private Menu mMenu;
     private FloatingActionButton mFab;
 
     private View mBackground;

@@ -63,10 +63,14 @@ public class SAccounts {
     }
 
     public int getUserAccountID() {
-        if (hasUserAccount()) {
-            return Integer.parseInt(mAccountManager.getUserData(getUserAccount(), AuthenticatorActivity.PARAM_USER_ID));
-        }else {
-            return NOT_LOGN_USER;
+        try {
+            if (hasUserAccount()) {
+                return Integer.parseInt(mAccountManager.getUserData(getUserAccount(), AuthenticatorActivity.PARAM_USER_ID));
+            } else {
+                return NOT_LOGN_USER;
+            }
+        }catch (Exception ex) {
+            return 0;
         }
     }
     public String getUserName() {

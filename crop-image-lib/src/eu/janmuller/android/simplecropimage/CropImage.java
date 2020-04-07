@@ -289,7 +289,7 @@ public class CropImage extends MonitoredActivity {
 
 
     private void onSaveClicked() throws Exception {
-        // TODO this code needs to change to use the decode/crop/encode single
+        //  this code needs to change to use the decode/crop/encode single
         // step api so that we don't require that the whole (possibly large)
         // bitmap doesn't have to be read into memory
         if (mSaving) return;

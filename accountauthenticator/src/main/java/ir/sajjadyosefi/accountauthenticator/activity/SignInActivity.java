@@ -242,8 +242,14 @@ public class SignInActivity extends Activity {
 
             // Creating the account on the device and setting the auth token we got
             // (Not setting the auth token will cause another call to the server to authenticate the user)
-            mAccountManager.addAccountExplicitly(account, accountUserPass, data);
-            mAccountManager.setAuthToken(account, authtokenType, authtoken);
+            try {
+                mAccountManager.addAccountExplicitly(account, accountUserPass, data);
+                mAccountManager.setAuthToken(account, authtokenType, authtoken);
+            }catch (Exception ex){
+                hideProgressBar();
+                setResult(Activity.RESULT_CANCELED);
+                finish();
+            }
         } else {
             Log.d("udinicSajjad", TAG + "> finishLogin > setPassword");
             mAccountManager.setPassword(account, accountUserPass);

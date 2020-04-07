@@ -57,8 +57,8 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
         if (sAccounts.hasUserAccount()){
 
             //sAccounts get user and pass.
-            int accountId = sAccounts.getUserAccountID();
-            String accountName = sAccounts.getUserAccountName();
+//            int accountId = sAccounts.getUserAccountID();
+//            String accountName = sAccounts.getUserAccountName();
             String userName = sAccounts.getUserName();
             String password = sAccounts.getUserPassword();
 

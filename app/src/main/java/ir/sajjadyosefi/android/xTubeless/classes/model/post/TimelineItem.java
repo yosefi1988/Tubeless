@@ -517,7 +517,6 @@ public class TimelineItem extends ParentItem{
 //
 //                        @Override
 //                        public void onError() {
-//                            // TODO Auto-generated method stub
 ////                            Picasso.with(mContext)
 ////                                    .load(R.drawable.sajjad)
 ////                                    .transform(transformation)

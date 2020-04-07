@@ -178,6 +178,10 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }else {
+//            ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
+//            throw new Exception("Error signing-in ["+error.code+"] - " + error.error);
+            throw new Exception("Error signing-in [" + httpResponse.getStatusLine().getStatusCode() + "]");
         }
         return null;
     }

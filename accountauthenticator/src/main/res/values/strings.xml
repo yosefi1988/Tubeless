@@ -18,5 +18,6 @@
     <string name="yourName">نام شما</string>
     <string name="simcardPermissionError">simcardPermissionError</string>
     <string name="loginBySimcardDescription">loginBySimcardDescription</string>
+    <string name="error_message_500">مشکلی در سرور به وجود آمد. کمی بعد تلاش کنید.</string>
 
 </resources>

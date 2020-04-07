@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.activity.register;
 
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,11 +16,14 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity;
+
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
@@ -143,9 +147,14 @@ public class RegNewYafteActivity extends TubelessTransparentStatusBarActivity {
 
 //        if (Global.IDUser == NOT_LOGN_USER ){
         if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
-            Toast.makeText(getContext(),getString(R.string.must_login),Toast.LENGTH_LONG).show();
-            Intent autoActivityIntent =  new Intent(getContext(), LoginActivity.class);
-            ((Activity)getContext()).startActivityForResult(autoActivityIntent,GO_TO_LOGIN);
+            Bundle bundle = new Bundle();
+            Intent intent = SignInActivity.getIntent(getContext(),bundle);
+            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
         }
 
 

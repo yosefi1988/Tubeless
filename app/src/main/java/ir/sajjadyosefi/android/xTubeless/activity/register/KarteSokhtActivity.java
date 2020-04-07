@@ -31,7 +31,7 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity;
+
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;

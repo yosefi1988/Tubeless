@@ -57,7 +57,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity;
+
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
@@ -118,10 +118,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
         if (requestCode == LOGIN_REQUEST_CODE || requestCode == OPEN_PROFILE_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                updatedrawableMenuItems();
-
-                if ((Global.user != null && Global.user.isAdmin()) || (data.hasExtra("MustRefresh") && (data.getExtras().getBoolean("MustRefresh")) ))
-                    firstFragmentsAdapter.notifyList();
 
                 if (requestCode == LOGIN_REQUEST_CODE){
                     if (data.hasExtra(PARAM_USER)){
@@ -138,6 +134,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     }
                 }
 
+                if ((Global.user != null && Global.user.isAdmin()) || (data.hasExtra("MustRefresh") && (data.getExtras().getBoolean("MustRefresh")) ))
+                    firstFragmentsAdapter.notifyList();
+
+                updatedrawableMenuItems();
             }
         }
 
@@ -557,7 +557,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
                         String versionName = pInfo.versionName;
                         //todo 1 change version if not complete
-                        if (versionName.contains("4.1.1") || versionName.contains("1.1.1")) {
+                        if (versionName.contains("4.1.2") || versionName.contains("1.1.2")) {
                             Toast.makeText(getContext(),"در حال آماده سازی هستیم." , Toast.LENGTH_LONG).show();
                         } else {
                             getContext().startActivity(new Intent(getContext(), KarteSokhtActivity.class));
