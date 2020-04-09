@@ -11,6 +11,7 @@ import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,6 +48,9 @@ import com.squareup.picasso.Picasso;
 import org.litepal.LitePal;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 
 
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
@@ -836,8 +840,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             getBottomNavigation().getBadgeProvider().remove(itemId);
 
 
-            if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
-                //tubeless
+            if (BuildConfig.FLAVOR_version_name.equals("tubeless") || BuildConfig.FLAVOR_version_name.equals("yadak")){
+                //tubeless // yadak
                 if (null != getViewPager() && position != 2) {
                     getViewPager().setCurrentItem(position);
                 }
@@ -913,4 +917,18 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         }
     }
 
+
+
+    Calendar calendar = Calendar.getInstance();
+    public double getFirstNumber() {
+        return Double.parseDouble(calendar.get(Calendar.SECOND) + "");
+    }
+
+    public double getSecondNumber() {
+        return Double.parseDouble(calendar.get(Calendar.SECOND) + "");
+    }
+
+    public void setAdditionResult(double result) {
+        Log.d("test : ", Double.toString(result));
+    }
 }

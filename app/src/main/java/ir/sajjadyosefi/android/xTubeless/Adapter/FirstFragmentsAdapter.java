@@ -58,6 +58,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
             PAGE_COUNT = 2;
         }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
             PAGE_COUNT = 3;
+        }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+            PAGE_COUNT = 2;
         }else {
             PAGE_COUNT = 2;
         }
@@ -98,6 +100,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                     fragmentx1 = new ListFragment(context,TYPE_YAFTE);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx1 = new SearchByNameFragment();
+                }if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+                    fragmentx1 = new ListFragment(context,TYPE_YADAK);
                 }else {
                     fragmentx1 = new ListFragment(context,TYPE_YAFTE);
                 }
@@ -108,6 +112,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                 if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
                     fragmentx2 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+                    fragmentx2 = new ListFragment(context,TYPE_YAFTE);
+                }if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx2 = new ListFragment(context,TYPE_YAFTE);
                 }else {
                     fragmentx2 = new ListFragment(context,TYPE_YADAK);
@@ -126,7 +132,9 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                     fragmentx3 = new BlankFragment();
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx3 = new ListFragment(context,TYPE_YADAK);
-                }else {
+                }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+                    fragmentx3 = new BlankFragment();
+                }else{
                     fragmentx3 = new BlankFragment();
                 }
                 return fragmentx3;

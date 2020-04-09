@@ -7,8 +7,12 @@ def final Tubeless_VersionName = "4.1.2"    //todo 3 change version Name before 
 def final Tubeless_VersionCode = 30         //todo 4 change version code before publish
 
 def final appNameYafte = 'مدارک گم شده'
-def final Yadak_VersionName = "1.1.2"   //todo 5 change version Name before publish
-def final Yadak_VersionCode = 7         //todo 6 change version code before publish
+def final Yafte_VersionName = "1.1.2"   //todo 5 change version Name before publish
+def final Yafte_VersionCode = 7         //todo 6 change version code before publish
+
+def final appNameYadak = 'لوازم یدکی'
+def final Yadak_VersionName = "1.0.0"   //todo 5 change version Name before publish
+def final Yadak_VersionCode = 1         //todo 6 change version code before publish
 
 
 android {
@@ -100,16 +104,22 @@ android {
         tubeless {
             dimension "version_name"
             resValue "string", "app_name", appNameTubeless
-
-
             applicationIdSuffix ".xTubeless"
             versionName "${Tubeless_VersionName}"
             versionCode Tubeless_VersionCode
             manifestPlaceholders = [
                     appIcon: "@drawable/png_icon"
             ]
-
-
+        }
+        yadak {
+            dimension "version_name"
+            resValue "string", "app_name", appNameYadak
+            applicationIdSuffix ".xYadak"
+            versionName "${Yadak_VersionName}"
+            versionCode Yadak_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
         }
         yafte {
             dimension "version_name"
@@ -118,12 +128,11 @@ android {
 //            applicationId "ir.sajjadyosefi.tubelessyafte"
             applicationIdSuffix ".xYafte"
 
-            versionName "${Yadak_VersionName}"
-            versionCode Yadak_VersionCode
+            versionName "${Yafte_VersionName}"
+            versionCode Yafte_VersionCode
             manifestPlaceholders = [
                     appIcon: "@drawable/dot"
             ]
-
         }
 
         myket {
@@ -210,6 +219,9 @@ android {
 //            manifest.srcFile 'other/AndroidManifest.xml'
             manifest.srcFile 'src/main/AndroidManifest.xml'
         }
+        yadak {
+            res.srcDirs = ['src/yadak/res']
+        }
         yafte {
 //            java.srcDirs = ['other/java']
 //            java.srcDirs = ['src/main/java']
@@ -220,6 +232,7 @@ android {
 //            manifest.srcFile 'other/AndroidManifest.xml'
 //            manifest.srcFile 'src/main/AndroidManifest.xml'
         }
+
     }
 }
 
@@ -257,6 +270,9 @@ dependencies {
 
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
