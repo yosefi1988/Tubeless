@@ -223,6 +223,18 @@ public class TubelessException extends Exception{
             aaaaa++;
         }
     }
+    public static void ShowSheetFullScreenDialog(Context context, BottomSheetDialog dialog, View.OnClickListener onClickListener) {
+        try {
+            View view = ((Activity) context).getLayoutInflater().inflate(R.layout.full, null);
+            dialog.setContentView(view);
+            Button buttonTryAgain = view.findViewById(R.id.buttonTryAgain);
+            buttonTryAgain.setOnClickListener(onClickListener);
+            dialog.show();
+        }catch (Exception ex){
+            int aaaaa = 5;
+            aaaaa++;
+        }
+    }
 
     public static void ShowSheetDialogMessage(Context context, BottomSheetDialog dialog, String message , View.OnClickListener onClickListener) {
         try {

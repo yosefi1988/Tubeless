@@ -30,9 +30,9 @@
     <output-test url="file://$MODULE_DIR$/build/intermediates/javac/yadakSocialNetworkDebugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakSocialNetworkDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yadakSocialNetworkDebug/compileYadakSocialNetworkDebugAidl/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/yadakSocialNetwork/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakSocialNetworkDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/yadakSocialNetworkDebug/compileYadakSocialNetworkDebugRenderscript/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/yadakSocialNetwork/debug" type="java-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/yadakSocialNetwork/debug" type="java-resource" generated="true" />
@@ -52,10 +52,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/yadakSocialNetwork/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/yadakSocialNetwork/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/yadakSocialNetwork/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakSocialNetworkDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yadakSocialNetworkDebugAndroidTest/compileYadakSocialNetworkDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/yadakSocialNetwork/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/yadakSocialNetworkDebugAndroidTest/compileYadakSocialNetworkDebugAndroidTestRenderscript/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yadakSocialNetworkDebugAndroidTest/compileYadakSocialNetworkDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakSocialNetworkDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/yadakSocialNetwork/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/yadakSocialNetwork/debug" type="java-test-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/yadakSocialNetwork/debug" type="java-test-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakSocialNetworkDebug/res" type="java-test-resource" />

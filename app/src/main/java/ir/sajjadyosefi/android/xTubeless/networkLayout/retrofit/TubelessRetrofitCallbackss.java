@@ -91,17 +91,20 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
         int a =0 ;
         a++;
 
-        try {
-            showConnectionLostDialog(mContext, null , new Runnable() {
+        if (t.getMessage().contains("Unable to resolve host")){
+            showConnectionLostFullScreenDialog(mContext, null, new Runnable() {
                 @Override
                 public void run() {
                     retry(call);
                 }
             });
-        }catch (Exception ex){
-            int aX =0 ;
-            aX  ++;
-
+        }else {
+            showConnectionLostDialog(mContext, null, new Runnable() {
+                @Override
+                public void run() {
+                    retry(call);
+                }
+            });
         }
     }
 
@@ -113,6 +116,19 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
     public static void showConnectionLostDialog(Context context, final ProgressBar progressBar, final Runnable runnable) {
         final BottomSheetDialog dialog = new BottomSheetDialog(context);
         TubelessException.ShowSheetDialog(context,dialog ,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Handler().postDelayed(runnable,5);
+                dialog.dismiss();
+                if (progressBar != null)
+                    progressBar.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public static void showConnectionLostFullScreenDialog(Context context, final ProgressBar progressBar, final Runnable runnable) {
+        final BottomSheetDialog dialog = new BottomSheetDialog(context);
+        TubelessException.ShowSheetFullScreenDialog(context,dialog ,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new Handler().postDelayed(runnable,5);

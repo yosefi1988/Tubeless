@@ -148,11 +148,11 @@
             android:visibility="gone"
             android:orientation="vertical">
 
-            <ir.adad.banner.AdadBannerAd
-                android:id="@+id/banner_1"
-                app:token="7896e630-70c4-4cdd-982f-8e7b0d06f214"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"  ></ir.adad.banner.AdadBannerAd>
+<!--            <ir.adad.banner.AdadBannerAd-->
+<!--                android:id="@+id/banner_1"-->
+<!--                app:token="7896e630-70c4-4cdd-982f-8e7b0d06f214"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="60dp"  ></ir.adad.banner.AdadBannerAd>-->
         </LinearLayout>
 
     <include
