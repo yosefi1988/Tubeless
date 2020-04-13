@@ -100,7 +100,7 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                     fragmentx1 = new ListFragment(context,TYPE_YAFTE);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx1 = new SearchByNameFragment();
-                }if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+                }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx1 = new ListFragment(context,TYPE_YADAK);
                 }else {
                     fragmentx1 = new ListFragment(context,TYPE_YAFTE);
@@ -113,7 +113,7 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                     fragmentx2 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx2 = new ListFragment(context,TYPE_YAFTE);
-                }if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+                }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx2 = new ListFragment(context,TYPE_YAFTE);
                 }else {
                     fragmentx2 = new ListFragment(context,TYPE_YADAK);

@@ -60,12 +60,12 @@
                 android:textColor="@color/colorTextGry"
                 android:text="@string/location_of_miss" />
 
-            <ir.adad.banner.AdadBannerAd
-                android:id="@+id/banner_1"
-                app:token="7896e630-70c4-4cdd-982f-8e7b0d06f214"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:layout_height="60dp"></ir.adad.banner.AdadBannerAd>
+<!--            <ir.adad.banner.AdadBannerAd-->
+<!--                android:id="@+id/banner_1"-->
+<!--                app:token="7896e630-70c4-4cdd-982f-8e7b0d06f214"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_height="60dp"></ir.adad.banner.AdadBannerAd>-->
 
             <TextView
                 android:id="@+id/textViewDate"

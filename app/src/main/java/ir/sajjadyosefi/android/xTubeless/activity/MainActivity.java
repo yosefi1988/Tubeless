@@ -561,7 +561,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
                         String versionName = pInfo.versionName;
                         //todo 1 change version if not complete
-                        if (versionName.contains("4.1.2") || versionName.contains("1.1.2")) {
+                        if (versionName.contains("4.2.0") || versionName.contains("1.2.0")|| versionName.contains("1.0.0")) {
                             Toast.makeText(getContext(),"در حال آماده سازی هستیم." , Toast.LENGTH_LONG).show();
                         } else {
                             getContext().startActivity(new Intent(getContext(), KarteSokhtActivity.class));
