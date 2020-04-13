@@ -267,7 +267,7 @@
                         android:layout_height="130dp"
                         android:layout_weight="1"
                         android:visibility="gone"
-                        app:srcCompat="@drawable/jpg_back1" />
+                        app:srcCompat="@drawable/dot" />
                 </LinearLayout>
 
 

@@ -93,6 +93,8 @@ import static android.util.Log.VERBOSE;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
+import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
+import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
 
 @TargetApi (Build.VERSION_CODES.KITKAT_WATCH)
 public class MainActivity extends TubelessActivity implements BottomNavigation.OnMenuItemSelectionListener {
@@ -614,23 +616,23 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
                     //channel
 
-                    Uri uri = Uri.parse(StaticValue.Telegram);
+                    Uri uri = Uri.parse(Telegram);
                     Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
                     likeIng.setPackage("org.telegram.messenger");
                     try {
                         startActivity(likeIng);
                     } catch (ActivityNotFoundException e) {
-                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(StaticValue.Telegram)));
+                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(Telegram)));
                     }
 
                 } else if (id == R.id.nav_instagram) {
-                    Uri uri = Uri.parse(StaticValue.Instagram);
+                    Uri uri = Uri.parse(Instagram);
                     Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
                     likeIng.setPackage("com.instagram.android");
                     try {
                         startActivity(likeIng);
                     } catch (ActivityNotFoundException e) {
-                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(StaticValue.Instagram)));
+                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(Instagram)));
                     }
                 } else if (id == R.id.nav_instagram) {
 //                    Uri uri = Uri.parse(StaticValue.Instagram);

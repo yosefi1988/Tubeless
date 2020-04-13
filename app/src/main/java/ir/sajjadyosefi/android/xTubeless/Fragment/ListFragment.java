@@ -280,7 +280,7 @@ public class ListFragment extends Fragment  {
                 }
             });
 
-        floatingActionButtonList.setBackgroundResource(R.drawable.benz);
+        floatingActionButtonList.setBackgroundResource(R.drawable.dot);
         if (floatingActionButtonList != null)
             floatingActionButtonList.setOnClickListener(new View.OnClickListener() {
                 @Override

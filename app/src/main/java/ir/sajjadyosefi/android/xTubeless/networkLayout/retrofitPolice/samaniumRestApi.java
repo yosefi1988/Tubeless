@@ -1,7 +1,6 @@
-package ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.retrofit;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice;
 
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -16,8 +15,7 @@ public interface samaniumRestApi {
                                     @Query("plateusage") String plateusage,
                                     @Query("platecode") String platecode);
 
-    @GET("/Config/KSOKHTconfig")
-    Call<Configuration> config();
+
 
 
 //    @POST(level2 + "43_73ee9503-0b9a-45b1-bd3d-96afebd70cba")

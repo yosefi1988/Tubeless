@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="false"
-            android:background="@drawable/jpg_back1"
+            android:background="@drawable/dot"
             android:scaleType="centerCrop"
             android:visibility="visible"
             app:widthAndHeightRatio="2.2"

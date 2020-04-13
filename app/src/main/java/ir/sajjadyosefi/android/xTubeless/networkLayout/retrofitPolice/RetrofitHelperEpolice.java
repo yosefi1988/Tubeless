@@ -1,11 +1,10 @@
-package ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.retrofit;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice;
 
 import android.content.Context;
 
 import java.io.IOException;
 import java.net.URL;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import okhttp3.Dispatcher;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -14,23 +13,23 @@ import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.REST_API_IP_ADDRESS2;
+import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.REST_API_IP_ADDRESS;
 
 
 /**
  * Created by sajjad on 11/7/2018.
  */
 
-public class RetrofitHelper2 {
+public class RetrofitHelperEpolice {
 
     private static samaniumRestApi service;
-    private static RetrofitHelper2 retrofitHelper2;
+    private static RetrofitHelperEpolice retrofitHelper;
 
-    private RetrofitHelper2() {
+    private RetrofitHelperEpolice() {
         try {
-            URL url = new URL(REST_API_IP_ADDRESS2);
+            URL url = new URL(REST_API_IP_ADDRESS);
             String serverHostname = url.getHost();
             HostSelectionInterceptor interceptor = new HostSelectionInterceptor();
 
@@ -45,8 +44,8 @@ public class RetrofitHelper2 {
 
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(REST_API_IP_ADDRESS2)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .baseUrl(REST_API_IP_ADDRESS)
+                    .addConverterFactory(ScalarsConverterFactory.create())
                     .client(client)
                     .build();
 
@@ -59,11 +58,11 @@ public class RetrofitHelper2 {
         }
     }
 
-    public static RetrofitHelper2 getInstance(Context mContext) {
-        if (retrofitHelper2 == null) {
-            retrofitHelper2 = new RetrofitHelper2();
+    public static RetrofitHelperEpolice getInstance(Context mContext) {
+        if (retrofitHelper == null) {
+            retrofitHelper = new RetrofitHelperEpolice();
         }
-        return retrofitHelper2;
+        return retrofitHelper;
     }
 
     public static final class HostSelectionInterceptor implements Interceptor {
@@ -74,7 +73,7 @@ public class RetrofitHelper2 {
         }
 
         @Override
-        public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
+        public okhttp3.Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
             String host = this.host;
             if (host != null) {
@@ -93,11 +92,21 @@ public class RetrofitHelper2 {
         }
     }
 
-    public void config(Callback<Configuration> callback) {
-        Call<Configuration> userCall = service.config();
+    public void callPelackservice(String platesearch, String xtype, String plateusage, String platecode, Callback<String> callback) {
+        Call<String> userCall = service.reportGetUserCount(platesearch,xtype,plateusage,platecode);
         userCall.enqueue(callback);
     }
 
 
+//compileSdkVersion
+//    public void databaseKey(ConfigRequest search, Callback<ConnectionCheckResponse> callback) {
+//        Call<ConnectionCheckResponse> userCall = service.databaseKey(search);
+//        userCall.enqueue(callback);
+//    }
+
+//    public void config(ConfigRequest search, Callback<ConfigResponse> callback) {
+//        Call<ConfigResponse> userCall = service.config(search);
+//        userCall.enqueue(callback);
+//    }
 
 }

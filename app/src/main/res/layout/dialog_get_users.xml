@@ -27,7 +27,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="5dp"
                 android:clickable="true"
-                android:src="@drawable/jpg_back1" />
+                android:src="@drawable/dot" />
 
 
             <TextView

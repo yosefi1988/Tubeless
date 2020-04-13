@@ -9,7 +9,7 @@
         android:title="action_settings"
         app:itemTextColor="@color/black"
 
-        android:icon="@drawable/png_comment"
+        android:icon="@drawable/dot"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_exit"
@@ -17,20 +17,20 @@
         app:itemTextColor="@color/black"
         app:showAsAction="ifRoom"
         android:title="more"
-        android:icon="@drawable/png_comment">
+        android:icon="@drawable/dot">
         <menu android:background="@color/colorTextGry">
             <item android:id="@+id/action_law"
                 android:background="@color/colorBorderGry"
                 android:showAsAction="ifRoom"
                 app:itemTextColor="@color/black"
 
-                android:icon="@drawable/png_comment"
+                android:icon="@drawable/dot"
                 android:title="test"/>
             <item android:id="@+id/action_buysell"
                 android:showAsAction="ifRoom"
                 app:itemTextColor="@color/black"
 
-                android:icon="@drawable/png_comment"
+                android:icon="@drawable/dot"
                 android:title="test2"/>
         </menu>
     </item>

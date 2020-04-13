@@ -17,9 +17,9 @@ public class StaticValue {
 
     public static int NOT_LOGN_USER = 20053 ;
 
-    public static String Instagram = "https://www.instagram.com/tubeless_sn/";
+
     //    public static String Telegram = "tg://resolve?domain=partsilicon";
-    public static String Telegram = "https://telegram.me/tubeless_sn";
+
 
 
 

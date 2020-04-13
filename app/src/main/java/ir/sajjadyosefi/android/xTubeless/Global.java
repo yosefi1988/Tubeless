@@ -4,16 +4,13 @@ import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
-import androidx.core.app.ActivityCompat;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 
-import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -36,20 +33,15 @@ import java.util.Random;
 //import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTamirgahAdapter;
 //import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter;
 //import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentYaftehaAdapter;
-import dagger.Component;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.retrofit.RetrofitHelper2;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.retrofit.RetrofitHelperEpolice;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice.RetrofitHelperEpolice;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.RetrofitHelper;
-import ir.sajjadyosefi.android.xTubeless.utility.FontChanger;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.RetrofitHelperPost;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 //اس دی کی های تبلیغاتی عدد
-import ir.adad.banner.AdadBannerAd;
 import ir.adad.core.Adad;
 
 import static ir.sajjadyosefi.android.xTubeless.widget.CustomEditText.FONT_IRANSANS_MOBILE_NORMAL_TTF;
@@ -67,19 +59,17 @@ public class Global extends MultiDexApplication {
 
 
     public static String token;
-    public static RetrofitHelper apiManagerPost;
+    public static RetrofitHelperPost apiManagerPost;
     public static RetrofitHelperTubeless apiManagerTubeless;
     public static RetrofitHelperEpolice retrofitHelperEpolice;
-    public static RetrofitHelper2 retrofit2;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
-        apiManagerPost = RetrofitHelper.getInstance();
+        apiManagerPost = RetrofitHelperPost.getInstance();
         retrofitHelperEpolice = RetrofitHelperEpolice.getInstance(this);
-        retrofit2 = RetrofitHelper2.getInstance(this);
 
         //font 1
 //        FontChanger.overrideDefaultFont(this, "DEFAULT", FONT_IRANSANS_MOBILE_NORMAL_TTF);

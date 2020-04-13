@@ -7,6 +7,7 @@ import java.util.List;
 
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 //import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
@@ -69,7 +70,8 @@ public interface ApiServiceTubeless {
 
 
 
-
+    @GET("/Config/KSOKHTconfig")
+    Call<Configuration> config();
 
 
 
