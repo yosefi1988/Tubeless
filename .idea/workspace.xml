@@ -109,11 +109,181 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="17 Farvardin">
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="28 Farvardin">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/EndlessList_AdapterFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/uploadPicture/FileListActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/uploadPicture/ImageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/uploadPicture/RemoteApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/uploadPicture/RetrofitImageLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/uploadPicture/UploadPictureActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/File.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_file.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_last_item_files.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_progress.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/consumer-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/androidTest/java/ir/sajjadyosefi/android/superpickerlibrary/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/java/ir/sajjadyosefi/android/superpickerlibrary/CameraPickerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/java/ir/sajjadyosefi/android/superpickerlibrary/GlobalHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/java/ir/sajjadyosefi/android/superpickerlibrary/ImagePickerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/java/ir/sajjadyosefi/android/superpickerlibrary/PickerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/java/ir/sajjadyosefi/android/superpickerlibrary/PickerManagerBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/java/ir/sajjadyosefi/android/superpickerlibrary/TempActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superpickerlibrary/src/test/java/ir/sajjadyosefi/android/superpickerlibrary/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/UCrop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/UCropActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/UCropFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/UCropFragmentCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/callback/BitmapCropCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/callback/BitmapLoadCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/callback/CropBoundsChangeListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/callback/OverlayViewChangeListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/model/AspectRatio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/model/CropParameters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/model/ExifInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/model/ImageState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/task/BitmapCropTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/task/BitmapLoadTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/BitmapLoadUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/CubicEasing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/EglUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/FastBitmapDrawable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/FileUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/ImageHeaderParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/RectUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/RotationGestureDetector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/util/SelectedStateListDrawable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/view/CropImageView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/view/GestureCropImageView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/view/OverlayView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/view/TransformImageView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/view/UCropView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/view/widget/AspectRatioTextView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/java/com/yalantis/ucrop/view/widget/HorizontalProgressWheelView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jni/Android.mk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jni/Application.mk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jni/CImg.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jni/com_yalantis_ucrop_task_BitmapCropTask.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jni/uCrop.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jniLibs/arm64-v8a/libucrop.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jniLibs/armeabi-v7a/libucrop.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jniLibs/armeabi/libucrop.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jniLibs/x86/libucrop.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/jniLibs/x86_64/libucrop.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/anim/ucrop_loader_circle_path.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/anim/ucrop_loader_circle_scale.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/color/ucrop_scale_text_view_selector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-hdpi/ucrop_ic_angle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-hdpi/ucrop_ic_done.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-ldpi/ucrop_ic_angle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-ldpi/ucrop_ic_done.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-mdpi/ucrop_ic_angle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-mdpi/ucrop_ic_done.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-xhdpi/ucrop_ic_angle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-xhdpi/ucrop_ic_done.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-xxhdpi/ucrop_ic_angle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-xxhdpi/ucrop_ic_done.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-xxxhdpi/ucrop_ic_angle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable-xxxhdpi/ucrop_ic_done.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_crop.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_crop.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_crop_unselected.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_cross.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_next.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_reset.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_rotate.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_rotate_unselected.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_scale.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_ic_scale_unselected.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_rotate.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_scale.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_shadow_upside.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_vector_ic_crop.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_vector_loader.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_vector_loader_animated.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/drawable/ucrop_wrapper_controls_shape.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/layout/ucrop_activity_photobox.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/layout/ucrop_aspect_ratio.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/layout/ucrop_controls.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/layout/ucrop_fragment_photobox.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/layout/ucrop_layout_rotate_wheel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/layout/ucrop_layout_scale_wheel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/layout/ucrop_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/menu/ucrop_menu_activity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-de/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-es/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-fi/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-fr/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-it/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-ja/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-ko/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-nl/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-pt-br" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-sk/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-zh-rTW/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values-zh/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values/attrs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values/public.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ucrop/src/main/res/values/values.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/TubelessActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/button.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/buttonshape_disable.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/buttonshape_disable.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yadak.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_yadak.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_upload_picture.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_upload_picture.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/ant.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/proguard-project.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ucrop/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/drawable-xhdpi/btn_crop_operator.9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/drawable-xhdpi/btn_crop_pressed.9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/drawable-xhdpi/camera_crop_height.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/drawable-xhdpi/camera_crop_width.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/drawable-xhdpi/ic_rotate_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/drawable-xhdpi/ic_rotate_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/drawable-xhdpi/indicator_autocrop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/drawable/selector_crop_button.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/layout/cropimage.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/layout/main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/values-cs/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/src/eu/janmuller/android/simplecropimage/BitmapManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/src/eu/janmuller/android/simplecropimage/CropImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/src/eu/janmuller/android/simplecropimage/CropImageView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/src/eu/janmuller/android/simplecropimage/HighlightView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/src/eu/janmuller/android/simplecropimage/ImageViewTouchBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/src/eu/janmuller/android/simplecropimage/MonitoredActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/src/eu/janmuller/android/simplecropimage/RotateBitmap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop-image-lib/src/eu/janmuller/android/simplecropimage/Util.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/faboptions/faboptions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/faboptions/faboptions.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +387,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="device.picker.selection" value="192.168.1.2:5555" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28328007" />
@@ -231,11 +401,12 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="debug" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
-      <recent name="ir.sajjadyosefi.android.xTubeless" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\tubeless\res\drawable" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\yafte\res\layout" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\yafte" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ir.sajjadyosefi.android.xTubeless.classes" />
@@ -244,25 +415,24 @@
       <recent name="ir.sajjadyosefi.android.tubeless" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\Android\TubelessX\app\src\main\res\layout" />
       <recent name="D:\Projects\Android\TubelessX\app\src\main\res\drawable" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\yadak\res\drawable" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\main\res\menu" />
-      <recent name="D:\Projects\Android\TubelessX\app\src" />
+      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\main\res\layout" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\model\viewHolder" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\activity\uploadPicture" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.uploadPicture" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.classes.model" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
       <recent name="ir.sajjadyosefi.accountauthenticator.activity" />
       <recent name="ir.sajjadyosefi.accountauthenticator.model" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.classes.behavior" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.bussines.post.activity" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.utility" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\tubeless\res\drawable" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\yafte\res\layout" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\yafte" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
+      <recent name="ir.sajjadyosefi.android.xTubeless" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -495,6 +665,8 @@
         <item itemvalue="Gradle.Tubelessx11:app [signingReport]" />
         <item itemvalue="Gradle.Tubelessx11:app [build]" />
         <item itemvalue="Gradle.Tubelessx11:app [assembleRelease]" />
+        <item itemvalue="Gradle.Tubelessx11:app [assembleBazaar]" />
+        <item itemvalue="Gradle.Tubelessx11:app [signingReport]" />
       </list>
     </recent_temporary>
   </component>
@@ -635,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586465346625</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="25 Farvardin">
+      <created>1586780965530</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1586780965530</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -679,7 +858,9 @@
     <MESSAGE value="13 Farvardin" />
     <MESSAGE value="17 Farvardin" />
     <MESSAGE value="21 Farvardin" />
-    <option name="LAST_COMMIT_MESSAGE" value="21 Farvardin" />
+    <MESSAGE value="25 Farvardin" />
+    <MESSAGE value="28 Farvardin" />
+    <option name="LAST_COMMIT_MESSAGE" value="28 Farvardin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -726,17 +907,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>256</line>
+          <line>273</line>
           <option name="timeStamp" value="413" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>261</line>
+          <line>278</line>
           <option name="timeStamp" value="414" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>272</line>
+          <line>289</line>
           <option name="timeStamp" value="415" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -801,7 +982,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>897</line>
+          <line>907</line>
           <option name="timeStamp" value="571" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -891,7 +1072,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>874</line>
+          <line>884</line>
           <option name="timeStamp" value="990" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -990,16 +1171,6 @@
           <option name="timeStamp" value="1107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/Device.java</url>
-          <line>162</line>
-          <option name="timeStamp" value="1115" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ReadBlogActivity.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="1134" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/ParentItem.java</url>
           <line>159</line>
           <option name="timeStamp" value="1138" />
@@ -1026,7 +1197,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
-          <line>296</line>
+          <line>313</line>
           <option name="timeStamp" value="1143" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1055,14 +1226,14 @@
           <option name="timeStamp" value="1159" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/TubelessRetrofitCallbackss.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="1166" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/uploadPicture/FileListActivity.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="1175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/exception/TubelessException.java</url>
-          <line>214</line>
-          <option name="timeStamp" value="1168" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="1176" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

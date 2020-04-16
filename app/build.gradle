@@ -324,6 +324,7 @@ dependencies {
     implementation project(path: ':adad-sdk-core-5.1.1')
     implementation project(path: ':adad-sdk-ad-5.1.1')
     implementation project(path: ':accountauthenticator')
+    implementation project(path: ':superpickerlibrary')
 
 
 }

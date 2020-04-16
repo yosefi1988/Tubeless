@@ -154,7 +154,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/day_white_text</item>
-        <item name="android:background">@drawable/btn_search</item>
+        <item name="android:background">@drawable/button</item>
         <item name="android:textSize">18dp</item>
         <item name="android:textAllCaps">false</item>
     </style>
@@ -226,7 +226,7 @@
     </style>
 
 
-    <style name="TubelessDayTheme.NoActionBar">
+    <style name="TubelessDayTheme.NoActionBar"  parent="AppDayTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

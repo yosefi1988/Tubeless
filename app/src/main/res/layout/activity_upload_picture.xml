@@ -18,12 +18,6 @@
         android:src="@drawable/dot"
         android:visibility="invisible"/>
 
-    <ImageView
-        android:id="@+id/ivVisableBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/dot"  />
 
     <ScrollView
         android:id="@+id/svScroll"
@@ -100,7 +94,7 @@
                         android:orientation="horizontal">
 
 
-                        <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        <Button
                             android:id="@+id/btnCamera"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -108,7 +102,7 @@
                             android:layout_weight="0.5"
                             android:text="@string/SelectPicture" />
 
-                        <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        <Button
                             android:id="@+id/btnBrowse"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -166,7 +160,7 @@
                     </LinearLayout>
 
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.JustifiedPersianTextView
+                    <TextView
                         android:id="@+id/tvTags"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

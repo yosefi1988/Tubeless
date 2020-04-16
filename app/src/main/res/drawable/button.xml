@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <item android:state_focused="true" android:state_pressed="true"
-        android:drawable="@drawable/buttonshape_disable" />
-    <item android:state_focused="false" android:state_pressed="true"
-        android:drawable="@drawable/buttonshape_pressed" />
-    <item android:drawable="@drawable/buttonshape_normal" /> </selector>
+    <item android:drawable="@drawable/buttonshape_disable" android:state_enabled="false"/>          <!-- disabled -->
+    <item android:drawable="@drawable/buttonshape_pressed" android:state_pressed="true"/>           <!-- pressed -->
+    <item android:drawable="@drawable/buttonshape_normal" android:state_focused="true"/>            <!-- focused -->
+    <item android:drawable="@drawable/buttonshape_normal"/>                                         <!-- default -->
+</selector>

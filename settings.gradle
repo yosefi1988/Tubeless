@@ -1,3 +1,3 @@
-include ':app', ':PagerSlidingTabStrip', ':faboptions', ':adad-sdk-banner-5.1.1', ':adad-sdk-core-5.1.1', ':adad-sdk-ad-5.1.1', ':accountauthenticator2'
+include ':app', ':PagerSlidingTabStrip', ':faboptions', ':adad-sdk-banner-5.1.1', ':adad-sdk-core-5.1.1', ':adad-sdk-ad-5.1.1', ':accountauthenticator2', ':ucrop', ':superpickerlibrary'
 include ':accountauthenticator'
 include ':application1'

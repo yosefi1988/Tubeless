@@ -397,6 +397,8 @@
     <string name="contact_us_hint">متن</string>
     <string name="estelam_by_plak">استعلام با شماره پلاک</string>
     <string name="save">save</string>
+    <string name="not_any_file" />
+    <string name="add_files">افزودن فایل</string>
 
 
 </resources>

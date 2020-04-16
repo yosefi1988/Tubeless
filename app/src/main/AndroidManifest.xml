@@ -29,6 +29,10 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 
+<!--    برای آواتار-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
     <!-- <permission -->
     <!-- android:name="ir.sajjadyosefi.android.tubeless.permission.C2D_MESSAGE" -->
     <!-- android:protectionLevel="signature" /> -->
@@ -110,6 +114,10 @@
             android:theme="@style/ThemeFullSCreen"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
+        <activity
+            android:name=".activity.uploadPicture.FileListActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+        </activity>
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity"
@@ -201,6 +209,10 @@
 
 
         <activity android:name="ir.moslem_deris.apps.zarinpal.PaymentActivity" />
+        <activity android:name="ir.sajjadyosefi.android.superpickerlibrary.TempActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:theme="@style/TubelessDayTheme.NoActionBar"   />
 
 <!--        <activity-->
 <!--            android:name="eu.janmuller.android.simplecropimage.CropImage"-->

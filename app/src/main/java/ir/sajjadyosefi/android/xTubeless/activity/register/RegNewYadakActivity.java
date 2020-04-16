@@ -16,6 +16,9 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
@@ -24,6 +27,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 
+import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
@@ -32,14 +36,16 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofit
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
+import static org.litepal.LitePalApplication.getContext;
 
 
 public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 
 
-    public Button buttonReg , buttonBack;
+    public Button buttonReg , buttonBack , buttonAddFiles;
     EditText editTextText,editTextTextPicture,editTextTitleStatment,editTextTitlePicture,editTextTitle;
     RadioButton radioButton1,radioButton2,radioButton3;
 
@@ -51,6 +57,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
         setContentView(R.layout.activity_new_yadak);
         buttonReg = findViewById(R.id.buttonReg);
         buttonBack = findViewById(R.id.buttonBack);
+        buttonAddFiles = findViewById(R.id.buttonAddFiles);
         editTextText = findViewById(R.id.editTextText);
         editTextTextPicture = findViewById(R.id.editTextTextPicture);
         editTextTitleStatment = findViewById(R.id.editTextTitleStatment);
@@ -98,6 +105,16 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        buttonAddFiles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("FILE_COUNT" , 1);
+                bundle.putSerializable("LIST", (Serializable)  new ArrayList<>());
+                getActivity().startActivity(FileListActivity.getIntent(getContext(),bundle));
             }
         });
         buttonReg.setOnClickListener(new View.OnClickListener() {

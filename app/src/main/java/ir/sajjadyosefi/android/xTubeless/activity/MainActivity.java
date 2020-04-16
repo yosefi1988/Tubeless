@@ -49,6 +49,7 @@ import org.litepal.LitePal;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -67,6 +68,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.activity.SearchByNameActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
@@ -305,6 +307,12 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             drawer_layout.openDrawer(Gravity.LEFT);
             setFirstRunIsDone();
         }
+
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("FILE_COUNT" , 1);
+        bundle.putSerializable("LIST", (Serializable)  new ArrayList<>());
+        getActivity().startActivity(FileListActivity.getIntent(getContext(),bundle));
     }
 
     private void loadNews() {
