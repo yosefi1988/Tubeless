@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -36,6 +37,7 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
 
     EditText ueditTextNameUserId , editTextName , editTextEmail;
     Button buttonBack , buttonSignOut;
+    ImageView imageViewUserAvatar;
 
 
 
@@ -65,6 +67,17 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         buttonSignOut = findViewById(R.id.buttonSignOut);
         buttonBack = findViewById(R.id.buttonBack);
+        imageViewUserAvatar = findViewById(R.id.imageViewUserAvatar);
+
+
+        imageViewUserAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //https://androidwave.com/android-upload-file-to-server-with-progress/
+
+                
+            }
+        });
 
         if (Global.user == null){
             finish();

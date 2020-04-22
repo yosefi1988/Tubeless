@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" group="TubelessX/adad-sdk-core-5.1.1" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TubelessX/app" />
       <module fileurl="file://$PROJECT_DIR$/application1/application1.iml" filepath="$PROJECT_DIR$/application1/application1.iml" group="TubelessX/application1" />
+      <module fileurl="file://$PROJECT_DIR$/applicationtestkotlin/applicationtestkotlin.iml" filepath="$PROJECT_DIR$/applicationtestkotlin/applicationtestkotlin.iml" group="TubelessX/applicationtestkotlin" />
       <module fileurl="file://$PROJECT_DIR$/faboptions/faboptions.iml" filepath="$PROJECT_DIR$/faboptions/faboptions.iml" group="TubelessX/faboptions" />
       <module fileurl="file://$PROJECT_DIR$/superpickerlibrary/superpickerlibrary.iml" filepath="$PROJECT_DIR$/superpickerlibrary/superpickerlibrary.iml" group="TubelessX/superpickerlibrary" />
       <module fileurl="file://$PROJECT_DIR$/ucrop/ucrop.iml" filepath="$PROJECT_DIR$/ucrop/ucrop.iml" group="TubelessX/ucrop" />

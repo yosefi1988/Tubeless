@@ -8,6 +8,8 @@
     android:background="@color/fb_background_color"
     android:padding="4dp">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:paddingRight="10dp"
-                android:layout_marginBottom="-10dp"
+                android:layout_marginBottom="-5dp"
                 android:layout_marginTop="-5dp"
                 android:textColor="@color/colorTextGry"
                 android:text="@string/location_of_miss" />
@@ -76,33 +78,35 @@
                 android:textDirection="rtl"
                 android:text="@string/find_date"
                 android:textColor="@color/colorTextGry"
+                android:layout_marginBottom="5dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"  />
 
             <include layout="@layout/_part_horizontal_line"></include>
 
+            <LinearLayout
+                android:id="@+id/linearLayoutBottom"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_gravity="right"
+                android:gravity="center_vertical"
+                android:layoutDirection="rtl"
+                android:layout_marginTop="-6dp"
+                android:orientation="horizontal"
+                android:paddingRight="10dp" >
+
+                <include
+                    layout="@layout/_part_visit_count"></include>
+
+                <include
+                    layout="@layout/_part_share_layout"></include>
+
+
+
+            </LinearLayout>
+
         </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/linearLayoutBottom"
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_gravity="right"
-            android:gravity="center_vertical"
-            android:layoutDirection="rtl"
-            android:layout_marginTop="-6dp"
-            android:orientation="horizontal"
-            android:paddingRight="10dp" >
-
-            <include
-                layout="@layout/_part_visit_count"></include>
-
-            <include
-                layout="@layout/_part_share_layout"></include>
-
-
-
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayoutAdmin"

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,10 +22,32 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Completable;
+import io.reactivex.CompletableEmitter;
+import io.reactivex.CompletableObserver;
+import io.reactivex.CompletableOnSubscribe;
+import io.reactivex.Flowable;
+import io.reactivex.Maybe;
+import io.reactivex.MaybeEmitter;
+import io.reactivex.MaybeObserver;
+import io.reactivex.MaybeOnSubscribe;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleObserver;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiFunction;
+import io.reactivex.schedulers.Schedulers;
 import ir.sajjadyosefi.android.superpickerlibrary.PickerManagerBuilder;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
+import ir.sajjadyosefi.android.xTubeless.utility.FileUtils;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.FILES;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.File.MAP_1;
@@ -96,6 +120,85 @@ public class FileListActivity extends Activity {
 
                 ((Button)(findViewById(R.id.buttonGallery))).setEnabled(true);
                 ((Button)(findViewById(R.id.buttonCamera))).setEnabled(true);
+
+
+
+//                //rxjava rxandroid sample 1
+//                Observable<String> animalsObservable = Observable.just("Ant", "Bee", "Cat", "Dog", "Fox");
+//                Observer<String> animalsObserver = getAnimalsObserver();
+//
+//                animalsObservable
+//                        .subscribeOn(Schedulers.io())
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .subscribe(animalsObserver);
+//
+//
+//
+//                //rxjava rxandroid sample 2
+//                Flowable.just("Hello world").subscribe(System.out::println);
+//
+//
+//                //Observable و Observer
+//                //rxjava rxandroid sample 3
+//                Observable<Note> notes = getObservableNote();
+//                Observer<Note> notesObserver = getNotesObserver();
+//
+//                notes
+//                        .observeOn(Schedulers.io())
+//                        .subscribeOn(AndroidSchedulers.mainThread())
+//                        .subscribeWith(notesObserver);
+//
+//
+//                //Single و SingleObserver
+//                //rxjava rxandroid sample 4
+//                Single<Note> noteObservable = getNoteObservable();
+//                SingleObserver<Note> singleObserver = getSingleObserver();
+//
+//                noteObservable
+//                        .observeOn(Schedulers.io())
+//                        .subscribeOn(AndroidSchedulers.mainThread())
+//                        .subscribe(singleObserver);
+//
+//
+//                //Maybe و MaybeObserver
+//                //rxjava rxandroid sample 5
+//                Maybe<Note> noteObservableX = getNoteObservablex();
+//                MaybeObserver<Note> noteObserver = getNoteObserver();
+//
+//                noteObservableX.subscribeOn(Schedulers.io())
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .subscribe(noteObserver);
+//
+//
+//
+//                //Completable و CompletableObserver
+//                //rxjava rxandroid sample 5
+//                Note note = new Note(1, "Home work!");
+//                Completable completableObservable = updateNote(note);
+//                CompletableObserver completableObserver = completableObserverC();
+//                completableObservable
+//                        .subscribeOn(Schedulers.io())
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .subscribe(completableObserver);
+//
+//
+//                //Flowable و Observer
+//                //rxjava rxandroid sample 6
+//                Flowable<Integer> flowableObservable = getFlowableObservable();
+//                SingleObserver<Integer> observer = getFlowableObserver();
+//                flowableObservable
+//                        .subscribeOn(Schedulers.io())
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .reduce(0, new BiFunction<Integer, Integer, Integer>() {
+//                            @Override
+//                            public Integer apply(Integer result, Integer number) {
+//                                //Log.e(TAG, "Result: " + result + ", new number: " + number);
+//                                return result + number;
+//                            }
+//                        })
+//                        .subscribe(observer);
+//
+
             }
         });
         ((Button)(findViewById(R.id.buttonCancel))).setOnClickListener(new View.OnClickListener() {
@@ -130,6 +233,84 @@ public class FileListActivity extends Activity {
 //            e.printStackTrace();
 //        }
 
+    }
+
+    private Observer<Note> getNotesObserver() {
+        return new Observer<Note>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.d(TAG, "onSubscribe");
+            }
+
+            @Override
+            public void onNext(Note note) {
+                Log.d(TAG, "onNext: " + note.getNote());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: " + e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+                Log.d(TAG, "onComplete");
+            }
+        };
+    }
+
+    private Observable<Note> getObservableNote() {
+        final List<Note> notes = prepareNotes();
+
+        return Observable.create(new ObservableOnSubscribe<Note>() {
+            @Override
+            public void subscribe(ObservableEmitter<Note> emitter) throws Exception {
+                for (Note note : notes) {
+                    if (!emitter.isDisposed()) {
+                        emitter.onNext(note);
+                    }
+                }
+
+                // all notes are emitted
+                if (!emitter.isDisposed()) {
+                    emitter.onComplete();
+                }
+
+            }
+        });
+    }
+
+    private List<Note> prepareNotes() {
+        List<Note> notes = new ArrayList<>();
+        notes.add(new Note(1, "Buy tooth paste!"));
+        notes.add(new Note(2, "Call brother!"));
+        notes.add(new Note(3, "Watch Narcos tonight!"));
+        notes.add(new Note(4, "Pay power bill!"));
+        return notes;
+    }
+
+    private Observer<String> getAnimalsObserver() {
+        return new Observer<String>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.d(TAG, "onSubscribe");
+            }
+
+            @Override
+            public void onNext(String s) {
+                Log.d(TAG, "Name: " + s);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: " + e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+                Log.d(TAG, "All items are emitted!");
+            }
+        };
     }
 
     private void selectFromGallery(final Activity activity) {
@@ -214,5 +395,142 @@ public class FileListActivity extends Activity {
         mRecyclerViewTimeline.setAdapter(adapter_Posts);
     }
 
+    private SingleObserver<Note> getSingleObserver() {
+        return new SingleObserver<Note>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.d(TAG, "onSubscribe");
+            }
 
+            @Override
+            public void onSuccess(Note note) {
+                Log.e(TAG, "onSuccess: " + note.getNote());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError: " + e.getMessage());
+            }
+        };
+    }
+
+    private Single<Note> getNoteObservable() {
+        return Single.create(new SingleOnSubscribe<Note>() {
+            @Override
+            public void subscribe(SingleEmitter<Note> emitter) throws Exception {
+                Note note = new Note(1, "Buy milk!");
+                emitter.onSuccess(note);
+            }
+        });
+    }
+
+    private MaybeObserver<Note> getNoteObserver() {
+        return new MaybeObserver<Note>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
+
+            @Override
+            public void onSuccess(Note note) {
+                Log.d(TAG, "onSuccess: " + note.getNote());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: " + e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+                Log.e(TAG, "onComplete");
+            }
+        };
+    }
+
+    /**
+     * Emits optional data (0 or 1 emission)
+     * But for now it emits 1 Note always
+     */
+    private Maybe<Note> getNoteObservablex() {
+        return Maybe.create(new MaybeOnSubscribe<Note>() {
+            @Override
+            public void subscribe(MaybeEmitter<Note> emitter) throws Exception {
+                Note note = new Note(1, "Call brother!");
+                if (!emitter.isDisposed()) {
+                    emitter.onSuccess(note);
+                }
+            }
+        });
+    }
+
+    private Completable updateNote(Note note) {
+        return Completable.create(new CompletableOnSubscribe() {
+            @Override
+            public void subscribe(CompletableEmitter emitter) throws Exception {
+                if (!emitter.isDisposed()) {
+                    Thread.sleep(1000);
+                    emitter.onComplete();
+                }
+            }
+        });
+    }
+
+    private CompletableObserver completableObserverC() {
+        return new CompletableObserver() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.d(TAG, "onSubscribe");
+            }
+
+            @Override
+            public void onComplete() {
+                Log.d(TAG, "onComplete: Note updated successfully!");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: " + e.getMessage());
+            }
+        };
+    }
+
+    private SingleObserver<Integer> getFlowableObserver() {
+        return new SingleObserver<Integer>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.d(TAG, "onSubscribe");
+            }
+
+            @Override
+            public void onSuccess(Integer integer) {
+                Log.d(TAG, "onSuccess: " + integer);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: " + e.getMessage());
+            }
+        };
+    }
+
+    private Flowable<Integer> getFlowableObservable() {
+        return Flowable.range(1, 100);
+    }
+
+
+
+
+    class Note {
+        public int id;
+        public String text;
+
+        public Note(int i, String s) {
+            this.id = i;
+            this.text = s;
+        }
+
+        public String getNote() {
+            return id + text;
+        }
+    }
 }

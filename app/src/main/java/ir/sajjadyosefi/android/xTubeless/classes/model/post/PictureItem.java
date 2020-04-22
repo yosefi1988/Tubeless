@@ -185,7 +185,7 @@ public class PictureItem  extends ParentItem{
     }
 
     @Override
-    protected void share(Context mContext, int listType, TimelineItem timelineItem) {
+    protected void share(Context mContext, int listType, NewTimelineItem timelineItem) {
 
     }
 }

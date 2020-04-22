@@ -54,15 +54,17 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
     }
 
     private void setCount() {
-        if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
+        //todo uncoment all
+//        if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
+//            PAGE_COUNT = 2;
+//        }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+//            PAGE_COUNT = 3;
+//        }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+//
             PAGE_COUNT = 2;
-        }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
-            PAGE_COUNT = 3;
-        }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
-            PAGE_COUNT = 2;
-        }else {
-            PAGE_COUNT = 2;
-        }
+//        }else {
+//            PAGE_COUNT = 2;
+//        }
     }
 
     @Override
@@ -95,6 +97,7 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
 //                fragmentx = d33333.newInstance(position,LIST_TIMELINE );
 
 //                fragment = new ListFragment(context);
+
 
                 if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
                     fragmentx1 = new ListFragment(context,TYPE_YAFTE);

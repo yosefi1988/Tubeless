@@ -49,7 +49,8 @@ public interface ApiServiceTubeless {
     Call<Object> getYafteTimeline(@Query("index") int index,
                                   @Query("count") int count);
 
-    @GET("Api/TimeLine/getTubelessYadakTimeline")
+//    @GET("Api/TimeLine/getTubelessYadakTimeline")
+    @GET("Api/TimeLine/getNewTubelessYadakTimeline")
     Call<Object> getTimelineYadak(@Query("index") int index,
                                   @Query("count") int count);
 

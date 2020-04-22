@@ -32,7 +32,7 @@ public abstract class ParentItem implements IItems {
     public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
 
         TimelineItemViewHolder holder = (TimelineItemViewHolder) holder0;
-        final TimelineItem timelineItem = (TimelineItem) item;
+        final ParentItem timelineItem = (ParentItem) item;
 
 //        if (Global.user != null) {
 //            if (Global.user.getMobileNumber().contains("09123678522")) {
@@ -63,7 +63,7 @@ public abstract class ParentItem implements IItems {
 
 
     View.OnClickListener onDeleteClickListener = null;
-    private void onclicks(Context mContext, XAdapter xAdapter, int listType, TimelineItemViewHolder holder, TimelineItem timelineItem, int position) {
+    private void onclicks(Context mContext, XAdapter xAdapter, int listType, TimelineItemViewHolder holder, ParentItem timelineItem, int position) {
 
         holder.imageViewMenu.setClickable(true);
         holder.imageViewMenu.setOnClickListener(new View.OnClickListener() {
@@ -206,7 +206,7 @@ public abstract class ParentItem implements IItems {
     }
 
 
-    public void modal(Context mContext, View view, int listType, TimelineItem timelineItem){
+    public void modal(Context mContext, View view, int listType, ParentItem timelineItem){
         PopupMenu popup = new PopupMenu(mContext, view);
         MenuInflater inflater = popup.getMenuInflater();
         if (Global.user != null && Global.user.isAdmin())
@@ -247,6 +247,6 @@ public abstract class ParentItem implements IItems {
     }
 
 
-    protected abstract void share(Context mContext, int listType, TimelineItem timelineItem);
+    protected abstract void share(Context mContext, int listType, ParentItem timelineItem);
 
 }

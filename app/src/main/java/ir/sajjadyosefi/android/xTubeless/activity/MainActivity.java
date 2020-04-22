@@ -78,6 +78,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
@@ -259,9 +261,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 ////          mBottomNavigation
 
 
-
-
-
     }
 
 
@@ -308,11 +307,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             setFirstRunIsDone();
         }
 
-
-        Bundle bundle = new Bundle();
-        bundle.putInt("FILE_COUNT" , 1);
-        bundle.putSerializable("LIST", (Serializable)  new ArrayList<>());
-        getActivity().startActivity(FileListActivity.getIntent(getContext(),bundle));
     }
 
     private void loadNews() {
@@ -332,7 +326,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             }
         };
 
-        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
+        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
             @Override
             public void t_beforeSendRequest() {
 
@@ -360,11 +354,11 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
             @Override
             public void t_onSuccess(Object response) {
-                TimelineListResponse responseX = (TimelineListResponse) response;
+                NewTimelineListResponse responseX = (NewTimelineListResponse) response;
                 counterFab.setCount(responseX.getTimelineList().size());
 
 
-                for (TimelineItem item : responseX.getTimelineList()){
+                for (NewTimelineItem item : responseX.getTimelineList()){
 
                     ////////////////////////////////// on click ///////////////////////////////////
                     View.OnClickListener goToReadNews = new View.OnClickListener() {
@@ -390,7 +384,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
                     Picasso.get()
-                            .load(item.getPicture())
+                            .load("item.getPicture()")
                             .placeholder(R.drawable.jpg_paeez)
                             //.centerInside()
                             //.transform(transformation)

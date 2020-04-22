@@ -1,30 +1,24 @@
 package ir.sajjadyosefi.android.xTubeless.activity.register;
 
-import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.gson.JsonObject;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
-import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
-import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 
 import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.FileListActivity;
@@ -36,10 +30,7 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofit
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity.GO_TO_LOGIN;
-import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
-import static org.litepal.LitePalApplication.getContext;
 
 
 public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
@@ -115,6 +106,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 bundle.putInt("FILE_COUNT" , 1);
                 bundle.putSerializable("LIST", (Serializable)  new ArrayList<>());
                 getActivity().startActivity(FileListActivity.getIntent(getContext(),bundle));
+
             }
         });
         buttonReg.setOnClickListener(new View.OnClickListener() {
@@ -133,10 +125,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                         }
                     });
                 }else {
-
-
                     NewBlogRequest aaaa = new NewBlogRequest();
-
                     if (radioButton1.isChecked()) {
                         aaaa.setCategoryID(StaticValue.cat1);
                     }
@@ -147,32 +136,42 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                         aaaa.setCategoryID(StaticValue.cat3);
                     }
 
-                    aaaa.setUserID((int)Global.user.getUserId());
+                    //todo uncomment sajjjjjjjjjjjjjjad
+//                    aaaa.setUserID((int)Global.user.getUserId());
+                    aaaa.setUserID((int)49);
 
-                    aaaa.setStatement(editTextTitleStatment.getText().toString());
 
-                    aaaa.setText(editTextText.getText().toString());
-                    aaaa.setTextPicture(editTextTextPicture.getText().toString());
+                    aaaa.setTitlePicture("");
+                    aaaa.setTextPicture("");
+
+                    JsonObject oooo = new JsonObject();
+                    oooo.addProperty("title",       editTextTitle.getText().toString());
+                    oooo.addProperty("model",       editTextTitleStatment.getText().toString());
+                    oooo.addProperty("description", editTextTitlePicture.getText().toString());
 
                     aaaa.setTitle(editTextTitle.getText().toString());
-                    aaaa.setTitlePicture(editTextTitlePicture.getText().toString());
+                    aaaa.setStatement(oooo.toString());
 
-                    newYafte(aaaa);
+                    oooo.addProperty("mobile","00");
+                    oooo.addProperty("text",        editTextText.getText().toString());
+                    aaaa.setText(oooo.toString());
+                    newYadak(aaaa);
                 }
             }
         });
 
 //        if (Global.IDUser == NOT_LOGN_USER ){
-        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
-            Bundle bundle = new Bundle();
-            Intent intent = SignInActivity.getIntent(getContext(),bundle);
-            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
-            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
-            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
-            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
-        }
+        //todo uncomment sajjjjjjjjjjjjjjjad
+//        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
+//            Bundle bundle = new Bundle();
+//            Intent intent = SignInActivity.getIntent(getContext(),bundle);
+//            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+//            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+//            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+//            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+//            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+//            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+//        }
 
 
 
@@ -255,7 +254,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 
     }
 
-    private void newYafte(NewBlogRequest blogItem) {
+    private void newYadak(NewBlogRequest blogItem) {
         final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
 
         TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {

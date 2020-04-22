@@ -308,7 +308,7 @@ public class TimelineItem extends ParentItem{
     }
 
     @Override
-    protected void share(Context mContext, int listType, TimelineItem timelineItem) {
+    protected void share(Context mContext, int listType, NewTimelineItem timelineItem) {
 //                EndlessList_Adapter.prepareToShare(mContext,blogItem.getTitlePicture(), blogItem.getStatement(), loadedImage[0]);
 
         StringBuilder stringBuilder0 = new StringBuilder();
@@ -335,10 +335,10 @@ public class TimelineItem extends ParentItem{
 
         stringBuilder0.append(timelineItem.getTitle());
         stringBuilder0.append("-");
-        stringBuilder0.append(timelineItem.getDate());
+        stringBuilder0.append("getDate()");
 
         stringBuilder0.append(" در ");
-        stringBuilder0.append(timelineItem.getLocation());
+        stringBuilder0.append("getLocation()");
         stringBuilder0.append("\n");
         stringBuilder0.append("\n");
         stringBuilder0.append(" ثبت شده در اپلیکیشن تیوبلس در تاریخ ");

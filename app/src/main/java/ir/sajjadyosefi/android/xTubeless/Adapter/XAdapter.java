@@ -19,11 +19,13 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NotiesItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
@@ -139,7 +141,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     private void loadTimeline(Context context,int current_page,boolean isRefresh) {
 
         if (listType == TYPE_YADAK) {
-            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
+            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
 
@@ -167,10 +169,10 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                 @Override
                 public void t_onSuccess(Object response) {
-                    TimelineListResponse responseX = (TimelineListResponse) response;
+                    NewTimelineListResponse responseX = (NewTimelineListResponse) response;
 //                    data.add(new NotiesItem());
 
-                    for (TimelineItem item : responseX.getTimelineList()){
+                    for (NewTimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
                         data.add(item);
 //                        if (isRefresh) {
@@ -295,6 +297,10 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
         }else if (data.get(position) instanceof TimelineItem) {
             final TimelineItem item = (TimelineItem) data.get(position);
+            item.fill(context,this , listType, holder, item, position);
+
+        }else if (data.get(position) instanceof NewTimelineItem) {
+            final NewTimelineItem item = (NewTimelineItem) data.get(position);
             item.fill(context,this , listType, holder, item, position);
 
         }else if (data.get(position) instanceof PostSearchResponseItem) {

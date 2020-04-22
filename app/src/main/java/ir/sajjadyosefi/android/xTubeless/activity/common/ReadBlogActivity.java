@@ -19,6 +19,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 
@@ -60,7 +61,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
         Gson gson = new Gson();
         String objectString = getIntent().getStringExtra("Object");
-        TimelineItem blogItem = gson.fromJson(objectString, TimelineItem.class);
+        NewTimelineItem blogItem = gson.fromJson(objectString, NewTimelineItem.class);
         firstFillData(blogItem);
 
         TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineItemResponse.class) {
@@ -145,21 +146,21 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
     ImageView imageViewUserAvatar, imageViewShare,imageviewPicture;
     View viewHeader;
 
-    private void firstFillData(TimelineItem timelineItem) {
+    private void firstFillData(NewTimelineItem newTimelineItem) {
 
         DateConverterSjd dateUtiliti = new DateConverterSjd();
 
-        if (timelineItem.getCategoryID() == StaticValue.newsCategory){
+        if (newTimelineItem.getCategoryID() == StaticValue.newsCategory){
             viewHeader.setVisibility(View.GONE);
         }else {
             viewHeader.setVisibility(View.VISIBLE);
         }
 
 
-        if (timelineItem.getPicture() != null && timelineItem.getPicture().length() > 10) {
+        if (newTimelineItem.getTitlePicture() != null && newTimelineItem.getTitlePicture().length() > 10) {
             imageviewPicture.setVisibility(View.VISIBLE);
             Picasso.get()
-                    .load(timelineItem.getPicture())
+                    .load(newTimelineItem.getTitlePicture())
                     .placeholder(R.drawable.bg_search)
                     //.centerInside()
                     //.transform(transformation)
@@ -184,45 +185,45 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         }
 
 
-        StringBuilder stringBuilder0 = new StringBuilder();
-        stringBuilder0.append(timelineItem.getTitle());
-        if (timelineItem.getCategoryID() == StaticValue.cat1) {
-            stringBuilder0.append(" (");
-            stringBuilder0.append("گمشده");
-            stringBuilder0.append(")");
-
+        StringBuilder stringBuilderTitle = new StringBuilder();
+        stringBuilderTitle.append(newTimelineItem.getTitle());
+        if (newTimelineItem.getCategoryID() == StaticValue.cat1) {
+            stringBuilderTitle.append(" (");
+            stringBuilderTitle.append(StaticValue.cat1text);
+            stringBuilderTitle.append(")");
+        }else if (newTimelineItem.getCategoryID() == StaticValue.cat2) {
+            stringBuilderTitle.append(" (");
+            stringBuilderTitle.append(StaticValue.cat2text);
+            stringBuilderTitle.append(")");
+        }else if (newTimelineItem.getCategoryID() == StaticValue.cat3) {
+            stringBuilderTitle.append(" (");
+            stringBuilderTitle.append(StaticValue.cat3text);
+            stringBuilderTitle.append(")");
+        }else {
+            stringBuilderTitle.append(" - ");
+            stringBuilderTitle.append(StaticValue.cat3text);
         }
-        if (timelineItem.getCategoryID() == StaticValue.cat2) {
-            stringBuilder0.append(" (");
-            stringBuilder0.append("پیداشده");
-            stringBuilder0.append(")");
-        }
-        if (timelineItem.getCategoryID() == StaticValue.cat3) {
-            stringBuilder0.append(" (");
-            stringBuilder0.append("سرقتی");
-            stringBuilder0.append(")");
-        }
-        textViewTitle.setText(stringBuilder0.toString());
+        textViewTitle.setText(stringBuilderTitle.toString());
 
 
-        textViewLocation.setText(timelineItem.getLocation());
+        textViewLocation.setText(newTimelineItem.getTextFromJson());
 
-        if (timelineItem.getText() == null)
-            textViewText.setVisibility(View.GONE);
-        else
-            textViewText.setText(timelineItem.getText());
+//        if (newTimelineItem.getText() == null)
+//            textViewText.setVisibility(View.GONE);
+//        else
+//            textViewText.setText(newTimelineItem.getText());
 
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(timelineItem.getDate());
+//        stringBuilder.append(newTimelineItem.getRegisterDate());
         stringBuilder.append(" ( ");
         stringBuilder.append("تاریخ ثبت : ");
-        stringBuilder.append(timelineItem.getRegisterDate());
+        stringBuilder.append(newTimelineItem.getRegisterDate());
         stringBuilder.append(" ) ");
         textViewDate.setText(stringBuilder.toString());
 
-        textViewUserName.setText(timelineItem.getUserNameMasked(timelineItem.getUserName()));
-        textViewCount.setText(timelineItem.getViewCount() + "");
+        textViewUserName.setText(newTimelineItem.getUserNameMasked(newTimelineItem.getUserName()));
+        textViewCount.setText(newTimelineItem.getViewCount() + "");
 
 
 
@@ -234,14 +235,14 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-        if (timelineItem.getUserImage().length() < 5){
+        if (newTimelineItem.getUserImage().length() < 5){
             Picasso.get()
                     .load(R.drawable.png_user)
                     //.transform(transformation)
                     .into(imageViewUserAvatar);
         }else {
             Picasso.get()
-                    .load(timelineItem.getUserImage())
+                    .load(newTimelineItem.getUserImage())
                     .placeholder(R.drawable.bg_search)
                     //.centerInside()
                     //.transform(transformation)
@@ -262,10 +263,10 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         }
 
 
-        fillClicks(timelineItem);
+        fillClicks(newTimelineItem);
     }
 
-    private void fillClicks(TimelineItem timelineItem) {
+    private void fillClicks(NewTimelineItem timelineItem) {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -295,7 +296,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         View.OnClickListener onclick2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"user id : " + timelineItem.getUserID() ,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext,"user id : " + timelineItem.getUserID() ,Toast.LENGTH_SHORT).show();
             }
         };
 
