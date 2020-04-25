@@ -1,6 +1,8 @@
 package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit;
 
 
+import android.app.Dialog;
+
 import java.io.IOException;
 
 import ir.sajjadyosefi.android.xTubeless.Global;

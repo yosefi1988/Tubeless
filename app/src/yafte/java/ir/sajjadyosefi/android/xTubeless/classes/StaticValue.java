@@ -25,9 +25,7 @@ public class StaticValue {
 
 
     public static int newsCategory = 11;
-    public static int cat1 = 10018;
-    public static int cat2 = 10019;
-    public static int cat3 = 10020;
+
     public static final int IDApplicationVersion = 108;
     public static final int IDApplication = 19;
 
@@ -36,7 +34,4 @@ public class StaticValue {
     public static final int PROGRESS_TYPE = 2;
 
 
-    public static int catYafte1 = 16;
-    public static int catYafte2 = 17;
-    public static int catYafte3 = 18;
 }

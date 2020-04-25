@@ -5,11 +5,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -21,7 +19,6 @@ import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
@@ -121,13 +118,13 @@ public class RegNewYafteActivity extends TubelessTransparentStatusBarActivity {
                     NewBlogRequest aaaa = new NewBlogRequest();
 
                     if (radioButton1.isChecked()) {
-                        aaaa.setCategoryID(StaticValue.catYafte1);
+                        aaaa.setCategoryID(R.integer.cat1Yafte);
                     }
                     if (radioButton2.isChecked()) {
-                        aaaa.setCategoryID(StaticValue.catYafte2);
+                        aaaa.setCategoryID(R.integer.cat2Yafte);
                     }
                     if (radioButton3.isChecked()) {
-                        aaaa.setCategoryID(StaticValue.catYafte3);
+                        aaaa.setCategoryID(R.integer.cat3Yafte);
                     }
 
                     aaaa.setUserID((int)Global.user.getUserId());

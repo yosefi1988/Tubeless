@@ -1,7 +1,9 @@
 package ir.sajjadyosefi.android.xTubeless.activity.register;
 
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,9 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
@@ -31,6 +36,7 @@ import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity.GO_TO_LOGIN;
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
 
 public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
@@ -127,18 +133,17 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 }else {
                     NewBlogRequest aaaa = new NewBlogRequest();
                     if (radioButton1.isChecked()) {
-                        aaaa.setCategoryID(StaticValue.cat1);
+                        aaaa.setCategoryID(R.integer.cat1Yadak);
                     }
                     if (radioButton2.isChecked()) {
-                        aaaa.setCategoryID(StaticValue.cat2);
+                        aaaa.setCategoryID(R.integer.cat2Yadak);
                     }
                     if (radioButton3.isChecked()) {
-                        aaaa.setCategoryID(StaticValue.cat3);
+                        aaaa.setCategoryID(R.integer.cat3Yadak);
                     }
 
-                    //todo uncomment sajjjjjjjjjjjjjjad
-//                    aaaa.setUserID((int)Global.user.getUserId());
-                    aaaa.setUserID((int)49);
+
+                    aaaa.setUserID((int)Global.user.getUserId());
 
 
                     aaaa.setTitlePicture("");
@@ -161,17 +166,18 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
         });
 
 //        if (Global.IDUser == NOT_LOGN_USER ){
-        //todo uncomment sajjjjjjjjjjjjjjjad
-//        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
-//            Bundle bundle = new Bundle();
-//            Intent intent = SignInActivity.getIntent(getContext(),bundle);
-//            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
-//            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
-//            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
-//            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-//            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-//            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
-//        }
+
+
+        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
+            Bundle bundle = new Bundle();
+            Intent intent = SignInActivity.getIntent(getContext(),bundle);
+            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+        }
 
 
 
@@ -187,6 +193,20 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 //        ss.setPassword(systemPassword);
 //        ss.setAndroidId(androidId);
 //        sendAvatar(ss,((File) files),(((File) files).getUri()));
+
+
+        try {
+            PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
+            String versionName = pInfo.versionName;
+            //todo 1 change version if not complete
+            if (versionName.contains("4.3.0") || versionName.contains("1.3.0")|| versionName.contains("1.1.0")) {
+                buttonAddFiles.setEnabled(false);
+            } else {
+                buttonAddFiles.setEnabled(true);
+            }
+        }catch (Exception ex){
+
+        }
     }
 
     @Override

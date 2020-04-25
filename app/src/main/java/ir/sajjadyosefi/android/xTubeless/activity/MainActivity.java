@@ -254,13 +254,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
 
-
         loadNews();
 
 ////        toolbar
 ////          mBottomNavigation
-
-
     }
 
 
@@ -326,7 +323,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             }
         };
 
-        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
+        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
             @Override
             public void t_beforeSendRequest() {
 
@@ -354,11 +351,11 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
             @Override
             public void t_onSuccess(Object response) {
-                NewTimelineListResponse responseX = (NewTimelineListResponse) response;
+                TimelineListResponse responseX = (TimelineListResponse) response;
                 counterFab.setCount(responseX.getTimelineList().size());
 
 
-                for (NewTimelineItem item : responseX.getTimelineList()){
+                for (TimelineItem item : responseX.getTimelineList()){
 
                     ////////////////////////////////// on click ///////////////////////////////////
                     View.OnClickListener goToReadNews = new View.OnClickListener() {
@@ -367,12 +364,24 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                            counterFab.setCount(10); // Set the count value to show on badge
 //                            counterFab.increase(); // Increase the current count value by 1
 
+
+
                             Intent intent = new Intent(getContext(), ReadBlogActivity.class);
                             Gson gson = new Gson();
                             String json = gson.toJson(item);
-                            intent.putExtra("Object", json);
+
+                            // Old Transfer
+//                    intent.putExtra("Object", json);
+
+                            //New Transfer
+                            Bundle bundle = new Bundle();
+                            bundle.putString("Object", json);
+                            bundle.putString("Type", "MainPageNews");
+                            intent.putExtras(bundle);
+
                             getContext().startActivity(intent);
                             ((Activity) getContext()).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+
                         }
                     };
 
@@ -412,7 +421,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 }
             }
         };
-        Global.apiManagerTubeless.getTubelessNews( ssssssss);
+        Global.apiManagerTubeless.getTubelessNews(ssssssss);
 
     }
 
@@ -565,7 +574,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
                         String versionName = pInfo.versionName;
                         //todo 1 change version if not complete
-                        if (versionName.contains("4.2.0") || versionName.contains("1.2.0")|| versionName.contains("1.0.0")) {
+                        if (versionName.contains("4.3.0") || versionName.contains("1.3.0")|| versionName.contains("1.1.0")) {
                             Toast.makeText(getContext(),"در حال آماده سازی هستیم." , Toast.LENGTH_LONG).show();
                         } else {
                             getContext().startActivity(new Intent(getContext(), KarteSokhtActivity.class));

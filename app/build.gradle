@@ -3,16 +3,16 @@ apply plugin: 'io.fabric'
 
 
 def final appNameTubeless = 'Tubeless'
-def final Tubeless_VersionName = "4.2.0"    //todo 3 change version Name before publish
-def final Tubeless_VersionCode = 31         //todo 4 change version code before publish
+def final Tubeless_VersionName = "4.3.0"    //todo 3 change version Name before publish
+def final Tubeless_VersionCode = 32         //todo 4 change version code before publish
 
 def final appNameYafte = 'مدارک گم شده'
-def final Yafte_VersionName = "1.2.0"   //todo 5 change version Name before publish
-def final Yafte_VersionCode = 8         //todo 6 change version code before publish
+def final Yafte_VersionName = "1.3.0"   //todo 5 change version Name before publish
+def final Yafte_VersionCode = 9         //todo 6 change version code before publish
 
 def final appNameYadak = 'لوازم یدکی'
-def final Yadak_VersionName = "1.0.0"   //todo 5 change version Name before publish
-def final Yadak_VersionCode = 1         //todo 6 change version code before publish
+def final Yadak_VersionName = "1.1.0"   //todo 5 change version Name before publish
+def final Yadak_VersionCode = 2         //todo 6 change version code before publish
 
 
 android {

@@ -3,15 +3,10 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.post;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.widget.PopupMenu;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
@@ -35,13 +30,16 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 
+import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitle;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitleForShare;
+
 /**
  * Created by sajjad on 1/20/2018.
  */
 
 public class TimelineItem extends ParentItem{
 
-    private int blogID;
+
     private String title;
     private String date;
     private String location;
@@ -50,19 +48,11 @@ public class TimelineItem extends ParentItem{
     private String registerDate;
     private int viewCount;
     private int shareCount;
-    private int userID;
     private String userName;
     private String userImage;
     private int categoryID;
 
 
-    public int getBlogID() {
-        return blogID;
-    }
-
-    public void setBlogID(int blogID) {
-        this.blogID = blogID;
-    }
 
     public String getTitle() {
         return title;
@@ -133,13 +123,6 @@ public class TimelineItem extends ParentItem{
         this.shareCount = shareCount;
     }
 
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
 
     public String getUserName() {
         return userName;
@@ -218,24 +201,8 @@ public class TimelineItem extends ParentItem{
         date.append(" ) ");
         holder.textViewDate.setText(date.toString());
 
-        StringBuilder partType = new StringBuilder();
-        partType.append(timelineItem.getTitle());
-        if (timelineItem.getCategoryID() == StaticValue.cat1) {
-            partType.append(" (");
-            partType.append(mContext.getString(R.string.type1));
-            partType.append(")");
-        }
-        if (timelineItem.getCategoryID() == StaticValue.cat2) {
-            partType.append(" (");
-            partType.append(mContext.getString(R.string.type2));
-            partType.append(")");
-        }
-        if (timelineItem.getCategoryID() == StaticValue.cat3) {
-            partType.append(" (");
-            partType.append(mContext.getString(R.string.type3));
-            partType.append(")");
-        }
-        holder.textViewTitle.setText(partType.toString());
+        fillTitle(mContext,timelineItem.getTitle(),timelineItem.getCategoryID(),holder.textViewTitle);
+
         holder.textViewLocation.setText(timelineItem.getLocation());
         holder.textViewUserName.setText(timelineItem.getUserNameMasked());
         holder.textViewCount.setText(timelineItem.getViewCount() + "");
@@ -289,7 +256,16 @@ public class TimelineItem extends ParentItem{
                     Intent intent = new Intent(mContext, ReadBlogActivity.class);
                     Gson gson = new Gson();
                     String json = gson.toJson(timelineItem);
-                    intent.putExtra("Object", json);
+
+                    // Old Transfer
+//                    intent.putExtra("Object", json);
+
+                    //New Transfer
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Object", json);
+                    bundle.putString("Type", "TimelineItem");
+                    intent.putExtras(bundle);
+
                     mContext.startActivity(intent);
                     ((Activity) mContext).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
 
@@ -308,37 +284,23 @@ public class TimelineItem extends ParentItem{
     }
 
     @Override
-    protected void share(Context mContext, int listType, NewTimelineItem timelineItem) {
+    protected void share(Context mContext, int listType, ParentItem timelineItem0) {
 //                EndlessList_Adapter.prepareToShare(mContext,blogItem.getTitlePicture(), blogItem.getStatement(), loadedImage[0]);
 
+        TimelineItem timelineItem = (TimelineItem) timelineItem0;
         StringBuilder stringBuilder0 = new StringBuilder();
-        stringBuilder0.append(timelineItem.getTitle());
-        if (timelineItem.getCategoryID() == StaticValue.cat1) {
-//            stringBuilder0.append(" (");
-            stringBuilder0.append("مدارک گمشده");
-//            stringBuilder0.append(")");
-
-        }
-        if (timelineItem.getCategoryID() == StaticValue.cat2) {
-//            stringBuilder0.append(" (");
-            stringBuilder0.append("مدارک پیداشده");
-//            stringBuilder0.append(")");
-        }
-        if (timelineItem.getCategoryID() == StaticValue.cat3) {
-//            stringBuilder0.append(" (");
-            stringBuilder0.append("مدارک سرقتی");
-//            stringBuilder0.append(")");
-        }
+        stringBuilder0.append(fillTitleForShare(mContext, timelineItem.getTitle(),timelineItem.getCategoryID()));
         stringBuilder0.append("\n");
         stringBuilder0.append("\n");
 
 
         stringBuilder0.append(timelineItem.getTitle());
         stringBuilder0.append("-");
-        stringBuilder0.append("getDate()");
+        stringBuilder0.append(timelineItem.getPicture());
 
         stringBuilder0.append(" در ");
-        stringBuilder0.append("getLocation()");
+        stringBuilder0.append(((TimelineItem) timelineItem0).getLocation());
+
         stringBuilder0.append("\n");
         stringBuilder0.append("\n");
         stringBuilder0.append(" ثبت شده در اپلیکیشن تیوبلس در تاریخ ");

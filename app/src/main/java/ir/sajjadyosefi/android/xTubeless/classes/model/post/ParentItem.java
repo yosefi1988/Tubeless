@@ -29,6 +29,25 @@ import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.Tubeless
 
 public abstract class ParentItem implements IItems {
 
+    private int blogID;
+    private int userID;
+
+    public int getBlogID() {
+        return blogID;
+    }
+
+    public void setBlogID(int blogID) {
+        this.blogID = blogID;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
     public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
 
         TimelineItemViewHolder holder = (TimelineItemViewHolder) holder0;

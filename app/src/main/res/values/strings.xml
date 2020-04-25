@@ -241,9 +241,7 @@
     <string name="data_not_true">اطلاعات را به درستی وارد نکرده اید.</string>
     <string name="help2">درصورتی که شما مدت زمان زیادی هست به دنبال قطعه های کمیاب خودرو می گردید اطلاعات قطعه خود را در این اپ وارد کنید. به سرعت با شما تماس گرفته خواهد شد.</string>
 
-    <string name="type1">قطعات وارداتی</string>
-    <string name="type2">قطعات قدیمی</string>
-    <string name="type3">انبار</string>
+
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -401,4 +399,12 @@
     <string name="add_files">افزودن فایل</string>
 
 
+    <string name="type1_yadak">درخواست قطعه</string>
+    <string name="type2_yadak">درخواست قطعه</string>
+    <string name="type3_yadak">قطعه موجود در انبار</string>
+
+
+    <string name="type1_yafte">گمشده</string>
+    <string name="type2_yafte">پیداشده</string>
+    <string name="type3_yafte">سرقتی</string>
 </resources>

@@ -25,12 +25,7 @@ public class StaticValue {
 
 
     public static int newsCategory = 11;
-    public static int cat1 = 10018;
-    public static String cat1text = "دنبال قطعه خارجی";
-    public static int cat2 = 10019;
-    public static String cat2text = "دنبال قطعه قدیمی";
-    public static int cat3 = 10020;
-    public static String cat3text = "قطعه نایاب دارم";
+
 
     public static final int IDApplicationVersion = 107;
     public static final int IDApplication = 23;
@@ -40,7 +35,4 @@ public class StaticValue {
     public static final int PROGRESS_TYPE = 2;
 
 
-    public static int catYafte1 = 16;
-    public static int catYafte2 = 17;
-    public static int catYafte3 = 18;
 }

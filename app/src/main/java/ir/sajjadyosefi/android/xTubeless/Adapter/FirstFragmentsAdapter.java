@@ -54,17 +54,15 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
     }
 
     private void setCount() {
-        //todo uncoment all
-//        if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
-//            PAGE_COUNT = 2;
-//        }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
-//            PAGE_COUNT = 3;
-//        }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
-//
+        if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
             PAGE_COUNT = 2;
-//        }else {
-//            PAGE_COUNT = 2;
-//        }
+        }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+            PAGE_COUNT = 3;
+        }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+            PAGE_COUNT = 2;
+        }else {
+            PAGE_COUNT = 2;
+        }
     }
 
     @Override
