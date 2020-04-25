@@ -8,9 +8,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -112,6 +114,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     private ViewPager viewPager;
     private FirstFragmentsAdapter firstFragmentsAdapter;
     ViewGroup root;
+    public ViewGroup rootView ;
+
 
     //Top of page
     private ImageView headerImageView;
@@ -194,6 +198,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 //        BottomNavigation.Companion.setDEBUG(BuildConfig.DEBUG);
         setContentView(R.layout.activity_main);
+        rootView = (ViewGroup) ((ViewGroup) this.findViewById(android.R.id.content)).getChildAt(0);
+
 
         root = findViewById(R.id.CoordinatorLayout01);
         counterFab = (CounterFab) findViewById(R.id.fabx);
@@ -931,6 +937,39 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     }
 
 
+    public void BackButtonPressed() {
+
+
+        if (doubleBackToExitPressedOnce) {
+            finish();
+        }
+        this.doubleBackToExitPressedOnce = true;
+
+//        Snackbar snack = Snackbar.make(rootView, getContext().getString(R.string.exit_double_tap_message), Snackbar.LENGTH_SHORT);
+//        View view = snack.getView();
+//        //view.setBackgroundColor(getContext().getResources().getColor(R.color.samanGreenText));
+//        TextView tv = view.findViewById(R.id.snackbar_text);
+//        tv.setTextColor(Color.WHITE);
+//        //((SnackbarContentLayout) tv.getParent()).setBackgroundColor(getContext().getResources().getColor(R.color.samanGreenText));
+//        snack.show();
+
+        Toast.makeText(getContext(), getContext().getString(R.string.exit_double_tap_message),Toast.LENGTH_LONG).show();
+
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+    }
+
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        BackButtonPressed();
+    }
 
     Calendar calendar = Calendar.getInstance();
     public double getFirstNumber() {

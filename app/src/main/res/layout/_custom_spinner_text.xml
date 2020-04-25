@@ -3,20 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="70dp"
     android:layoutDirection="ltr"
     android:layout_gravity="center_horizontal"
     android:gravity="center"
     android:orientation="horizontal" >
 
 
-
     <TextView
+        android:layout_marginTop="-5dp"
         android:id="@+id/textview"
         android:text="kkkk"
-        android:textSize="30dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginLeft="5dp"
+        android:textSize="50dp"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:textColor="#000"

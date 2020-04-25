@@ -383,7 +383,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
             imageviewPicture.setVisibility(View.VISIBLE);
             Picasso.get()
                     .load(timelineItem.getPicture())
-                    .placeholder(R.drawable.bg_search)
+                    //.placeholder(R.drawable.bg_search)
                     //.centerInside()
                     //.transform(transformation)
                     .into(imageviewPicture, new com.squareup.picasso.Callback() {

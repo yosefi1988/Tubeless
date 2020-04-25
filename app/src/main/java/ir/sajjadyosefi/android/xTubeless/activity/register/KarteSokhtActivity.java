@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarAc
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
@@ -86,11 +89,11 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-//        editText1 = (EditText) findViewById(R.id.editText1);
-//        editText2 = (EditText) findViewById(R.id.editText2);
-//        editText3 = (EditText) findViewById(R.id.editText3);
+        editText1 = (EditText) findViewById(R.id.editText1);
+        editText2 = (EditText) findViewById(R.id.editText2);
+        editText3 = (EditText) findViewById(R.id.editText3);
         button = (Button) findViewById(R.id.button);
-        listView = (Spinner) findViewById(R.id.spinner2);
+        listView = (Spinner) findViewById(R.id.spinner);
 
 
         ArrayAdapter adapter = new ArrayAdapter<String>(mContext, R.layout._custom_spinner_text,R.id.textview, countryArray);
@@ -200,7 +203,6 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
     }
 
 
-    public static boolean error = false;
 
     private void CheckFilter() {
 
@@ -216,12 +218,12 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 //                        public void onResponse(Call<Configuration> call, Response<Configuration> response) {
 //
 //                            if (validData()) {
-//                                editText1Value = editText1.getText().toString();
-//                                editText2Value = editText2.getText().toString();
-//                                editText3Value = editText3.getText().toString();
-//                                editTextXValue = listView.getSelectedItemPosition() + "";
+                                editText1Value = editText1.getText().toString();
+                                editText2Value = editText2.getText().toString();
+                                editText3Value = editText3.getText().toString();
+                                editTextXValue = listView.getSelectedItemPosition() + "";
 //                                if (error == false) {
-//                                    callService();
+                                    callService();
 //                                } else {
 //                                    callService();
 //                                }
@@ -243,16 +245,54 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-//                Toast.makeText(mContext,"عملیات با خطا مواجه شد",Toast.LENGTH_SHORT).show();
-//                Toast.makeText(mContext,"دوباره تلاش کنید",Toast.LENGTH_SHORT).show();
-//                error = true;
-//
-//                if (button != null)
-//                    button.setEnabled(true);
+                Toast.makeText(mContext,"عملیات با خطا مواجه شد",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"دوباره تلاش کنید",Toast.LENGTH_SHORT).show();
+
+                if (button != null)
+                    button.setEnabled(true);
             }
         });
     }
 
+    private void showManyResultDialog(String responseX) {
+        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+
+        //then we will inflate the custom alert dialog xml that we created
+        final View dialogView = LayoutInflater.from(this).inflate(R.layout.my_dialog, viewGroup, false);
+        TextView textViewStatment = dialogView.findViewById(R.id.textViewStatment);
+        Button buttonOk = dialogView.findViewById(R.id.buttonOk);
+        Button buttonCancel = dialogView.findViewById(R.id.buttonCancel);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            textViewStatment.setText(Html.fromHtml(responseX, Html.FROM_HTML_MODE_COMPACT));
+        } else {
+            textViewStatment.setText(Html.fromHtml(responseX));
+        }
+
+        //Now we need an AlertDialog.Builder object
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        //setting the view of the builder to our custom view that we already inflated
+        builder.setView(dialogView);
+
+        //finally creating the alert dialog and displaying it
+        final AlertDialog alertDialog = builder.create();
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+        buttonOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+
+            }
+        });
+        alertDialog.show();
+    }
 
     private void callService() {
 
@@ -261,10 +301,9 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
             public void onResponse(Call<String> call, Response<String> response) {
 //                response.body()
 
-//                ResultActivity.result = response.body();
-//                Intent intent = new Intent(mContext, ResultActivity.class);
-//                startActivity(intent);
-                error = false ;
+                showManyResultDialog(response.body());
+
+
                 editText1Value = null;
                 editText2Value = null;
                 editText3Value = null;
@@ -278,7 +317,6 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(mContext,"عملیات با خطا مواجه شد",Toast.LENGTH_SHORT).show();
                 Toast.makeText(mContext,"دوباره تلاش کنید",Toast.LENGTH_SHORT).show();
-                error = true;
 
                 if (button != null)
                     button.setEnabled(true);
