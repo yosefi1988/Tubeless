@@ -62,7 +62,8 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 
     Spinner listView;
     private Button button ,buttonContactUS;
-    String[] countryNames={"حرف","الف","ب","ت","ج","د","س","ص","ط","ع","ق","ل","م","ن","و","ه","ي","ک","ژ"};
+//    String[] countryNames={"حرف","الف","ب","ت","ج","د","س","ص","ط","ع","ق","ل","م","ن","و","ه","ي","ک","ژ"};
+    String[] countryNames={"---","الف","ب","ت","ج","د","س","ص","ط","ع","ق","ل","م","ن","و","ه","ي","ک","ژ"};
     private static int selectedChar ;
     String[] countryArray = {"India", "Pakistan", "USA", "UK"};
 
