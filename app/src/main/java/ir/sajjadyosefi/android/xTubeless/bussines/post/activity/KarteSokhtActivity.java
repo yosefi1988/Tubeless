@@ -1,12 +1,8 @@
-package ir.sajjadyosefi.android.xTubeless.activity.register;
+package ir.sajjadyosefi.android.xTubeless.bussines.post.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -24,23 +20,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import ir.moslem_deris.apps.zarinpal.ZarinPal;
 import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
-import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
-import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,8 +49,8 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 
     Spinner listView;
     private Button button ,buttonContactUS;
-//    String[] countryNames={"حرف","الف","ب","ت","ج","د","س","ص","ط","ع","ق","ل","م","ن","و","ه","ي","ک","ژ"};
-    String[] countryNames={"---","الف","ب","ت","ج","د","س","ص","ط","ع","ق","ل","م","ن","و","ه","ي","ک","ژ"};
+    //    String[] countryNames={"حرف","الف","ب","ت","ج","د","س","ص","ط","ع","ق","ل","م","ن","و","ه","ي","ک","ژ"};
+    String[] countryNames = {"--", "الف", "ب", "ت", "ج", "د", "س", "ص", "ط", "ع", "ق", "ل", "م", "ن", "و", "ه", "ي", "ک", "ژ"};
     private static int selectedChar ;
     String[] countryArray = {"India", "Pakistan", "USA", "UK"};
 
@@ -116,7 +103,31 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CheckFilter();
+
+                boolean isValid = true;
+                editText1Value = editText1.getText().toString();
+                editText2Value = editText2.getText().toString();
+                editText3Value = editText3.getText().toString();
+                editTextXValue = listView.getSelectedItemPosition() + "";
+
+                if(editText1Value.length() != 2){
+                    isValid = false;
+                }
+                if(editText2Value.length() != 3){
+                    isValid = false;
+                }
+                if(editText3Value.length() != 2){
+                    isValid = false;
+                }
+                if(listView.getSelectedItemPosition() == 0){
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    CheckFilter();
+                }else {
+                    Toast.makeText(mContext,"اطلاعات را به درستی وارد کنید",Toast.LENGTH_LONG).show();
+                }
             }
         });
 //        fetchWelcome();
@@ -219,10 +230,7 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 //                        public void onResponse(Call<Configuration> call, Response<Configuration> response) {
 //
 //                            if (validData()) {
-                                editText1Value = editText1.getText().toString();
-                                editText2Value = editText2.getText().toString();
-                                editText3Value = editText3.getText().toString();
-                                editTextXValue = listView.getSelectedItemPosition() + "";
+
 //                                if (error == false) {
                                     callService();
 //                                } else {
@@ -260,10 +268,12 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
         ViewGroup viewGroup = findViewById(android.R.id.content);
 
         //then we will inflate the custom alert dialog xml that we created
-        final View dialogView = LayoutInflater.from(this).inflate(R.layout.my_dialog, viewGroup, false);
+        final View dialogView = LayoutInflater.from(this).inflate(R.layout.layout_dialog, viewGroup, false);
         TextView textViewStatment = dialogView.findViewById(R.id.textViewStatment);
         Button buttonOk = dialogView.findViewById(R.id.buttonOk);
         Button buttonCancel = dialogView.findViewById(R.id.buttonCancel);
+        buttonCancel.setText("باشه");
+        buttonOk.setVisibility(View.GONE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             textViewStatment.setText(Html.fromHtml(responseX, Html.FROM_HTML_MODE_COMPACT));

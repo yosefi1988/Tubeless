@@ -262,7 +262,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 //                        deviceRegister();
 //                    }else {
 //                        //Toast.makeText(mContext,mContext.getString(R.string.WeNeedYourDeviceInfo),Toast.LENGTH_LONG).show();
-//                        Global.ShowMessageDialog(context,"",context.getString(R.string.WeNeedYourDeviceInfo));
+//                        DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.WeNeedYourDeviceInfo));
 //                    }
 //                }else {
 //                    Toast.makeText(context,context.getString(R.string.ErrorOnGetPermision),Toast.LENGTH_LONG).show();

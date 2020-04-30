@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,17 +41,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
-import com.google.gson.internal.Primitives;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
 import org.litepal.LitePal;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
@@ -66,22 +59,17 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
 
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
+import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.FileListActivity;
-import ir.sajjadyosefi.android.xTubeless.bussines.post.activity.SearchByNameActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.register.KarteSokhtActivity;
+import ir.sajjadyosefi.android.xTubeless.bussines.post.activity.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
-import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
@@ -91,13 +79,11 @@ import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import it.sephiroth.android.library.bottomnavigation.BadgeProvider;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import it.sephiroth.android.library.bottomnavigation.FloatingActionButtonBehavior;
-import it.sephiroth.android.library.bottomnavigation.MenuParser;
 import it.sephiroth.android.library.bottomnavigation.MiscUtils;
 import retrofit2.Call;
 
 import static android.util.Log.VERBOSE;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
@@ -264,6 +250,12 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 ////        toolbar
 ////          mBottomNavigation
+
+
+
+        //todo remove this line
+//        getContext().startActivity(new Intent(getContext(), RegNewYadakActivity.class));
+        getContext().startActivity(new Intent(getContext(), MainActivityProfile.class));
     }
 
 

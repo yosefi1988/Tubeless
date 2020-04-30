@@ -34,6 +34,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TwoLinesViewHo
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 
+import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
 
@@ -359,7 +360,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
         }else{
             try {
-                Global.ShowMessageDialog(context,"",context.getString(R.string.errorInInternetConnection));
+                DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.errorInInternetConnection));
             }catch (Exception ex){}
         }
     }

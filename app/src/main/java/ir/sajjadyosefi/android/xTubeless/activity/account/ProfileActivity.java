@@ -75,7 +75,7 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
             public void onClick(View view) {
                 //https://androidwave.com/android-upload-file-to-server-with-progress/
 
-                
+
             }
         });
 

@@ -148,7 +148,7 @@ public class AppUtility {
                                                         browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                                         (((Activity)context)).startActivity(browserIntent);
                                                     } else {
-                                                        Global.ShowMessageDialog(context,"","شما تلگرام را نصب نکرده اید.");
+                                                        DialogUtil.ShowMessageDialog(context,"","شما تلگرام را نصب نکرده اید.");
                                                     }
                                                 }
                                             }
@@ -182,7 +182,7 @@ public class AppUtility {
             ((Activity)context).startActivity(iIntent);
         } else {
             //showDownloadDialog(R.string.downloadTelegram, appName);
-            Global.ShowMessageDialog(context,"","شما اینستاگرام را نصب نکرده اید.");
+            DialogUtil.ShowMessageDialog(context,"","شما اینستاگرام را نصب نکرده اید.");
         }
 
     }
@@ -190,7 +190,7 @@ public class AppUtility {
     public void showWebPage(Context context) {
 
 
-        Global.ShowMessageDialog(context,"","در حال آماده سازی هستیم.");
+        DialogUtil.ShowMessageDialog(context,"","در حال آماده سازی هستیم.");
         //ok
 //        Intent intent = new Intent(getApplicationContext(),WebViewActivity.class);
 //        Bundle bundle = new Bundle();

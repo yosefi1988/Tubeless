@@ -29,6 +29,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.BlogItemViewHo
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
+import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitle;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitleForShare;
@@ -316,59 +317,6 @@ public class TimelineItem extends ParentItem{
     }
 
 
-    public void modal1(Context mContext){
-        final BottomSheetDialog dialog = new BottomSheetDialog(mContext);
-
-        View view = ((Activity)mContext).getLayoutInflater().inflate(R.layout.a_b_bottom_sheet_dialog_delete2, null);
-        dialog.setContentView(view);
-
-
-
-        final TextView buttonDelete = view.findViewById(R.id.textViewDelete);
-//        final TextView textViewChangeToDiscountCard = view.findViewById(R.id.textViewChangeToDiscountCard);
-        final View textViewChangeToDiscountCardHr = view.findViewById(R.id.textViewChangeToDiscountCardHr);
-//        final TextView textViewDiscountCenters = view.findViewById(R.id.textViewDiscountCenters);
-
-//        textViewDiscountCenters.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setData(Uri.parse("https://www.sep.ir/searchStore"));
-////                            intent.setPackage("com.cloudacl");  // package of SafeBrowser App
-//                ((Activity)mContext).startActivity(intent);
-//
-//            }
-//        });
-
-//        if (bankCard.getDiscountRequestStatusID() == 1 || bankCard.getDiscountRequestStatusID() == 0) {
-//            textViewChangeToDiscountCard.setVisibility(View.GONE);
-//            textViewChangeToDiscountCardHr.setVisibility(View.GONE);
-//        }else {
-//            textViewChangeToDiscountCard.setVisibility(View.VISIBLE);
-//            textViewChangeToDiscountCardHr.setVisibility(View.VISIBLE);
-//
-//            textViewChangeToDiscountCard.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = new Intent(mContext, DiscountCardRequestActivity.class);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("CardNo", bankCard.getCardNo());
-//                    intent.putExtras(bundle);
-//                    dialog.dismiss();
-//                    mContext.startActivity(intent);
-//                }
-//            });
-//        }
-
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
-    }
 
     private void loadImage(TimelineItemViewHolder holder, TimelineItem timelineItem) {
         if (timelineItem.getUserImage().length() < 5){
@@ -452,7 +400,7 @@ public class TimelineItem extends ParentItem{
             @Override
             public void onClick(View v) {
                 if(Global.user == null){
-                    Global.ShowMessageDialog(mContext,"",mContext.getString(R.string.NotLoggedIn3));
+                    DialogUtil.ShowMessageDialog(mContext,"",mContext.getString(R.string.NotLoggedIn3));
                 }else {
 //                    AsyncFavouriteBlogItem asyncFavouriteBlogItem = new AsyncFavouriteBlogItem(mContext,mProgressBar,blogItem.getID(),Global.user.getUserId(),blogItem.isInMyFavList());
 //                    asyncFavouriteBlogItem.execute();

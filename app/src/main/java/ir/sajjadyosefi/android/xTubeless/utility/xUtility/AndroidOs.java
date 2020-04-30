@@ -27,6 +27,13 @@ public class AndroidOs {
         }
     }
 
+    public synchronized static boolean checkPermission(Context context , String[] permissions){
+        for (String mPermission : permissions) {
+            return checkPermission(context ,mPermission);
+        }
+        return true;
+    }
+
     public synchronized static boolean shouldShowRequestPermissionRationale(Activity activity , String permission){
         return ActivityCompat.shouldShowRequestPermissionRationale(activity, permission);
     }

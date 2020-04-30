@@ -25,7 +25,7 @@
     <string name="PriceIn">قیمت در</string>
     <string name="HomePageTitle">لیست اصلی</string>
     <string name="ErrorOnGetPermision">خطا در دریافت مجوزهای کاربر</string>
-    <string name="WeNeedYourDeviceInfo">اجرای برنامه به اعطای مجوز از طرف شما بستگی دارد</string>
+    <string name="WeNeedYourDeviceInfo">ادامه کار به اعطای مجوز از طرف شما بستگی دارد</string>
     <string name="login">ورود</string>
     <string name="register">ثبت نام</string>
     <string name="forgetPassword">فراموشی رمز</string>
@@ -408,4 +408,13 @@
     <string name="type1_yafte">گمشده</string>
     <string name="type2_yafte">پیداشده</string>
     <string name="type3_yafte">سرقتی</string>
+    <string name="select_image_source">تصویر را از کجا میخواهید انتخاب کنید ؟</string>
+    <string name="avatar_picture">تصویر آواتار</string>
+    <string name="message_grant_permission">message_need_permission</string>
+    <string name="message_need_permission">message_need_permission</string>
+    <string name="label_setting">label_setting</string>
+    <string name="error_message">error_message</string>
+    <string name="permission_title">مجوز دسترسی</string>
+    <string name="permission_gallery_text">برای این که بتوانیم تصویر را از گالری گوشی شما انتخاب کنیم باید اجازه دسترسی به گالری را به اپلیکیشن بدهید.</string>
+    <string name="permission_camera_text">برای گرفتن عکس باید دسترسی به دوربین را به اپلیکیشن بدهید.</string>
 </resources>

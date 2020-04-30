@@ -34,6 +34,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessExcepti
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.PostRetrofitCallback;
+import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,7 +62,6 @@ public class SearchByNameFragment extends Fragment {
     private boolean isAttached ;
     private View mainProgress;
     private LinearLayout mainLayout;
-    private Context context;
 
 
     public SearchByNameFragment() {
@@ -137,13 +137,13 @@ public class SearchByNameFragment extends Fragment {
                                     //jsonElement = سثقرثق
 
                                     if (responseX.getType().equals("NoResult")) {
-                                        showNotAnyResultDialog(view,responseX);
+                                        DialogUtil.showNotAnyResultDialog(getContext() , view,responseX);
                                     } else if (responseX.getType().equals("SearchResult")) {
                                         if (responseX.getData() != null) {
                                             if (responseX.getData().size() == 1) {
-                                                goToResult(responseX);
+                                                DialogUtil.goToResult(getContext(), responseX);
                                             } else if (responseX.getData().size() >= 2) {
-                                                showManyResultDialog(view,responseX);
+                                                DialogUtil.showManyResultDialog(getContext() ,view,responseX);
                                             } else {
                                                 Toast.makeText(getActivity(), responseX.getMessage(), Toast.LENGTH_LONG).show();
                                             }
@@ -173,7 +173,6 @@ public class SearchByNameFragment extends Fragment {
 
 
     public SearchByNameFragment newInstance(Context context) {
-        this.context = context ;
         Bundle args = new Bundle();
 //        args.putInt(ARG_PAGE, page);
 //        args.putInt(ARG_LIST, list);
@@ -184,83 +183,5 @@ public class SearchByNameFragment extends Fragment {
         return fragment;
     }
 
-    private void showNotAnyResultDialog(View view, final ServerResponse responseX) {
-        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
-        ViewGroup viewGroup;
-        viewGroup = view.findViewById(android.R.id.content);
 
-        //then we will inflate the custom alert dialog xml that we created
-        final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.my_dialog, viewGroup, false);
-        TextView textViewStatment = dialogView.findViewById(R.id.textViewStatment);
-        Button buttonOk = dialogView.findViewById(R.id.buttonOk);
-        Button buttonCancel = dialogView.findViewById(R.id.buttonCancel);
-        textViewStatment.setText(responseX.getMessage());
-
-        //Now we need an AlertDialog.Builder object
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-
-        //setting the view of the builder to our custom view that we already inflated
-        builder.setView(dialogView);
-
-        //finally creating the alert dialog and displaying it
-        final AlertDialog alertDialog = builder.create();
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.dismiss();
-            }
-        });
-        buttonOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.dismiss();
-                goToResult(responseX);
-            }
-        });
-        alertDialog.show();
-    }
-
-    private void showManyResultDialog(View view, final ServerResponse responseX) {
-        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
-        ViewGroup viewGroup = view.findViewById(android.R.id.content);
-
-        //then we will inflate the custom alert dialog xml that we created
-        final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.my_dialog, viewGroup, false);
-        TextView textViewStatment = dialogView.findViewById(R.id.textViewStatment);
-        Button buttonOk = dialogView.findViewById(R.id.buttonOk);
-        Button buttonCancel = dialogView.findViewById(R.id.buttonCancel);
-        textViewStatment.setText(responseX.getMessage());
-
-
-
-        //Now we need an AlertDialog.Builder object
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-
-        //setting the view of the builder to our custom view that we already inflated
-        builder.setView(dialogView);
-
-        //finally creating the alert dialog and displaying it
-        final AlertDialog alertDialog = builder.create();
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.dismiss();
-            }
-        });
-        buttonOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.dismiss();
-                goToResult(responseX);
-            }
-        });
-        alertDialog.show();
-    }
-
-    private void goToResult(ServerResponse responseX) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("type" , TYPE_POST_SEARCH_RESULT);
-        bundle.putSerializable("LIST", (Serializable) responseX.getData());
-        getActivity().startActivity(ContainerActivity.getIntent(getContext(),bundle));
-    }
 }

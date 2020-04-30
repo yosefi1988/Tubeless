@@ -1,20 +1,14 @@
 package ir.sajjadyosefi.android.xTubeless;
 
-import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Environment;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -26,13 +20,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 import java.util.Random;
-
-//import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentGashtogozarAdapter;
-//import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentMashinbazAdapter;
-//import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentPoliceAdapter;
-//import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTamirgahAdapter;
-//import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentTimelineAdapter;
-//import ir.sajjadyosefi.android.tubeless.adapter.fragment.FragmentYaftehaAdapter;
 
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice.RetrofitHelperEpolice;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
@@ -378,81 +365,6 @@ public class Global extends MultiDexApplication {
         prefs.edit().putString("LogedInUser", "").commit();
     }
 
-    public static void ShowMessageDialog(final Context context, String title, String text){
-        ShowMessageDialog(context, title, text , null);
-    }
-
-    public static void ShowMessageDialog(final Context context, String title, String text, View.OnClickListener clickListner){
-        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View dialoglayout = inflater.inflate(R.layout.update_layout, null);
-        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setView(dialoglayout);
-        final AlertDialog alertDialog1 = builder.create();
-        alertDialog1.getWindow().getAttributes().windowAnimations = R.style.alertDialogAnimation;
-
-
-        final Button cancelBtn = (Button) dialoglayout.findViewById(R.id.buttonCancel);
-        final Button downloadBtn = (Button) dialoglayout.findViewById(R.id.buttonDownload);
-        downloadBtn.setVisibility(View.GONE);
-
-        TextView textViewText = (TextView) dialoglayout.findViewById(R.id.textView1);
-        textViewText.setText(text);
-        cancelBtn.setText(context.getString(R.string.ok));
-
-        if(clickListner != null){
-//            cancelBtn.setVisibility(View.INVISIBLE);
-//            alertDialog1.setCancelable(false);
-            cancelBtn.setOnClickListener(clickListner);
-            alertDialog1.cancel();
-        } else {
-            cancelBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    alertDialog1.cancel();
-                }
-            });
-        }
-
-
-        try {
-            alertDialog1.show();
-        }catch (Exception ex){
-
-        }
-    }
-
-
-    public static void ShowSelectSturceDialog(final Context context,String title,String text,String btn1Text,View.OnClickListener onClickListener1,String btn2Text,View.OnClickListener onClickListener2){
-        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View dialoglayout = inflater.inflate(R.layout.update_layout, null);
-        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setView(dialoglayout);
-        final AlertDialog alertDialog1 = builder.create();
-        alertDialog1.getWindow().getAttributes().windowAnimations = R.style.alertDialogAnimation;
-        alertDialog1.setCancelable(false);
-
-        final Button btn1 = (Button) dialoglayout.findViewById(R.id.buttonCancel);
-        final Button btn2 = (Button) dialoglayout.findViewById(R.id.buttonDownload);
-        btn1.setText(btn1Text);
-        btn2.setText(btn2Text);
-        btn1.setOnClickListener(onClickListener1);
-        btn2.setOnClickListener(onClickListener2);
-
-        //titile
-        TextView textViewTitle = (TextView) dialoglayout.findViewById(R.id.textView1);
-        textViewTitle.setText(title);
-
-        //text
-        TextView textViewText = (TextView) dialoglayout.findViewById(R.id.textView1);
-        textViewText.setText(text);
-
-
-        try {
-            alertDialog1.show();
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-    }
 
 
     public static final boolean avalableSendAppInMenu(Context context){

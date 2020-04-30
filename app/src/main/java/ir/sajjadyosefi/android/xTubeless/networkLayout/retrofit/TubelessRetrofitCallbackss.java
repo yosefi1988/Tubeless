@@ -18,6 +18,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.showConnectionLostDialog;
+import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.showConnectionLostFullScreenDialog;
+
 
 public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
 
@@ -113,30 +116,8 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
         call.clone().enqueue(this);
     }
 
-    public static void showConnectionLostDialog(Context context, final ProgressBar progressBar, final Runnable runnable) {
-        final BottomSheetDialog dialog = new BottomSheetDialog(context);
-        TubelessException.ShowSheetDialog(context,dialog ,new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new Handler().postDelayed(runnable,5);
-                dialog.dismiss();
-                if (progressBar != null)
-                    progressBar.setVisibility(View.VISIBLE);
-            }
-        });
-    }
 
-    public static void showConnectionLostFullScreenDialog(Context context, final ProgressBar progressBar, final Runnable runnable) {
-        final BottomSheetDialog dialog = new BottomSheetDialog(context);
-        TubelessException.ShowSheetFullScreenDialog(context,dialog ,new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new Handler().postDelayed(runnable,5);
-                dialog.dismiss();
-                if (progressBar != null)
-                    progressBar.setVisibility(View.VISIBLE);
-            }
-        });
-    }
+
+
 
 }

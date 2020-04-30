@@ -29,7 +29,7 @@ import retrofit2.Response;
 
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_DATABASE_ERROR;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_RESPONSE_BODY_IS_NULL;
-import static ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss.showConnectionLostDialog;
+import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.showConnectionLostDialog;
 
 public class User extends LitePalSupport implements IUser {
 

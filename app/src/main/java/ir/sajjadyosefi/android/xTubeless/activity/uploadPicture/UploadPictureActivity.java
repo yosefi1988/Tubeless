@@ -34,6 +34,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 
 /**
  * Created by sajjad on 11/8/2017.
@@ -171,14 +172,12 @@ public class UploadPictureActivity extends AppCompatActivity {
         switch (requestCode) {
             case 9001:
                 if ((grantResults.length > 0) ){
-
                     if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-
                         takePicture();
 
                     }else {
                         //Toast.makeText(context,context.getString(R.string.WeNeedYourDeviceInfo),Toast.LENGTH_LONG).show();
-                        Global.ShowMessageDialog(context,"",context.getString(R.string.WeNeedYourDeviceInfo));
+                        DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.WeNeedYourDeviceInfo));
                     }
                 }else {
                     Toast.makeText(context,context.getString(R.string.ErrorOnGetPermision),Toast.LENGTH_LONG).show();
@@ -254,13 +253,13 @@ public class UploadPictureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(selectedCategory == 0){
-                    Global.ShowMessageDialog(context,"",context.getString(R.string.categoryNotSelect));
+                    DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.categoryNotSelect));
                 }
                 if(!selectedPicture){
-                    Global.ShowMessageDialog(context,"",context.getString(R.string.pictureNotSelect));
+                    DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.pictureNotSelect));
                 }
                 if(etTags.getText().length() <= 12){
-                    Global.ShowMessageDialog(context,"",context.getString(R.string.tagNotImported));
+                    DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.tagNotImported));
                 }
 
                 if (selectedCategory != 0 && selectedPicture && etTags.getText().length() >= 12){
@@ -274,10 +273,10 @@ public class UploadPictureActivity extends AppCompatActivity {
 //                        //3
 //                        try {
 //                            if(Global.user == null) {
-//                                Global.ShowMessageDialog(context, "", context.getString(R.string.NotLoggedIn2));
+//                                DialogUtil.ShowMessageDialog(context, "", context.getString(R.string.NotLoggedIn2));
 //                            }else {
 //                                if(Global.user.getCanSendPicture() == false) {
-//                                    Global.ShowMessageDialog(context, "", context.getString(R.string.CanNotSendPicture));
+//                                    DialogUtil.ShowMessageDialog(context, "", context.getString(R.string.CanNotSendPicture));
 //                                }else {
 //                                    HttpFileUploadAsync HttpFileUploadAsync = new HttpFileUploadAsync(context, dilatingDotsProgressBar, btnSend,
 //                                            Url.POST_ADD_CAR_PICTURE,
@@ -299,7 +298,7 @@ public class UploadPictureActivity extends AppCompatActivity {
 //                            e.printStackTrace();
 //                        }
                     }else
-                        Global.ShowMessageDialog(context,"",context.getString(R.string.fileSize4Mb));
+                        DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.fileSize4Mb));
 
                 }
             }

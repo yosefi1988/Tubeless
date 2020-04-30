@@ -29,7 +29,6 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 
-import ir.sajjadyosefi.android.xTubeless.bussines.post.activity.SearchByNationalCodeActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -211,7 +210,7 @@ public class SearchByNameActivity extends TubelessTransparentStatusBarActivity{
         ViewGroup viewGroup = findViewById(android.R.id.content);
 
         //then we will inflate the custom alert dialog xml that we created
-        final View dialogView = LayoutInflater.from(this).inflate(R.layout.my_dialog, viewGroup, false);
+        final View dialogView = LayoutInflater.from(this).inflate(R.layout.layout_dialog, viewGroup, false);
         TextView textViewStatment = dialogView.findViewById(R.id.textViewStatment);
         Button buttonOk = dialogView.findViewById(R.id.buttonOk);
         Button buttonCancel = dialogView.findViewById(R.id.buttonCancel);
@@ -246,7 +245,7 @@ public class SearchByNameActivity extends TubelessTransparentStatusBarActivity{
         ViewGroup viewGroup = findViewById(android.R.id.content);
 
         //then we will inflate the custom alert dialog xml that we created
-        final View dialogView = LayoutInflater.from(this).inflate(R.layout.my_dialog, viewGroup, false);
+        final View dialogView = LayoutInflater.from(this).inflate(R.layout.layout_dialog, viewGroup, false);
         TextView textViewStatment = dialogView.findViewById(R.id.textViewStatment);
         Button buttonOk = dialogView.findViewById(R.id.buttonOk);
         Button buttonCancel = dialogView.findViewById(R.id.buttonCancel);

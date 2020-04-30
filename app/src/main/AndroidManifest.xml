@@ -21,7 +21,10 @@
         android:maxSdkVersion="22" />
 
 
+
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -102,22 +105,18 @@
         </activity>
 
 
-        <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.account.login.LoginActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ThemeFullSCreen"
-            android:isScrollContainer="true"
-            android:windowSoftInputMode="stateHidden|adjustResize"  />
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity"
-            android:theme="@style/ThemeFullSCreen"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name=".activity.uploadPicture.FileListActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.account.profile.MainActivityProfile"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity"
@@ -133,7 +132,7 @@
             android:isScrollContainer="true"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.register.KarteSokhtActivity"
+            android:name="ir.sajjadyosefi.android.xTubeless.bussines.post.activity.KarteSokhtActivity"
             android:theme="@style/ThemeFullSCreenX"
             android:configChanges="orientation|screenSize"
             android:isScrollContainer="true"
@@ -252,6 +251,16 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
 
         <!-- <receiver -->
         <!-- android:name="ir.sls.android.slspush.Receiver.BaasReceiver" -->

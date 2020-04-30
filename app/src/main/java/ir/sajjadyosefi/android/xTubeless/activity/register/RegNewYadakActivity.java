@@ -168,16 +168,18 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 //        if (Global.IDUser == NOT_LOGN_USER ){
 
 
-        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
-            Bundle bundle = new Bundle();
-            Intent intent = SignInActivity.getIntent(getContext(),bundle);
-            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
-            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
-            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
-            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
-        }
+
+        //todo uncomment
+//        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
+//            Bundle bundle = new Bundle();
+//            Intent intent = SignInActivity.getIntent(getContext(),bundle);
+//            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+//            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+//            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+//            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+//            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+//            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+//        }
 
 
 
