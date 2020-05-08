@@ -14,6 +14,8 @@ public interface IProfileView {
 
     void openSettings();
 
+    Uri startCropActivity(Uri source);
+
     void startCamera(File file);
 
     void chooseGallery();

@@ -74,6 +74,7 @@ android {
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"api\""
             signingConfig signingConfigs.TubelessSajjadSigning
+            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/user/\"")
 
         }
         debug {
@@ -86,6 +87,8 @@ android {
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"devapi\""
             //resValue "string", "app_name", appName + "-debug"
+            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/user/\"")
+
         }
     }
 //    productFlavors {
@@ -327,8 +330,11 @@ dependencies {
     implementation project(path: ':superpickerlibrary')
 
 
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    implementation project(path: ':ucrop')
 
 
     implementation 'com.jakewharton:butterknife:10.2.1'

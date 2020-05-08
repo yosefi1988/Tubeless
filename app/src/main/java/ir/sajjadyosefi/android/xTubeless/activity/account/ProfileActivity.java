@@ -58,9 +58,6 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
         setContentView(R.layout.activity_profile);
         ueditTextNameUserId = findViewById(R.id.ueditTextNameUserId);
         editTextName = findViewById(R.id.editTextName);

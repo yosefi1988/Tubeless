@@ -12,6 +12,8 @@ public interface IProfilePresenter {
 
     void saveImage(String filePath);
 
+    Uri cropImage(Uri fileUri);
+
     String getImage();
 
     void showPreview(File mFile);

@@ -2,7 +2,10 @@ package ir.sajjadyosefi.android.xTubeless.utility;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -421,4 +424,21 @@ public class DialogUtil {
         alertDialog.show();
     }
 
+    public static ProgressDialog mProgressDialog;
+    public static void showLoadingDialog(Context context) {
+        mProgressDialog = new ProgressDialog(context);
+        mProgressDialog.show();
+        if (mProgressDialog.getWindow() != null) {
+            mProgressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+        mProgressDialog.setContentView(R.layout.progress_dialog);
+        mProgressDialog.setIndeterminate(true);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.setCanceledOnTouchOutside(false);
+    }
+    public static void hideLoading() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.cancel();
+        }
+    }
 }

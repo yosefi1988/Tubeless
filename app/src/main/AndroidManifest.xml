@@ -111,12 +111,15 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
+            android:name=".activity.account.profile.MainActivityProfile"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+
+        <activity
             android:name=".activity.uploadPicture.FileListActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
-        <activity
-            android:name=".activity.account.profile.MainActivityProfile"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity"
@@ -295,6 +298,16 @@
 
 
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
+
+        <!--fileupload service-->
+        <service
+            android:name=".service.FileUploadService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
+
+    <!--for JobIntentService-->
+    <!--fileupload service-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

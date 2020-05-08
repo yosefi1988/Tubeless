@@ -255,7 +255,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
         //todo remove this line
 //        getContext().startActivity(new Intent(getContext(), RegNewYadakActivity.class));
-        getContext().startActivity(new Intent(getContext(), MainActivityProfile.class));
+//        getContext().startActivity(new Intent(getContext(), MainActivityProfile.class));
+//        getContext().startActivity(new Intent(getContext(), ProfileActivity.class));
+
+
     }
 
 

@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
+                android:layout_centerInParent="true"
                 app:srcCompat="@drawable/ic_launcher_background"  />
 
             <RelativeLayout
@@ -92,6 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="#fff"
+                    android:visibility="gone"
                     android:clickable="true"
                     android:textColor="#111"
                     android:elevation="4dp"
@@ -110,6 +112,7 @@
                     android:textColor="#111"
                     android:clickable="true"
                     android:elevation="4dp"
+                    android:visibility="gone"
                     android:gravity="center"
                     android:text="without_progress"
                     android:textSize="14sp" />
@@ -155,32 +158,53 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="20dp"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="20dp"
+            android:orientation="horizontal" >
+
+
+            <Button
+                android:id="@+id/buttonSignOut"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_search"
+                android:text="@string/sign_out"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buttonBack"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_search"
+                android:text="@string/back"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
 
         <Button
-            android:id="@+id/buttonSignOut"
-            android:layout_width="0dp"
-            android:layout_weight="1.5"
+            android:id="@+id/margin"
+            android:width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_search"
             android:text="@string/sign_out"
             android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/buttonBack"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_search"
-            android:text="@string/back"
-            android:textAllCaps="false"
+            android:visibility="invisible"
             android:textColor="#fff"
             android:textSize="18sp" />
 
     </LinearLayout>
-
 </RelativeLayout>
 

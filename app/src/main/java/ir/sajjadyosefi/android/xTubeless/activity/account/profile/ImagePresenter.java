@@ -1,6 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.activity.account.profile;
 
 import android.Manifest;
+import android.net.Uri;
 
 import java.io.File;
 
@@ -45,6 +46,13 @@ public class ImagePresenter implements IProfilePresenter {
     @Override
     public void saveImage(String path) {
         selectedFile = path;
+    }
+
+    @Override
+    public Uri cropImage(Uri fileUri) {
+        if (view != null)
+            return view.startCropActivity(fileUri);
+        return null;
     }
 
     @Override

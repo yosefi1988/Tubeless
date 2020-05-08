@@ -30,10 +30,10 @@
     <output-test url="file://$MODULE_DIR$/build/intermediates/javac/tubelessIranAppsDebugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/tubelessIranAppsDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/tubelessIranAppsDebug/compileTubelessIranAppsDebugAidl/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/tubelessIranApps/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/tubelessIranAppsDebug/compileTubelessIranAppsDebugRenderscript/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/tubelessIranApps/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/tubelessIranAppsDebug/compileTubelessIranAppsDebugAidl/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/tubelessIranAppsDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/tubelessIranApps/debug" type="java-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/tubelessIranApps/debug" type="java-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/tubelessIranApps/debug" type="java-resource" generated="true" />
@@ -53,9 +53,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/tubelessIranApps/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/tubelessIranApps/shaders" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/tubelessIranAppsDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/tubelessIranAppsDebugAndroidTest/compileTubelessIranAppsDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/tubelessIranApps/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/tubelessIranAppsDebugAndroidTest/compileTubelessIranAppsDebugAndroidTestRenderscript/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/tubelessIranAppsDebugAndroidTest/compileTubelessIranAppsDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/tubelessIranApps/debug" type="java-test-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/tubelessIranApps/debug" type="java-test-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessIranAppsDebug/res" type="java-test-resource" />
@@ -198,6 +198,7 @@
     <orderEntry type="library" name="Gradle: com.uncopt:android.justified:1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.3.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-scalars:2.5.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.retrofit2:adapter-rxjava2:2.4.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.5.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp:okhttp:2.3.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.dagger:dagger:2.15@jar" level="project" />
@@ -325,5 +326,6 @@
     <orderEntry type="module" module-name="faboptions" />
     <orderEntry type="module" module-name="accountauthenticator" />
     <orderEntry type="module" module-name="superpickerlibrary" />
+    <orderEntry type="module" module-name="ucrop" />
   </component>
 </module>

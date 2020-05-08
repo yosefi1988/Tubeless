@@ -5,16 +5,17 @@ import android.text.TextUtils;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.IFileUploaderModel;
 
 
 public class FileUploaderPresenter implements IFileUploadPresenter {
 
-    private final IFileUploadModel model;
+    private final IFileUploaderModel model;
     private final IFileUploadView view;
 
     private Disposable videoUploadDisposable;
 
-    public FileUploaderPresenter(IFileUploadView view, IFileUploadModel model) {
+    public FileUploaderPresenter(IFileUploadView view, IFileUploaderModel model) {
         this.view = view;
         this.model = model;
     }
@@ -33,8 +34,6 @@ public class FileUploaderPresenter implements IFileUploadPresenter {
                         error -> view.showErrorMessage(error.getMessage()),
                         () -> view.uploadCompleted()
                 );
-
-
     }
 
     @Override
