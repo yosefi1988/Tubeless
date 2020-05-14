@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.utility.picasso;
 
+import android.view.View;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Callback;
@@ -30,7 +31,7 @@ public class LoadImages {
                     .into(headerCoverImage, new Callback() {
                         @Override
                         public void onSuccess() {
-
+                            headerCoverImage.setVisibility(View.VISIBLE);
                         }
 
                         @Override
@@ -57,7 +58,7 @@ public class LoadImages {
                         .into(headerCoverImage, new Callback() {
                             @Override
                             public void onSuccess() {
-
+                                headerCoverImage.setVisibility(View.VISIBLE);
                             }
 
                             @Override
