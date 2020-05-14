@@ -98,12 +98,7 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
 
 
                 if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
-                    //todo uncomment
-//                    fragmentx1 = new ListFragment(context,TYPE_YAFTE);
-
-                    //todo comment
-                    fragmentx1 = new ListFragment(context,TYPE_YADAK);
-
+                    fragmentx1 = new ListFragment(context,TYPE_YAFTE);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx1 = new SearchByNameFragment();
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
