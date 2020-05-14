@@ -7,6 +7,7 @@ import java.util.List;
 
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 //import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUsRequest;
@@ -15,6 +16,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -23,6 +25,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
+import retrofit2.http.Streaming;
 
 /**
  * Created by sajjad on 11/7/2018.
@@ -69,13 +72,19 @@ public interface ApiServiceTubeless {
     @POST("Api/Message/SendMessage")
     Call<Object> contactUs(@Body ContactUsRequest request);
 
+    @POST("Api/User/userImageProfileAndAvatar")
+    Call<Object> profileImages(@Body LoginRequest request);
 
 
     @GET("/Config/KSOKHTconfig")
     Call<Configuration> config();
 
 
-
+    //////////////////////// image ///////////////////////
+    @Streaming  // Important
+    @POST("/api/DownloadFileForAndroid")
+    Call<ResponseBody> getImage(@Body ImageRequest body);
+    //////////////////////// image ///////////////////////
 
 
 

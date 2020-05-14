@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity.uploadPicture;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -32,7 +32,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import ir.sajjadyosefi.android.xTubeless.Global;
+
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 

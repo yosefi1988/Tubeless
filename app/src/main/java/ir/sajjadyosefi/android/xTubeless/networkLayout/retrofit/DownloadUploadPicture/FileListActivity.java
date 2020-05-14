@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity.uploadPicture;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture;
 
 import android.app.Activity;
 import android.content.Context;

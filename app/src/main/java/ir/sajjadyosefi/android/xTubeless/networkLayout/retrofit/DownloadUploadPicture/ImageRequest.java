@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity.uploadPicture;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;

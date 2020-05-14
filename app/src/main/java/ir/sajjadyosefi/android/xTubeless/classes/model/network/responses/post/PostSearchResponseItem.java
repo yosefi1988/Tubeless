@@ -15,6 +15,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.TubelessObject;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
+import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 
 
 public class PostSearchResponseItem extends TubelessObject implements Serializable ,IItems{
@@ -140,34 +141,7 @@ public class PostSearchResponseItem extends TubelessObject implements Serializab
                 holder.linearLayoutAdmin.setVisibility(View.GONE);
             }
         }
-
-
-        loadImage(holder);
-
-    }
-    private void loadImage(PostItemViewHolder holder) {
-
-        Picasso.get()
-                .load("https://newtracking.post.ir/Content/Image/postarm.png")
-                .placeholder(R.drawable.bg_search)
-//                    //.centerInside()
-//                    .transform(transformation)
-                .into(holder.imageViewUserAvatar, new Callback() {
-                    @Override
-                    public void onSuccess() {
-
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
-                        Picasso.get()
-                                .load(R.drawable.png_user)
-//                                    .transform(transformation)
-                                .into(holder.imageViewUserAvatar);
-                    }
-                });
-
-
+        LoadImages.loadProfileimage("https://tracking.post.ir/Content/Image/postarm.png",holder.imageViewUserAvatar);
     }
 
 }

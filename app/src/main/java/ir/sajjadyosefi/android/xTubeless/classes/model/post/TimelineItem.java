@@ -30,6 +30,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
+import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitle;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitleForShare;
@@ -214,8 +215,8 @@ public class TimelineItem extends ParentItem{
 
 
         onclicks(mContext,listType , holder, timelineItem);
-        loadImage(holder, timelineItem);
-
+        LoadImages.loadAvatarimage(timelineItem.getUserImage(),holder.imageViewUserAvatar);
+        LoadImages.loadProfileimage(timelineItem.getPicture(),holder.imageviewPicture);
     }
 
     private void onclicks(Context mContext , int listType, TimelineItemViewHolder holder, TimelineItem timelineItem) {
@@ -316,64 +317,6 @@ public class TimelineItem extends ParentItem{
         ((Activity)mContext).startActivityForResult(intent , 60);
     }
 
-
-
-    private void loadImage(TimelineItemViewHolder holder, TimelineItem timelineItem) {
-        if (timelineItem.getUserImage().length() < 5){
-            if (holder.imageViewUserAvatar != null)
-                Picasso.get()
-                    .load(R.drawable.png_user)
-//                    .transform(transformation)
-                    .into(holder.imageViewUserAvatar);
-        }else {
-            Picasso.get()
-                    .load(timelineItem.getUserImage())
-                    .placeholder(R.drawable.bg_search)
-//                    //.centerInside()
-//                    .transform(transformation)
-                    .into(holder.imageViewUserAvatar, new Callback() {
-                        @Override
-                        public void onSuccess() {
-
-                        }
-
-                        @Override
-                        public void onError(Exception e) {
-                            Picasso.get()
-                                    .load(R.drawable.png_user)
-//                                    .transform(transformation)
-                                    .into(holder.imageViewUserAvatar);
-                        }
-                    });
-        }
-
-
-
-        if (timelineItem.getPicture()!= null && timelineItem.getPicture().length() > 10) {
-            holder.imageviewPicture.setVisibility(View.VISIBLE);
-            Picasso.get()
-                .load(timelineItem.getPictureTumble())
-                .placeholder(R.drawable.circle_border)
-                //.centerInside()
-//                .transform(transformation)
-                .into(holder.imageviewPicture, new Callback() {
-                    @Override
-                    public void onSuccess() {
-
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
-                        Picasso.get()
-                                .load(R.drawable.png_image)
-//                                .transform(transformation)
-                                .into(holder.imageviewPicture);
-                    }
-                });
-
-        }
-
-    }
 
     public void prepareBlogItem(final Context mContext, final DilatingDotsProgressBar mProgressBar,
                                 final BlogItemViewHolder holder, final List<Object> mTimelineItemList, final int position) {

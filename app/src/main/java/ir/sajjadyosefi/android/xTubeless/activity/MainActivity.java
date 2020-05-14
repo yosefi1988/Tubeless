@@ -56,8 +56,8 @@ import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
-import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
 
+import ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
@@ -253,10 +253,19 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
 
-        //todo remove this line
-//        getContext().startActivity(new Intent(getContext(), RegNewYadakActivity.class));
-//        getContext().startActivity(new Intent(getContext(), MainActivityProfile.class));
-//        getContext().startActivity(new Intent(getContext(), ProfileActivity.class));
+
+        Thread nonstandard =new Thread(new Runnable() {
+            @Override
+            public int hashCode() {
+                return super.hashCode();
+            }
+
+            @Override
+            public void run() {
+                System.out.println("i'm zero ");
+            }
+        });
+        nonstandard.start();
 
 
     }
@@ -497,7 +506,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     if (Global.user != null && Global.user.isAdmin())
                         bundle.putBoolean("MustRefresh" , true);
 
-                    getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+//                    getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+                    getActivity().startActivityForResult(MainActivityProfile.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
 
                 }else if (id == R.id.nav_role) {
 
@@ -866,7 +876,9 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         if (Global.user != null && Global.user.isAdmin())
                             bundle.putBoolean("MustRefresh" , true);
 
-                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle),OPEN_PROFILE_REQUEST_CODE);
+//                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle),OPEN_PROFILE_REQUEST_CODE);
+                        getActivity().startActivityForResult(MainActivityProfile.getIntent(getContext(),bundle), OPEN_PROFILE_REQUEST_CODE);
+
                     }else {
                         Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
                     }
@@ -886,7 +898,9 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         if (Global.user != null && Global.user.isAdmin())
                             bundle.putBoolean("MustRefresh" , true);
 
-                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle),OPEN_PROFILE_REQUEST_CODE);
+//                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle),OPEN_PROFILE_REQUEST_CODE);
+                        getActivity().startActivityForResult(MainActivityProfile.getIntent(getContext(),bundle),OPEN_PROFILE_REQUEST_CODE);
+
                     }else {
                         Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
                     }

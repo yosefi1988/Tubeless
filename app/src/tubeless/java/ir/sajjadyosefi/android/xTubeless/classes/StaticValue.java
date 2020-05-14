@@ -3,7 +3,7 @@ package ir.sajjadyosefi.android.xTubeless.classes;
 public class StaticValue {
 
     public static int AdminUserID1 = 140237;
-    public static int AdminUserID2 = 1;
+    public static int AdminUserID2 = 140241;
     public static int AdminUserID3 = 1;
 
     public static String AdminMail1 = "yosefi1988@gmail.com";

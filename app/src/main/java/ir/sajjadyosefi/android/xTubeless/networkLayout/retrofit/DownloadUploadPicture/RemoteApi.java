@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity.uploadPicture;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

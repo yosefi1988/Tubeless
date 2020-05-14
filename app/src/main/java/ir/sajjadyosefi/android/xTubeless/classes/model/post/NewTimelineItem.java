@@ -22,6 +22,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.TextConte
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
+import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitle;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitleForShare;
@@ -378,59 +379,8 @@ public class NewTimelineItem extends ParentItem{
 
 
     private void loadImage(TimelineItemViewHolder holder, NewTimelineItem timelineItem) {
-        if (timelineItem.getUserImage().length() < 5){
-            if (holder.imageViewUserAvatar != null)
-                Picasso.get()
-                    .load(R.drawable.png_user)
-//                    .transform(transformation)
-                    .into(holder.imageViewUserAvatar);
-        }else {
-            Picasso.get()
-                    .load(timelineItem.getUserImage())
-                    .placeholder(R.drawable.bg_search)
-//                    //.centerInside()
-//                    .transform(transformation)
-                    .into(holder.imageViewUserAvatar, new Callback() {
-                        @Override
-                        public void onSuccess() {
-
-                        }
-
-                        @Override
-                        public void onError(Exception e) {
-                            Picasso.get()
-                                    .load(R.drawable.png_user)
-//                                    .transform(transformation)
-                                    .into(holder.imageViewUserAvatar);
-                        }
-                    });
-        }
-
-
-        if (timelineItem.getTitlePicture() != null && timelineItem.getTitlePicture().length() > 10) {
-            holder.imageviewPicture.setVisibility(View.VISIBLE);
-            Picasso.get()
-                    .load(timelineItem.getTitlePicture())
-                    .placeholder(R.drawable.circle_border)
-                    //.centerInside()
-//                .transform(transformation)
-                    .into(holder.imageviewPicture, new Callback() {
-                        @Override
-                        public void onSuccess() {
-
-                        }
-
-                        @Override
-                        public void onError(Exception e) {
-                            Picasso.get()
-                                    .load(R.drawable.png_image)
-//                                .transform(transformation)
-                                    .into(holder.imageviewPicture);
-                        }
-                    });
-
-        }
-
+        LoadImages.loadAvatarimage(timelineItem.getUserImage(),holder.imageViewUserAvatar);
+        LoadImages.loadProfileimage(timelineItem.getTitlePicture(),holder.imageviewPicture);
     }
 
 }

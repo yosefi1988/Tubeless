@@ -14,7 +14,6 @@ import android.provider.MediaStore;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -24,7 +23,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 
@@ -32,15 +30,17 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.internal.Primitives;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 import com.yalantis.ucrop.UCrop;
 
 import org.litepal.LitePal;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -56,18 +56,24 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.FileUploaderModel;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.service.FileUploadService;
 import ir.sajjadyosefi.android.xTubeless.service.ServiceGenerator;
+import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
-import ir.sajjadyosefi.android.xTubeless.utility.RoundedCornersTransformation;
 import ir.sajjadyosefi.android.xTubeless.utility.file.FileCompressor;
 import ir.sajjadyosefi.android.xTubeless.utility.file.UriUtil;
+import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
+import retrofit2.Call;
+import retrofit2.Response;
 
 import static com.yalantis.ucrop.UCrop.REQUEST_CROP;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_RESPONSE_BODY_IS_NULL;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.SelectSource;
 
 public class MainActivityProfile extends TubelessTransparentStatusBarActivity implements IProfileView, IFileUploadView {
@@ -97,9 +103,9 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     EditText editTextEmail;
 
     @BindView(R.id.header_cover_image)
-    ImageView headerCoverImage;
+    ImageView headerProfileImage;
     @BindView(R.id.user_profile_photo)
-    ImageButton userProfilePhoto;
+    ImageButton userAvatarPhoto;
     @BindView(R.id.user_profile_name)
 //    TextView userProfileName;
 //    @BindView(R.id.user_profile_short_bio)
@@ -119,6 +125,18 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     File mPhotoFile;
     private FileCompressor mCompressor;
 
+
+    public synchronized static Intent getIntent(Context context) {
+        return getIntent(context,new Bundle());
+    }
+
+    public synchronized static Intent getIntent(Context context, Bundle bundle) {
+        bundle.putString("item1","value1");
+        bundle.putString("item2","value1");
+        Intent intent = new Intent(context, MainActivityProfile.class);
+        intent.putExtras(bundle);
+        return intent;
+    }
 
 
     @Override
@@ -158,15 +176,15 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         mUploaderPresenter = new FileUploaderPresenter(this, new FileUploaderModel(ServiceGenerator.createService()));
 
         if (Global.user == null){
-
-            //todo uncomment
-            //finish();
-
+            finish();
         }else {
             ueditTextNameUserId.setText(Global.user.getUserId() == 0 ? "" : Global.user.getUserId() + "");
             editTextName.setText(Global.user.getUserName() == null ? "" : Global.user.getUserName());
             editTextEmail.setText(Global.user.getEmail() == null ? "" : Global.user.getEmail());
         }
+
+        getImageFromSeviceStream();
+        getImageFromSevice();
     }
 
     @Override
@@ -366,7 +384,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
                 SELECTED_IMAGE = PROFILE_SELECTED;
                 break;
             case R.id.upload_file_progress:
-                mUploaderPresenter.onFileSelected(mImagePresenter.getImage(), "49", "avatar");
+                mUploaderPresenter.onFileSelected(mImagePresenter.getImage(), Global.user.getUserIdAsString(), "avatar");
                 break;
             case R.id.btn_upload_file_without_progress:
                 DialogUtil.showLoadingDialog(this);
@@ -553,49 +571,10 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 
     @Override
     public void displayImagePreview(File mFile) {
-//        Glide
-//                .with(MainActivityProfile.this)
-//                .load(mFile)
-//                .apply(new RequestOptions()
-//                        .centerCrop()
-//                        .circleCrop()
-//                        .placeholder(R.drawable.ic_launcher_background))
-//                .into(userProfilePhoto);
-
-        RoundedCornersTransformation transformation = new RoundedCornersTransformation(50000,0);
-//        Picasso.get()
-//                .load(mFile)
-//                .resize(50, 50)
-//                .centerCrop()
-//                .fit()
-//                .placeholder(R.drawable.bg_search)
-//                .error(R.drawable.bg_search)
-//                .transform(cc)
-//                .into(userProfilePhoto);
 
         if (SELECTED_IMAGE == AVATAR_SELECTED) {
-            Picasso.get()
-                    .load(mFile)
-                    //.placeholder(R.drawable.bg_search)
-//                    .centerInside()
-                    .transform(transformation)
-                    .into(userProfilePhoto, new Callback() {
-                        @Override
-                        public void onSuccess() {
-
-                        }
-
-                        @Override
-                        public void onError(Exception e) {
-                            Picasso.get()
-                                    .load(R.drawable.png_user)
-//                                    .transform(transformation)
-                                    .into(userProfilePhoto);
-                        }
-                    });
-
-
-            mUploaderPresenter.onFileSelected(mImagePresenter.getImage(), "49", "profile");
+            LoadImages.loadAvatarimage(mFile, userAvatarPhoto);
+            mUploaderPresenter.onFileSelected(mImagePresenter.getImage(), Global.user.getUserIdAsString(), "avatar");
 
             //service
 //            if (mImagePresenter.getImage().isEmpty()) {
@@ -607,34 +586,21 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 //            FileUploadService.enqueueWork(this, mIntent);
 
         }else if (SELECTED_IMAGE == PROFILE_SELECTED) {
-            Picasso.get()
-                .load(mFile)
-                .into(headerCoverImage, new Callback() {
-                    @Override
-                    public void onSuccess() {
+            LoadImages.loadProfileimage(mFile, headerProfileImage);
 
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
-                        Picasso.get()
-                                .load(R.drawable.png_id_card)
-//                                    .transform(transformation)
-                                .into(headerCoverImage);
-                    }
-                });
-
-            mUploaderPresenter.onFileSelected(mImagePresenter.getImage(), "49", "profile");
-
+            mUploaderPresenter.onFileSelected(mImagePresenter.getImage(), Global.user.getUserIdAsString(), "profile");
         }
 
     }
+
+
 
 
     @Override
     protected void onStart() {
         super.onStart();
         AdView adView = findViewById(R.id.adView);
+
         if (Global.user.isAdmin()) {
             adView.setVisibility(View.VISIBLE);
 //        MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -699,6 +665,115 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         }else {
             adView.setVisibility(View.GONE);
         }
+
+
+
+    }
+
+    private void getImageFromSevice() {
+        //اینجا میشه هم درخواست جدید فرستاد هم از شی کاربر تصاویر را نشان داد
+
+        ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest request =
+                new LoginRequest(Global.user.getUserName(), "" , DeviceUtil.GetAndroidId(context));
+        retrofit2.Callback callback = new retrofit2.Callback() {
+
+            @Override
+            public void onResponse(Call call, Response response) {
+                Gson gson = new Gson();
+                JsonElement jsonElement = gson.toJsonTree(response.body());
+                ServerResponseBase responseX = null;
+
+                try {
+                    if (response.body() == null){
+                        new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL);
+                    }
+
+                    responseX = gson.fromJson(jsonElement.getAsString(), ServerResponseBase.class);
+                    if (response.body() != null ) {
+                        if (responseX.getTubelessException().getCode() != 0) {
+                            if (responseX.getTubelessException().getCode() > 0) {
+                                if (call != null && response != null) {
+                                    Object object = gson.fromJson(jsonElement.getAsString(), (Type) User.class);
+                                    User tmpUser = Primitives.wrap(User.class).cast(object);
+
+                                    Global.user.setProfileImage(tmpUser.getProfileImage());
+                                    Global.user.setUserImage(tmpUser.getUserImage());
+
+                                    if (Global.user.update(Global.user.getUserId()) > 0){
+
+                                        String profileImage = Global.user.getProfileImage();
+                                        String avatarImage = Global.user.getUserImage();
+
+                                        LoadImages.loadProfileimage(profileImage, headerProfileImage);
+                                        LoadImages.loadAvatarimage(avatarImage, userAvatarPhoto);
+
+                                    }else {
+                                        String profileImage = Global.user.getProfileImage();
+                                        String avatarImage = Global.user.getUserImage();
+
+                                        LoadImages.loadProfileimage(profileImage, headerProfileImage);
+                                        LoadImages.loadAvatarimage(avatarImage, userAvatarPhoto);
+                                    }
+                                }
+                            } else {
+                                new TubelessException(responseX.getTubelessException().getCode());
+                            }
+                        }else {
+                            new TubelessException(responseX.getTubelessException().getCode());
+                        }
+                    }else {
+                        new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL);
+                    }
+                }catch (Exception sException) {
+                    int a = 5 ;
+                    a++;
+                }
+            }
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                LoadImages.loadAvatarimage(new String(), userAvatarPhoto);
+                LoadImages.loadProfileimage(new String(), headerProfileImage);
+            }
+
+            private void retry(Call call) {
+                call.clone().enqueue(this);
+            }
+        };
+        Global.apiManagerTubeless.getProfileImages(request, callback);
+    }
+
+    private void getImageFromSeviceStream() {
+//        ir.sajjadyosefi.android.xTubeless.classes.model.File map1 = new ir.sajjadyosefi.android.xTubeless.classes.model.File();
+//        map1.setTitle("imageUri.toString().substring(imageUri.toString().lastIndexOf");
+//        map1.setRequestContentId(1);
+//        map1.setFrame(1);
+//        map1.setFileType(MAP_1);
+//        map1.setUri("http://sajjadyosefi.ir/img/profile.jpg");
+//        map1.setType(FILES);
+//
+//        final RetrofitImageLoader imageLoader = new RetrofitImageLoader(userProfilePhoto);
+//            ImageRequest.DEFAULT_BODY.setContentId("1");
+//            ImageRequest.DEFAULT_BODY.setFrame("x");
+//            Global.apiManagerTubeless.getImageFromRemoteServer(context, ImageRequest.DEFAULT_BODY,new retrofit2.Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                ResponseBody body = response.body();
+//                if (response.isSuccessful() && body != null) {
+//                    try {
+//                        imageLoader.execute(map1 , body.byteStream());
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                } else {
+//                    Log.d(TAG, "Retrofit onResponse(): CODE = [" + response.code() + "], MESSAGE = [" + response.message() + "]");
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                Log.d(TAG, "Retrofit onFailure(): t = [" + t + "]");
+//            }
+//        });
     }
 
     @Override
@@ -723,5 +798,6 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 //        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
 //        builder.show();
     }
+
 
 }

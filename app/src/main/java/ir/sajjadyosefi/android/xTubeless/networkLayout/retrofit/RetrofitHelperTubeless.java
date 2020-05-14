@@ -1,29 +1,31 @@
 package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit;
 
 
-import android.app.Dialog;
+import android.content.Context;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
-import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.RemoteApi;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
-import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.IDApplication;
-import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.REST_API_IP_ADDRESS2;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.REST_API_IP_ADDRESS_MAIN;
 
 public class RetrofitHelperTubeless {
@@ -33,18 +35,24 @@ public class RetrofitHelperTubeless {
     private RetrofitHelperTubeless() {
 
         HostSelectionInterceptor interceptor = new HostSelectionInterceptor();
+        //HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 
-        OkHttpClient client =
-                new OkHttpClient().newBuilder()
-                        .addInterceptor(interceptor)
-                        .build();
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .addInterceptor(interceptor)
+                .build();
+
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(REST_API_IP_ADDRESS_MAIN)
                 .addConverterFactory(GsonConverterFactory.create())
+                //.addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         service = retrofit.create(ApiServiceTubeless.class);
+
     }
 
     public static RetrofitHelperTubeless getInstance() {
@@ -62,6 +70,19 @@ public class RetrofitHelperTubeless {
     public void loginOrRregisterMVP(LoginRequest request, Callback callback) {
         Call<Object> userCall = service.login(request);
         userCall.enqueue(callback);
+    }
+
+    public void getProfileImages(LoginRequest request, Callback callback) {
+        Call<Object> userCall = service.profileImages(request);
+        userCall.enqueue(callback);
+    }
+
+    private String TAG ="file";
+    public void getImageFromRemoteServer(Context context , ImageRequest request, Callback callback) {
+        RemoteApi api = RemoteApi.Factory.create();
+        ImageRequest.DEFAULT_BODY.setAndroidId(DeviceUtil.GetAndroidId(context));
+        api.getImage(ImageRequest.DEFAULT_BODY).enqueue(callback);
+
     }
 
     public void getTimelineYadak(int index, TubelessRetrofitCallbackss callback) {

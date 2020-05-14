@@ -22,7 +22,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +40,7 @@ public class User extends LitePalSupport implements IUser {
 	private String email;
 	private String mobileNumber;
 	private String userImage;
-	private String ProfileImage;
+	private String profileImage;
 	public long balanse;
 
 	private String Password;
@@ -102,6 +101,12 @@ public class User extends LitePalSupport implements IUser {
 	public long getUserId() {
 		return userId;
 	}
+	public int getUserIdAsInt() {
+		return (int)userId;
+	}
+	public String getUserIdAsString() {
+		return "" + userId;
+	}
 
 	public void setUserId(long userId) {
 		this.userId = userId;
@@ -140,11 +145,11 @@ public class User extends LitePalSupport implements IUser {
 	}
 
 	public String getProfileImage() {
-		return ProfileImage;
+		return profileImage;
 	}
 
 	public void setProfileImage(String profileImage) {
-		ProfileImage = profileImage;
+		this.profileImage = profileImage;
 	}
 
 	public long getBalanse() {

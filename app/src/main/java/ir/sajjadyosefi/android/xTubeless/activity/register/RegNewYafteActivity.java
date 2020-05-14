@@ -118,13 +118,13 @@ public class RegNewYafteActivity extends TubelessTransparentStatusBarActivity {
                     NewBlogRequest aaaa = new NewBlogRequest();
 
                     if (radioButton1.isChecked()) {
-                        aaaa.setCategoryID(R.integer.cat1Yafte);
+                        aaaa.setCategoryID(getResources().getInteger(R.integer.cat1Yafte));
                     }
                     if (radioButton2.isChecked()) {
-                        aaaa.setCategoryID(R.integer.cat2Yafte);
+                        aaaa.setCategoryID(getResources().getInteger(R.integer.cat2Yafte));
                     }
                     if (radioButton3.isChecked()) {
-                        aaaa.setCategoryID(R.integer.cat3Yafte);
+                        aaaa.setCategoryID(getResources().getInteger(R.integer.cat3Yafte));
                     }
 
                     aaaa.setUserID((int)Global.user.getUserId());
@@ -292,8 +292,6 @@ public class RegNewYafteActivity extends TubelessTransparentStatusBarActivity {
             }
         };
         Global.apiManagerTubeless.registerNewYafte(blogItem ,ssssssss);
-
-
     }
 
 

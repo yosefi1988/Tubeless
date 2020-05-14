@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -26,8 +27,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 
-import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.FileListActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
@@ -108,11 +108,14 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
         buttonAddFiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("FILE_COUNT" , 1);
-                bundle.putSerializable("LIST", (Serializable)  new ArrayList<>());
-                getActivity().startActivity(FileListActivity.getIntent(getContext(),bundle));
-
+                if (Global.user.isAdmin()) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("FILE_COUNT", 1);
+                    bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
+                    getActivity().startActivity(FileListActivity.getIntent(getContext(), bundle));
+                }else {
+                    Toast.makeText(getContext(),getContext().getString(R.string.notEnugh),Toast.LENGTH_LONG).show();
+                }
             }
         });
         buttonReg.setOnClickListener(new View.OnClickListener() {
@@ -133,14 +136,17 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 }else {
                     NewBlogRequest aaaa = new NewBlogRequest();
                     if (radioButton1.isChecked()) {
-                        aaaa.setCategoryID(R.integer.cat1Yadak);
+                        aaaa.setCategoryID(getResources().getInteger(R.integer.cat1Yadak));
                     }
                     if (radioButton2.isChecked()) {
-                        aaaa.setCategoryID(R.integer.cat2Yadak);
+//                        aaaa.setCategoryID(R.integer.cat2Yadak);
+                        aaaa.setCategoryID(getResources().getInteger(R.integer.cat2Yadak));
                     }
                     if (radioButton3.isChecked()) {
-                        aaaa.setCategoryID(R.integer.cat3Yadak);
+//                        aaaa.setCategoryID(R.integer.cat3Yadak);
+                        aaaa.setCategoryID(getResources().getInteger(R.integer.cat3Yadak));
                     }
+
 
 
                     aaaa.setUserID((int)Global.user.getUserId());
@@ -169,17 +175,17 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-        //todo uncomment
-//        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
-//            Bundle bundle = new Bundle();
-//            Intent intent = SignInActivity.getIntent(getContext(),bundle);
-//            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
-//            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
-//            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
-//            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-//            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-//            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
-//        }
+
+        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
+            Bundle bundle = new Bundle();
+            Intent intent = SignInActivity.getIntent(getContext(),bundle);
+            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+        }
 
 
 

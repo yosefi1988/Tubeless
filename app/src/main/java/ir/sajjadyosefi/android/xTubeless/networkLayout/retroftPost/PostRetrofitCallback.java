@@ -119,7 +119,7 @@ public class PostRetrofitCallback<Object> implements Callback<java.lang.Object> 
 
     @Override
     public void onFailure(final Call<java.lang.Object> call, Throwable t) {
-        int a =0 ;
+        int a = 0;
         a++;
 
         try {

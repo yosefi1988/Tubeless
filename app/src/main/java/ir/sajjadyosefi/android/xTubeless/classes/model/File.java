@@ -16,10 +16,10 @@ import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.FileListActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.ImageRequest;
-import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.RemoteApi;
-import ir.sajjadyosefi.android.xTubeless.activity.uploadPicture.RetrofitImageLoader;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.FileListActivity;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.RemoteApi;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.RetrofitImageLoader;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import okhttp3.ResponseBody;
 import retrofit2.Call;

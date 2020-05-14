@@ -24,8 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:layout_centerInParent="true"
-                app:srcCompat="@drawable/ic_launcher_background"  />
+                android:background="@null"
+                android:layout_centerInParent="true"  />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -37,9 +37,9 @@
                     android:clickable="true"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:background="@null"
                     android:scaleType="centerCrop"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/png_user" />
+                    android:layout_centerInParent="true" />
 
             </RelativeLayout>
 

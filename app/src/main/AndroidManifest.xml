@@ -86,6 +86,7 @@
 <!--            android:configChanges="orientation|screenSize" />-->
 
 
+
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.MainActivity"
             android:label="@string/app_name"
@@ -116,7 +117,7 @@
 
 
         <activity
-            android:name=".activity.uploadPicture.FileListActivity"
+            android:name=".networkLayout.retrofit.DownloadUploadPicture.FileListActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
 
