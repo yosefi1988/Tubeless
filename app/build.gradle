@@ -61,7 +61,7 @@ android {
         release {
             minifyEnabled true
             useProguard true
-            debuggable false
+            debuggable true
 
 //            minifyEnabled true
 //            useProguard false
@@ -74,7 +74,7 @@ android {
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"api\""
             signingConfig signingConfigs.TubelessSajjadSigning
-            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/user/\"")
+            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/\"")
 
         }
         debug {
@@ -87,7 +87,7 @@ android {
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"devapi\""
             //resValue "string", "app_name", appName + "-debug"
-            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/user/\"")
+            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/\"")
 
         }
     }

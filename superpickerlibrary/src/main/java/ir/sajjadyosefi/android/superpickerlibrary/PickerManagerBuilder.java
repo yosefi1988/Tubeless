@@ -4,6 +4,7 @@ package ir.sajjadyosefi.android.superpickerlibrary;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 
 import com.yalantis.ucrop.UCrop;
 
@@ -38,10 +39,12 @@ public class PickerManagerBuilder {
     }
 
 
-    public void start() {
+    public void start(int type) {
         Intent intent = new Intent(activity, TempActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("type",type);
+        intent.putExtras(bundle);
         activity.startActivity(intent);
-
         GlobalHolder.getInstance().setPickerManager(pickerManager);
 
     }

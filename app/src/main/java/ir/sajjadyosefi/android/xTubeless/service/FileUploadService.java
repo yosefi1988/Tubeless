@@ -51,27 +51,43 @@ public class FileUploadService extends JobIntentService {
          */
 
         // get file file here
-        String mFilePath = intent.getStringExtra("mFilePath");
-        if (mFilePath == null) {
-            Log.e(TAG, "onHandleWork: Invalid file URI");
-            return;
-        }
+        String BlogId = intent.getStringExtra("BlogId");
+        String TitlePictureFilePath = intent.getStringExtra("TitlePicture");
+        String TextPictureFilePath = intent.getStringExtra("TextPicture");
+        int filesCount = intent.getIntExtra("filesCount" , 0);
+
+
+//        if (TitlePicturemFilePath == null) {
+//            Log.e(TAG, "onHandleWork: Invalid file URI");
+//            return;
+//        }
+
         IFileUploadApiService apiService = ServiceGenerator.createService();
 
         Flowable<Double> fileObservable = Flowable.create(emitter -> {
 
 
             Map<String, RequestBody> map = new HashMap<>();
-            map.put("UserId", toRequestBody("userId000000000"));
-            map.put("Type", toRequestBody("type0000000000"));
+            map.put("BlogId", toRequestBody(BlogId));
 
-            if (mFilePath != null) {
-                File file = new File(mFilePath);
+            if (TitlePictureFilePath != null) {
+
+                File file = new File(TitlePictureFilePath);
                 RequestBody fileBody = RequestBody.create(MediaType.parse("image/png"), file);
-                map.put("avatar\"; filename=\"" + file.getName() + "\"", fileBody);
+                map.put("TitlePicture\"; filename=\"" + file.getName() + "\"", fileBody);
             }
 
+            if (TextPictureFilePath != null) {
+                File file = new File(TextPictureFilePath);
+                RequestBody fileBody = RequestBody.create(MediaType.parse("image/png"), file);
+                map.put("TextPicture\"; filename=\"" + file.getName() + "\"", fileBody);
+            }
 
+            for (int i = 0; i < filesCount; i++) {
+                File file = new File(intent.getStringExtra("image" + (i + 1)));
+                RequestBody fileBody = RequestBody.create(MediaType.parse("image/png"), file);
+                map.put("image" + i + "\"; filename=\"" + file.getName() + "\"", fileBody);
+            }
 
 
             //fistCode

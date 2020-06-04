@@ -4,6 +4,7 @@ import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,22 +20,31 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 
+import ir.sajjadyosefi.android.xTubeless.activity.account.profile.IProfileView;
+import ir.sajjadyosefi.android.xTubeless.activity.account.profile.ImagePresenter;
+import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.service.FileUploadService;
+import ir.sajjadyosefi.android.xTubeless.utility.file.UriUtil;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
@@ -45,13 +55,24 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
     public Button buttonReg , buttonBack , buttonAddFiles;
     EditText editTextText,editTextTextPicture,editTextTitleStatment,editTextTitlePicture,editTextTitle;
     RadioButton radioButton1,radioButton2,radioButton3;
+    private int REQUEST_FILE_LIST = 525;
 
+    static List<File> filesList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        filesList = new ArrayList<File>();
+        File headerInList = new File();
+        headerInList.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_HEADER);
+        filesList.add(headerInList);
+
+        File Emptylist = new File();
+        Emptylist.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_EMPTY_LIST);
+        filesList.add(Emptylist);
 
         setContentView(R.layout.activity_new_yadak);
+
         buttonReg = findViewById(R.id.buttonReg);
         buttonBack = findViewById(R.id.buttonBack);
         buttonAddFiles = findViewById(R.id.buttonAddFiles);
@@ -110,9 +131,9 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
             public void onClick(View view) {
                 if (Global.user.isAdmin()) {
                     Bundle bundle = new Bundle();
-                    bundle.putInt("FILE_COUNT", 1);
-                    bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
-                    getActivity().startActivity(FileListActivity.getIntent(getContext(), bundle));
+                    bundle.putInt("FILE_COUNT", 4);
+                    bundle.putSerializable("LIST", (Serializable) filesList);
+                    getActivity().startActivityForResult(FileListActivity.getIntent(getContext(), bundle),REQUEST_FILE_LIST);
                 }else {
                     Toast.makeText(getContext(),getContext().getString(R.string.notEnugh),Toast.LENGTH_LONG).show();
                 }
@@ -170,6 +191,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 }
             }
         });
+
 
 //        if (Global.IDUser == NOT_LOGN_USER ){
 
@@ -272,6 +294,16 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK){
+            if (requestCode == REQUEST_FILE_LIST){
+                filesList = (List<File>) data.getSerializableExtra("LIST1");
+            }else {
+
+            }
+        }else {
+
+        }
+
         if (requestCode == GO_TO_LOGIN){
             if (resultCode == Activity.RESULT_OK){
 
@@ -322,12 +354,45 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 ServerResponseBase responseX = (ServerResponseBase)response;
 
                 if (responseX.getTubelessException().getCode() > 0) {
-                    TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.new_yafte_new_yafte_inserted) , "ok" , new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            finish();
+
+                    boolean havePic = true;
+                    if (filesList.size()>=3){
+                        havePic = true;
+                    }
+
+                    if(havePic){
+
+                        //ok
+                        Intent mIntent = new Intent(getContext(), FileUploadService.class);
+                        mIntent.putExtra("BlogId", responseX.getTubelessException().getMessage());
+
+                        if (lastCheckedPosition2 != -1){
+                            mIntent.putExtra("TitlePicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition2).getUri())));
                         }
-                    });
+
+                        if (lastCheckedPosition != -1){
+                            mIntent.putExtra("TextPicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition).getUri())));
+                        }
+
+                        int index = 0;
+                        for (File file : filesList) {
+                            if (file.getListItemType() == EndlessList_AdapterFile.ListItemType.TYPE_ITEM && !file.isHeaderPic() && !file.isContentPic() ) {
+                                index++;
+                                mIntent.putExtra("image" + index, UriUtil.getPath(getContext(), Uri.parse(file.getUri())));
+                            }
+                        }
+                        mIntent.putExtra("filesCount", index );
+                        FileUploadService.enqueueWork(getContext(), mIntent);
+
+
+                    }else {
+                        TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.new_yafte_new_yafte_inserted), "ok", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                finish();
+                            }
+                        });
+                    }
                 }else {
                     TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.tray_again), new View.OnClickListener() {
                         @Override

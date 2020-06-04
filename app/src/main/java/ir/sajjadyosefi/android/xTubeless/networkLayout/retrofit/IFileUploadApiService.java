@@ -19,14 +19,14 @@ import retrofit2.http.PartMap;
 public interface IFileUploadApiService {
     //profile
     @Multipart
-    @POST("UserAvatarProfileImage")
+    @POST("user/UserAvatarProfileImage")
     Single<ResponseBody> onFileUpload(
             @Part("UserId") RequestBody mUserId,
             @Part("Type") RequestBody mType,
             @Part MultipartBody.Part avatar);
 
     @Multipart
-    @POST("UserAvatarProfileImage")
+    @POST("user/UserAvatarProfileImage")
     Single<ResponseBody> onFileUpload2(@PartMap Map<String, RequestBody> params);
 
 
@@ -39,11 +39,11 @@ public interface IFileUploadApiService {
 //                                      @Part MultipartBody.Part file);
 
     @Multipart
-    @POST("UserAvatarProfileImage")
+    @POST("user/UserAvatarProfileImage")
     Single<ResponseBody> onFileUploadInService(@Part("email") RequestBody mEmail,
                                                @Part MultipartBody.Part file);
     @Multipart
-    @POST("UserAvatarProfileImage")
+    @POST("blog/addBlogPicture")
     Single<ResponseBody> onFileUploadInService2(@PartMap Map<String, RequestBody> params);
 
 }

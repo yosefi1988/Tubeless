@@ -56,20 +56,28 @@ public abstract  class PickerManager {
     }
 
 
-    public void pickPhotoWithPermission()
+    public void pickPhotoWithPermission(int type)
     {
-        if(ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
-        {
-            sendToExternalApp();
+        if (type == PickerManagerBuilder.SELECT_FROM_GALLERY){
+            if(ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ) {
+                sendToExternalApp();
+            }
+            else{
+                ActivityCompat.requestPermissions(activity,
+                        new String[]{
+                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        },
+                        REQUEST_CODE_IMAGE_PERMISSION);
+            }
+        }else if (type == PickerManagerBuilder.SELECT_FROM_CAMERA){
+            if(ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
+                sendToExternalApp();
+            }
+            else{
+                ActivityCompat.requestPermissions(activity,new String[]{Manifest.permission.CAMERA},REQUEST_CODE_IMAGE_PERMISSION);
+            }
         }
-        else{
-
-            ActivityCompat.requestPermissions(activity,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    REQUEST_CODE_IMAGE_PERMISSION);
-        }
-
     }
 
     public void handlePermissionResult(int[] grantResults)

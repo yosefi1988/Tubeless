@@ -1,14 +1,39 @@
 package ir.sajjadyosefi.android.xTubeless.utility.file;
 
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.squareup.picasso.OkHttp3Downloader;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.RemoteApi;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.RetrofitImageLoader;
+import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ImageUtil {
@@ -92,5 +117,70 @@ public class ImageUtil {
         }
 
         return inSampleSize;
+    }
+
+    public void downloadImageAndPreview(Context mContext ,ir.sajjadyosefi.android.xTubeless.classes.model.File file,ImageView imageView) {
+        //download image
+        Picasso.Builder builder = new Picasso.Builder(mContext);
+        RequestCreator picassoImageLoader = createPicassoLoader(
+                builder,
+                ImageRequest.DEFAULT_JSON_BODY,
+                "http://shop.atiafkar.ir/api/DownloadFileForAndroid"
+        );
+        picassoImageLoader.into(imageView);
+        loadImageWithRetrofit(mContext,file, imageView);
+    }
+    private void loadImageWithRetrofit(Context context, ir.sajjadyosefi.android.xTubeless.classes.model.File file, ImageView imageView) {
+        final RetrofitImageLoader imageLoader = new RetrofitImageLoader(imageView);
+        RemoteApi api = RemoteApi.Factory.create();
+        ImageRequest.DEFAULT_BODY.setAndroidId(DeviceUtil.GetAndroidId(context));
+        ImageRequest.DEFAULT_BODY.setContentId(file.getRequestContentId() + "");
+        ImageRequest.DEFAULT_BODY.setFrame(file.getFrame() + "");
+        api.getImage(ImageRequest.DEFAULT_BODY).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                ResponseBody body = response.body();
+                if (response.isSuccessful() && body != null) {
+                    try {
+                        imageLoader.execute(file , body.byteStream());
+
+
+
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.d("TAG", "Retrofit onResponse(): CODE = [" + response.code() + "], MESSAGE = [" + response.message() + "]");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.d("TAG", "Retrofit onFailure(): t = [" + t + "]");
+            }
+        });
+    }
+
+    // download image using Retrofit or Picasso via HTTP POST method
+    private RequestCreator createPicassoLoader(Picasso.Builder builder, String body, String url) {
+        return builder.downloader(new OkHttp3Downloader(createPicassoCallFactory(body)))
+                .build()
+                .load(url);
+    }
+
+    private okhttp3.Call.Factory createPicassoCallFactory(String jsonBody) {
+        final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .build();
+        final RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), jsonBody);
+        return new okhttp3.Call.Factory() {
+            @Override
+            public okhttp3.Call newCall(Request request) {
+                Request.Builder builder = request.newBuilder();
+                builder.post(requestBody);
+                builder.addHeader("Content-Type", "application/json");
+                return okHttpClient.newCall(builder.build());
+            }
+        };
     }
 }

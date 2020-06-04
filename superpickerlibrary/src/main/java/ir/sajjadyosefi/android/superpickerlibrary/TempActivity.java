@@ -12,14 +12,20 @@ import static ir.sajjadyosefi.android.superpickerlibrary.PickerManager.REQUEST_C
 public class TempActivity extends Activity {
 
     PickerManager pickerManager;
+    private int type;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        type = getIntent().getIntExtra("type",0);
+
+
         this.pickerManager = GlobalHolder.getInstance().getPickerManager();
         this.pickerManager.setActivity(TempActivity.this);
-        this.pickerManager.pickPhotoWithPermission();
+        this.pickerManager.pickPhotoWithPermission(type);
+
+
 
     }
 
