@@ -54,9 +54,9 @@ public class SearchByNameActivity extends TubelessTransparentStatusBarActivity{
 
     private WindowManager windowManager;
     private WindowManager.LayoutParams layoutParams;
-    private View progressLayout;
+//    private View progressLayout;
     private boolean isAttached ;
-    private View mainProgress;
+//    private View mainProgress;
     private LinearLayout mainLayout;
 
 

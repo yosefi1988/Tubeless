@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.bussines.post.activity;
+package ir.sajjadyosefi.android.xTubeless.bussines.police;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -25,6 +25,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
@@ -217,10 +218,12 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 
 
     private void CheckFilter() {
+        ((TubelessActivity)mContext).progressDialog.show();
 
         Global.retrofitHelperEpolice.callPelackservice("platesearch","1", "1","66" +  "03" + "25"  + "566" , new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+
                 if (response.body().contains("خارج از کشور")) {
                     Toast.makeText(mContext,"در صورتی که از فیلتر شکن استفاده می کنید آن را خاموش کنید.",Toast.LENGTH_SHORT).show();
                 }else {
@@ -254,6 +257,8 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                ((TubelessActivity)mContext).progressDialog.hide();
+
                 Toast.makeText(mContext,"عملیات با خطا مواجه شد",Toast.LENGTH_SHORT).show();
                 Toast.makeText(mContext,"دوباره تلاش کنید",Toast.LENGTH_SHORT).show();
 
@@ -310,6 +315,8 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
         Global.retrofitHelperEpolice.callPelackservice("platesearch","1", "1",editText1Value +  (Integer.parseInt(editTextXValue) <= 9 ? "0" + editTextXValue : editTextXValue) + editText3Value  + editText2Value , new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+                ((TubelessActivity)mContext).progressDialog.hide();
+
 //                response.body()
 
                 showManyResultDialog(response.body());
@@ -326,7 +333,9 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(mContext,"عملیات با خطا مواجه شد",Toast.LENGTH_SHORT).show();
+                ((TubelessActivity)mContext).progressDialog.hide();
+
+                Toast.makeText(mContext,"عملیات با خطا مواجه شد - درصورت روشن بودن فیلتر شکن آن را خاموش کنید",Toast.LENGTH_SHORT).show();
                 Toast.makeText(mContext,"دوباره تلاش کنید",Toast.LENGTH_SHORT).show();
 
                 if (button != null)

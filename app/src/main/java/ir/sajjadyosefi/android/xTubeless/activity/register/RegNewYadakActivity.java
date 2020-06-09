@@ -229,7 +229,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
             PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
             String versionName = pInfo.versionName;
             //todo 1 change version if not complete
-            if (versionName.contains("4.3.0") || versionName.contains("1.3.0")|| versionName.contains("1.1.0")) {
+            if (versionName.contains("4.5.0") || versionName.contains("1.5.0")|| versionName.contains("1.3.0")) {
                 buttonAddFiles.setEnabled(false);
             } else {
                 buttonAddFiles.setEnabled(true);

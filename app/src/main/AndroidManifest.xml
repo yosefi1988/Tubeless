@@ -136,7 +136,7 @@
             android:isScrollContainer="true"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.bussines.post.activity.KarteSokhtActivity"
+            android:name="ir.sajjadyosefi.android.xTubeless.bussines.police.KarteSokhtActivity"
             android:theme="@style/ThemeFullSCreenX"
             android:configChanges="orientation|screenSize"
             android:isScrollContainer="true"
