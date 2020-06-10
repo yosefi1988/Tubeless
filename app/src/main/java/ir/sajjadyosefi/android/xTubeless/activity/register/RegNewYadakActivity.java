@@ -225,18 +225,18 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 //        sendAvatar(ss,((File) files),(((File) files).getUri()));
 
 
-        try {
-            PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
-            String versionName = pInfo.versionName;
-            //todo 1 change version if not complete
-            if (versionName.contains("4.5.0") || versionName.contains("1.5.0")|| versionName.contains("1.3.0")) {
-                buttonAddFiles.setEnabled(false);
-            } else {
+//        try {
+//            PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
+//            String versionName = pInfo.versionName;
+//            //todo 1 change version if not complete
+//            if (versionName.contains("4.5.0") || versionName.contains("1.5.0")|| versionName.contains("1.3.0")) {
+//                buttonAddFiles.setEnabled(false);
+//            } else {
                 buttonAddFiles.setEnabled(true);
-            }
-        }catch (Exception ex){
-
-        }
+//            }
+//        }catch (Exception ex){
+//
+//        }
     }
 
     @Override

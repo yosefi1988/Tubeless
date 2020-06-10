@@ -94,7 +94,7 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
         int a =0 ;
         a++;
 
-        if (t.getMessage().contains("Unable to resolve host")){
+        if (t.getMessage() != null && t.getMessage().contains("Unable to resolve host")){
             showConnectionLostFullScreenDialog(mContext, null, new Runnable() {
                 @Override
                 public void run() {
