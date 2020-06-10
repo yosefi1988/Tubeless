@@ -419,4 +419,6 @@
     <string name="permission_gallery_text">برای این که بتوانیم تصویر را از گالری گوشی شما انتخاب کنیم باید اجازه دسترسی به گالری را به اپلیکیشن بدهید.</string>
     <string name="permission_camera_text">برای گرفتن عکس باید دسترسی به دوربین را به اپلیکیشن بدهید.</string>
     <string name="notEnugh">با افزایش فعالیتتان در اپ , این گذینه فعال خواهدشد.</string>
+    <string name="reg_new_comment">پاسخ</string>
+    <string name="your_reply">نظر یا پاسخ شما</string>
 </resources>

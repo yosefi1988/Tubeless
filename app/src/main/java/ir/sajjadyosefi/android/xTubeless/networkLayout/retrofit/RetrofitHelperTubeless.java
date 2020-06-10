@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.RemoteApi;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
@@ -99,6 +100,26 @@ public class RetrofitHelperTubeless {
         Call<Object> userCall = service.newYafte(request);
         userCall.enqueue(callback);
     }
+
+    //------------ comments ---------------
+    public void registerNewComment(NewBlogCommentRequest request, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.newBlogComment(request);
+        userCall.enqueue(callback);
+    }
+    public void voteBlogComment(NewBlogCommentRequest request, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.voteBlogComment(request);
+        userCall.enqueue(callback);
+    }
+    public void deleteBlogComment(NewBlogCommentRequest request, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.deleteBlogComment(1,"1");
+        userCall.enqueue(callback);
+    }
+    public void invisibleBlogComment(NewBlogCommentRequest request, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.invisibleBlogComment(1,"");
+        userCall.enqueue(callback);
+    }
+
+    //------------ end comments ---------------
 
     public void getTimelineItem(int id, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.getTimelineItem(id);

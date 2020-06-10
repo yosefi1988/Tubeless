@@ -7,6 +7,7 @@ import java.util.List;
 
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
@@ -48,6 +49,22 @@ public interface ApiServiceTubeless {
     @POST("Api/Blog/SaveNewBlog")
     Call<Object> newYafte(@Body NewBlogRequest request);
 
+    //------------ comments ---------------
+    @POST("Api/Blog/SaveNewBlogComment")
+    Call<Object> newBlogComment(@Body NewBlogCommentRequest request);
+
+    @POST("Api/Blog/voteBlogComment")
+    Call<Object> voteBlogComment(@Body NewBlogCommentRequest request);
+
+    @GET("Api/Blog/deleteBlogComment")
+    Call<Object> deleteBlogComment(@Query("id") int id,
+                                   @Query("userId") String userId);
+
+    @GET("Api/Blog/invisibleBlogComment")
+    Call<Object> invisibleBlogComment(@Query("id") int id,
+                                      @Query("userId") String userId);
+    //------------ end comments ---------------
+
     @GET("Api/TimeLine/getTubelessTimeline")
     Call<Object> getYafteTimeline(@Query("index") int index,
                                   @Query("count") int count);
@@ -68,6 +85,7 @@ public interface ApiServiceTubeless {
     @GET("Api/Blog/invisibleBlog")
     Call<Object> invisibleTimelineItem(@Query("id") int id,
                                        @Query("userId") String userId);
+
 
     @POST("Api/Message/SendMessage")
     Call<Object> contactUs(@Body ContactUsRequest request);
