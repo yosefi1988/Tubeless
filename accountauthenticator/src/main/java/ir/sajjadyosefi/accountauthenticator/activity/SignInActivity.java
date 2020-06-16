@@ -2,7 +2,6 @@ package ir.sajjadyosefi.accountauthenticator.activity;
 
 import android.Manifest;
 import android.accounts.Account;
-import android.accounts.AccountAuthenticatorActivity;
 import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -23,7 +22,6 @@ import android.widget.Toast;
 
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -38,6 +36,7 @@ import com.google.gson.Gson;
 
 import ir.sajjadyosefi.accountauthenticator.R;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.accountauthenticator.classes.exception.TubelessException;
 import ir.sajjadyosefi.accountauthenticator.classes.util;
 import ir.sajjadyosefi.accountauthenticator.model.LoginRequest;
 import ir.sajjadyosefi.accountauthenticator.model.User;
@@ -52,6 +51,8 @@ import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivit
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER_NAME;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER_PASS;
 import static ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral.sServerAuthenticate;
+import static ir.sajjadyosefi.accountauthenticator.classes.exception.TubelessException.TUBELESS_PASSWORD_IS_EMPTY;
+import static ir.sajjadyosefi.accountauthenticator.classes.exception.TubelessException.TUBELESS_USERNAME_IS_EMPTY;
 
 public class SignInActivity extends Activity {
 
@@ -70,7 +71,7 @@ public class SignInActivity extends Activity {
     private static final int        PERMISSION_REQUEST_CODE     = 1;
     Context                         context;
     Activity                        activity;
-    Intent intent;
+    Intent intentxxxxxxx;
 
     private AccountManager mAccountManager;
     private String mAuthTokenType;
@@ -82,7 +83,7 @@ public class SignInActivity extends Activity {
         switch (requestCode) {
             case PERMISSION_REQUEST_CODE:
                 if (isPermissionGranted(grantResults)) {
-                    tryToLoginBySimCard(intent,getPhoneNumber(context));
+                    tryToLoginBySimCard(intentxxxxxxx,getPhoneNumber(context));
                 } else {
                     Toast.makeText(activity,context.getString(R.string.simcardPermissionError), Toast.LENGTH_LONG).show();
                 }
@@ -102,7 +103,7 @@ public class SignInActivity extends Activity {
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 //UserName = account.getEmail();
-                tryToLoginByMail(intent,account.getEmail(), account.getPhotoUrl() == null ? null : account.getPhotoUrl().toString());
+                tryToLoginByMail(intentxxxxxxx,account.getEmail(), account.getPhotoUrl() == null ? null : account.getPhotoUrl().toString());
 
             }catch (Exception ex){
 
@@ -149,7 +150,7 @@ public class SignInActivity extends Activity {
         super.onCreate(savedInstanceState);
         context = this;
         activity = this;
-        intent = getIntent();
+        intentxxxxxxx = getIntent();
         setContentView(R.layout.act_login);
 
         progressDialog = new Dialog(context);
@@ -172,7 +173,12 @@ public class SignInActivity extends Activity {
         findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submit(intent);
+                try {
+                    submit(intentxxxxxxx);
+                }catch (Exception ex){
+                    Toast.makeText(getBaseContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
+                    hideProgressBar();
+                }
             }
         });
         findViewById(R.id.signUp).setOnClickListener(new View.OnClickListener() {
@@ -198,7 +204,7 @@ public class SignInActivity extends Activity {
                     requestPermissions(activity, new String[]{wantPermission},PERMISSION_REQUEST_CODE);
 
                 } else {
-                    tryToLoginBySimCard(intent,getPhoneNumber(context));
+                    tryToLoginBySimCard(intentxxxxxxx,getPhoneNumber(context));
                 }
             }
         });
@@ -312,6 +318,7 @@ public class SignInActivity extends Activity {
         progressDialog.hide();
     }
 
+    @SuppressLint("StaticFieldLeak")
     public void tryToLoginBySimCard(final Intent intent, final String simId) {
         showProgressBar();
         final String userName = simId;//((TextView) findViewById(R.id.userName)).getText().toString();
@@ -350,6 +357,7 @@ public class SignInActivity extends Activity {
 
                     Gson gson = new Gson();
                     bundle.putString(PARAM_USER, gson.toJson(signInUser));
+                    bundle.remove(KEY_ERROR_MESSAGE);
 
                 } catch (Exception e) {
                     bundle.putString(KEY_ERROR_MESSAGE, e.getMessage());
@@ -409,7 +417,7 @@ public class SignInActivity extends Activity {
 
                     Gson gson = new Gson();
                     bundle.putString(PARAM_USER, gson.toJson(signInUser));
-
+                    bundle.remove(KEY_ERROR_MESSAGE);
                 } catch (Exception e) {
                     bundle.putString(KEY_ERROR_MESSAGE, e.getMessage());
                 }
@@ -430,11 +438,18 @@ public class SignInActivity extends Activity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    public void submit(final Intent intent) {
+    public void submit(final Intent intent) throws TubelessException {
         showProgressBar();
         final String userName = ((TextView) findViewById(R.id.userName)).getText().toString();
         final String accountName = ((TextView) findViewById(R.id.accountName)).getText().toString().trim();
         final String accountPassword = ((TextView) findViewById(R.id.accountPassword)).getText().toString();
+
+        if (userName.length() < 1){
+            throw new TubelessException(TUBELESS_USERNAME_IS_EMPTY);
+        }
+        if (accountPassword.length() < 1){
+            throw new TubelessException(TUBELESS_PASSWORD_IS_EMPTY);
+        }
 
         final String accountType = getIntent().getStringExtra(ARG_ACCOUNT_TYPE);
 
@@ -468,6 +483,7 @@ public class SignInActivity extends Activity {
                     Gson gson = new Gson();
                     bundle.putString(PARAM_USER, gson.toJson(signInUser));
 
+                    bundle.remove(KEY_ERROR_MESSAGE);
                 } catch (Exception e) {
                     bundle.putString(KEY_ERROR_MESSAGE, e.getMessage());
                 }
@@ -480,6 +496,7 @@ public class SignInActivity extends Activity {
             protected void onPostExecute(Intent intent) {
                 if (intent.hasExtra(KEY_ERROR_MESSAGE)) {
                     Toast.makeText(getBaseContext(), intent.getStringExtra(KEY_ERROR_MESSAGE), Toast.LENGTH_SHORT).show();
+                    hideProgressBar();
                 } else {
                     finishLogin(intent);
                 }

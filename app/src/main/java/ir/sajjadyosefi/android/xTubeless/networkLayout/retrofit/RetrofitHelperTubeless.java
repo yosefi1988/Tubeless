@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewVoteRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.RemoteApi;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
@@ -25,6 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Query;
 
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.IDApplication;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.REST_API_IP_ADDRESS_MAIN;
@@ -106,16 +108,16 @@ public class RetrofitHelperTubeless {
         Call<Object> userCall = service.newBlogComment(request);
         userCall.enqueue(callback);
     }
-    public void voteBlogComment(NewBlogCommentRequest request, TubelessRetrofitCallbackss callback) {
+    public void voteBlogComment(NewVoteRequest request, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.voteBlogComment(request);
         userCall.enqueue(callback);
     }
-    public void deleteBlogComment(NewBlogCommentRequest request, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.deleteBlogComment(1,"1");
+    public void deleteBlogComment(int id,String userId, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.deleteBlogComment(id,userId);
         userCall.enqueue(callback);
     }
-    public void invisibleBlogComment(NewBlogCommentRequest request, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.invisibleBlogComment(1,"");
+    public void invisibleBlogComment(int id,String userId,  TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.invisibleBlogComment(id,userId);
         userCall.enqueue(callback);
     }
 

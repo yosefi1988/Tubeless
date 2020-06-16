@@ -2,6 +2,8 @@ package ir.sajjadyosefi.accountauthenticator.authentication;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -35,9 +37,12 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import ir.sajjadyosefi.accountauthenticator.R;
+import ir.sajjadyosefi.accountauthenticator.classes.exception.TubelessException;
 import ir.sajjadyosefi.accountauthenticator.classes.util;
 import ir.sajjadyosefi.accountauthenticator.model.LoginRequest;
 import ir.sajjadyosefi.accountauthenticator.model.User;
+import ir.sajjadyosefi.accountauthenticator.model.response.ServerResponseBase;
 import okhttp3.internal.Util;
 import retrofit2.http.QueryMap;
 
@@ -154,7 +159,7 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
 
         if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
             String authtoken = null;
-            try {
+//            try {
                 String responseString = EntityUtils.toString(httpResponse.getEntity());
                 if (httpResponse.getStatusLine().getStatusCode() != 200) {
                     ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
@@ -165,25 +170,29 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
                 Log.d("sajjadx",responseString.substring(1));
                 Log.d("sajjadx",responseString.substring(1,responseString.length()-1));
 
+                ServerResponseBase responseX2 = new Gson().fromJson(responseString.substring(1,responseString.length()-1).replace("\\" ,""), ServerResponseBase.class);
 
-                User loggedUser = new Gson().fromJson(responseString.substring(1,responseString.length()-1).replace("\\" ,""), User.class);
+                if (responseX2.getTubelessException().getCode() > 0) {
+                    User loggedUser = new Gson().fromJson(responseString.substring(1, responseString.length() - 1).replace("\\", ""), User.class);
 //                User loggedUser = new Gson().fromJson(responseString, User.class);
 //                Gson gson = new Gson();
 //                JsonElement jsonElement = gson.toJsonTree(httpResponse.getEntity());
 //                User object = gson.fromJson(jsonElement, User.class);
 
-                loggedUser.setAuthtoken(loggedUser.getUserId() + "");
-                return loggedUser;
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                    loggedUser.setAuthtoken(loggedUser.getUserId() + "");
+                    return loggedUser;
+                }else {
+                    throw new TubelessException(responseX2.getTubelessException().getCode());
+//                    throw new Exception("Error signing-in [" + httpResponse.getStatusLine().getStatusCode() + "]");
+                }
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
         }else {
 //            ParseComError error = new Gson().fromJson(responseString, ParseComError.class);
 //            throw new Exception("Error signing-in ["+error.code+"] - " + error.error);
             throw new Exception("Error signing-in [" + httpResponse.getStatusLine().getStatusCode() + "]");
         }
-        return null;
     }
 //    public String userSignIn(String user, String pass, String authType) throws Exception {
 //        Log.d("udini", "userSignIn");
@@ -236,5 +245,4 @@ public class ParseComServerAuthenticate implements ServerAuthenticate {
         int code;
         String error;
     }
-
 }

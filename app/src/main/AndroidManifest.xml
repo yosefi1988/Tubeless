@@ -120,6 +120,10 @@
             android:name=".networkLayout.retrofit.DownloadUploadPicture.FileListActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
+        <activity
+            android:name=".activity.register.RegNewCommentActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
 
 
         <activity

@@ -12,7 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
@@ -21,9 +23,13 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewVoteRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 
@@ -132,6 +138,18 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
             }
         };
         Global.apiManagerTubeless.getTimelineItem(blogItem.getBlogID(), ssssssss);
+
+
+
+
+//        //vote
+//        NewVoteRequest aaaa = new NewVoteRequest();
+////      aaaa.setUserID((int)Global.user.getUserId());
+//        aaaa.setUserID(49);
+//        aaaa.setCommentId(11);
+//        aaaa.setVote(true);
+//        newVote(aaaa);
+
      }
 
     public static void fillTitle(Context context ,String title , int cat , TextView textViewTitle) {
@@ -572,5 +590,255 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         ((Activity)mContext).startActivityForResult(intent , 60);
     }
 
+
+
+    private void newVote(NewVoteRequest newVoteRequest) {
+        final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
+
+        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {
+            @Override
+            public void t_beforeSendRequest() {
+
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+
+            }
+
+            @Override
+            public void t_complite() {
+
+            }
+
+            @Override
+            public void t_responseNull() {
+                TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.tray_error_again), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                ServerResponseBase responseX = (ServerResponseBase)response;
+
+                if (responseX.getTubelessException().getCode() > 0) {
+
+                    //pic
+//                    boolean havePic = true;
+//                    if (filesList.size()>=3){
+//                        havePic = true;
+//                    }
+//
+//                    if(havePic){
+//
+//                        //ok
+//                        Intent mIntent = new Intent(getContext(), FileUploadService.class);
+//                        mIntent.putExtra("BlogId", responseX.getTubelessException().getMessage());
+//
+//                        if (lastCheckedPosition2 != -1){
+//                            mIntent.putExtra("TitlePicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition2).getUri())));
+//                        }
+//
+//                        if (lastCheckedPosition != -1){
+//                            mIntent.putExtra("TextPicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition).getUri())));
+//                        }
+//
+//                        int index = 0;
+//                        for (File file : filesList) {
+//                            if (file.getListItemType() == EndlessList_AdapterFile.ListItemType.TYPE_ITEM && !file.isHeaderPic() && !file.isContentPic() ) {
+//                                index++;
+//                                mIntent.putExtra("image" + index, UriUtil.getPath(getContext(), Uri.parse(file.getUri())));
+//                            }
+//                        }
+//                        mIntent.putExtra("filesCount", index );
+//                        FileUploadService.enqueueWork(getContext(), mIntent);
+//
+//
+//                    }else {
+                    TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.new_yafte_new_yafte_inserted), "ok", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finish();
+                        }
+                    });
+//                    }
+                }else {
+                    TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.tray_again), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+                }
+            }
+        };
+        Global.apiManagerTubeless.voteBlogComment(newVoteRequest ,ssssssss);
+
+
+    }
+
+    private void invisibleComment(int id ,String userId) {
+        final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
+
+        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {
+            @Override
+            public void t_beforeSendRequest() {
+
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+
+            }
+
+            @Override
+            public void t_complite() {
+
+            }
+
+            @Override
+            public void t_responseNull() {
+                TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.tray_error_again), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                ServerResponseBase responseX = (ServerResponseBase)response;
+
+                if (responseX.getTubelessException().getCode() > 0) {
+
+                    //pic
+//                    boolean havePic = true;
+//                    if (filesList.size()>=3){
+//                        havePic = true;
+//                    }
+//
+//                    if(havePic){
+//
+//                        //ok
+//                        Intent mIntent = new Intent(getContext(), FileUploadService.class);
+//                        mIntent.putExtra("BlogId", responseX.getTubelessException().getMessage());
+//
+//                        if (lastCheckedPosition2 != -1){
+//                            mIntent.putExtra("TitlePicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition2).getUri())));
+//                        }
+//
+//                        if (lastCheckedPosition != -1){
+//                            mIntent.putExtra("TextPicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition).getUri())));
+//                        }
+//
+//                        int index = 0;
+//                        for (File file : filesList) {
+//                            if (file.getListItemType() == EndlessList_AdapterFile.ListItemType.TYPE_ITEM && !file.isHeaderPic() && !file.isContentPic() ) {
+//                                index++;
+//                                mIntent.putExtra("image" + index, UriUtil.getPath(getContext(), Uri.parse(file.getUri())));
+//                            }
+//                        }
+//                        mIntent.putExtra("filesCount", index );
+//                        FileUploadService.enqueueWork(getContext(), mIntent);
+//
+//
+//                    }else {
+                    TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.new_yafte_new_yafte_inserted), "ok", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finish();
+                        }
+                    });
+//                    }
+                }else {
+                    TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.tray_again), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+                }
+            }
+        };
+        Global.apiManagerTubeless.invisibleBlogComment(id,userId ,ssssssss);
+    }
+
+    private void deleteComment(int id ,String userId) {
+        final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
+
+        TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {
+            @Override
+            public void t_beforeSendRequest() {
+
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+
+            }
+
+            @Override
+            public void t_complite() {
+
+            }
+
+            @Override
+            public void t_responseNull() {
+                TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.tray_error_again), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                ServerResponseBase responseX = (ServerResponseBase)response;
+
+                if (responseX.getTubelessException().getCode() > 0) {
+
+                    TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.new_yafte_new_yafte_inserted), "ok", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finish();
+                        }
+                    });
+//                    }
+                }else {
+                    TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.tray_again), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+                }
+            }
+        };
+        Global.apiManagerTubeless.deleteBlogComment(id,userId ,ssssssss);
+    }
 
 }

@@ -19,5 +19,6 @@
     <string name="simcardPermissionError">simcardPermissionError</string>
     <string name="loginBySimcardDescription">loginBySimcardDescription</string>
     <string name="error_message_500">مشکلی در سرور به وجود آمد. کمی بعد تلاش کنید.</string>
+    <string name="server_not_response">متاسفانه سرور پاسخی نداد</string>
 
 </resources>

@@ -8,6 +8,7 @@ import java.util.List;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewVoteRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
@@ -50,11 +51,11 @@ public interface ApiServiceTubeless {
     Call<Object> newYafte(@Body NewBlogRequest request);
 
     //------------ comments ---------------
-    @POST("Api/Blog/SaveNewBlogComment")
+    @POST("Api/Comment/SaveNewBlogComment")
     Call<Object> newBlogComment(@Body NewBlogCommentRequest request);
 
-    @POST("Api/Blog/voteBlogComment")
-    Call<Object> voteBlogComment(@Body NewBlogCommentRequest request);
+    @POST("Api/Comment/voteBlogComment")
+    Call<Object> voteBlogComment(@Body NewVoteRequest request);
 
     @GET("Api/Blog/deleteBlogComment")
     Call<Object> deleteBlogComment(@Query("id") int id,
@@ -63,6 +64,9 @@ public interface ApiServiceTubeless {
     @GET("Api/Blog/invisibleBlogComment")
     Call<Object> invisibleBlogComment(@Query("id") int id,
                                       @Query("userId") String userId);
+
+    //http://test.sajjadyosefi.ir/Api/Comment/getComments?blogId=8&index=0&count=10
+
     //------------ end comments ---------------
 
     @GET("Api/TimeLine/getTubelessTimeline")
