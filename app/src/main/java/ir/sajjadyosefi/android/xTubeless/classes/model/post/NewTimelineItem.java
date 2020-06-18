@@ -5,18 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.TextContent;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
@@ -24,8 +19,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemVi
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitle;
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity.fillTitleForShare;
+import static ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity.fillTitle;
+import static ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity.fillTitleForShare;
 
 /**
  * Created by sajjad on 1/20/2018.
@@ -301,7 +296,7 @@ public class NewTimelineItem extends ParentItem{
         View.OnClickListener onclick2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"user id : " + timelineItem.getUserID() ,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext,"user id : " + timelineItem.getUserID() ,Toast.LENGTH_SHORT).show();
             }
         };
 

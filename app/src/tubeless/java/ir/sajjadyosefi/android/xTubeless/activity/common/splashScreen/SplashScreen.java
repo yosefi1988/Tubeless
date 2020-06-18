@@ -1,24 +1,15 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen;
 
 import android.Manifest;
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerFuture;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,27 +17,12 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.splunk.mint.Mint;
 
 //import ir.sajjadyosefi.android.tubeless.Class.model.AppStatus;
-import ir.adad.ad.AdadAdListener;
-import ir.adad.banner.AdadBannerAd;
-import ir.adad.core.Adad;
-import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.SplashScreenPresenterCompl;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
-import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
-import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
-import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
-
-import static ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
 

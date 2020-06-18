@@ -104,6 +104,12 @@ public class RetrofitHelperTubeless {
     }
 
     //------------ comments ---------------
+    public void getCommentTimeline(int blogId,int index, TubelessRetrofitCallbackss callback) {
+        //todo change count to 15
+        Call<Object> userCall = service.getCommentsOfblog(blogId,index,3);
+        userCall.enqueue(callback);
+    }
+
     public void registerNewComment(NewBlogCommentRequest request, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.newBlogComment(request);
         userCall.enqueue(callback);

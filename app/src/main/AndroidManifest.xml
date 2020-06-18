@@ -168,7 +168,7 @@
             android:configChanges="orientation|screenSize" />
 
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity"
+            android:name="ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity"
             android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 

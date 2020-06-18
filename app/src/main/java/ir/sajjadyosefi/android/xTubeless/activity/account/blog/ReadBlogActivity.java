@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity.common;
+package ir.sajjadyosefi.android.xTubeless.activity.account.blog;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,15 +18,23 @@ import com.google.gson.JsonObject;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewVoteRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
@@ -37,6 +45,10 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofit
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
+
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 
 /**
  * Created by sajjad on 2/11/2018.
@@ -149,6 +161,14 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 //        aaaa.setCommentId(11);
 //        aaaa.setVote(true);
 //        newVote(aaaa);
+
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("type" , TYPE_COMMENTS);
+        bundle.putInt("blogId" , 8);
+        bundle.putSerializable("LIST", (Serializable)new ArrayList<CommentItem>());
+        getActivity().startActivity(ContainerActivity.getIntent(getContext(),bundle));
+
 
      }
 
@@ -386,6 +406,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
         fillClicks(newTimelineItem);
     }
+
     private void firstFillData(TimelineItem timelineItem) {
 
         DateConverterSjd dateUtiliti = new DateConverterSjd();

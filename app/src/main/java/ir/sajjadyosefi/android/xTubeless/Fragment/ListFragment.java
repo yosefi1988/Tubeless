@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -45,6 +44,7 @@ public class ListFragment extends Fragment  {
     private View fragmentRootView;
     private TubelessActivity activity;
     private int listType;
+    private Bundle bundle;
     private List<IItems> list;
     private FloatingActionButton floatingActionButton ,floatingActionButtonList;
     private LinearLayoutManager mLayoutManager;
@@ -82,10 +82,18 @@ public class ListFragment extends Fragment  {
         this.context = context;
         this.listType = listType;
     }
+
     public ListFragment(Context context,List<IItems> list, int listType) {
         this.context = context;
         this.listType = listType;
         this.list = list;
+    }
+
+    public ListFragment(Context context,List<IItems> list, int listType , Bundle bundle) {
+        this.context = context;
+        this.listType = listType;
+        this.list = list;
+        this.bundle = bundle;
     }
 
     //0
@@ -135,7 +143,7 @@ public class ListFragment extends Fragment  {
         }
 
         createAdater();
-        loadTimeline(fragmentRootView,listType);
+        prepareFabButton(fragmentRootView,listType);
 
 
 
@@ -160,7 +168,8 @@ public class ListFragment extends Fragment  {
                 //height,
                 //hasAppBarLayout,
                 mSwipeRefreshLayout,
-                list);
+                list,
+                bundle);
         mRecyclerView.setAdapter(xAdapter);
 
 
@@ -240,7 +249,7 @@ public class ListFragment extends Fragment  {
         mRecyclerView.smoothScrollToPosition(0);
     }
 
-    private void loadTimeline(View view, final int listType) {
+    private void prepareFabButton(View view, final int listType) {
 
 //        mRecyclerView.setHasFixedSize(true);
 //        mRecyclerView.setItemAnimator(new DefaultItemAnimator());

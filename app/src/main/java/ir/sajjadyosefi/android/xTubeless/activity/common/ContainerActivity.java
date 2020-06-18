@@ -20,6 +20,7 @@ import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFrag
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
@@ -74,6 +75,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
         setContentView(R.layout.x_activity_container);
         mContext = this;
         type = getIntent().getIntExtra("type",0);
+
         list = (List<IItems>) getIntent().getSerializableExtra("LIST");
 
 
@@ -97,6 +99,15 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.include, new SearchByNameFragment());
             ft.commit();
+
+        }else if (type == TYPE_COMMENTS){
+
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            Bundle bundle = new Bundle();
+            bundle.putInt("blogId",getIntent().getIntExtra("blogId",0));
+            ft.replace(R.id.include, new ListFragment(this,list ,type,bundle));
+            ft.commit();
+
         }else if (type == 1){
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

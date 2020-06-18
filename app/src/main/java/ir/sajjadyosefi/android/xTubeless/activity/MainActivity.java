@@ -61,7 +61,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.common.ReadBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;

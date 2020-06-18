@@ -7,14 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,16 +21,11 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
-import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
-import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
 
@@ -60,14 +51,14 @@ public class ListActivity extends Activity {
     private ViewGroup mRoot;
 
     //singletone instance
-    private static ListActivity containerActivity;
+    private static ListActivity listActivity;
 
     //singletone
     public synchronized static ListActivity getInstance(){
-        if (containerActivity == null){
-            containerActivity = new ListActivity();
+        if (listActivity == null){
+            listActivity = new ListActivity();
         }
-        return containerActivity;
+        return listActivity;
     }
 
     //default constractor
@@ -133,7 +124,8 @@ public class ListActivity extends Activity {
                         //height,
                         //hasAppBarLayout,
                         mSwipeRefreshLayout,
-                        null));
+                        null,
+                null));
 
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
     }

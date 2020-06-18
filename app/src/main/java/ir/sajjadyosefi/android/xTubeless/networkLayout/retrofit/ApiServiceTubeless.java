@@ -65,7 +65,12 @@ public interface ApiServiceTubeless {
     Call<Object> invisibleBlogComment(@Query("id") int id,
                                       @Query("userId") String userId);
 
-    //http://test.sajjadyosefi.ir/Api/Comment/getComments?blogId=8&index=0&count=10
+
+    @GET("Api/Comment/getComments")
+    Call<Object> getCommentsOfblog(@Query("blogId") int blogId,
+                                      @Query("index") int index,
+                                      @Query("count") int count);
+
 
     //------------ end comments ---------------
 

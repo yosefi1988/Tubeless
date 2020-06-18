@@ -2,6 +2,7 @@ package ir.sajjadyosefi.android.xTubeless.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,11 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.CommentListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CommentItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
@@ -38,6 +42,7 @@ import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
@@ -50,6 +55,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     private final View rootView;
     //private final int scrollHeight;
     private final SwipeRefreshLayout mSwipeRefreshLayout;
+    private final Bundle bundle;
     private RecyclerView recyclerView;
     private Picasso picasso;
     //private int navigationHeight;
@@ -66,7 +72,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     EndlessRecyclerOnScrollListener onScrollListener;
 
 
-    public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView,LinearLayoutManager linearLayoutManager,SwipeRefreshLayout mSwipeRefreshLayout, final List<IItems> data) {
+    public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, final List<IItems> data, Bundle bundle) {
         this.listType = listType;
         //this.navigationHeight = navigationHeight;
         this.data = data;
@@ -79,6 +85,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         this.recyclerView = recyclerView;
         this.mSwipeRefreshLayout = mSwipeRefreshLayout ;
         this.adapter = this;
+        this.bundle = bundle;
 
         onScrollListener = new EndlessRecyclerOnScrollListener(mLayoutManager) {
             @Override
@@ -103,12 +110,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         recyclerView.addOnScrollListener(onScrollListener);
 
 
-
-
         firstLoadAndRefresh(context);
     }
-
-
 
     private void firstLoadAndRefresh(Context context) {
 //        mSwipeRefreshLayout.setOnRefreshListener(() -> {
@@ -244,6 +247,66 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 }
             };
             Global.apiManagerTubeless.getYafteTimeline(current_page - 1, ssssssss);
+
+        }else if (listType == TYPE_COMMENTS) {
+            int blogId = bundle.getInt("blogId");
+            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), CommentListResponse.class) {
+                @Override
+                public void t_beforeSendRequest() {
+
+                }
+
+                @Override
+                public void t_afterGetResponse() {
+
+                }
+
+                @Override
+                public void t_complite() {
+
+                }
+
+                @Override
+                public void t_responseNull() {
+
+                }
+
+                @Override
+                public void t_retry(Call<Object> call) {
+
+                }
+
+                @Override
+                public void t_onSuccess(Object response) {
+                    CommentListResponse responseX = (CommentListResponse) response;
+
+//                Gson gson = new Gson();
+//                JsonElement jsonElement = gson.toJsonTree(response.body());
+//                TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);
+//                for (TimelineItem item : responseX.getTimelineList()){
+//                    item.setType(Tubeless_ITEM_TYPE);
+//                    data.add(item);
+//                    if (isRefresh) {
+//                        adapter.notifyDataSetChanged();
+//                    }else {
+//                        adapter.notifyItemInserted(data.size());
+//                    }
+//                }
+//                adapter.notifyDataSetChanged();
+
+                    for (CommentItem item : responseX.getCommentList()){
+//                        item.setType(Tubeless_ITEM_TYPE);
+                        data.add(item);
+//                        if (isRefresh) {
+//                            adapter.notifyDataSetChanged();
+//                        }else {
+//                            adapter.notifyItemInserted(data.size());
+//                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            };
+            Global.apiManagerTubeless.getCommentTimeline(blogId,current_page - 1, ssssssss);
         }else if (listType == TYPE_POST_SEARCH_RESULT) {
             adapter.notifyDataSetChanged();
         }
@@ -267,6 +330,9 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_post_item, parent, false);
             holder = new PostItemViewHolder(view);
 
+        }else if (listType == TYPE_COMMENTS) {
+            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_comment_item, parent, false);
+            holder = new CommentItemViewHolder(view);
         }else if (listType == 1) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_image_of_a_car, parent, false);
             holder = new TwoLinesViewHolder(view);
@@ -306,6 +372,10 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
         }else if (data.get(position) instanceof PostSearchResponseItem) {
             PostSearchResponseItem item = (PostSearchResponseItem) data.get(position);
+            item.fill(context , this, listType, holder, item,position);
+
+        }else if (data.get(position) instanceof CommentItem) {
+            CommentItem item = (CommentItem) data.get(position);
             item.fill(context , this, listType, holder, item,position);
 
         }else if (data.get(position) instanceof TextItem) {
@@ -370,11 +440,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     }
 
 
-
-    @Override
-    public int getItemViewType(int position) {
-
-        return 1;
-    }
+//
+//    @Override
+//    public int getItemViewType(int position) {
+//
+//        return 1;
+//    }
 }
 
