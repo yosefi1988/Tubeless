@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,7 +16,7 @@ import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.JsonDateDeserializer;
 import ir.sajjadyosefi.android.xTubeless.classes.model.BlogItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.BlogItemViewHolder;
@@ -27,8 +26,8 @@ import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 
-import static ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity.fillTitle;
-import static ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity.fillTitleForShare;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitle;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitleForShare;
 
 /**
  * Created by sajjad on 1/20/2018.
@@ -191,7 +190,11 @@ public class TimelineItem extends ParentItem{
         DateConverterSjd dateUtiliti = new DateConverterSjd();
 
         StringBuilder date = new StringBuilder();
-        date.append(timelineItem.getDate());
+
+        if (timelineItem.getDate() != null) {
+            date.append(timelineItem.getDate());
+        }
+
         date.append(" ( ");
         date.append("تاریخ ثبت : ");
         date.append(timelineItem.getRegisterDate());

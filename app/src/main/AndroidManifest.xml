@@ -168,7 +168,7 @@
             android:configChanges="orientation|screenSize" />
 
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity"
+            android:name=".activity.common.blog.ReadBlogActivity"
             android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
@@ -215,6 +215,7 @@
 
 
 
+        <activity android:name=".activity.register.RegNewBlogActivity" />
         <activity android:name="ir.moslem_deris.apps.zarinpal.PaymentActivity" />
         <activity android:name="ir.sajjadyosefi.android.superpickerlibrary.TempActivity" />
         <activity

@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
+import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewVoteRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
@@ -88,15 +89,81 @@ public class RetrofitHelperTubeless {
 
     }
 
-    public void getTimelineYadak(int index, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.getTimelineYadak(index,15);
+
+    public void getTimelineListForYadak(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.getTimelineYadak(index,15);
+//        userCall.enqueue(callback);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yadak));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yadak));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yadak));
+
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
+        userCall.enqueue(callback);
+
+    }
+
+    public void getTimelineListForYafte(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.getYafteTimeline(index,15);
+//        userCall.enqueue(callback);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yafte));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yafte));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yafte));
+
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
         userCall.enqueue(callback);
     }
 
-    public void getYafteTimeline(int index, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.getYafteTimeline(index,15);
+    public void getTimelineListForBourseTrain(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.getYafteTimeline(index,15);
+//        userCall.enqueue(callback);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseTrain));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseTrain));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseTrain));
+
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
         userCall.enqueue(callback);
     }
+    public void getTimelineListForBourseAnalize(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.getYafteTimeline(index,15);
+//        userCall.enqueue(callback);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
+        userCall.enqueue(callback);
+    }
+    public void getTimelineListForBourseNews(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.getYafteTimeline(index,15);
+//        userCall.enqueue(callback);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseNews));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseNews));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseNews));
+
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
+        userCall.enqueue(callback);
+    }
+
 
     public void registerNewYafte(NewBlogRequest request, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.newYafte(request);

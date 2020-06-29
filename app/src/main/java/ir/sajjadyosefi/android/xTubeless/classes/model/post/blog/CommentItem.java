@@ -1,29 +1,14 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.post.blog;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
-
-import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
-import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Tag;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CommentItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
-import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
-
-import static ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity.fillTitle;
 
 
 /**

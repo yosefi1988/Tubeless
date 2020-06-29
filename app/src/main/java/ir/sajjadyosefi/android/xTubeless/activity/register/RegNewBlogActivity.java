@@ -21,6 +21,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import ir.sajjadYosefi.objectKmpautotextview.ItemData;
+import ir.sajjadYosefi.objectKmpautotextview.KMPAutoComplTextView;
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
@@ -29,8 +31,8 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
+import ir.sajjadyosefi.android.xTubeless.classes.model.ddl.DdlSelectsObject;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.FileListActivity;
@@ -46,14 +48,19 @@ import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteAct
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
 
-public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity {
+public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
     public Button buttonReg , buttonBack , buttonAddFiles;
-    EditText editTextText;
+    EditText editTextText,editTextTextPicture,editTextTitleStatment,editTextTitlePicture,editTextTitle;
+    RadioButton radioButton1,radioButton2,radioButton3;
     private int REQUEST_FILE_LIST = 525;
+    KMPAutoComplTextView complTextView;
 
     static List<File> filesList;
+
+    NewBlogRequest aaaa = new NewBlogRequest();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,12 +74,55 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
         Emptylist.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_EMPTY_LIST);
         filesList.add(Emptylist);
 
-        setContentView(R.layout.activity_new_comment);
+        setContentView(R.layout.activity_new_blog);
 
         buttonReg = findViewById(R.id.buttonReg);
         buttonBack = findViewById(R.id.buttonBack);
         buttonAddFiles = findViewById(R.id.buttonAddFiles);
         editTextText = findViewById(R.id.editTextText);
+        editTextTextPicture = findViewById(R.id.editTextTextPicture);
+        editTextTitleStatment = findViewById(R.id.editTextTitleStatment);
+        editTextTitlePicture = findViewById(R.id.editTextTitlePicture);
+        editTextTitle = findViewById(R.id.editTextTitle);
+        radioButton1 = findViewById(R.id.radioButton1);
+        radioButton2 = findViewById(R.id.radioButton2);
+        radioButton3 = findViewById(R.id.radioButton3);
+
+        complTextView = (KMPAutoComplTextView) findViewById(R.id.tvAutoCompl);
+        //type 7
+        ArrayList<ItemData> list3 = new ArrayList<>();
+
+        ArrayList<DdlSelectsObject> xxxxxxxxxxxxxx = new ArrayList<>();
+
+        DdlSelectsObject t1 = new DdlSelectsObject("آموزش" , 10024);
+        xxxxxxxxxxxxxx.add(t1);
+        DdlSelectsObject t2 = new DdlSelectsObject("اخبار" , 20023);
+        xxxxxxxxxxxxxx.add(t2);
+        DdlSelectsObject t3 = new DdlSelectsObject("تحلیل" , 20026);
+        xxxxxxxxxxxxxx.add(t3);
+
+        for (DdlSelectsObject item:xxxxxxxxxxxxxx) {
+            ItemData sss = new ItemData("- " + item.getTextValue(), item.getKeyValue() + "",  "");
+            list3.add(sss);
+        }
+        complTextView.setDatas(list3);
+        complTextView.setOnPopupItemClickListener(new KMPAutoComplTextView.OnPopupItemClickListener() {
+            @Override
+            public void onPopupItemClick(ItemData itemData) {
+                Toast.makeText(getContext(), itemData.getText(), Toast.LENGTH_SHORT).show();
+
+                for (ItemData item : list3) {
+                    if (item.getText().equals(itemData.getText())){
+//                        newItem = new DrillingListItem();
+//                        newItem.setId(item.getMeta());
+//                        newItem.setText(item.getText());
+
+                        aaaa.setCategoryID(Integer.parseInt(item.getMeta()));
+                    }
+                }
+            }
+        });
+
 
 //        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
 //                .requestEmail()
@@ -118,7 +168,7 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
         buttonAddFiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Global.user.isAdmin()) {
+                if (Global.user != null && Global.user.isAdmin()) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("FILE_COUNT", 4);
                     bundle.putSerializable("LIST", (Serializable) filesList);
@@ -128,12 +178,16 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
                 }
             }
         });
+
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
 
-                if ( editTextText.getText().toString().length() < 5){
+                if (
+                        editTextTitleStatment.getText().toString().length() < 5 ||
+                        editTextText.getText().toString().length() < 5 ||
+                        editTextTitle.getText().toString().length() < 5) {
                     TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.values_not_correct), new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -141,21 +195,25 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
                         }
                     });
                 }else {
-                    NewBlogCommentRequest aaaa = new NewBlogCommentRequest();
 
+                    aaaa.setUserID((int)Global.user.getUserId());
 
-//                    aaaa.setUserID((int)Global.user.getUserId());
-                    aaaa.setUserID(140430);
-                    aaaa.setBlogID(84511);
+                    aaaa.setTitlePicture("");
+                    aaaa.setTextPicture("");
 
                     JsonObject oooo = new JsonObject();
-//                    oooo.addProperty("title",       editTextTitle.getText().toString());
-//                    oooo.addProperty("model",       editTextTitleStatment.getText().toString());
-//                    oooo.addProperty("description", editTextTitlePicture.getText().toString());
-//                    oooo.addProperty("mobile","00");
+                    oooo.addProperty("title",       editTextTitle.getText().toString());
+                    oooo.addProperty("model",       editTextTitleStatment.getText().toString());
+                    oooo.addProperty("description", editTextTitlePicture.getText().toString());
+
+                    aaaa.setTitle(editTextTitle.getText().toString());
+                    aaaa.setStatement(oooo.toString());
+
+                    oooo.addProperty("mobile","00");
                     oooo.addProperty("text",        editTextText.getText().toString());
                     aaaa.setText(oooo.toString());
-                    newComment(aaaa);
+                    progressDialog.show();
+                    newYadak(aaaa);
                 }
             }
         });
@@ -164,16 +222,19 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 //        if (Global.IDUser == NOT_LOGN_USER ){
 
 
-        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
-            Bundle bundle = new Bundle();
-            Intent intent = SignInActivity.getIntent(getContext(),bundle);
-            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
-            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
-            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
-            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
-        }
+
+
+        //todo remove this comment
+//        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
+//            Bundle bundle = new Bundle();
+//            Intent intent = SignInActivity.getIntent(getContext(),bundle);
+//            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+//            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+//            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+//            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+//            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+//            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+//        }
 
 
 
@@ -194,6 +255,7 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 //        try {
 //            PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
 //            String versionName = pInfo.versionName;
+//            //todo 1 change version if not complete
 //            if (versionName.contains("4.5.0") || versionName.contains("1.5.0")|| versionName.contains("1.3.0")) {
 //                buttonAddFiles.setEnabled(false);
 //            } else {
@@ -279,7 +341,7 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 
     }
 
-    private void newComment(NewBlogCommentRequest blogCommentItem) {
+    private void newYadak(NewBlogRequest blogItem) {
         final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
 
         TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {
@@ -290,6 +352,7 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 
             @Override
             public void t_afterGetResponse() {
+                progressDialog.hide();
 
             }
 
@@ -320,45 +383,47 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 
                 if (responseX.getTubelessException().getCode() > 0) {
 
-                    //pic
-//                    boolean havePic = true;
-//                    if (filesList.size()>=3){
-//                        havePic = true;
-//                    }
-//
-//                    if(havePic){
-//
-//                        //ok
-//                        Intent mIntent = new Intent(getContext(), FileUploadService.class);
-//                        mIntent.putExtra("BlogId", responseX.getTubelessException().getMessage());
-//
-//                        if (lastCheckedPosition2 != -1){
-//                            mIntent.putExtra("TitlePicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition2).getUri())));
-//                        }
-//
-//                        if (lastCheckedPosition != -1){
-//                            mIntent.putExtra("TextPicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition).getUri())));
-//                        }
-//
-//                        int index = 0;
-//                        for (File file : filesList) {
-//                            if (file.getListItemType() == EndlessList_AdapterFile.ListItemType.TYPE_ITEM && !file.isHeaderPic() && !file.isContentPic() ) {
-//                                index++;
-//                                mIntent.putExtra("image" + index, UriUtil.getPath(getContext(), Uri.parse(file.getUri())));
-//                            }
-//                        }
-//                        mIntent.putExtra("filesCount", index );
-//                        FileUploadService.enqueueWork(getContext(), mIntent);
-//
-//
-//                    }else {
+                    boolean havePic = false;
+                    if (filesList.size()>=3){
+                        havePic = true;
+                    }
+
+                    if(havePic){
+
+
+                        //ok
+                        Intent mIntent = new Intent(getContext(), FileUploadService.class);
+                        mIntent.putExtra("BlogId", responseX.getTubelessException().getMessage());
+
+                        if (lastCheckedPosition2 != -1){
+                            mIntent.putExtra("TitlePicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition2).getUri())));
+                        }
+
+                        if (lastCheckedPosition != -1){
+                            mIntent.putExtra("TextPicture" , UriUtil.getPath(getContext(), Uri.parse(filesList.get(lastCheckedPosition).getUri())));
+                        }
+
+                        int index = 0;
+                        for (File file : filesList) {
+                            if (file.getListItemType() == EndlessList_AdapterFile.ListItemType.TYPE_ITEM && !file.isHeaderPic() && !file.isContentPic() ) {
+                                index++;
+                                mIntent.putExtra("image" + index, UriUtil.getPath(getContext(), Uri.parse(file.getUri())));
+                            }
+                        }
+                        mIntent.putExtra("filesCount", index );
+                        FileUploadService.enqueueWork(getContext(), mIntent);
+
+
+                        Toast.makeText(getContext(), "درحال ارسال فایل ها", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }else {
                         TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.new_yafte_new_yafte_inserted), "ok", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 finish();
                             }
                         });
-//                    }
+                    }
                 }else {
                     TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.tray_again), new View.OnClickListener() {
                         @Override
@@ -369,8 +434,59 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
                 }
             }
         };
-        Global.apiManagerTubeless.registerNewComment(blogCommentItem ,ssssssss);
-
+        Global.apiManagerTubeless.registerNewYafte(blogItem ,ssssssss);
 
     }
+
+
+
+//    private void sendAvatar(SendFileRequest request, File files, String fileUri){
+//        java.io.File file =  new java.io.File(FileUtils.getPath(getContext(), Uri.parse(fileUri)));
+//        RequestBody requestFile = RequestBody.create(MediaType.parse("text/plain, application/json"), file);
+////        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+//
+//        MultipartBody.Part body =MultipartBody.Part.createFormData("file", file.getName(), requestFile);
+//
+//        RequestBody userName = RequestBody.create(okhttp3.MultipartBody.FORM, "ApiService");
+//        RequestBody password = RequestBody.create(okhttp3.MultipartBody.FORM,"BandarAndroid");
+//        RequestBody androidId = RequestBody.create(okhttp3.MultipartBody.FORM, RetrofitHelperService.androidId);
+//        RequestBody serialRequestCode = RequestBody.create(okhttp3.MultipartBody.FORM,Global.CurrentTask.getSerialRequestCode());
+//        RequestBody fileType = RequestBody.create(okhttp3.MultipartBody.FORM,files.getFileType() + "");
+//        RequestBody senderType = RequestBody.create(okhttp3.MultipartBody.FORM,"1");
+//
+//
+//        Global.apiManagerTubeless.requestUpload2(body ,userName,password,androidId ,serialRequestCode,fileType,senderType, new TubelessRetrofitCallback<Object>(getContext(), getRootActivity(), true, null, new Callback<Object>() {
+//            @Override
+//            public void onResponse(Call<Object> call, Response<Object> response) {
+//
+//                Gson gson = new Gson();
+//                JsonElement jsonElement = gson.toJsonTree(response.body());
+//                files.setSended(true);
+//
+//                boolean allSent = true;
+//                for (File files : Global.CurrentTask.sendToServerfileList) {
+//                    if (!((ir.sajjadyosefi.evaluation.model.business.File)files).isSended()){
+//                        allSent = false;
+//                    }
+//                }
+//                if (allSent){
+//
+//                    int a = 5;
+//                    a++;
+//                    //new Delete().from(Task.class).where("taskID = ?", Global.CurrentTask.getSerialRequestCode()).execute();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Object> call, Throwable t) {
+//
+//                files.setSended(false);
+//
+//                int a = 5 ;
+//                a++;
+//            }
+//        }));
+//
+//    }
 }

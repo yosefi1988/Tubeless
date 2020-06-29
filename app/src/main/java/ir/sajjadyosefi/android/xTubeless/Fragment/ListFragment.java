@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
@@ -30,6 +32,9 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_NEWS;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
@@ -262,29 +267,38 @@ public class ListFragment extends Fragment  {
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-    //                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
-    //                    Intent intent = new Intent(context, NewYafteActivity.class);
-    //                    Bundle bundle = new Bundle();
-    //                    bundle.putInt(ContactUsActivity.Type,16);
-    //                    intent.putExtras(bundle);
-    //                    startActivity(intent);
-    //                    ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-    //                }else {
-    //                    context.startActivity(new Intent(context, UploadPictureActivity.class));
-    //                    context.startActivity(new Intent(context, NewBlogActivity.class));
-    //                }
+                    //                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
+                    //                    Intent intent = new Intent(context, NewYafteActivity.class);
+                    //                    Bundle bundle = new Bundle();
+                    //                    bundle.putInt(ContactUsActivity.Type,16);
+                    //                    intent.putExtras(bundle);
+                    //                    startActivity(intent);
+                    //                    ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+                    //                }else {
+                    //                    context.startActivity(new Intent(context, UploadPictureActivity.class));
+                    //                    context.startActivity(new Intent(context, NewBlogActivity.class));
+                    //                }
 
 
-
-                    if (listType == TYPE_YAFTE){
+                    if (listType == TYPE_YAFTE) {
                         context.startActivity(new Intent(context, RegNewYafteActivity.class));
-                    }else if (listType == TYPE_YADAK){
+                    } else if (listType == TYPE_YADAK) {
                         context.startActivity(new Intent(context, RegNewYadakActivity.class));
 
-                    }else if (listType == TYPE_IMAGE){
+                    } else if (listType == TYPE_IMAGE) {
 
-                    }else if (listType == TYPE_POST_SEARCH_RESULT){
+                    } else if (listType == TYPE_POST_SEARCH_RESULT) {
                         context.startActivity(new Intent(context, RegNewYafteActivity.class));
+
+                    } else if (listType == TYPE_BOURSE_TRAIN) {
+//                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(context, RegNewBlogActivity.class));
+                    } else if (listType == TYPE_BOURSE_ANALIZE) {
+//                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(context, RegNewBlogActivity.class));
+                    } else if (listType == TYPE_BOURSE_NEWS) {
+//                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(context, RegNewBlogActivity.class));
                     }
                 }
             });

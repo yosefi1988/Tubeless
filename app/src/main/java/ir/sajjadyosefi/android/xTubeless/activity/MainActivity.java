@@ -61,8 +61,9 @@ import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
@@ -265,7 +266,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             }
         });
         nonstandard.start();
-
 
     }
 
@@ -882,7 +882,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
                     }
                 }
-            }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+            }else if (BuildConfig.FLAVOR_version_name.equals("yafte") || BuildConfig.FLAVOR_version_name.equals("bourse")){
                 if (null != getViewPager()) {
                     getViewPager().setCurrentItem(position);
                 }

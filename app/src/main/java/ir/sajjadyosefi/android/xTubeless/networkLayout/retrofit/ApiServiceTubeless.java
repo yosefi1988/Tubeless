@@ -36,7 +36,8 @@ import retrofit2.http.Streaming;
 public interface ApiServiceTubeless {
 
 
-    @GET("Api/TimeLine/getTubelessProjectLastTimelineNews")
+//    @GET("Api/TimeLine/getTubelessProjectLastTimelineNews")
+    @GET("Api/TimeLine/getTubelessProjectLastNews")
     Call<Object> getTubelessNews(@Query("id") int projectId,
                                  @Query("index") int index,
                                  @Query("count") int count);
@@ -74,14 +75,26 @@ public interface ApiServiceTubeless {
 
     //------------ end comments ---------------
 
-    @GET("Api/TimeLine/getTubelessTimeline")
-    Call<Object> getYafteTimeline(@Query("index") int index,
-                                  @Query("count") int count);
+//    @GET("Api/TimeLine/getTubelessTimeline")
+//    Call<Object> getYafteTimeline(@Query("index") int index,
+//                                  @Query("count") int count);
+////    @GET("Api/TimeLine/getTubelessYadakTimeline")
+//    @GET("Api/TimeLine/getNewTubelessYadakTimeline")
+//    Call<Object> getTimelineYadak(@Query("index") int index,
+//                                  @Query("count") int count);
+//
+//            |||||
+//            |||||
+//            |||||
+//        \\\\\\//////
+//          \\\\////
+//            \\\//
+//              \/
+    @GET("Api/TimeLine2/getTimeline")
+    Call<Object> getTimeline(@Query("index") int index,
+                                  @Query("count") int count,
+                                  @Query("catIds") String catIds);
 
-//    @GET("Api/TimeLine/getTubelessYadakTimeline")
-    @GET("Api/TimeLine/getNewTubelessYadakTimeline")
-    Call<Object> getTimelineYadak(@Query("index") int index,
-                                  @Query("count") int count);
 
     @GET("Api/Timeline/getTubelessTimelineItem")
     Call<Object> getTimelineItem(@Query("id") int id);

@@ -42,6 +42,9 @@ import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_NEWS;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
@@ -187,7 +190,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     }
                 }
             };
-            Global.apiManagerTubeless.getTimelineYadak(current_page - 1, ssssssss);
+            Global.apiManagerTubeless.getTimelineListForYadak(context,current_page - 1, ssssssss);
 
         }else if (listType == TYPE_YAFTE) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
@@ -246,7 +249,191 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     adapter.notifyDataSetChanged();
                 }
             };
-            Global.apiManagerTubeless.getYafteTimeline(current_page - 1, ssssssss);
+            Global.apiManagerTubeless.getTimelineListForYafte(context,current_page - 1, ssssssss);
+
+
+
+
+        }else if (listType == TYPE_BOURSE_TRAIN) {
+            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
+                @Override
+                public void t_beforeSendRequest() {
+
+                }
+
+                @Override
+                public void t_afterGetResponse() {
+
+                }
+
+                @Override
+                public void t_complite() {
+
+                }
+
+                @Override
+                public void t_responseNull() {
+
+                }
+
+                @Override
+                public void t_retry(Call<Object> call) {
+
+                }
+
+                @Override
+                public void t_onSuccess(Object response) {
+                    NewTimelineListResponse responseX = (NewTimelineListResponse) response;
+
+//                Gson gson = new Gson();
+//                JsonElement jsonElement = gson.toJsonTree(response.body());
+//                TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);
+//                for (TimelineItem item : responseX.getTimelineList()){
+//                    item.setType(Tubeless_ITEM_TYPE);
+//                    data.add(item);
+//                    if (isRefresh) {
+//                        adapter.notifyDataSetChanged();
+//                    }else {
+//                        adapter.notifyItemInserted(data.size());
+//                    }
+//                }
+//                adapter.notifyDataSetChanged();
+
+
+                    for (NewTimelineItem item : responseX.getTimelineList()){
+//                        item.setType(Tubeless_ITEM_TYPE);
+                        data.add(item);
+//                        if (isRefresh) {
+                        adapter.notifyDataSetChanged();
+//                        }else {
+//                            adapter.notifyItemInserted(data.size());
+//                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            };
+            Global.apiManagerTubeless.getTimelineListForBourseTrain(context,current_page - 1, ssssssss);
+        }else if (listType == TYPE_BOURSE_ANALIZE) {
+            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
+                @Override
+                public void t_beforeSendRequest() {
+
+                }
+
+                @Override
+                public void t_afterGetResponse() {
+
+                }
+
+                @Override
+                public void t_complite() {
+
+                }
+
+                @Override
+                public void t_responseNull() {
+
+                }
+
+                @Override
+                public void t_retry(Call<Object> call) {
+
+                }
+
+                @Override
+                public void t_onSuccess(Object response) {
+                    NewTimelineListResponse responseX = (NewTimelineListResponse) response;
+
+//                Gson gson = new Gson();
+//                JsonElement jsonElement = gson.toJsonTree(response.body());
+//                TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);
+//                for (TimelineItem item : responseX.getTimelineList()){
+//                    item.setType(Tubeless_ITEM_TYPE);
+//                    data.add(item);
+//                    if (isRefresh) {
+//                        adapter.notifyDataSetChanged();
+//                    }else {
+//                        adapter.notifyItemInserted(data.size());
+//                    }
+//                }
+//                adapter.notifyDataSetChanged();
+
+
+                    for (NewTimelineItem item : responseX.getTimelineList()){
+//                        item.setType(Tubeless_ITEM_TYPE);
+                        data.add(item);
+//                        if (isRefresh) {
+                        adapter.notifyDataSetChanged();
+//                        }else {
+//                            adapter.notifyItemInserted(data.size());
+//                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            };
+            Global.apiManagerTubeless.getTimelineListForBourseAnalize(context,current_page - 1, ssssssss);
+        }else if (listType == TYPE_BOURSE_NEWS) {
+            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
+                @Override
+                public void t_beforeSendRequest() {
+
+                }
+
+                @Override
+                public void t_afterGetResponse() {
+
+                }
+
+                @Override
+                public void t_complite() {
+
+                }
+
+                @Override
+                public void t_responseNull() {
+
+                }
+
+                @Override
+                public void t_retry(Call<Object> call) {
+
+                }
+
+                @Override
+                public void t_onSuccess(Object response) {
+                    NewTimelineListResponse responseX = (NewTimelineListResponse) response;
+
+//                Gson gson = new Gson();
+//                JsonElement jsonElement = gson.toJsonTree(response.body());
+//                TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);
+//                for (TimelineItem item : responseX.getTimelineList()){
+//                    item.setType(Tubeless_ITEM_TYPE);
+//                    data.add(item);
+//                    if (isRefresh) {
+//                        adapter.notifyDataSetChanged();
+//                    }else {
+//                        adapter.notifyItemInserted(data.size());
+//                    }
+//                }
+//                adapter.notifyDataSetChanged();
+
+
+                    for (NewTimelineItem item : responseX.getTimelineList()){
+//                        item.setType(Tubeless_ITEM_TYPE);
+                        data.add(item);
+//                        if (isRefresh) {
+                        adapter.notifyDataSetChanged();
+//                        }else {
+//                            adapter.notifyItemInserted(data.size());
+//                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            };
+            Global.apiManagerTubeless.getTimelineListForBourseNews(context,current_page - 1, ssssssss);
+
+
+
 
         }else if (listType == TYPE_COMMENTS) {
             int blogId = bundle.getInt("blogId");
@@ -326,6 +513,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //            FontChangeCrawler fontChanger = new FontChangeCrawler(context.getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
 //            fontChanger.replaceFonts((ViewGroup)view);
             holder = new TimelineItemViewHolder(view);
+
+        }else if (listType == TYPE_BOURSE_TRAIN || listType == TYPE_BOURSE_ANALIZE || listType == TYPE_BOURSE_NEWS ) {
+            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_bourse_item, parent, false);
+            holder = new TimelineItemViewHolder(view);
+
         }else if (listType == TYPE_POST_SEARCH_RESULT) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_post_item, parent, false);
             holder = new PostItemViewHolder(view);

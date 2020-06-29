@@ -8,8 +8,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import java.util.List;
-
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
@@ -29,7 +27,12 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
             "\uE800",
             "\uE803"};
 
-    public static int TYPE_TUBELESS_NEWS  = 4;
+    public static int TYPE_TUBELESS_NEWS  = 7;
+
+    public static int TYPE_BOURSE_NEWS = 26;
+    public static int TYPE_BOURSE_ANALIZE = 25;
+    public static int TYPE_BOURSE_TRAIN  = 24;
+
     public static int TYPE_YAFTE  = 3;
     public static int TYPE_YADAK  = 2;
     public static int TYPE_IMAGE  = 1;
@@ -58,6 +61,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
         if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
             PAGE_COUNT = 2;
         }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+            PAGE_COUNT = 3;
+        }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
             PAGE_COUNT = 3;
         }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
             PAGE_COUNT = 2;
@@ -102,6 +107,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                     fragmentx1 = new ListFragment(context,TYPE_YAFTE);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx1 = new SearchByNameFragment();
+                }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+                    fragmentx1 = new ListFragment(context,TYPE_BOURSE_TRAIN);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx1 = new ListFragment(context,TYPE_YADAK);
                 }else {
@@ -115,6 +122,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                     fragmentx2 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx2 = new ListFragment(context,TYPE_YAFTE);
+                }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+                    fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx2 = new ListFragment(context,TYPE_YAFTE);
                 }else {
@@ -134,6 +143,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                     fragmentx3 = new BlankFragment();
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx3 = new ListFragment(context,TYPE_YADAK);
+                }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+                    fragmentx3 = new ListFragment(context,TYPE_BOURSE_ANALIZE);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx3 = new BlankFragment();
                 }else{

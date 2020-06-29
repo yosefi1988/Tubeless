@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title">عنوان</string>
+    <string name="where_miss">نماد - موضوع</string>
+    <string name="what_date">توضیح کوتاه\n</string>
+    <string name="text2">متن اصلی\n\n</string>
+</resources>

@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
+import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.TextContent;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
@@ -19,8 +19,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemVi
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 
-import static ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity.fillTitle;
-import static ir.sajjadyosefi.android.xTubeless.activity.account.blog.ReadBlogActivity.fillTitleForShare;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitle;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitleForShare;
 
 /**
  * Created by sajjad on 1/20/2018.
@@ -53,7 +53,7 @@ public class NewTimelineItem extends ParentItem{
         return statement;
     }
 
-    public String getStatementFromJson() {
+    public String getTitletFromJson() {
         try {
             Gson gson = new Gson();
 
@@ -65,9 +65,39 @@ public class NewTimelineItem extends ParentItem{
                 stringBuilder.append("-");
             }
 
-            stringBuilder.append(" مدل: ");
+            if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+                //stringBuilder.append(" : ");
+            }else {
+                stringBuilder.append(" مدل: ");
+            }
             stringBuilder.append(statementObj.getModel());
-            stringBuilder.append("\n");
+
+            return stringBuilder.toString();
+        }catch (Exception ex){
+            return statement;
+        }
+    }
+
+    public String getStatementFromJson() {
+        try {
+            Gson gson = new Gson();
+
+            Statement statementObj = gson.fromJson(statement, Statement.class);
+            StringBuilder stringBuilder = new StringBuilder();
+
+//            if (statementObj.getTitle() != null) {
+//                stringBuilder.append(statementObj.getTitle());
+//                stringBuilder.append("-");
+//            }
+//
+//            if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+//                //stringBuilder.append(" : ");
+//            }else {
+//                stringBuilder.append(" مدل: ");
+//            }
+
+//            stringBuilder.append(statementObj.getModel());
+//            stringBuilder.append("\n");
             stringBuilder.append(statementObj.getDescription());
 
             return stringBuilder.toString();
@@ -263,8 +293,10 @@ public class NewTimelineItem extends ParentItem{
         date.append(" ) ");
         holder.textViewDate.setText(date.toString());
 
-        fillTitle(mContext,timelineItem.getTitle(),timelineItem.getCategoryID(),holder.textViewTitle);
 
+        //title
+        //fillTitle(mContext, timelineItem.getTitle(), timelineItem.getCategoryID(), holder.textViewTitle);
+        holder.textViewTitle.setText(timelineItem.getTitletFromJson());
         holder.textViewLocation.setText(timelineItem.getStatementFromJson());
         holder.textViewUserName.setText(timelineItem.getUserNameMasked());
         holder.textViewCount.setText(timelineItem.getViewCount() + "");
