@@ -2,21 +2,28 @@ package ir.sajjadyosefi.android.xTubeless.Adapter;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
+import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountDetailsFragment;
+import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
 /**
  * Created by sajjad on 10/18/2016.
  */
-public class FirstFragmentsAdapter extends FragmentPagerAdapter {
+public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     Context context;
 
     int PAGE_COUNT;
@@ -30,7 +37,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
     public static int TYPE_TUBELESS_NEWS  = 7;
 
     public static int TYPE_BOURSE_NEWS = 26;
-    public static int TYPE_BOURSE_ANALIZE = 25;
+    public static int TYPE_BOURSE_ANALIZE_All = 25;
+    public static int TYPE_BOURSE_ANALIZE_Old = 27;
     public static int TYPE_BOURSE_TRAIN  = 24;
 
     public static int TYPE_YAFTE  = 3;
@@ -39,6 +47,7 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
     public static int TYPE_POST_SEARCH_RESULT  = 4;
     public static int TYPE_SEARCH_POST_BY_NAME  = 5;
     public static int TYPE_COMMENTS  = 6;
+
 
     public FirstFragmentsAdapter(Context context, ViewPager viewPager, FragmentManager supportFragmentManager) {
         super(supportFragmentManager);
@@ -76,16 +85,28 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
         return PAGE_COUNT;
     }
 
-    public int notifyList() {
-        if (fragmentx1 instanceof ListFragment)
-            ((ListFragment)fragmentx1).refreshForAdmin();
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+//        return super.getItemPosition(object);
+        return POSITION_NONE;
+    }
 
-        if (fragmentx2 instanceof ListFragment)
-            ((ListFragment)fragmentx2).refreshForAdmin();
+    public void notifyList() {
+//        if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+//            boolean isVip = true;
+//            if (isVip){
+//                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
+//            }
+//        }else {
+            if (fragmentx1 instanceof ListFragment)
+                ((ListFragment) fragmentx1).refreshForAdmin();
 
-        if (fragmentx3 instanceof ListFragment)
-            ((ListFragment)fragmentx3).refreshForAdmin();
-        return 0;
+            if (fragmentx2 instanceof ListFragment)
+                ((ListFragment) fragmentx2).refreshForAdmin();
+
+            if (fragmentx3 instanceof ListFragment)
+                ((ListFragment) fragmentx3).refreshForAdmin();
+//        }
     }
 
 
@@ -144,7 +165,18 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx3 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
-                    fragmentx3 = new ListFragment(context,TYPE_BOURSE_ANALIZE);
+                    if (StaticValue.bourseState.totalPayedValue > 0){
+                        if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate)){
+                            fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
+                        }else {
+                            fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
+                        }
+                    }else {
+//                        fragmentx3 = new FinancialAccountDetailsFragment();
+
+                        //هیچ پرداختی قبلا انجام نداده است
+                        fragmentx3 = new FinancialAccountLimitFragment();
+                    }
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx3 = new BlankFragment();
                 }else{
@@ -154,6 +186,8 @@ public class FirstFragmentsAdapter extends FragmentPagerAdapter {
         }
         return null;
     }
+
+
 
     @Override
     public CharSequence getPageTitle(int position) {

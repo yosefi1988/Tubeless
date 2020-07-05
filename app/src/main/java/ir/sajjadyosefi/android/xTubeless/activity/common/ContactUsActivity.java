@@ -18,7 +18,7 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.orm.SugarContext;
+//import com.orm.SugarContext;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 //import com.vansuita.gaussianblur.GaussianBlur;
 
@@ -82,7 +82,7 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
         super.onCreate(savedInstanceState);
         //init
         context = this;
-        SugarContext.init(this);
+//        SugarContext.init(this);
 
 
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);

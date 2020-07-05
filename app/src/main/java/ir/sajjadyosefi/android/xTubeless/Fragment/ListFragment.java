@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -32,7 +31,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_All;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_NEWS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
@@ -162,7 +161,6 @@ public class ListFragment extends Fragment  {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(mLayoutManager);
-
         xAdapter = new XAdapter(
                 listType,
                 getContext(),
@@ -176,8 +174,6 @@ public class ListFragment extends Fragment  {
                 list,
                 bundle);
         mRecyclerView.setAdapter(xAdapter);
-
-
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
     }
 
@@ -263,7 +259,7 @@ public class ListFragment extends Fragment  {
 
 
 
-        if (floatingActionButton != null)
+        if (floatingActionButton != null) {
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -293,7 +289,7 @@ public class ListFragment extends Fragment  {
                     } else if (listType == TYPE_BOURSE_TRAIN) {
 //                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(context, RegNewBlogActivity.class));
-                    } else if (listType == TYPE_BOURSE_ANALIZE) {
+                    } else if (listType == TYPE_BOURSE_ANALIZE_All) {
 //                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(context, RegNewBlogActivity.class));
                     } else if (listType == TYPE_BOURSE_NEWS) {
@@ -303,11 +299,11 @@ public class ListFragment extends Fragment  {
                 }
             });
 
-        floatingActionButtonList.setBackgroundResource(R.drawable.dot);
-        if (floatingActionButtonList != null)
-            floatingActionButtonList.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            floatingActionButtonList.setBackgroundResource(R.drawable.dot);
+            if (floatingActionButtonList != null)
+                floatingActionButtonList.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 //                    if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
 //                        Intent intent = new Intent(context, NewYafteActivity.class);
 //                        Bundle bundle = new Bundle();
@@ -321,8 +317,8 @@ public class ListFragment extends Fragment  {
 //                    }
 
 
-                }
-            });
+                    }
+                });
 
 //        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override
@@ -343,6 +339,8 @@ public class ListFragment extends Fragment  {
 //                }
 //            }
 //        });
+
+        }
     }
 
 }

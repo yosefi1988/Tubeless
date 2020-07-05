@@ -11,8 +11,11 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -22,12 +25,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.Serializable;
 import java.io.StringWriter;
 import java.io.Writer;
 
 
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
@@ -38,6 +41,9 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
     Context context;
     WebSettings wSettings;
 
+    LinearLayout linearLayoutPay;
+    Button button_pay;
+    Button button_back;
 
     int count = 0;
     int progress = 0;
@@ -91,6 +97,10 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
 //                }
 //            }).show();
 
+        linearLayoutPay = ((LinearLayout)findViewById(R.id.linearLayout_pay));
+        button_pay = ((Button)findViewById(R.id.button_pay));
+        button_back = ((Button)findViewById(R.id.button_back));
+
 
 
         Bundle bundle = getIntent().getExtras();
@@ -126,6 +136,34 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                 } else if (bundle.getString("WebType").equals("report")) {
                     htmlFilename = "report.html";
                     //textViewTitle.setText("گزارش خطا");
+                }
+                if (bundle.get("payButton") != null){
+                    if (bundle.getBoolean("payButton" , false) == true){
+                        linearLayoutPay.setVisibility(View.VISIBLE);
+                        button_pay.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent returnIntent = getIntent();
+                                Bundle bundle = new Bundle();
+//                                bundle.putSerializable("LIST1", (Serializable) fileList);
+                                returnIntent.putExtras(bundle);
+                                setResult(Activity.RESULT_OK, getIntent());
+                                finish();
+                            }
+                        });
+
+                        button_back.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                setResult(Activity.RESULT_CANCELED);
+                                finish();
+                            }
+                        });
+                    }else {
+                        linearLayoutPay.setVisibility(View.GONE);
+                    }
+                }else {
+                    linearLayoutPay.setVisibility(View.GONE);
                 }
 
                 AssetManager mgr = getBaseContext().getAssets();
@@ -288,5 +326,8 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+
+        setResult(Activity.RESULT_CANCELED);
+        finish();
     }
 }

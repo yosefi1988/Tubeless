@@ -42,7 +42,7 @@ import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_All;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_NEWS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
@@ -313,7 +313,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 }
             };
             Global.apiManagerTubeless.getTimelineListForBourseTrain(context,current_page - 1, ssssssss);
-        }else if (listType == TYPE_BOURSE_ANALIZE) {
+        }else if (listType == TYPE_BOURSE_ANALIZE_All) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
@@ -514,7 +514,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //            fontChanger.replaceFonts((ViewGroup)view);
             holder = new TimelineItemViewHolder(view);
 
-        }else if (listType == TYPE_BOURSE_TRAIN || listType == TYPE_BOURSE_ANALIZE || listType == TYPE_BOURSE_NEWS ) {
+        }else if (listType == TYPE_BOURSE_TRAIN || listType == TYPE_BOURSE_ANALIZE_All || listType == TYPE_BOURSE_NEWS ) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_bourse_item, parent, false);
             holder = new TimelineItemViewHolder(view);
 

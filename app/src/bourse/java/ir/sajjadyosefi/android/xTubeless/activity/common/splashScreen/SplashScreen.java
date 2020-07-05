@@ -28,6 +28,14 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.splunk.mint.Mint;
 
 //import ir.sajjadyosefi.android.tubeless.Class.model.AppStatus;
+import org.litepal.LitePal;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import ir.adad.ad.AdadAdListener;
 import ir.adad.banner.AdadBannerAd;
 import ir.adad.core.Adad;
@@ -36,6 +44,9 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.SplashScreenPresenterCompl;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -43,7 +54,11 @@ import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.configuration;
 import static org.litepal.LitePalApplication.getContext;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
@@ -53,7 +68,7 @@ import static org.litepal.LitePalApplication.getContext;
 public class SplashScreen extends AppCompatActivity implements ISplashScreenView {
 
     Context context;
-    //AppStatus appStatus;
+//    AppStatus appStatus;
     private FirebaseAnalytics analytics;
     private SplashScreenPresenterCompl peresenter;
 
@@ -91,7 +106,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 //        mint();
         //FirebaseMessaging.getInstance().subscribeToTopic("topic");
         //Thread.setDefaultUncaughtExceptionHandler(new CrashHandler(mContext));
-
+//
 //        List<AppStatus> appStatusList = AppStatus.listAll(AppStatus.class);
 //        if(appStatusList.size() == 0){
 //            appStatus = new AppStatus();
@@ -135,24 +150,44 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     @Override
     protected void onStart() {
         super.onStart();
+        Global.apiManagerTubeless.config(new Callback<Configuration>() {
+            @Override
+            public void onResponse(Call<Configuration> call, Response<Configuration> response) {
+                configuration = response.body();
 
 
-        if (peresenter.isFirstRun()) {
+                //on start
+                BourseState bourseState = new BourseState();
+                if (peresenter.isFirstRun()) {
+
+                    if (bourseState.firstRunApp(context))
+                        StaticValue.bourseState = bourseState.loadUserBourseData();
+
 //            if (!AndroidOs.checkPermission(context, wantPermission)) {
 //                if (AndroidOs.shouldShowRequestPermissionRationale(this, wantPermission)){
 //                    Toast.makeText(this, this.getString(R.string.loginBySimcardDescription), Toast.LENGTH_LONG).show();
 //                }
 //                AndroidOs.requestPermissions(this, new String[]{wantPermission},PERMISSION_REQUEST_CODE);
 //            } else {
-                peresenter.registerDevice();
+                    peresenter.registerDevice();
 //            }
-        }else {
-            peresenter.goToMainPage();
-        }
+                }else {
+                    StaticValue.bourseState = bourseState.loadUserBourseData();
+                    peresenter.goToMainPage();
+                }
 
+            }
+
+            @Override
+            public void onFailure(Call<Configuration> call, Throwable t) {
+                Toast.makeText(context,"خطا در برقراری ارتباط",Toast.LENGTH_LONG).show();
+            }
+        });
 
 //        getSupportActionBar().hide();
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
     }
 
 
@@ -273,4 +308,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 //                break;
 //        }
 //    }
+
+
+
 }

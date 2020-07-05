@@ -43,11 +43,14 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
+import com.zarinpal.ewallets.purchase.OnCallbackRequestPaymentListener;
+import com.zarinpal.ewallets.purchase.OnCallbackVerificationPaymentListener;
+import com.zarinpal.ewallets.purchase.PaymentRequest;
+import com.zarinpal.ewallets.purchase.ZarinPal;
 
 import org.litepal.LitePal;
 
 import java.util.Calendar;
-
 
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
@@ -68,7 +71,9 @@ import ir.sajjadyosefi.android.xTubeless.bussines.police.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -85,6 +90,7 @@ import retrofit2.Call;
 import static android.util.Log.VERBOSE;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
+import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
 
@@ -140,8 +146,51 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 updatedrawableMenuItems();
             }
         }
+        if (requestCode == READ_RULE_AND_PAY) {
+            if (resultCode == Activity.RESULT_OK) {
+                //go to pay
+//                payment(getContext());
+
+                //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+
+                StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
+                StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
+                StaticValue.bourseState.updateAfterPay(30);
+
+                //refresh tab 3
+                firstFragmentsAdapter.notifyDataSetChanged();
+            }else {
+                //cancel
+            }
+        }
+    }
+
+
+    private void payment(Context mContext) {
+        ZarinPal purches = ZarinPal.getPurchase(mContext);
+        PaymentRequest payment = ZarinPal.getPaymentRequest();
+        payment.setAmount(StaticValue.configuration.getConfiguration().vip1Month);
+        payment.setMerchantID("e8a913e8-f089-11e6-8dec-005056a205be");
+        payment.setDescription("هزینه خرید اکانت سیگنال بورسی");
+        payment.setCallbackURL("return2://zarinpalpayment");
+
+        purches.startPayment(payment, new OnCallbackRequestPaymentListener() {
+            @Override
+            public void onCallbackResultPaymentRequest(int status, String authority, Uri paymentGatewayUri, Intent intent) {
+
+                if (status == 100){
+                    //ok
+                    startActivity(intent);
+                }else {
+                    //error in payment
+                    //todo show message error
+
+                }
+            }
+        });
 
     }
+
 
     private boolean savedToDataBase(User tmpUser) {
         tmpUser.setAdmin(tmpUser.CheckUserIsAdmin(tmpUser));
@@ -254,19 +303,43 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
 
-        Thread nonstandard =new Thread(new Runnable() {
-            @Override
-            public int hashCode() {
-                return super.hashCode();
-            }
+//        Thread nonstandard =new Thread(new Runnable() {
+//            @Override
+//            public int hashCode() {
+//                return super.hashCode();
+//            }
+//
+//            @Override
+//            public void run() {
+//                System.out.println("i'm zero ");
+//            }
+//        });
+//        nonstandard.start();
 
+
+
+
+        Uri data2 = getIntent().getData();
+        ZarinPal.getPurchase(getContext()).verificationPayment(data2, new OnCallbackVerificationPaymentListener() {
             @Override
-            public void run() {
-                System.out.println("i'm zero ");
+            public void onCallbackResultVerificationPayment(boolean isPaymentSuccess, String refID, PaymentRequest paymentRequest) {
+                if(isPaymentSuccess){
+//                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+//
+//                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
+//                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
+//                    StaticValue.bourseState.updateAfterPay(1);
+//
+//                    //refresh tab 3
+//                    firstFragmentsAdapter.notifyDataSetChanged();
+                }else {
+                    //not ok
+                    //show message refID
+                    //todo show message
+                    Toast.makeText(getContext(),"not ok " ,Toast.LENGTH_LONG).show();
+                }
             }
         });
-        nonstandard.start();
-
     }
 
 
@@ -312,6 +385,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             drawer_layout.openDrawer(Gravity.LEFT);
             setFirstRunIsDone();
         }
+
 
     }
 

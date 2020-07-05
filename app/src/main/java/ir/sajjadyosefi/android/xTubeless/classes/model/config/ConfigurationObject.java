@@ -8,6 +8,8 @@ public class ConfigurationObject {
     public boolean iranapps;
     public boolean kandoo;
     public boolean play;
+    public int vip1Month;
+    public int vip6Month;
 
     public boolean isBazaar() {
         return bazaar;
@@ -57,5 +59,21 @@ public class ConfigurationObject {
         this.play = play;
     }
 
+
+    public int getVip1Month() {
+        return vip1Month;
+    }
+
+    public void setVip1Month(int vip1Month) {
+        this.vip1Month = vip1Month;
+    }
+
+    public int getVip6Month() {
+        return vip6Month;
+    }
+
+    public void setVip6Month(int vip6Month) {
+        this.vip6Month = vip6Month;
+    }
 
 }

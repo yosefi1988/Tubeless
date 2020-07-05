@@ -31,7 +31,7 @@ import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 public class SplashScreen extends AppCompatActivity implements ISplashScreenView {
 
     Context context;
-    //AppStatus appStatus;
+//    AppStatus appStatus;
     private FirebaseAnalytics analytics;
     private SplashScreenPresenterCompl peresenter;
 

@@ -423,4 +423,9 @@
     <string name="your_reply">نظر یا پاسخ شما</string>
     <string name="date">ساعت و تاریخ</string>
     <string name="reg_new_blog">ثبت بلاگ جدید</string>
+    <string name="financial_info">اطلاعات مالی</string>
+    <string name="financial_detail">جزيیات حساب مالی</string>
+    <string name="pardakht_rule">مطالعه قوانین و پرداخت</string>
+    <string name="accept_and_pardakht">می پذیرم و پرداخت</string>
+    <string name="no_accept">نمی پذیرم</string>
 </resources>
