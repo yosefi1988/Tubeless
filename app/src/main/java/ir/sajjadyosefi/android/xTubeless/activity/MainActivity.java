@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -74,6 +75,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -81,11 +83,13 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
+import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import it.sephiroth.android.library.bottomnavigation.BadgeProvider;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import it.sephiroth.android.library.bottomnavigation.FloatingActionButtonBehavior;
 import it.sephiroth.android.library.bottomnavigation.MiscUtils;
 import retrofit2.Call;
+import retrofit2.Response;
 
 import static android.util.Log.VERBOSE;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
@@ -93,6 +97,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
+import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowSelectSturceDialog;
 
 @TargetApi (Build.VERSION_CODES.KITKAT_WATCH)
 public class MainActivity extends TubelessActivity implements BottomNavigation.OnMenuItemSelectionListener {
@@ -149,18 +154,26 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         if (requestCode == READ_RULE_AND_PAY) {
             if (resultCode == Activity.RESULT_OK) {
                 //go to pay
-//                payment(getContext());
+                if (checkResult(getContext(), StaticValue.configuration)) {
+                    //ShowSelectSturceDialog(mContext);
+                    payment(getContext());
+                } else {
+                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
+                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
+                    StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
 
+                    //refresh tab 3
+                    firstFragmentsAdapter.notifyDataSetChanged();
+                }
+//
                 //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
 
-                StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
-                StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
-                StaticValue.bourseState.updateAfterPay(30);
-
-                //refresh tab 3
-                firstFragmentsAdapter.notifyDataSetChanged();
+                backButtonPressedInPayment = false;
             }else {
                 //cancel
+                backButtonPressedInPayment = false;
+                DialogUtil.hideLoading();
+
             }
         }
     }
@@ -181,14 +194,60 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 if (status == 100){
                     //ok
                     startActivity(intent);
+
+                    backButtonPressedInPayment = true;
                 }else {
                     //error in payment
                     //todo show message error
-
+                    DialogUtil.hideLoading();
+                    backButtonPressedInPayment = false;
                 }
             }
+
+
         });
 
+    }
+
+    boolean backButtonPressedInPayment = false;
+
+    public static boolean checkResult(Context mContext , Configuration configuration)  {
+        Boolean aBoolean = false;
+
+        try {
+            PackageInfo pInfo = mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0);
+            String versionName = pInfo.versionName;
+            if (versionName.contains("a")) {
+                aBoolean = configuration.getConfiguration().play;
+
+            } else if (versionName.contains("b")) {
+                aBoolean = configuration.getConfiguration().bazaar;
+
+            } else if (versionName.contains("m")) {
+                aBoolean = configuration.getConfiguration().myket;
+
+            } else if (versionName.contains("i")) {
+                aBoolean = configuration.getConfiguration().iranapps;
+
+            } else if (versionName.contains("j")) {
+                aBoolean = configuration.getConfiguration().jhobin;
+
+            } else if (versionName.contains("s")) {
+                aBoolean = configuration.getConfiguration().social;
+
+            } else if (versionName.contains("k")) {
+                aBoolean = configuration.getConfiguration().kandoo;
+
+            } else {
+                aBoolean = configuration.getConfiguration().play;
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            aBoolean = false;
+        }
+        return aBoolean;
     }
 
 
@@ -325,19 +384,39 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             public void onCallbackResultVerificationPayment(boolean isPaymentSuccess, String refID, PaymentRequest paymentRequest) {
                 if(isPaymentSuccess){
 //                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
-//
-//                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
-//                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
-//                    StaticValue.bourseState.updateAfterPay(1);
-//
-//                    //refresh tab 3
-//                    firstFragmentsAdapter.notifyDataSetChanged();
+                    DialogUtil.showLoadingDialog(getContext());
+                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
+                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
+                    StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
+
+                    //refresh tab 3
+                    firstFragmentsAdapter.notifyDataSetChanged();
+
+
+                    //lod tsb 3
+                    viewPager.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            getViewPager().setCurrentItem(3,true);
+                        }
+                    }, 200);
+
                 }else {
                     //not ok
                     //show message refID
                     //todo show message
-                    Toast.makeText(getContext(),"not ok " ,Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getContext(),"not ok " ,Toast.LENGTH_LONG).show();
+
                 }
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        DialogUtil.hideLoading();
+                    }
+                },2000);
+
             }
         });
     }
@@ -348,7 +427,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     @Override
     protected void onStart() {
         super.onStart();
-
 
 //        View noticeView = (View) findViewById(R.id.noticeView);
 //        AdadBannerAd bannerAd = (AdadBannerAd) findViewById(R.id.banner_1);
@@ -386,6 +464,9 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             setFirstRunIsDone();
         }
 
+        if(backButtonPressedInPayment){
+            DialogUtil.hideLoading();
+        }
 
     }
 
@@ -840,8 +921,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
                     @Override
                     public void onPageSelected(final int position) {
-                        if (getBottomNavigation().getSelectedIndex() != position) {
-                            getBottomNavigation().setSelectedIndex(position, false);
+                        if (getBottomNavigation() != null) {
+                            if (getBottomNavigation().getSelectedIndex() != position) {
+                                getBottomNavigation().setSelectedIndex(position, false);
+                            }
                         }
                     }
 

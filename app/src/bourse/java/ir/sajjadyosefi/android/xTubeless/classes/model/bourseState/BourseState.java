@@ -63,12 +63,12 @@ public class BourseState extends LitePalSupport {
         }
     }
 
-    public boolean updateAfterPay(int dayCount){
+    public boolean updateAfterPay(int dayCount , String serverDate){
         try {
-//            BourseState xxxxx = loadUserBourseData();
-
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            Date d = new Date(System.currentTimeMillis());
+//            Date d = new Date(System.currentTimeMillis());
+            Date d = df.parse(serverDate);
+
             Calendar cal = Calendar.getInstance();
             cal.setTime(d);
 
@@ -86,11 +86,12 @@ public class BourseState extends LitePalSupport {
         }
     }
 
-    public static boolean CheckDateIsValid(String EndTime) {
+    public static boolean CheckDateIsValid(String EndTime , String serverDate) {
         try {
             SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
             Date d1 = sdformat.parse(EndTime);
-            Date d2 = new Date(System.currentTimeMillis());
+//            Date d2 = new Date(System.currentTimeMillis());
+            Date d2 = sdformat.parse(serverDate);
 
             System.out.println("The date 1 is: " + sdformat.format(d1));
             System.out.println("The date 2 is: " + sdformat.format(d2));

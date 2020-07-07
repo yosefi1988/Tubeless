@@ -19,12 +19,15 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:orientation="vertical" >
+
             <TextView
+                android:id="@+id/txtPriceComment"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="حساب کاربری شما محدود می باشد مشاهده این قسمت برای شما هزینه دارد." />
             <TextView
+                android:id="@+id/txtPrice"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -34,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:text="هزینه برای یک سال" />
 
 

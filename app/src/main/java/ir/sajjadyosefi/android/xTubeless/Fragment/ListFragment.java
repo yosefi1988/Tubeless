@@ -67,6 +67,7 @@ public class ListFragment extends Fragment  {
     public static Context           context;
 
 
+
     public ListFragment newInstance(Context context, int page, int list, int headerId) {
         this.context = context ;
         Bundle args = new Bundle();

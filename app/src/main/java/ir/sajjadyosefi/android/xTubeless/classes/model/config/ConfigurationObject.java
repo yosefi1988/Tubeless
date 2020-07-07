@@ -7,6 +7,8 @@ public class ConfigurationObject {
     public boolean jhobin;
     public boolean iranapps;
     public boolean kandoo;
+
+    public boolean social;
     public boolean play;
     public int vip1Month;
     public int vip6Month;
@@ -75,5 +77,14 @@ public class ConfigurationObject {
     public void setVip6Month(int vip6Month) {
         this.vip6Month = vip6Month;
     }
+
+    public boolean isSocial() {
+        return social;
+    }
+
+    public void setSocial(boolean social) {
+        this.social = social;
+    }
+
 
 }

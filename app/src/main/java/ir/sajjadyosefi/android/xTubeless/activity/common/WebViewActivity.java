@@ -32,7 +32,10 @@ import java.io.Writer;
 
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
+
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
 
 /**
  * Created by Sajad on 2/11/2017.
@@ -140,6 +143,14 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                 if (bundle.get("payButton") != null){
                     if (bundle.getBoolean("payButton" , false) == true){
                         linearLayoutPay.setVisibility(View.VISIBLE);
+
+                        if (checkResult(getContext(), StaticValue.configuration)) {
+                            button_pay.setText(R.string.accept_and_pardakht);
+                        }else {
+                            button_pay.setText(R.string.accept_and_pardakht2);
+                        }
+
+
                         button_pay.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {

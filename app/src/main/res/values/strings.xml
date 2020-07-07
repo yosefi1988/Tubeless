@@ -428,4 +428,8 @@
     <string name="pardakht_rule">مطالعه قوانین و پرداخت</string>
     <string name="accept_and_pardakht">می پذیرم و پرداخت</string>
     <string name="no_accept">نمی پذیرم</string>
+    <string name="pardakht_rule2">مطالعه و تایید قوانین</string>
+    <string name="accept_and_pardakht2">موافقم</string>
+    <string name="rial">ریال</string>
+    <string name="txtPriceComment">جهت بهره مندی از اطلاعات این صفحه می بایست آن را تایید نمایید</string>
 </resources>

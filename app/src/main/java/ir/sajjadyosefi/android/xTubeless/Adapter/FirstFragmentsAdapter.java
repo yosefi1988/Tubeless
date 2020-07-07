@@ -20,6 +20,8 @@ import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFrag
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
+
 /**
  * Created by sajjad on 10/18/2016.
  */
@@ -165,17 +167,21 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx3 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
-                    if (StaticValue.bourseState.totalPayedValue > 0){
-                        if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate)){
-                            fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
-                        }else {
-                            fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
-                        }
+                    if (!checkResult(context, StaticValue.configuration)){
+                        fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
                     }else {
+                        if (StaticValue.bourseState.totalPayedValue > 0) {
+                            if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
+                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
+                            } else {
+                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
+                            }
+                        } else {
 //                        fragmentx3 = new FinancialAccountDetailsFragment();
 
-                        //هیچ پرداختی قبلا انجام نداده است
-                        fragmentx3 = new FinancialAccountLimitFragment();
+                            //هیچ پرداختی قبلا انجام نداده است
+                            fragmentx3 = new FinancialAccountLimitFragment(context);
+                        }
                     }
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx3 = new BlankFragment();

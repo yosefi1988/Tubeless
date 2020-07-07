@@ -93,7 +93,8 @@ public interface ApiServiceTubeless {
     @GET("Api/TimeLine2/getTimeline")
     Call<Object> getTimeline(@Query("index") int index,
                                   @Query("count") int count,
-                                  @Query("catIds") String catIds);
+                                  @Query("catIds") String catIds,
+                                  @Query("date") String date);
 
 
     @GET("Api/Timeline/getTubelessTimelineItem")

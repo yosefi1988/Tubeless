@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewVoteRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
@@ -101,7 +102,7 @@ public class RetrofitHelperTubeless {
         stringBuilder.append("_");
         stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yadak));
 
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
         userCall.enqueue(callback);
 
     }
@@ -117,7 +118,7 @@ public class RetrofitHelperTubeless {
         stringBuilder.append("_");
         stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yafte));
 
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
         userCall.enqueue(callback);
     }
 
@@ -132,7 +133,7 @@ public class RetrofitHelperTubeless {
         stringBuilder.append("_");
         stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseTrain));
 
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
         userCall.enqueue(callback);
     }
     public void getTimelineListForBourseAnalize(Context context , int index, TubelessRetrofitCallbackss callback) {
@@ -146,9 +147,24 @@ public class RetrofitHelperTubeless {
         stringBuilder.append("_");
         stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
 
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
         userCall.enqueue(callback);
     }
+    public void getTimelineListForBourseAnalizeOld(Context context, int index, TubelessRetrofitCallbackss callback, String endDate) {
+//        Call<Object> userCall = service.getYafteTimeline(index,15);
+//        userCall.enqueue(callback);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+        stringBuilder.append("_");
+        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(), StaticValue.bourseState.endDate);
+        userCall.enqueue(callback);
+    }
+
     public void getTimelineListForBourseNews(Context context , int index, TubelessRetrofitCallbackss callback) {
 //        Call<Object> userCall = service.getYafteTimeline(index,15);
 //        userCall.enqueue(callback);
@@ -160,7 +176,7 @@ public class RetrofitHelperTubeless {
         stringBuilder.append("_");
         stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseNews));
 
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString());
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
         userCall.enqueue(callback);
     }
 
