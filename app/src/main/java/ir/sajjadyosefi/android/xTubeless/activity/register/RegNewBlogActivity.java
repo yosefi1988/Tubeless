@@ -3,6 +3,7 @@ package ir.sajjadyosefi.android.xTubeless.activity.register;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -204,7 +205,13 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
                     JsonObject oooo = new JsonObject();
                     oooo.addProperty("title",       editTextTitle.getText().toString());
                     oooo.addProperty("model",       editTextTitleStatment.getText().toString());
-                    oooo.addProperty("description", editTextTitlePicture.getText().toString());
+
+                    if (editTextText.getText().toString().length() > 150) {
+                        //                    oooo.addProperty("description", editTextTitlePicture.getText().toString());
+                        oooo.addProperty("description", editTextText.getText().toString().substring(0, 150));
+                    }else {
+                        oooo.addProperty("description", editTextText.getText().toString());
+                    }
 
                     aaaa.setTitle(editTextTitle.getText().toString());
                     aaaa.setStatement(oooo.toString());
@@ -224,17 +231,16 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-        //todo remove this comment
-//        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
-//            Bundle bundle = new Bundle();
-//            Intent intent = SignInActivity.getIntent(getContext(),bundle);
-//            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
-//            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
-//            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
-//            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-//            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-//            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
-//        }
+        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
+            Bundle bundle = new Bundle();
+            Intent intent = SignInActivity.getIntent(getContext(),bundle);
+            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+            //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+        }
 
 
 
@@ -259,7 +265,7 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
 //            if (versionName.contains("4.5.0") || versionName.contains("1.5.0")|| versionName.contains("1.3.0")) {
 //                buttonAddFiles.setEnabled(false);
 //            } else {
-                buttonAddFiles.setEnabled(true);
+//                buttonAddFiles.setEnabled(true);
 //            }
 //        }catch (Exception ex){
 //

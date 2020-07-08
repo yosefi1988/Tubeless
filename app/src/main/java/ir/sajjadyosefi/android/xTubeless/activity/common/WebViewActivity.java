@@ -30,6 +30,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 
+import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
@@ -134,7 +135,11 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                     htmlFilename = "help.html";
                     //textViewTitle.setText("راهنما");
                 } else if (bundle.getString("WebType").equals("rule")) {
-                    htmlFilename = "rule.html";
+                    if (!checkResult(context, StaticValue.configuration)){
+                        htmlFilename = "rule.html";
+                    }else {
+                        htmlFilename = "rulenon.html";
+                    }
                     //textViewTitle.setText("راهنما");
                 } else if (bundle.getString("WebType").equals("report")) {
                     htmlFilename = "report.html";

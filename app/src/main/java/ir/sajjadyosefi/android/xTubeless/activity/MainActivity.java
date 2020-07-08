@@ -97,6 +97,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
+import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowMessageDialog;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowSelectSturceDialog;
 
 @TargetApi (Build.VERSION_CODES.KITKAT_WATCH)
@@ -198,7 +199,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     backButtonPressedInPayment = true;
                 }else {
                     //error in payment
-                    //todo show message error
                     DialogUtil.hideLoading();
                     backButtonPressedInPayment = false;
                 }
@@ -392,7 +392,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     //refresh tab 3
                     firstFragmentsAdapter.notifyDataSetChanged();
 
-
                     //lod tsb 3
                     viewPager.postDelayed(new Runnable() {
                         @Override
@@ -404,8 +403,14 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 }else {
                     //not ok
                     //show message refID
-                    //todo show message
 //                    Toast.makeText(getContext(),"not ok " ,Toast.LENGTH_LONG).show();
+
+                    ShowMessageDialog(getContext(), "خطا", "خطا در پرداخت " + refID, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finish();
+                        }
+                    });
 
                 }
 
@@ -419,6 +424,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
             }
         });
+
     }
 
 

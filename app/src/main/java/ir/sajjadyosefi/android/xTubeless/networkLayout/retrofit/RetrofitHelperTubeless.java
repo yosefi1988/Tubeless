@@ -161,7 +161,9 @@ public class RetrofitHelperTubeless {
         stringBuilder.append("_");
         stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
 
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(), StaticValue.bourseState.endDate);
+
+        // StaticValue.bourseState.endDate
+        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),StaticValue.bourseState.endDate);
         userCall.enqueue(callback);
     }
 

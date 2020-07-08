@@ -87,6 +87,7 @@
                 android:id="@+id/editTextTitlePicture"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_secure"
+                android:visibility="gone"
                 android:hint="@string/what_date" />
 
             <EditText

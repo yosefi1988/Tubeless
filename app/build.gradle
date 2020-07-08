@@ -15,8 +15,8 @@ def final Yadak_VersionName = "1.3.0"   //todo 5 change version Name before publ
 def final Yadak_VersionCode = 4         //todo 6 change version code before publish
 
 def final appNameBourse = 'بورس , سهام'
-def final Bourse_VersionName = "1.1.0"   //todo 7 change version Name before publish
-def final Bourse_VersionCode = 1         //todo 8 change version code before publish
+def final Bourse_VersionName = "1.1.1"   //todo 7 change version Name before publish
+def final Bourse_VersionCode = 2         //todo 8 change version code before publish
 
 
 android {
