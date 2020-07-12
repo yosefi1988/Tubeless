@@ -405,13 +405,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     //show message refID
 //                    Toast.makeText(getContext(),"not ok " ,Toast.LENGTH_LONG).show();
 
-                    ShowMessageDialog(getContext(), "خطا", "خطا در پرداخت " + refID, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            finish();
-                        }
-                    });
-
                 }
 
                 final Handler handler = new Handler();

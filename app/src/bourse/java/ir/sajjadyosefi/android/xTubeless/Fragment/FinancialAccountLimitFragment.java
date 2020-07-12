@@ -96,7 +96,7 @@ public class FinancialAccountLimitFragment extends Fragment {
                     ((TextView) (view.findViewById(R.id.txtPrice))).getText() + " " +
                             StaticValue.configuration.getConfiguration().getVip1Month()
                             + " " +
-                     context.getString(R.string.rial)
+                     context.getString(R.string.toman)
             );
 
         }else {

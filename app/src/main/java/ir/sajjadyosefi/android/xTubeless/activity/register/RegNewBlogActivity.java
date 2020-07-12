@@ -106,6 +106,30 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
             ItemData sss = new ItemData("- " + item.getTextValue(), item.getKeyValue() + "",  "");
             list3.add(sss);
         }
+
+        //////////////////////////// recive data //////////////////////////////////
+        // Get intent, action and MIME type
+        Intent intentReciveData = getIntent();
+        String action = intentReciveData.getAction();
+        String type = intentReciveData.getType();
+
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                handleSendText(intentReciveData); // Handle text being sent
+            }
+//            else if (type.startsWith("image/")) {
+//                handleSendImage(intent); // Handle single image being sent
+//            }
+        }
+//        else if (Intent.ACTION_SEND_MULTIPLE.equals(action) && type != null) {
+//            if (type.startsWith("image/")) {
+//                handleSendMultipleImages(intent); // Handle multiple images being sent
+//            }
+//        } else {
+//            // Handle other intents, such as being started from the home screen
+//        }
+        ///////////////////////////////////////////////////////////////////////////////
+
         complTextView.setDatas(list3);
         complTextView.setOnPopupItemClickListener(new KMPAutoComplTextView.OnPopupItemClickListener() {
             @Override
@@ -270,6 +294,14 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
 //        }catch (Exception ex){
 //
 //        }
+    }
+
+    private void handleSendText(Intent intent) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            // Update UI to reflect text being shared
+            editTextText.setText(sharedText);
+        }
     }
 
     @Override

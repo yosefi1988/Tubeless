@@ -222,7 +222,13 @@
 
 
 
-        <activity android:name=".activity.register.RegNewBlogActivity" />
+        <activity android:name=".activity.register.RegNewBlogActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
         <activity android:name="ir.moslem_deris.apps.zarinpal.PaymentActivity" />
         <activity android:name="ir.sajjadyosefi.android.superpickerlibrary.TempActivity" />
         <activity
