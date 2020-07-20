@@ -228,12 +228,17 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 //        try {
 //            PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
 //            String versionName = pInfo.versionName;
-//            //todo 1 change version if not complete
 //            if (versionName.contains("4.5.0") || versionName.contains("1.5.0")|| versionName.contains("1.3.0")) {
 //                buttonAddFiles.setEnabled(false);
 //            } else {
-                buttonAddFiles.setEnabled(true);
+//                buttonAddFiles.setEnabled(true);
 //            }
+
+        if (Global.user.isAdmin()) {
+            buttonAddFiles.setEnabled(true);
+        }else {
+            buttonAddFiles.setEnabled(false);
+        }
 //        }catch (Exception ex){
 //
 //        }

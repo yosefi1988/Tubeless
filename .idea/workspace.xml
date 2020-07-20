@@ -110,41 +110,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="30 tir">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/innerClass/CommentContent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/_part_comments_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/yadak/res/drawable/jpg_paeez.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/yadak/res/drawable/png_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/yadak/res/drawable/png_iconnews.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/yadak/res/drawable/png_taj.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Apks/bourseSocialNetwork/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/Apks/bourseSocialNetwork/release/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/bourse/assets/rule.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/bourse/assets/rule.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/bourse/assets/rulenon.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/bourse/assets/rulenon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NewTimelineItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NewTimelineItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/blog/ReadBlogActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/blog/ReadBlogActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewBlogActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewBlogActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewCommentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewCommentActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/IItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/IItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NotiesItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NotiesItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/ParentItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/ParentItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/PictureItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/PictureItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/TextItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/TextItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/TimelineItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/TimelineItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/blog/CommentItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/blog/CommentItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/viewHolder/CommentItemViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/viewHolder/CommentItemViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/viewHolder/PostViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/viewHolder/PostViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/viewHolder/TimelineItemViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/viewHolder/TimelineItemViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/ApiServiceTubeless.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/ApiServiceTubeless.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/recyclerview/EndlessRecyclerOnScrollListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/widget/recyclerview/EndlessRecyclerOnScrollListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_bourse_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_bourse_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_comment_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/_row_of_comment_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_read_blog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_read_blog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faboptions/faboptions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/faboptions/faboptions.iml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -241,14 +218,21 @@
   </component>
   <component name="ProjectId" id="1Z1yu0xL4DPZ8b1mDbFmAkh6kpE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ApkExportedModule" value="app" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="RZ8M74EVYJH" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-14T14:03:18.429Z" />
     <property name="ExportApk.ApkPath" value="D:\Projects\Android\TubelessX\Apks" />
-    <property name="ExportApk.BuildVariants" value="bourseIranAppsRelease&#10;bourseMyketRelease&#10;bourseSocialNetworkRelease" />
+    <property name="ExportApk.BuildVariants" value="bourseSocialNetworkRelease&#10;yadakMyketRelease&#10;yadakSocialNetworkRelease" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ScreenshotViewer.SavePath" value="E:/" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Projects/Android/Tubelessx11/app/src/main/java/ir/sajjadyosefi/android/tubeless/classes/model/User/Device.java&#10;devi&#9;PSI&#9;JAVA://ir.sajjadyosefi.android.tubeless.classes.model.User.Device&#10;عقم&#9;PSI&#9;JAVA://ir.sajjadyosefi.android.tubeless.classes.networkLayout.Url&#10;BlogItem&#9;PSI&#9;JAVA://ir.sajjadyosefi.android.tubeless.classes.model.Blog.BlogItem&#10;prompts&#9;FILE&#9;file://D:/Projects/Android/Tubelessx11/app/src/main/res/layout/prompts.xml" />
@@ -256,7 +240,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="device.picker.selection" value="192.168.1.2:5555" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Apks/bourseSocialNetwork/release/tubeless_bourse_release_2.0.1-s_200717_1044.apk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/yadak/res/drawable" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28328007" />
@@ -270,12 +254,12 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="debug" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Projects\Android\TubelessX\app\src\bourse\res\drawable" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\designPattern" />
-      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\tubeless\res\drawable" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\yafte\res\layout" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.examples" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
+      <recent name="ir.sajjadyosefi.android.xTubeless" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ir.sajjadyosefi.android.xTubeless.classes.model.post" />
@@ -298,25 +282,13 @@
       <recent name="ir.sajjadyosefi.android.xTubeless.Fragment" />
       <recent name="ir.sajjadYosefi.objectKmpautotextview" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.examples" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
-      <recent name="ir.sajjadyosefi.android.xTubeless" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Android\TubelessX\app\src\bourse\res\drawable" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\designPattern" />
+      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\tubeless\res\drawable" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\yafte\res\layout" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Android App.app">
     <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
@@ -855,7 +827,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594531044780</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="30 tir">
+      <created>1595219315237</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1595219315237</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -908,6 +887,12 @@
     <MESSAGE value="22 tir" />
     <MESSAGE value="30 tir" />
     <option name="LAST_COMMIT_MESSAGE" value="30 tir" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1595234689068">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595234689068" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
