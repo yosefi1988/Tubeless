@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -66,6 +67,21 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
 
     }
 
+    public static final int READ_BLOG_COMMENTS = 1042;
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (type == TYPE_COMMENTS){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            bundle.putInt("blogId",getIntent().getIntExtra("blogId",0));
+            ft.replace(R.id.include, new ListFragment(this,list ,type,bundle));
+            ft.commit();
+        }
+    }
+
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +120,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
         }else if (type == TYPE_COMMENTS){
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            Bundle bundle = new Bundle();
+            bundle = new Bundle();
             bundle.putInt("blogId",getIntent().getIntExtra("blogId",0));
             ft.replace(R.id.include, new ListFragment(this,list ,type,bundle));
             ft.commit();

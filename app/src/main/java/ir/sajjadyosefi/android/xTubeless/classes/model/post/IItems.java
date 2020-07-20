@@ -9,4 +9,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder
 public interface IItems {
 
     void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position);
+
+
 }

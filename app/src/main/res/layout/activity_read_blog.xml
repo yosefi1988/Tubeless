@@ -111,6 +111,8 @@
                 layout="@layout/_part_visit_count"></include>
             <include
                 layout="@layout/_part_share_layout"></include>
+            <include
+                layout="@layout/_part_comments_layout"></include>
         </LinearLayout>
 
 

@@ -315,6 +315,16 @@ public class TimelineItem extends ParentItem{
         ((Activity)mContext).startActivityForResult(intent , 60);
     }
 
+    @Override
+    protected void delete(Context mContext, XAdapter xAdapter, String userId, int position, int listType, ParentItem timelineItem) {
+
+    }
+
+    @Override
+    protected void invisible(Context mContext, XAdapter xAdapter, String userId, int position, int listType, ParentItem timelineItem) {
+
+    }
+
 
     public void prepareBlogItem(final Context mContext, final DilatingDotsProgressBar mProgressBar,
                                 final BlogItemViewHolder holder, final List<Object> mTimelineItemList, final int position) {

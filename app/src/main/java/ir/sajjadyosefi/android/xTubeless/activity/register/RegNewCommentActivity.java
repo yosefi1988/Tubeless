@@ -2,6 +2,7 @@ package ir.sajjadyosefi.android.xTubeless.activity.register;
 
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
@@ -54,6 +56,22 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
     private int REQUEST_FILE_LIST = 525;
 
     static List<File> filesList;
+
+    public static int LOGIN_REQUEST_NEW_COMMENT = 119 ;
+
+
+    public synchronized static Intent getIntent(Context context) {
+        return getIntent(context,new Bundle());
+    }
+
+    public synchronized static Intent getIntent(Context context, Bundle bundle) {
+        bundle.putString("item1","value1");
+        Intent intent = new Intent(context, RegNewCommentActivity.class);
+        intent.putExtras(bundle);
+        return intent;
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,7 +123,10 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 //        intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
 //                bundle.putParcelable(AccountManager.KEY_INTENT, intent);
 
-
+        //getType
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        int blogId = bundle.getInt("blogId");
 
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -144,9 +165,10 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
                     NewBlogCommentRequest aaaa = new NewBlogCommentRequest();
 
 
-//                    aaaa.setUserID((int)Global.user.getUserId());
-                    aaaa.setUserID(140430);
-                    aaaa.setBlogID(84511);
+                    aaaa.setUserID((int)Global.user.getUserId());
+//                    aaaa.setUserID(140430);
+//                    aaaa.setBlogID(84511);
+                    aaaa.setBlogID(blogId);
 
                     JsonObject oooo = new JsonObject();
 //                    oooo.addProperty("title",       editTextTitle.getText().toString());
@@ -165,14 +187,14 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 
 
         if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
-            Bundle bundle = new Bundle();
-            Intent intent = SignInActivity.getIntent(getContext(),bundle);
-            intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
-            intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
-            intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+            Bundle bundlex = new Bundle();
+            Intent intentx = SignInActivity.getIntent(getContext(),bundlex);
+            intentx.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+            intentx.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+            intentx.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
             //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+            bundlex.putParcelable(AccountManager.KEY_INTENT, intentx);
+            getActivity().startActivityForResult(intentx, GO_TO_LOGIN);
         }
 
 

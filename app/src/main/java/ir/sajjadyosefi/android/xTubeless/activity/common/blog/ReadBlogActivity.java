@@ -41,6 +41,7 @@ import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.READ_BLOG_COMMENTS;
 
 /**
  * Created by sajjad on 2/11/2018.
@@ -65,9 +66,11 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         textViewDate = findViewById(R.id.textViewDate);
         textViewCount = findViewById(R.id.textViewCount);
         textViewShare = findViewById(R.id.textViewShare);
+        textViewComments = findViewById(R.id.textViewComments);
         textViewText = findViewById(R.id.textViewText);
         imageViewUserAvatar = findViewById(R.id.imageViewUserAvatar);
         imageViewShare = findViewById(R.id.imageViewShare);
+        imageViewComments = findViewById(R.id.imageViewComments);
         imageviewPicture = findViewById(R.id.imageviewPicture);
         viewHeader = findViewById(R.id.header);
 
@@ -153,15 +156,6 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 //        aaaa.setCommentId(11);
 //        aaaa.setVote(true);
 //        newVote(aaaa);
-
-
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("type" , TYPE_COMMENTS);
-//        bundle.putInt("blogId" , 8);
-//        bundle.putSerializable("LIST", (Serializable)new ArrayList<CommentItem>());
-//        getActivity().startActivity(ContainerActivity.getIntent(getContext(),bundle));
-
-
      }
 
     public static void fillTitle(Context context ,String title , int cat , TextView textViewTitle) {
@@ -295,8 +289,8 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
     }
 
 
-    TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewShare,textViewText;
-    ImageView imageViewUserAvatar, imageViewShare,imageviewPicture;
+    TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewShare,textViewComments,textViewText;
+    ImageView imageViewUserAvatar, imageViewShare,imageViewComments,imageviewPicture;
     View viewHeader;
 
     private void firstFillData(NewTimelineItem newTimelineItem) {
@@ -515,6 +509,31 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
         textViewShare.setOnClickListener(onClickListener);
         imageViewShare.setOnClickListener(onClickListener);
+
+
+        View.OnClickListener onCommentsClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (timelineItem instanceof TimelineItem) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("type" , TYPE_COMMENTS);
+                    bundle.putInt("blogId" , timelineItem.getBlogID());
+                    bundle.putSerializable("LIST", (Serializable)new ArrayList<CommentItem>());
+                    ((Activity)mContext).startActivityForResult(ContainerActivity.getIntent(mContext,bundle),READ_BLOG_COMMENTS);
+                }else if (timelineItem instanceof NewTimelineItem) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("type" , TYPE_COMMENTS);
+                    bundle.putInt("blogId" , timelineItem.getBlogID());
+                    bundle.putSerializable("LIST", (Serializable)new ArrayList<CommentItem>());
+                    ((Activity)mContext).startActivityForResult(ContainerActivity.getIntent(mContext,bundle),READ_BLOG_COMMENTS);
+                }else {
+
+                }
+            }
+        };
+
+        textViewComments.setOnClickListener(onCommentsClickListener);
+        imageViewComments.setOnClickListener(onCommentsClickListener);
 
         View.OnClickListener onStarClickListener = new View.OnClickListener() {
             @Override

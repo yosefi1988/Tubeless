@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
@@ -112,11 +116,13 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 loadTimeline(context,current_page,false);
             }
         };
-        recyclerView.addOnScrollListener(onScrollListener);
 
+        recyclerView.addOnScrollListener(onScrollListener);
 
         firstLoadAndRefresh(context);
     }
+
+    private final static int FADE_DURATION = 500; //FADE_DURATION in milliseconds
 
     private void firstLoadAndRefresh(Context context) {
 //        mSwipeRefreshLayout.setOnRefreshListener(() -> {
@@ -131,9 +137,9 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
-                loadTimeline(context,1,false);
-
+                onScrollListener.reset();
+//                onScrollListener.resetCounter();
+                loadTimeline(context,1,true);
                 mSwipeRefreshLayout.setRefreshing(false);
 
 //                if(listType == TYPE_YAFTE){
@@ -147,7 +153,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         });
     }
 
-    private void loadTimeline(Context context,int current_page,boolean isRefresh) {
+    private void loadTimeline(Context context,int current_page, boolean isRefresh) {
 
         if (listType == TYPE_YADAK) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
@@ -184,11 +190,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     for (NewTimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
                         data.add(item);
-//                        if (isRefresh) {
+                        if (isRefresh) {
                             adapter.notifyDataSetChanged();
-//                        }else {
-//                            adapter.notifyItemInserted(data.size());
-//                        }
+                        }else {
+                            adapter.notifyItemInserted(data.size());
+                        }
                     }
                 }
             };
@@ -430,8 +436,6 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 }
             };
             Global.apiManagerTubeless.getTimelineListForBourseAnalizeOld(context,current_page - 1, ssssssss, StaticValue.bourseState.endDate);
-
-
         }else if (listType == TYPE_BOURSE_NEWS) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
                 @Override
@@ -469,11 +473,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //                for (TimelineItem item : responseX.getTimelineList()){
 //                    item.setType(Tubeless_ITEM_TYPE);
 //                    data.add(item);
-//                    if (isRefresh) {
-//                        adapter.notifyDataSetChanged();
-//                    }else {
-//                        adapter.notifyItemInserted(data.size());
-//                    }
+                    if (isRefresh) {
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        adapter.notifyItemInserted(data.size());
+                    }
 //                }
 //                adapter.notifyDataSetChanged();
 
@@ -491,16 +495,15 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 }
             };
             Global.apiManagerTubeless.getTimelineListForBourseNews(context,current_page - 1, ssssssss);
-
-
-
-
         }else if (listType == TYPE_COMMENTS) {
             int blogId = bundle.getInt("blogId");
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), CommentListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
-
+                    if (isRefresh && current_page == 1 ) {
+                        data.clear();
+                        adapter.notifyDataSetChanged();
+                    }
                 }
 
                 @Override
@@ -544,13 +547,13 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     for (CommentItem item : responseX.getCommentList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
                         data.add(item);
-//                        if (isRefresh) {
-//                            adapter.notifyDataSetChanged();
-//                        }else {
-//                            adapter.notifyItemInserted(data.size());
-//                        }
+                        if (isRefresh) {
+                            adapter.notifyDataSetChanged();
+                        }else {
+                            adapter.notifyItemInserted(data.size());
+                        }
                     }
-                    adapter.notifyDataSetChanged();
+//                    adapter.notifyItemChanged(data.size() - 1);//.notifyDataSetChanged();
                 }
             };
             Global.apiManagerTubeless.getCommentTimeline(blogId,current_page - 1, ssssssss);
@@ -646,7 +649,21 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         }
 
 
+        //Animation Set the view to fade in
+        setScaleAnimation(holder.itemView);
     }
+
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(FADE_DURATION);
+        view.startAnimation(anim);
+    }
+    private void setScaleAnimation(View view) {
+        ScaleAnimation anim = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        anim.setDuration(FADE_DURATION);
+        view.startAnimation(anim);
+    }
+
 
     @Override
     public void removeItem (int listType , int removeIndex ){

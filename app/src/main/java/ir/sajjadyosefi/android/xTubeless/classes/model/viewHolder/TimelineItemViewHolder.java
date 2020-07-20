@@ -12,17 +12,8 @@ public class TimelineItemViewHolder extends PostViewHolder {
     public LinearLayout linearLayoutTop;
     public LinearLayout linearLayoutCenter;
     public LinearLayout linearLayoutBottom;
-    public LinearLayout linearLayoutAdmin;
 
-    public ImageView imageViewShare;
-    public ImageView imageViewMenu;
-    public TextView textViewShare;
 
-    public ImageView imageViewDelete;
-    public TextView textViewDelete;
-
-    public ImageView imageViewInvisible;
-    public TextView textViewInvisible;
 
     public ImageView imageViewUserAvatar;
     public ImageView imageviewPicture;
@@ -39,16 +30,6 @@ public class TimelineItemViewHolder extends PostViewHolder {
         linearLayoutTop               = (LinearLayout) itemView.findViewById(R.id.linearLayoutTop);
         linearLayoutCenter            = (LinearLayout) itemView.findViewById(R.id.linearLayoutCenter);
         linearLayoutBottom            = (LinearLayout) itemView.findViewById(R.id.linearLayoutBottom);
-        linearLayoutAdmin =          (LinearLayout) itemView.findViewById(R.id.linearLayoutAdmin);
-
-        imageViewInvisible               = (ImageView) itemView.findViewById(R.id.imageViewInvisible);
-        textViewInvisible                = (TextView) itemView.findViewById(R.id.textViewInvisible);
-        imageViewShare               = (ImageView) itemView.findViewById(R.id.imageViewShare);
-        imageViewMenu               = (ImageView) itemView.findViewById(R.id.imageViewMenu);
-        textViewShare                = (TextView) itemView.findViewById(R.id.textViewShare);
-
-        imageViewDelete               = (ImageView) itemView.findViewById(R.id.imageViewDelete);
-        textViewDelete                = (TextView) itemView.findViewById(R.id.textViewDelete);
 
 
         imageViewUserAvatar           = (ImageView) itemView.findViewById(R.id.imageViewUserAvatar);

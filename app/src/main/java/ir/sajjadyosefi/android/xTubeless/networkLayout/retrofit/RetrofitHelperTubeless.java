@@ -190,8 +190,7 @@ public class RetrofitHelperTubeless {
 
     //------------ comments ---------------
     public void getCommentTimeline(int blogId,int index, TubelessRetrofitCallbackss callback) {
-        //todo change count to 15
-        Call<Object> userCall = service.getCommentsOfblog(blogId,index,3);
+        Call<Object> userCall = service.getCommentsOfblog(blogId,index,15);
         userCall.enqueue(callback);
     }
 
@@ -205,6 +204,10 @@ public class RetrofitHelperTubeless {
     }
     public void deleteBlogComment(int id,String userId, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.deleteBlogComment(id,userId);
+
+//        Gson gson = new Gson();
+//        String aaaaaaaaaaaaaaaaa = gson.toJson(request);
+
         userCall.enqueue(callback);
     }
     public void invisibleBlogComment(int id,String userId,  TubelessRetrofitCallbackss callback) {

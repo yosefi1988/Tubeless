@@ -21,7 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
@@ -34,10 +36,12 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_All;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_NEWS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
+import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity.LOGIN_REQUEST_NEW_COMMENT;
 
 
 public class ListFragment extends Fragment  {
@@ -296,6 +300,12 @@ public class ListFragment extends Fragment  {
                     } else if (listType == TYPE_BOURSE_NEWS) {
 //                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(context, RegNewBlogActivity.class));
+                    } else if (listType == TYPE_COMMENTS) {
+//                        int blogId = bundle.getInt("blogId");
+//xxxxxxxxxxxxxxxx
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("X" , "X");
+                        getActivity().startActivityForResult(RegNewCommentActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_NEW_COMMENT);
                     }
                 }
             });
@@ -316,6 +326,7 @@ public class ListFragment extends Fragment  {
 //                        //                    context.startActivity(new Intent(context, UploadPictureActivity.class));
 //                        context.startActivity(new Intent(context, NewBlogActivity.class));
 //                    }
+
 
 
                     }

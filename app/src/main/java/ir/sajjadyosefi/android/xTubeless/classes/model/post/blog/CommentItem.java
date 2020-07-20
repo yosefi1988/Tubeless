@@ -1,14 +1,37 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.post.blog;
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
+import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.CommentContent;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CommentItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
+import retrofit2.Call;
+
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.READ_BLOG_COMMENTS;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
 
 /**
@@ -37,6 +60,11 @@ public class CommentItem extends ParentItem{
     public String getUserName() {
         return userName;
     }
+
+    public String getUserNameMasked() {
+        return NewTimelineItem.getUserNameMasked(userName);
+    }
+
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -93,7 +121,7 @@ public class CommentItem extends ParentItem{
 
     @Override
     public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
-//        super.fill(mContext, xAdapter, listType, holder0,item, position);
+        super.fill(mContext, xAdapter, listType, holder0,item, position);
 
         CommentItemViewHolder holder = (CommentItemViewHolder) holder0;
         final CommentItem CommentItem = (CommentItem)item;
@@ -110,8 +138,9 @@ public class CommentItem extends ParentItem{
         holder.textViewDate.setText(date.toString());
 
 
-        holder.textViewText.setText(CommentItem.getText());
-        holder.textViewUserName.setText(CommentItem.getUserName());
+//        holder.textViewText.setText(CommentItem.getText());
+        holder.textViewText.setText(CommentItem.getStatementFromJson());
+        holder.textViewUserName.setText(CommentItem.getUserNameMasked());
 //        holder.textViewCount.setText(CommentItem.getViewCount() + "");
 
 
@@ -124,6 +153,35 @@ public class CommentItem extends ParentItem{
 //        LoadImages.loadProfileimage(CommentItem.getPicture(),holder.imageviewPicture);
 
         holder.imageViewMenu.setVisibility(View.GONE);
+    }
+
+
+    public String getStatementFromJson() {
+        try {
+            Gson gson = new Gson();
+
+            CommentContent statementObj = gson.fromJson(text, CommentContent.class);
+            StringBuilder stringBuilder = new StringBuilder();
+
+//            if (statementObj.getTitle() != null) {
+//                stringBuilder.append(statementObj.getTitle());
+//                stringBuilder.append("-");
+//            }
+//
+//            if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+//                //stringBuilder.append(" : ");
+//            }else {
+//                stringBuilder.append(" مدل: ");
+//            }
+
+//            stringBuilder.append(statementObj.getModel());
+//            stringBuilder.append("\n");
+            stringBuilder.append(statementObj.getText());
+
+            return stringBuilder.toString();
+        }catch (Exception ex){
+            return text;
+        }
     }
 
     private void onclicks(Context mContext , int listType, CommentItemViewHolder holder, CommentItem timelineItem) {
@@ -144,10 +202,20 @@ public class CommentItem extends ParentItem{
 //            holder.imageViewFavourite.setImageResource(android.R.drawable.btn_star_big_off);
 
 
-        View.OnClickListener onclick2 = new View.OnClickListener() {
+        View.OnClickListener onclick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(mContext,"user id : " + timelineItem.getUserID() ,Toast.LENGTH_SHORT).show();
+                if (timelineItem instanceof CommentItem) {
+//                    Toast.makeText(mContext,"user id : " + timelineItem.getUserID() , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext,"," , Toast.LENGTH_SHORT).show();
+
+//                    Bundle bundle = new Bundle();
+//                    bundle.putInt("type" , TYPE_COMMENTS);
+//                    bundle.putInt("blogId" , timelineItem.getBlogID());
+//                    bundle.putSerializable("LIST", (Serializable)new ArrayList<CommentItem>());
+//                    ((Activity)mContext).startActivityForResult(ContainerActivity.getIntent(mContext,bundle),READ_BLOG_COMMENTS);
+                }
+
             }
         };
 
@@ -165,18 +233,88 @@ public class CommentItem extends ParentItem{
         };
 
 
-//        holder.imageviewPicture.setOnClickListener(onContentClick);
-        holder.textViewDate.setOnClickListener(onContentClick);
-//        holder.textViewLocation.setOnClickListener(onContentClick);
-        holder.textViewTitle.setOnClickListener(onContentClick);
-        holder.linearLayoutCenter.setOnClickListener(onContentClick);
-        holder.textViewUserName.setOnClickListener(onclick2);
+//        holder.imageviewPicture.setOnClickListener(onclick);
+        holder.textViewDate.setOnClickListener(onclick);
+//        holder.textViewLocation.setOnClickListener(onclick);
+        holder.textViewTitle.setOnClickListener(onclick);
+        holder.linearLayoutCenter.setOnClickListener(onclick);
+        holder.textViewUserName.setOnClickListener(onclick);
 
     }
 
     @Override
     protected void share(Context mContext, int listType, ParentItem timelineItem) {
 
+    }
+
+    @Override
+    protected void delete(Context mContext, XAdapter xAdapter,String userId, int position, int listType, ParentItem timelineItem) {
+        Global.apiManagerTubeless.deleteBlogComment(((CommentItem)timelineItem).getCommentId(), userId, new TubelessRetrofitCallbackss(mContext, ServerResponseBase.class) {
+            @Override
+            public void t_beforeSendRequest() {
+                ((TubelessActivity)mContext).progressDialog.show();
+
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+                ((TubelessActivity)mContext).progressDialog.hide();
+            }
+
+            @Override
+            public void t_complite() {
+            }
+
+            @Override
+            public void t_responseNull() {
+                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_TRY_AGAIN));
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                xAdapter.removeItem(listType,position);
+            }
+        });
+    }
+
+    @Override
+    protected void invisible(Context mContext, XAdapter xAdapter,String userId, int position, int listType, ParentItem timelineItem) {
+        Global.apiManagerTubeless.invisibleBlogComment(((CommentItem)timelineItem).getCommentId(), userId, new TubelessRetrofitCallbackss(mContext, ServerResponseBase.class) {
+            @Override
+            public void t_beforeSendRequest() {
+                ((TubelessActivity)mContext).progressDialog.show();
+
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+                ((TubelessActivity)mContext).progressDialog.hide();
+            }
+
+            @Override
+            public void t_complite() {
+            }
+
+            @Override
+            public void t_responseNull() {
+                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_TRY_AGAIN));
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                xAdapter.removeItem(listType,position);
+            }
+        });
     }
 }
 

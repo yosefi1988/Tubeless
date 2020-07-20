@@ -58,11 +58,11 @@ public interface ApiServiceTubeless {
     @POST("Api/Comment/voteBlogComment")
     Call<Object> voteBlogComment(@Body NewVoteRequest request);
 
-    @GET("Api/Blog/deleteBlogComment")
+    @GET("Api/Comment/deleteBlogComment")
     Call<Object> deleteBlogComment(@Query("id") int id,
                                    @Query("userId") String userId);
 
-    @GET("Api/Blog/invisibleBlogComment")
+    @GET("Api/Comment/invisibleBlogComment")
     Call<Object> invisibleBlogComment(@Query("id") int id,
                                       @Query("userId") String userId);
 

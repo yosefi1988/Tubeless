@@ -89,6 +89,16 @@ public class TextItem  extends ParentItem{
     protected void share(Context mContext, int listType, ParentItem timelineItem) {
 
     }
+
+    @Override
+    protected void delete(Context mContext, XAdapter xAdapter, String userId, int position, int listType, ParentItem timelineItem) {
+
+    }
+
+    @Override
+    protected void invisible(Context mContext, XAdapter xAdapter, String userId, int position, int listType, ParentItem timelineItem) {
+
+    }
 }
 
 

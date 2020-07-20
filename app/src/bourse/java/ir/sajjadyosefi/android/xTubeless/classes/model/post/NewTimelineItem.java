@@ -8,19 +8,34 @@ import android.view.View;
 
 import com.google.gson.Gson;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
+import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.TextContent;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
+import retrofit2.Call;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
+import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.READ_BLOG_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitle;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitleForShare;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
 /**
  * Created by sajjad on 1/20/2018.
@@ -332,6 +347,16 @@ public class NewTimelineItem extends ParentItem{
             }
         };
 
+        View.OnClickListener onclick = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (timelineItem instanceof NewTimelineItem) {
+
+                }
+
+            }
+        };
+
         View.OnClickListener onContentClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -403,7 +428,76 @@ public class NewTimelineItem extends ParentItem{
         ((Activity)mContext).startActivityForResult(intent , 60);
     }
 
+    @Override
+    protected void delete(Context mContext, XAdapter xAdapter,String userId, int position, int listType, ParentItem timelineItem) {
+        Global.apiManagerTubeless.deleteTimelineItem(timelineItem.getBlogID(), userId, new TubelessRetrofitCallbackss(mContext, ServerResponseBase.class) {
+            @Override
+            public void t_beforeSendRequest() {
+                ((TubelessActivity)mContext).progressDialog.show();
 
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+                ((TubelessActivity)mContext).progressDialog.hide();
+            }
+
+            @Override
+            public void t_complite() {
+            }
+
+            @Override
+            public void t_responseNull() {
+                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_TRY_AGAIN));
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                xAdapter.removeItem(listType,position);
+            }
+        });
+    }
+
+
+    @Override
+    protected void invisible(Context mContext, XAdapter xAdapter,String userId, int position, int listType, ParentItem timelineItem) {
+        Global.apiManagerTubeless.invisibleTimelineItem(timelineItem.getBlogID(), userId, new TubelessRetrofitCallbackss(mContext, ServerResponseBase.class) {
+            @Override
+            public void t_beforeSendRequest() {
+                ((TubelessActivity)mContext).progressDialog.show();
+
+            }
+
+            @Override
+            public void t_afterGetResponse() {
+                ((TubelessActivity)mContext).progressDialog.hide();
+            }
+
+            @Override
+            public void t_complite() {
+            }
+
+            @Override
+            public void t_responseNull() {
+                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+            }
+
+            @Override
+            public void t_retry(Call<Object> call) {
+                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_TRY_AGAIN));
+            }
+
+            @Override
+            public void t_onSuccess(Object response) {
+                xAdapter.removeItem(listType,position);
+            }
+        });
+    }
 
     private void loadImage(TimelineItemViewHolder holder, NewTimelineItem timelineItem) {
         LoadImages.loadAvatarimage(timelineItem.getUserImage(),holder.imageViewUserAvatar);

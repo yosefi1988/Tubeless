@@ -50,7 +50,7 @@ public abstract class ParentItem implements IItems {
 
     public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
 
-        TimelineItemViewHolder holder = (TimelineItemViewHolder) holder0;
+        PostViewHolder holder = (PostViewHolder) holder0;
         final ParentItem timelineItem = (ParentItem) item;
 
 //        if (Global.user != null) {
@@ -65,16 +65,20 @@ public abstract class ParentItem implements IItems {
 //        }
 
 
-        if (Global.user == null) {
-            if (holder.linearLayoutAdmin != null)
-                holder.linearLayoutAdmin.setVisibility(View.GONE);
-        } else {
-            if (Global.user.isAdmin()) {
+//        if (Global.user == null) {
+//            if (holder.linearLayoutAdmin != null) {
+//                holder.linearLayoutAdmin.setVisibility(View.GONE);
+////                Toast.makeText(mContext,"is not Admin 1 ",Toast.LENGTH_SHORT).show();
+//            }
+//        } else {
+//            if (Global.user.isAdmin()) {
                 holder.linearLayoutAdmin.setVisibility(View.VISIBLE);
-            } else {
-                holder.linearLayoutAdmin.setVisibility(View.GONE);
-            }
-        }
+////                Toast.makeText(mContext,"is Admin",Toast.LENGTH_SHORT).show();
+//            } else {
+//                holder.linearLayoutAdmin.setVisibility(View.GONE);
+////                Toast.makeText(mContext,"is not Admin 2",Toast.LENGTH_SHORT).show();
+//            }
+//        }
 
 
         onclicks(mContext,xAdapter, listType, holder, timelineItem,position);
@@ -82,7 +86,10 @@ public abstract class ParentItem implements IItems {
 
 
     View.OnClickListener onDeleteClickListener = null;
-    private void onclicks(Context mContext, XAdapter xAdapter, int listType, TimelineItemViewHolder holder, ParentItem timelineItem, int position) {
+
+
+
+    public void onclicks(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder, ParentItem timelineItem, int position) {
 
         holder.imageViewMenu.setClickable(true);
         holder.imageViewMenu.setOnClickListener(new View.OnClickListener() {
@@ -114,43 +121,17 @@ public abstract class ParentItem implements IItems {
 
                                 String userId = "";
 
-                                if (Global.user.getUserId() == 0){
-                                    userId = Global.user.getEmail();
+                                if(Global.user != null) {
+                                    if (Global.user.getUserId() == 0) {
+                                        userId = Global.user.getEmail();
+                                    } else {
+                                        userId = Global.user.getUserId() + "";
+                                    }
+                                    delete(mContext, xAdapter, userId, position, listType, timelineItem);
                                 }else {
-                                    userId = Global.user.getUserId() + "";
+                                    Toast.makeText(mContext,mContext.getString(R.string.userIsNull), Toast.LENGTH_LONG).show();
                                 }
 
-                                Global.apiManagerTubeless.deleteTimelineItem(timelineItem.getBlogID(), userId, new TubelessRetrofitCallbackss(mContext, ServerResponseBase.class) {
-                                    @Override
-                                    public void t_beforeSendRequest() {
-                                        ((TubelessActivity)mContext).progressDialog.show();
-
-                                    }
-
-                                    @Override
-                                    public void t_afterGetResponse() {
-                                        ((TubelessActivity)mContext).progressDialog.hide();
-                                    }
-
-                                    @Override
-                                    public void t_complite() {
-                                    }
-
-                                    @Override
-                                    public void t_responseNull() {
-                                        new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
-                                    }
-
-                                    @Override
-                                    public void t_retry(Call<Object> call) {
-                                        new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_TRY_AGAIN));
-                                    }
-
-                                    @Override
-                                    public void t_onSuccess(Object response) {
-                                        xAdapter.removeItem(listType,position);
-                                    }
-                                });
                             }})
                         .setNegativeButton(mContext.getString(R.string.cancel), null).show();
             }
@@ -175,38 +156,8 @@ public abstract class ParentItem implements IItems {
                                 }else {
                                     userId = Global.user.getUserId() + "";
                                 }
+                                invisible(mContext, xAdapter,userId , position,listType, timelineItem);
 
-                                Global.apiManagerTubeless.invisibleTimelineItem(timelineItem.getBlogID(), userId, new TubelessRetrofitCallbackss(mContext, ServerResponseBase.class) {
-                                    @Override
-                                    public void t_beforeSendRequest() {
-                                        ((TubelessActivity)mContext).progressDialog.show();
-
-                                    }
-
-                                    @Override
-                                    public void t_afterGetResponse() {
-                                        ((TubelessActivity)mContext).progressDialog.hide();
-                                    }
-
-                                    @Override
-                                    public void t_complite() {
-                                    }
-
-                                    @Override
-                                    public void t_responseNull() {
-                                        new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
-                                    }
-
-                                    @Override
-                                    public void t_retry(Call<Object> call) {
-                                        new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_TRY_AGAIN));
-                                    }
-
-                                    @Override
-                                    public void t_onSuccess(Object response) {
-                                        xAdapter.removeItem(listType,position);
-                                    }
-                                });
                             }})
                         .setNegativeButton(android.R.string.no, null).show();
             }
@@ -267,5 +218,7 @@ public abstract class ParentItem implements IItems {
 
 
     protected abstract void share(Context mContext, int listType, ParentItem timelineItem);
+    protected abstract void delete(Context mContext, XAdapter xAdapter,String userId, int position, int listType, ParentItem timelineItem);
+    protected abstract void invisible(Context mContext, XAdapter xAdapter,String userId, int position, int listType, ParentItem timelineItem);
 
 }

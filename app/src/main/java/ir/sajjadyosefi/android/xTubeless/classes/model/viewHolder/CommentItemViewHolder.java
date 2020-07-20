@@ -12,17 +12,9 @@ public class CommentItemViewHolder extends PostViewHolder {
     public LinearLayout linearLayoutTop;
     public LinearLayout linearLayoutCenter;
     public LinearLayout linearLayoutBottom;
-    public LinearLayout linearLayoutAdmin;
 
-    public ImageView imageViewShare;
-    public TextView textViewShare;
 
-    public ImageView imageViewMenu;
-    public ImageView imageViewDelete;
-    public TextView textViewDelete;
 
-    public ImageView imageViewInvisible;
-    public TextView textViewInvisible;
 
     public ImageView imageViewUserAvatar;
     public TextView textViewUserName;
@@ -38,17 +30,6 @@ public class CommentItemViewHolder extends PostViewHolder {
         linearLayoutTop               = (LinearLayout) itemView.findViewById(R.id.linearLayoutTop);
         linearLayoutCenter            = (LinearLayout) itemView.findViewById(R.id.linearLayoutCenter);
         linearLayoutBottom            = (LinearLayout) itemView.findViewById(R.id.linearLayoutBottom);
-        linearLayoutAdmin =          (LinearLayout) itemView.findViewById(R.id.linearLayoutAdmin);
-
-        imageViewInvisible               = (ImageView) itemView.findViewById(R.id.imageViewInvisible);
-        textViewInvisible                = (TextView) itemView.findViewById(R.id.textViewInvisible);
-        imageViewShare               = (ImageView) itemView.findViewById(R.id.imageViewShare);
-        textViewShare                = (TextView) itemView.findViewById(R.id.textViewShare);
-
-        imageViewDelete               = (ImageView) itemView.findViewById(R.id.imageViewDelete);
-        imageViewMenu               = (ImageView) itemView.findViewById(R.id.imageViewMenu);
-        textViewDelete                = (TextView) itemView.findViewById(R.id.textViewDelete);
-
 
         imageViewUserAvatar           = (ImageView) itemView.findViewById(R.id.imageViewUserAvatar);
         textViewUserName              = (TextView) itemView.findViewById(R.id.textViewUserName);
