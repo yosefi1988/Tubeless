@@ -170,6 +170,8 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
     protected void onStart() {
         super.onStart();
         AdView adView = findViewById(R.id.adView);
+
+
         if (Global.user.isAdmin()) {
             adView.setVisibility(View.VISIBLE);
 //        MobileAds.initialize(this, new OnInitializationCompleteListener() {
