@@ -13,12 +13,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
-import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountDetailsFragment;
-import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
+
+//todo Bourse uncomment
+//import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountDetailsFragment;
+//import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
+//import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
 
@@ -167,22 +170,24 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx3 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
-                    if (!checkResult(context, StaticValue.configuration)){
-                        fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
-                    }else {
-                        if (StaticValue.bourseState.totalPayedValue > 0) {
-                            if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
-                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
-                            } else {
-                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
-                            }
-                        } else {
-//                        fragmentx3 = new FinancialAccountDetailsFragment();
 
-                            //هیچ پرداختی قبلا انجام نداده است
-                            fragmentx3 = new FinancialAccountLimitFragment(context);
-                        }
-                    }
+                    //todo Bourse uncomment
+//                    if (!checkResult(context, StaticValue.configuration)){
+//                        fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
+//                    }else {
+//                        if (StaticValue.bourseState.totalPayedValue > 0) {
+//                            if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
+//                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
+//                            } else {
+//                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
+//                            }
+//                        } else {
+////                        fragmentx3 = new FinancialAccountDetailsFragment();
+//
+//                            //هیچ پرداختی قبلا انجام نداده است
+//                            fragmentx3 = new FinancialAccountLimitFragment(context);
+//                        }
+//                    }
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx3 = new BlankFragment();
                 }else{

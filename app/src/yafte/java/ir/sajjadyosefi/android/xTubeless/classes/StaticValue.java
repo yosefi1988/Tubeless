@@ -1,5 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes;
 
+import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
+
 public class StaticValue {
 
     public static int AdminUserID1 = 140237;
@@ -32,6 +34,7 @@ public class StaticValue {
 
     public static final int Tubeless_ITEM_TYPE = 1;
     public static final int PROGRESS_TYPE = 2;
+
 
 
 }

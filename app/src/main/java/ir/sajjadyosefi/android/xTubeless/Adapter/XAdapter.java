@@ -435,7 +435,9 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     adapter.notifyDataSetChanged();
                 }
             };
-            Global.apiManagerTubeless.getTimelineListForBourseAnalizeOld(context,current_page - 1, ssssssss, StaticValue.bourseState.endDate);
+
+            //todo Bourse uncomment
+//            Global.apiManagerTubeless.getTimelineListForBourseAnalizeOld(context,current_page - 1, ssssssss, StaticValue.bourseState.endDate);
         }else if (listType == TYPE_BOURSE_NEWS) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
                 @Override
