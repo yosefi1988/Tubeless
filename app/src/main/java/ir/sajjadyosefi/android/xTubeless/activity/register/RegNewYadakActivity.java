@@ -234,7 +234,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 //                buttonAddFiles.setEnabled(true);
 //            }
 
-        if (Global.user.isAdmin()) {
+        if (Global.user != null && Global.user.isAdmin()) {
             buttonAddFiles.setEnabled(true);
         }else {
             buttonAddFiles.setEnabled(false);

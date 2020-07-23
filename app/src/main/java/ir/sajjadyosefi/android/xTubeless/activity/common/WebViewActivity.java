@@ -25,18 +25,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.Serializable;
 import java.io.StringWriter;
 import java.io.Writer;
 
 
-import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
-
-import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
 
 /**
  * Created by Sajad on 2/11/2017.
@@ -140,7 +135,7 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
 //                    if (checkResult(context, StaticValue.configuration)){
 //                        htmlFilename = "rule.html";
 //                    }else {
-                        htmlFilename = "rulenon.html";
+                        htmlFilename = "rule.html";
 //                    }
                     //textViewTitle.setText("راهنما");
                 } else if (bundle.getString("WebType").equals("report")) {

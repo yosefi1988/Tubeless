@@ -527,6 +527,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 counterFab.setCount(responseX.getTimelineList().size());
 
 
+                if(responseX.getTimelineList().size() == 0){
+                    counterFab.setVisibility(View.GONE);
+                }
+
                 for (TimelineItem item : responseX.getTimelineList()){
 
                     ////////////////////////////////// on click ///////////////////////////////////
