@@ -31,7 +31,10 @@ import java.io.Writer;
 
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
+
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
 
 /**
  * Created by Sajad on 2/11/2017.
@@ -132,12 +135,13 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                 } else if (bundle.getString("WebType").equals("rule")) {
 
                     //todo Bourse uncomment
-//                    if (checkResult(context, StaticValue.configuration)){
-//                        htmlFilename = "rule.html";
-//                    }else {
+                    if (checkResult(context, StaticValue.configuration)){
                         htmlFilename = "rule.html";
-//                    }
-                    //textViewTitle.setText("راهنما");
+                    }else {
+                        htmlFilename = "rule.html";
+                    }
+
+//                    textViewTitle.setText("راهنما");
                 } else if (bundle.getString("WebType").equals("report")) {
                     htmlFilename = "report.html";
                     //textViewTitle.setText("گزارش خطا");
@@ -147,11 +151,11 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                         linearLayoutPay.setVisibility(View.VISIBLE);
 
                         //todo Bourse uncomment
-//                        if (checkResult(getContext(), StaticValue.configuration)) {
-//                            button_pay.setText(R.string.accept_and_pardakht);
-//                        }else {
+                        if (checkResult(getContext(), StaticValue.configuration)) {
+                            button_pay.setText(R.string.accept_and_pardakht);
+                        }else {
                             button_pay.setText(R.string.accept_and_pardakht2);
-//                        }
+                        }
 
 
                         button_pay.setOnClickListener(new View.OnClickListener() {
