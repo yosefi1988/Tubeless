@@ -98,8 +98,8 @@ import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivit
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 //todo Bourse uncomment
-//import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
-//import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
@@ -162,31 +162,31 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         }
 
         //todo Bourse uncomment
-//        if (requestCode == READ_RULE_AND_PAY) {
-//            if (resultCode == Activity.RESULT_OK) {
-//                //go to pay
-//                if (checkResult(getContext(), StaticValue.configuration)) {
-//                    //ShowSelectSturceDialog(mContext);
-//                    payment(getContext());
-//                } else {
-//                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
-//                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
-//                    StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
+        if (requestCode == READ_RULE_AND_PAY) {
+            if (resultCode == Activity.RESULT_OK) {
+                //go to pay
+                if (checkResult(getContext(), StaticValue.configuration)) {
+                    //ShowSelectSturceDialog(mContext);
+                    payment(getContext());
+                } else {
+                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
+                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
+                    StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
+
+                    //refresh tab 3
+                    firstFragmentsAdapter.notifyDataSetChanged();
+                }
 //
-//                    //refresh tab 3
-//                    firstFragmentsAdapter.notifyDataSetChanged();
-//                }
-////
-//                //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
-//
-//                backButtonPressedInPayment = false;
-//            }else {
-//                //cancel
-//                backButtonPressedInPayment = false;
-//                DialogUtil.hideLoading();
-//
-//            }
-//        }
+                //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+
+                backButtonPressedInPayment = false;
+            }else {
+                //cancel
+                backButtonPressedInPayment = false;
+                DialogUtil.hideLoading();
+
+            }
+        }
     }
 
 
@@ -195,7 +195,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         PaymentRequest payment = ZarinPal.getPaymentRequest();
 
         //todo Bourse uncomment
-//        payment.setAmount(StaticValue.configuration.getConfiguration().vip1Month);
+        payment.setAmount(StaticValue.configuration.getConfiguration().vip1Month);
         payment.setMerchantID("e8a913e8-f089-11e6-8dec-005056a205be");
         payment.setDescription("هزینه خرید اکانت سیگنال بورسی");
         payment.setCallbackURL("return2://zarinpalpayment");
@@ -399,9 +399,9 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     DialogUtil.showLoadingDialog(getContext());
 
                     //todo Bourse uncomment
-//                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
-//                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
-//                    StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
+                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
+                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
+                    StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
 
                     //refresh tab 3
                     firstFragmentsAdapter.notifyDataSetChanged();

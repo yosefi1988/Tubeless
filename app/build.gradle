@@ -4,20 +4,20 @@ apply plugin: 'io.fabric'
 
 //todo change version code before publish
 def final appNameTubeless = 'Tubeless'
-def final Tubeless_VersionName = "5.0.0"
-def final Tubeless_VersionCode = 35
+def final Tubeless_VersionName = "6.0.1"
+def final Tubeless_VersionCode = 36
 
 def final appNameYafte = 'مدارک گم شده'
-def final Yafte_VersionName = "2.0.4"
+def final Yafte_VersionName = "2.0.5"
 def final Yafte_VersionCode = 16
 
 def final appNameYadak = 'لوازم یدکی'
-def final Yadak_VersionName = "2.0.0"
+def final Yadak_VersionName = "2.0.1"
 def final Yadak_VersionCode = 5
 
 def final appNameBourse = 'بورس , سهام'
-def final Bourse_VersionName = "2.1.0"
-def final Bourse_VersionCode = 8
+def final Bourse_VersionName = "2.1.1"
+def final Bourse_VersionCode = 9
 
 
 android {

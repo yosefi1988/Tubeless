@@ -106,6 +106,7 @@ public class NewTimelineItem extends ParentItem{
             if (statementObj.getTitle() != null) {
                 stringBuilder.append(statementObj.getTitle());
             }
+            stringBuilder.append(" ");
 
             if (BuildConfig.FLAVOR_version_name.equals("bourse")){
                 //stringBuilder.append(" : ");

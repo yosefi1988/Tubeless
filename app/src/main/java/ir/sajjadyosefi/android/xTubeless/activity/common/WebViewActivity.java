@@ -135,11 +135,11 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                 } else if (bundle.getString("WebType").equals("rule")) {
 
                     //todo Bourse uncomment
-//                    if (checkResult(context, StaticValue.configuration)){
-//                        htmlFilename = "rule.html";
-//                    }else {
-//                        htmlFilename = "rule.html";
-//                    }
+                    if (checkResult(context, StaticValue.configuration)){
+                        htmlFilename = "rule.html";
+                    }else {
+                        htmlFilename = "rule.html";
+                    }
 
 //                    textViewTitle.setText("راهنما");
                 } else if (bundle.getString("WebType").equals("report")) {
@@ -151,11 +151,11 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                         linearLayoutPay.setVisibility(View.VISIBLE);
 
                         //todo Bourse uncomment
-//                        if (checkResult(getContext(), StaticValue.configuration)) {
-//                            button_pay.setText(R.string.accept_and_pardakht);
-//                        }else {
-//                            button_pay.setText(R.string.accept_and_pardakht2);
-//                        }
+                        if (checkResult(getContext(), StaticValue.configuration)) {
+                            button_pay.setText(R.string.accept_and_pardakht);
+                        }else {
+                            button_pay.setText(R.string.accept_and_pardakht2);
+                        }
 
 
                         button_pay.setOnClickListener(new View.OnClickListener() {
