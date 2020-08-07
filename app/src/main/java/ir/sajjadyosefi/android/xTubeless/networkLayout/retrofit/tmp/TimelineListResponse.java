@@ -1,11 +1,12 @@
-package ir.sajjadyosefi.android.xTubeless.classes.model.response;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp;
 
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
+
 
 /**
  * Created by sajjad on 1/20/2018.

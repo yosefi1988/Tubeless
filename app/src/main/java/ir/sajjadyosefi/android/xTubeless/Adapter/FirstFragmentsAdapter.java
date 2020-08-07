@@ -15,9 +15,9 @@ import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
 
 //todo Bourse uncomment
-import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountDetailsFragment;
-import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
-import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+//import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountDetailsFragment;
+//import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
+//import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
@@ -172,22 +172,22 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                 }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
 
                     //todo Bourse uncomment
-                    if (!checkResult(context, StaticValue.configuration)){
-                        fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
-                    }else {
-                        if (StaticValue.bourseState.totalPayedValue > 0) {
-                            if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
-                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
-                            } else {
-                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
-                            }
-                        } else {
-//                        fragmentx3 = new FinancialAccountDetailsFragment();
-
-                            //هیچ پرداختی قبلا انجام نداده است
-                            fragmentx3 = new FinancialAccountLimitFragment(context);
-                        }
-                    }
+//                    if (!checkResult(context, StaticValue.configuration)){
+//                        fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
+//                    }else {
+//                        if (StaticValue.bourseState.totalPayedValue > 0) {
+//                            if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
+//                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
+//                            } else {
+//                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
+//                            }
+//                        } else {
+////                        fragmentx3 = new FinancialAccountDetailsFragment();
+//
+//                            //هیچ پرداختی قبلا انجام نداده است
+//                            fragmentx3 = new FinancialAccountLimitFragment(context);
+//                        }
+//                    }
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                     fragmentx3 = new BlankFragment();
                 }else{

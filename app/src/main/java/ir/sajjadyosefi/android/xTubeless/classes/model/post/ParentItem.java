@@ -65,20 +65,20 @@ public abstract class ParentItem implements IItems {
 //        }
 
 
-//        if (Global.user == null) {
-//            if (holder.linearLayoutAdmin != null) {
-//                holder.linearLayoutAdmin.setVisibility(View.GONE);
-////                Toast.makeText(mContext,"is not Admin 1 ",Toast.LENGTH_SHORT).show();
-//            }
-//        } else {
-//            if (Global.user.isAdmin()) {
+        if (Global.user == null) {
+            if (holder.linearLayoutAdmin != null) {
+                holder.linearLayoutAdmin.setVisibility(View.GONE);
+//                Toast.makeText(mContext,"is not Admin 1 ",Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            if (Global.user.isAdmin()) {
                 holder.linearLayoutAdmin.setVisibility(View.VISIBLE);
-////                Toast.makeText(mContext,"is Admin",Toast.LENGTH_SHORT).show();
-//            } else {
-//                holder.linearLayoutAdmin.setVisibility(View.GONE);
-////                Toast.makeText(mContext,"is not Admin 2",Toast.LENGTH_SHORT).show();
-//            }
-//        }
+//                Toast.makeText(mContext,"is Admin",Toast.LENGTH_SHORT).show();
+            } else {
+                holder.linearLayoutAdmin.setVisibility(View.GONE);
+//                Toast.makeText(mContext,"is not Admin 2",Toast.LENGTH_SHORT).show();
+            }
+        }
 
 
         onclicks(mContext,xAdapter, listType, holder, timelineItem,position);

@@ -109,15 +109,35 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="2 mordad">
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="4 mordad">
+      <change afterPath="$PROJECT_DIR$/app/src/tubeless/assets/rule.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/tubeless/java/ir/sajjadyosefi/android/xTubeless/networkLayout/networkLayout/Url.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/tubeless/res/drawable/png_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/tubeless/res/drawable/png_icon_analize.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/tubeless/res/drawable/png_iconnews.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/tubeless/res/drawable/png_taj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/tubeless/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/yadak/assets/rule.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/yadak/java/ir/sajjadyosefi/android/xTubeless/networkLayout/networkLayout/Url.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apks/bourseSocialNetwork/release/output.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/WebViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/WebViewActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/blog/ReadBlogActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/blog/ReadBlogActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NewTimelineItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NewTimelineItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NotiesItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NotiesItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/ParentItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/ParentItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/TimelineItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/tmp/TimelineItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/response/NewTimelineListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/response/NewTimelineListResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/response/TimelineItemResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/response/TimelineItemResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/response/TimelineListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/tmp/TimelineListResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_app_bar_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/x_app_bar_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/yafte/res/drawable/png_icon2.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/yafte/res/drawable/png_icon2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,8 +222,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="sa" />
         <option value="sajjad &lt;yosefi1988@gmail.com&gt;" />
+        <option value="sa" />
         <option value="sajjad yosefi &lt;yosefi1988@gmail.com&gt;" />
       </list>
     </option>
@@ -227,7 +247,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="RZ8M74EVYJH" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-14T14:03:18.429Z" />
     <property name="ExportApk.ApkPath" value="D:\Projects\Android\TubelessX\Apks" />
-    <property name="ExportApk.BuildVariants" value="yafteMyketRelease" />
+    <property name="ExportApk.BuildVariants" value="yafteIranAppsRelease&#10;yafteJhobinRelease&#10;yafteMyketRelease&#10;yafteSocialNetworkRelease" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -238,7 +258,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="device.picker.selection" value="192.168.1.2:5555" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/yafte/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/tubeless" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28328007" />
@@ -252,12 +272,12 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="debug" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.examples" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
-      <recent name="ir.sajjadyosefi.android.xTubeless" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\model\post" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\bourse\res\drawable" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\designPattern" />
+      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\tubeless\res\drawable" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ir.sajjadyosefi.android.xTubeless.classes.model.post" />
@@ -267,11 +287,11 @@
       <recent name="ir.sajjadyosefi.android.xTubeless" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\Android\TubelessX\app\src\yafte\res\drawable" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\yafte\assets" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\yafte\java\ir\sajjadyosefi\android\xTubeless" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\yadak\res\drawable" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\main\res\layout" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\tubeless" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\tubeless\java\ir\sajjadyosefi\android\xTubeless" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\tubeless\res\values" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\tubeless\res\layout" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\tubeless\res\drawable" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass" />
@@ -280,12 +300,12 @@
       <recent name="ir.sajjadyosefi.android.xTubeless.Fragment" />
       <recent name="ir.sajjadYosefi.objectKmpautotextview" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\model\post" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\bourse\res\drawable" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\designPattern" />
-      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\tubeless\res\drawable" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.examples" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
+      <recent name="ir.sajjadyosefi.android.xTubeless" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -853,7 +873,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595533860892</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="4 mordad">
+      <created>1595695055923</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1595695055923</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -880,7 +907,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="4 Farvardin" />
     <MESSAGE value="8 Farvardin" />
     <MESSAGE value="9 Farvardin" />
     <MESSAGE value="13 Farvardin" />
@@ -905,61 +931,70 @@
     <MESSAGE value="1 mordad" />
     <MESSAGE value="1 mordad 2" />
     <MESSAGE value="2 mordad" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 mordad" />
+    <MESSAGE value="4 mordad" />
+    <option name="LAST_COMMIT_MESSAGE" value="4 mordad" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="144" y="0" key="CommitChangelistDialog2" timestamp="1595533946143">
+    <state x="144" y="0" key="CommitChangelistDialog2" timestamp="1595695048917">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="144" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595533946143" />
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1595522718959">
+    <state x="144" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595695048917" />
+    <state width="672" height="594" key="DebuggerActiveHint" timestamp="1596786208870">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595522718959" />
-    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1595522718927">
+    <state width="672" height="594" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1596786208870" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1596202013033">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595522718927" />
-    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1595522718896">
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1596202013033" />
+    <state width="1323" height="152" key="GridCell.Tab.0.bottom" timestamp="1596787580088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595522718896" />
-    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1595522718959">
+    <state width="1323" height="152" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596787580088" />
+    <state width="1323" height="152" key="GridCell.Tab.0.center" timestamp="1596787580087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595522718959" />
-    <state width="1323" height="156" key="GridCell.Tab.1.bottom" timestamp="1595522718990">
+    <state width="1323" height="152" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596787580087" />
+    <state width="1323" height="152" key="GridCell.Tab.0.left" timestamp="1596787580087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595522718990" />
-    <state width="1323" height="156" key="GridCell.Tab.1.center" timestamp="1595522718974">
+    <state width="1323" height="152" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596787580087" />
+    <state width="1323" height="152" key="GridCell.Tab.0.right" timestamp="1596787580087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1595522718974" />
-    <state width="1323" height="156" key="GridCell.Tab.1.left" timestamp="1595522718974">
+    <state width="1323" height="152" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596787580087" />
+    <state width="1323" height="152" key="GridCell.Tab.1.bottom" timestamp="1596787580088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1595522718974" />
-    <state width="1323" height="156" key="GridCell.Tab.1.right" timestamp="1595522718990">
+    <state width="1323" height="152" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596787580088" />
+    <state width="1323" height="152" key="GridCell.Tab.1.center" timestamp="1596787580088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1595522718990" />
+    <state width="1323" height="152" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1596787580088" />
+    <state width="1323" height="152" key="GridCell.Tab.1.left" timestamp="1596787580088">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="152" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1596787580088" />
+    <state width="1323" height="152" key="GridCell.Tab.1.right" timestamp="1596787580088">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="152" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1596787580088" />
     <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1595533887054">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595533887054" />
-    <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1595533224852">
+    <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1596720803029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1595533224852" />
-    <state x="380" y="96" width="634" height="536" key="find.popup" timestamp="1595692819002">
+    <state x="378" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1596720803029" />
+    <state x="379" y="95" width="940" height="606" key="find.popup" timestamp="1596790869881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="380" y="96" width="634" height="536" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1595692819002" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1595511713858">
+    <state x="379" y="95" width="940" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1596790869881" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596787985079">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595511713858" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596787985079" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1071,7 +1106,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>1089</line>
+          <line>1091</line>
           <option name="timeStamp" value="571" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1356,7 +1391,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/blog/ReadBlogActivity.java</url>
-          <line>650</line>
+          <line>760</line>
           <option name="timeStamp" value="1542" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1376,12 +1411,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/blog/ReadBlogActivity.java</url>
-          <line>408</line>
+          <line>516</line>
           <option name="timeStamp" value="1665" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/blog/ReadBlogActivity.java</url>
-          <line>423</line>
+          <line>531</line>
           <option name="timeStamp" value="1671" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1406,12 +1441,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>207</line>
+          <line>210</line>
           <option name="timeStamp" value="1795" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>211</line>
+          <line>214</line>
           <option name="timeStamp" value="1796" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1440,26 +1475,6 @@
           <option name="timeStamp" value="1894" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java</url>
-          <line>283</line>
-          <option name="timeStamp" value="1895" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>546</line>
-          <option name="timeStamp" value="1896" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>523</line>
-          <option name="timeStamp" value="1900" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java</url>
-          <line>518</line>
-          <option name="timeStamp" value="1901" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/bussines/post/fragment/SearchByNameFragment.java</url>
           <line>127</line>
           <option name="timeStamp" value="1912" />
@@ -1473,6 +1488,66 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retroftPost/PostRetrofitCallback.java</url>
           <line>122</line>
           <option name="timeStamp" value="1914" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="1915" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="1916" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="1917" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
+          <line>165</line>
+          <option name="timeStamp" value="1918" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="1919" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="1922" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="1923" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
+          <line>162</line>
+          <option name="timeStamp" value="1924" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="1926" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/utility/DateConverterSjd.java</url>
+          <line>298</line>
+          <option name="timeStamp" value="1931" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NewTimelineItem.java</url>
+          <line>167</line>
+          <option name="timeStamp" value="1962" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NewTimelineItem.java</url>
+          <line>214</line>
+          <option name="timeStamp" value="1963" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

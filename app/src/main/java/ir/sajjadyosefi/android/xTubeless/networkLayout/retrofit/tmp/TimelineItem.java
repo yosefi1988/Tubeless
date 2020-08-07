@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.classes.model.post;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,6 +19,8 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.JsonDateDeserializer;
 import ir.sajjadyosefi.android.xTubeless.classes.model.BlogItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.BlogItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
@@ -33,7 +35,7 @@ import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogAct
  * Created by sajjad on 1/20/2018.
  */
 
-public class TimelineItem extends ParentItem{
+public class TimelineItem extends ParentItem {
 
 
     private String title;
@@ -192,7 +194,8 @@ public class TimelineItem extends ParentItem{
         StringBuilder date = new StringBuilder();
 
         if (timelineItem.getDate() != null) {
-            date.append(timelineItem.getDate());
+//            date.append(timelineItem.getDate());
+            date.append(dateUtiliti.getCurrentShamsidate(timelineItem.getDate()));
         }
 
         date.append(" ( ");

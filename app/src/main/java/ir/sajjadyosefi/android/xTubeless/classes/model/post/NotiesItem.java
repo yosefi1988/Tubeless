@@ -35,10 +35,7 @@ public class NotiesItem extends ParentItem{
     public void fill(Context mContext, XAdapter xAdapter, int listType, PostViewHolder holder0, IItems item, int position) {
 
         TimelineItemViewHolder holder = (TimelineItemViewHolder) holder0;
-        final TimelineItem timelineItem = (TimelineItem)item;
-
-
-
+        final NewTimelineItem timelineItem = (NewTimelineItem)item;
 
     }
 

@@ -11,7 +11,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.
 //import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
@@ -160,7 +160,7 @@ public class Device implements IRegisterDeviceModel {
 //			new TubelessException(DEVICE_NOT_REGISTER));
 
 
-		TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(context, TimelineListResponse.class) {
+		TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(context, NewTimelineListResponse.class) {
 			@Override
 			public void t_beforeSendRequest() {
 
@@ -188,7 +188,7 @@ public class Device implements IRegisterDeviceModel {
 
 			@Override
 			public void t_onSuccess(Object response) {
-				TimelineListResponse responseX = (TimelineListResponse) response;
+//				TimelineListResponse responseX = (TimelineListResponse) response;
 				peresenter.onSuccess();
 
 			}

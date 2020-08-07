@@ -163,8 +163,8 @@ public class RetrofitHelperTubeless {
 
 
         //todo Bourse uncomment
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),StaticValue.bourseState.endDate);
-        userCall.enqueue(callback);
+//        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),StaticValue.bourseState.endDate);
+//        userCall.enqueue(callback);
     }
 
     public void getTimelineListForBourseNews(Context context , int index, TubelessRetrofitCallbackss callback) {

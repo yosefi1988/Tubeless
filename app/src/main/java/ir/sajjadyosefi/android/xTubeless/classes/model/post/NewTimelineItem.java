@@ -26,6 +26,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBa
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 import retrofit2.Call;
@@ -55,6 +56,33 @@ public class NewTimelineItem extends ParentItem{
     private String userName;
     private String userImage;
 
+    public NewTimelineItem(TimelineItem item) {
+//        String sTitle = "{\"title\":\"" + item.getTitle() + "\"," +
+//                "\"model\":\"" + "\","+
+//                "\"description\":\"" + "\"}";
+
+        this.title = item.getTitle();
+
+        String statement = "{\"title\":\"" + item.getTitle() + "\"," +
+                "\"model\":\"" + "\","+
+                "\"mobile\":\"00\"," +
+                "\"text\":\""+ item.getText() +"\"," +
+                "\"description\":\"" + "\"}";
+
+        this.statement = statement;
+
+        this.userImage = item.getUserImage();
+        this.titlePicture = item.getPicture();
+        this.userName = item.getUserName();
+        this.textPicture = item.getPicture();
+        this.categoryID = item.getCategoryID();
+        this.registerDate = item.getRegisterDate();
+        this.viewCount = item.getViewCount();
+        this.shareCount = item.getShareCount();
+        this.text = statement;
+        setBlogID(item.getBlogID());
+    }
+
 
     public String getTitlePicture() {
         return titlePicture;
@@ -77,12 +105,16 @@ public class NewTimelineItem extends ParentItem{
 
             if (statementObj.getTitle() != null) {
                 stringBuilder.append(statementObj.getTitle());
-                stringBuilder.append("-");
             }
 
             if (BuildConfig.FLAVOR_version_name.equals("bourse")){
                 //stringBuilder.append(" : ");
-            }else {
+            }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+                //stringBuilder.append(" : ");
+             }else if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
+                //stringBuilder.append(" : ");
+            }else{
+                stringBuilder.append("-");
                 stringBuilder.append(" مدل: ");
             }
             stringBuilder.append(statementObj.getModel());
@@ -177,9 +209,13 @@ public class NewTimelineItem extends ParentItem{
             TextContent statementObj = gson.fromJson(text, TextContent.class);
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append(statementObj.getTitle());
-            stringBuilder.append("-");
-            stringBuilder.append(" مدل: ");
-            stringBuilder.append(statementObj.getModel());
+
+            if (statementObj.getModel() != null && statementObj.getModel().length() > 0) {
+                stringBuilder.append("-");
+                stringBuilder.append(" مدل: ");
+                stringBuilder.append(statementObj.getModel());
+            }
+
             stringBuilder.append("\n");
             stringBuilder.append(statementObj.getDescription());
             stringBuilder.append("\n");

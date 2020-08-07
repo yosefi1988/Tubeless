@@ -27,20 +27,20 @@ import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NotiesItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.CommentListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CommentItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TwoLinesViewHolder;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
@@ -230,7 +230,6 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 @Override
                 public void t_onSuccess(Object response) {
                     TimelineListResponse responseX = (TimelineListResponse) response;
-
 //                Gson gson = new Gson();
 //                JsonElement jsonElement = gson.toJsonTree(response.body());
 //                TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);
@@ -244,17 +243,18 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //                    }
 //                }
 //                adapter.notifyDataSetChanged();
-
                     for (TimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
-                        data.add(item);
-//                        if (isRefresh) {
-//                            adapter.notifyDataSetChanged();
-//                        }else {
-//                            adapter.notifyItemInserted(data.size());
-//                        }
+                        NewTimelineItem newTimelineItem = new NewTimelineItem(item);
+                        data.add(newTimelineItem);
+                        if (isRefresh) {
+                            adapter.notifyDataSetChanged();
+                        }else {
+                            adapter.notifyItemInserted(data.size());
+                        }
                     }
                     adapter.notifyDataSetChanged();
+
                 }
             };
             Global.apiManagerTubeless.getTimelineListForYafte(context,current_page - 1, ssssssss);
@@ -437,7 +437,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             };
 
             //todo Bourse uncomment
-            Global.apiManagerTubeless.getTimelineListForBourseAnalizeOld(context,current_page - 1, ssssssss, StaticValue.bourseState.endDate);
+//            Global.apiManagerTubeless.getTimelineListForBourseAnalizeOld(context,current_page - 1, ssssssss, StaticValue.bourseState.endDate);
         }else if (listType == TYPE_BOURSE_NEWS) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
                 @Override
@@ -619,9 +619,9 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             final PictureItem item = (PictureItem) data.get(position);
             item.fill(context , this, listType, holder, item, position);
 
-        }else if (data.get(position) instanceof TimelineItem) {
-            final TimelineItem item = (TimelineItem) data.get(position);
-            item.fill(context,this , listType, holder, item, position);
+//        }else if (data.get(position) instanceof TimelineItem) {
+//            final TimelineItem item = (TimelineItem) data.get(position);
+//            item.fill(context,this , listType, holder, item, position);
 
         }else if (data.get(position) instanceof NewTimelineItem) {
             final NewTimelineItem item = (NewTimelineItem) data.get(position);

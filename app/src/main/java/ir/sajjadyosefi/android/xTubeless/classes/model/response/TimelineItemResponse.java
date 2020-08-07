@@ -1,7 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.response;
 
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 
 /**
  * Created by sajjad on 1/20/2018.
@@ -10,13 +10,13 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 
 public class TimelineItemResponse extends ServerResponseBase {
 
-    public TimelineItem timelineItem ;
+    public NewTimelineItem timelineItem ;
 
-    public TimelineItem getTimelineItem() {
+    public NewTimelineItem getTimelineItem() {
         return timelineItem;
     }
 
-    public void setTimelineItem(TimelineItem timelineItem) {
+    public void setTimelineItem(NewTimelineItem timelineItem) {
         this.timelineItem = timelineItem;
     }
 

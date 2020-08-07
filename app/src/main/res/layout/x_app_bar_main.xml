@@ -102,6 +102,7 @@
         app:layout_anchor="@id/AppBarLayout01"
         app:layout_anchorGravity="end|bottom"
         android:layout_marginTop="100dp"
+        android:visibility="gone"
         app:srcCompat="@android:drawable/ic_menu_info_details" />
 
 

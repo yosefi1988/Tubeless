@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
+
 
 /**
  * Created by sajjad on 1/20/2018.

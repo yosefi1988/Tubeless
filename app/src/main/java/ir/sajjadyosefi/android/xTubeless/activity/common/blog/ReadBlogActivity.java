@@ -32,10 +32,11 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewVoteRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResponse;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.TimelineItem;
 
+
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResponse;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
@@ -88,23 +89,27 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
         ParentItem blogItem = null;
         if (type.equals("TimelineItem")){
-            blogItem = gson.fromJson(objectString, TimelineItem.class);
-            firstFillData((TimelineItem)blogItem);
-
-            fillTitle(getContext(),((TimelineItem) blogItem).getTitle(),((TimelineItem) blogItem).getCategoryID(),textViewTitle);
+//            blogItem = gson.fromJson(objectString, TimelineItem.class);
+//            firstFillData((TimelineItem)blogItem);
+//
+//            fillTitle(getContext(),((TimelineItem) blogItem).getTitle(),((TimelineItem) blogItem).getCategoryID(),textViewTitle);
 
         }else if (type.equals("NewTimelineItem")){
             blogItem = gson.fromJson(objectString, NewTimelineItem.class);
             firstFillData((NewTimelineItem)blogItem);
 
-            fillTitle(getContext(),((NewTimelineItem) blogItem).getTitle(),((NewTimelineItem) blogItem).getCategoryID(),textViewTitle);
+            fillTitle(
+                    getContext(),
+                    ((NewTimelineItem) blogItem).getTitle(),
+                    ((NewTimelineItem) blogItem).getCategoryID(),
+                    textViewTitle);
 
         }else if (type.equals("MainPageNews")){
+
             blogItem = gson.fromJson(objectString, TimelineItem.class);
-            firstFillData((TimelineItem)blogItem);
+            firstFillDataNews((TimelineItem)blogItem);
 
             fillTitle(getContext(),((TimelineItem) blogItem).getTitle(),((TimelineItem) blogItem).getCategoryID(),textViewTitle);
-
         }
 
 
@@ -141,7 +146,9 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
             @Override
             public void t_onSuccess(Object response) {
-                fillData(((TimelineItemResponse)response).getTimelineItem());
+                int a = 5 ;
+                a++;
+//                fillData(((TimelineItemResponse)response).getTimelineItem());
             }
         };
         Global.apiManagerTubeless.getTimelineItem(blogItem.getBlogID(), ssssssss);
@@ -160,7 +167,9 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
     public static void fillTitle(Context context ,String title , int cat , TextView textViewTitle) {
         StringBuilder stringBuilderTitle = new StringBuilder();
+
         stringBuilderTitle.append(title);
+
 
 
         if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
@@ -336,7 +345,106 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         textViewLocation.setText(newTimelineItem.getTextFromJson());
 
 //        if (newTimelineItem.getText() == null)
-//            textViewText.setVisibility(View.GONE);
+            textViewText.setVisibility(View.GONE);
+//        else
+//            textViewText.setText(newTimelineItem.getText());
+
+
+        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(newTimelineItem.getRegisterDate());
+        stringBuilder.append(" ( ");
+        stringBuilder.append("تاریخ ثبت : ");
+        stringBuilder.append(newTimelineItem.getRegisterDate());
+        stringBuilder.append(" ) ");
+        textViewDate.setText(stringBuilder.toString());
+
+        textViewUserName.setText(newTimelineItem.getUserNameMasked(newTimelineItem.getUserName()));
+        textViewCount.setText(newTimelineItem.getViewCount() + "");
+
+
+
+//        if(yafteItem.isInMyFavList())
+//            holder.imageViewFavourite.setImageResource(android.R.drawable.btn_star_big_on);
+//        else
+//            holder.imageViewFavourite.setImageResource(android.R.drawable.btn_star_big_off);
+
+
+
+
+        if (newTimelineItem.getUserImage().length() < 5){
+            Picasso.get()
+                    .load(R.drawable.png_user)
+                    //.transform(transformation)
+                    .into(imageViewUserAvatar);
+        }else {
+            Picasso.get()
+                    .load(newTimelineItem.getUserImage())
+                    .placeholder(R.drawable.bg_search)
+                    //.centerInside()
+                    //.transform(transformation)
+                    .into(imageViewUserAvatar, new com.squareup.picasso.Callback() {
+                        @Override
+                        public void onSuccess() {
+
+                        }
+
+                        @Override
+                        public void onError(Exception e) {
+                            Picasso.get()
+                                    .load(R.drawable.png_user)
+                                    //.transform(transformation)
+                                    .into(imageViewUserAvatar);
+                        }
+                    });
+        }
+
+
+        fillClicks(newTimelineItem);
+    }
+    private void firstFillDataNews(TimelineItem newTimelineItem) {
+
+        DateConverterSjd dateUtiliti = new DateConverterSjd();
+
+        if (newTimelineItem.getCategoryID() == StaticValue.newsCategory){
+            viewHeader.setVisibility(View.GONE);
+        }else {
+            viewHeader.setVisibility(View.VISIBLE);
+        }
+
+
+        if (newTimelineItem.getPicture() != null && newTimelineItem.getPicture().length() > 10) {
+            imageviewPicture.setVisibility(View.VISIBLE);
+            Picasso.get()
+                    .load(newTimelineItem.getPicture())
+                    .placeholder(R.drawable.bg_search)
+                    //.centerInside()
+                    //.transform(transformation)
+                    .into(imageviewPicture, new com.squareup.picasso.Callback() {
+                        @Override
+                        public void onSuccess() {
+
+                        }
+
+                        @Override
+                        public void onError(Exception e) {
+
+                            Picasso.get()
+                                    .load(R.drawable.png_image)
+                                    //.transform(transformation)
+                                    .into(imageviewPicture);
+                        }
+                    } );
+
+        }else {
+            imageviewPicture.setVisibility(View.GONE);
+        }
+
+
+
+        textViewLocation.setText(newTimelineItem.getLocation());
+
+//        if (newTimelineItem.getText() == null)
+            textViewText.setVisibility(View.GONE);
 //        else
 //            textViewText.setText(newTimelineItem.getText());
 
@@ -393,113 +501,114 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         fillClicks(newTimelineItem);
     }
 
-    private void firstFillData(TimelineItem timelineItem) {
-
-        DateConverterSjd dateUtiliti = new DateConverterSjd();
-
-        if (timelineItem.getCategoryID() == StaticValue.newsCategory){
-            viewHeader.setVisibility(View.GONE);
-        }else {
-            viewHeader.setVisibility(View.VISIBLE);
-        }
-
-
-        if (timelineItem.getPicture() != null && timelineItem.getPicture().length() > 10) {
-            imageviewPicture.setVisibility(View.VISIBLE);
-            Picasso.get()
-                    .load(timelineItem.getPicture())
-                    //.load("https://tejaratnews.com/wp-content/uploads/2018/12/boors.jpg")
-                    //.placeholder(R.drawable.bg_search)
-                    //.centerInside()
-                    //.transform(transformation)
-                    .into(imageviewPicture, new com.squareup.picasso.Callback() {
-                        @Override
-                        public void onSuccess() {
-
-                        }
-
-                        @Override
-                        public void onError(Exception e) {
-
-                            Picasso.get()
-                                    .load(R.drawable.png_image)
-                                    //.transform(transformation)
-                                    .into(imageviewPicture);
-                        }
-                    } );
-
-        }else {
-            imageviewPicture.setVisibility(View.GONE);
-        }
-
-
-        textViewLocation.setText(timelineItem.getLocation());
-
-        if (timelineItem.getText() == null)
-            textViewText.setVisibility(View.GONE);
-        else
-            textViewText.setText(timelineItem.getText());
-
-
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(timelineItem.getDate());
-        stringBuilder.append(" ( ");
-        stringBuilder.append("تاریخ ثبت : ");
-        stringBuilder.append(timelineItem.getRegisterDate());
-        stringBuilder.append(" ) ");
-        textViewDate.setText(stringBuilder.toString());
-
-        textViewUserName.setText(timelineItem.getUserNameMasked(timelineItem.getUserName()));
-        textViewCount.setText(timelineItem.getViewCount() + "");
-
-
-
-//        if(yafteItem.isInMyFavList())
-//            holder.imageViewFavourite.setImageResource(android.R.drawable.btn_star_big_on);
+//    private void firstFillData(TimelineItem timelineItem) {
+//
+//        DateConverterSjd dateUtiliti = new DateConverterSjd();
+//
+//        if (timelineItem.getCategoryID() == StaticValue.newsCategory){
+//            viewHeader.setVisibility(View.GONE);
+//        }else {
+//            viewHeader.setVisibility(View.VISIBLE);
+//        }
+//
+//
+//        if (timelineItem.getPicture() != null && timelineItem.getPicture().length() > 10) {
+//            imageviewPicture.setVisibility(View.VISIBLE);
+//            Picasso.get()
+//                    .load(timelineItem.getPicture())
+//                    //.load("https://tejaratnews.com/wp-content/uploads/2018/12/boors.jpg")
+//                    //.placeholder(R.drawable.bg_search)
+//                    //.centerInside()
+//                    //.transform(transformation)
+//                    .into(imageviewPicture, new com.squareup.picasso.Callback() {
+//                        @Override
+//                        public void onSuccess() {
+//
+//                        }
+//
+//                        @Override
+//                        public void onError(Exception e) {
+//
+//                            Picasso.get()
+//                                    .load(R.drawable.png_image)
+//                                    //.transform(transformation)
+//                                    .into(imageviewPicture);
+//                        }
+//                    } );
+//
+//        }else {
+//            imageviewPicture.setVisibility(View.GONE);
+//        }
+//
+//
+//        textViewLocation.setText(timelineItem.getLocation());
+//
+//        if (timelineItem.getText() == null)
+//            textViewText.setVisibility(View.GONE);
 //        else
-//            holder.imageViewFavourite.setImageResource(android.R.drawable.btn_star_big_off);
-
-
-
-
-        if (timelineItem.getUserImage().length() < 5){
-            Picasso.get()
-                    .load(R.drawable.png_user)
-                    //.transform(transformation)
-                    .into(imageViewUserAvatar);
-        }else {
-            Picasso.get()
-                    .load(timelineItem.getUserImage())
-                    .placeholder(R.drawable.bg_search)
-                    //.centerInside()
-                    //.transform(transformation)
-                    .into(imageViewUserAvatar, new com.squareup.picasso.Callback() {
-                        @Override
-                        public void onSuccess() {
-
-                        }
-
-                        @Override
-                        public void onError(Exception e) {
-                            Picasso.get()
-                                    .load(R.drawable.png_user)
-                                    //.transform(transformation)
-                                    .into(imageViewUserAvatar);
-                        }
-                    });
-        }
-
-
-        fillClicks(timelineItem);
-    }
+//            textViewText.setText(timelineItem.getText());
+//
+//
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(timelineItem.getDate());
+//        stringBuilder.append(" ( ");
+//        stringBuilder.append("تاریخ ثبت : ");
+//        stringBuilder.append(timelineItem.getRegisterDate());
+//        stringBuilder.append(" ) ");
+//        textViewDate.setText(stringBuilder.toString());
+//
+//        textViewUserName.setText(timelineItem.getUserNameMasked(timelineItem.getUserName()));
+//        textViewCount.setText(timelineItem.getViewCount() + "");
+//
+//
+//
+////        if(yafteItem.isInMyFavList())
+////            holder.imageViewFavourite.setImageResource(android.R.drawable.btn_star_big_on);
+////        else
+////            holder.imageViewFavourite.setImageResource(android.R.drawable.btn_star_big_off);
+//
+//
+//
+//
+//        if (timelineItem.getUserImage().length() < 5){
+//            Picasso.get()
+//                    .load(R.drawable.png_user)
+//                    //.transform(transformation)
+//                    .into(imageViewUserAvatar);
+//        }else {
+//            Picasso.get()
+//                    .load(timelineItem.getUserImage())
+//                    .placeholder(R.drawable.bg_search)
+//                    //.centerInside()
+//                    //.transform(transformation)
+//                    .into(imageViewUserAvatar, new com.squareup.picasso.Callback() {
+//                        @Override
+//                        public void onSuccess() {
+//
+//                        }
+//
+//                        @Override
+//                        public void onError(Exception e) {
+//                            Picasso.get()
+//                                    .load(R.drawable.png_user)
+//                                    //.transform(transformation)
+//                                    .into(imageViewUserAvatar);
+//                        }
+//                    });
+//        }
+//
+//
+//        fillClicks(timelineItem);
+//    }
 
     private void fillClicks(ParentItem timelineItem) {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (timelineItem instanceof TimelineItem) {
-                    share(mContext,0,timelineItem);
-                }else if (timelineItem instanceof NewTimelineItem) {
+//                if (timelineItem instanceof TimelineItem) {
+//                    share(mContext,0,timelineItem);
+//                }else
+                    if (timelineItem instanceof NewTimelineItem) {
                     shareNew(mContext,0,timelineItem);
                 }else {
 
@@ -514,13 +623,14 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         View.OnClickListener onCommentsClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (timelineItem instanceof TimelineItem) {
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("type" , TYPE_COMMENTS);
-                    bundle.putInt("blogId" , timelineItem.getBlogID());
-                    bundle.putSerializable("LIST", (Serializable)new ArrayList<CommentItem>());
-                    ((Activity)mContext).startActivityForResult(ContainerActivity.getIntent(mContext,bundle),READ_BLOG_COMMENTS);
-                }else if (timelineItem instanceof NewTimelineItem) {
+//                if (timelineItem instanceof TimelineItem) {
+//                    Bundle bundle = new Bundle();
+//                    bundle.putInt("type" , TYPE_COMMENTS);
+//                    bundle.putInt("blogId" , timelineItem.getBlogID());
+//                    bundle.putSerializable("LIST", (Serializable)new ArrayList<CommentItem>());
+//                    ((Activity)mContext).startActivityForResult(ContainerActivity.getIntent(mContext,bundle),READ_BLOG_COMMENTS);
+//                }else
+                    if (timelineItem instanceof NewTimelineItem) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("type" , TYPE_COMMENTS);
                     bundle.putInt("blogId" , timelineItem.getBlogID());
@@ -559,7 +669,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         textViewUserName.setOnClickListener(onclick2);
     }
 
-    private void fillData(TimelineItem timelineItem) {
+    private void fillData(NewTimelineItem timelineItem) {
 
     }
 
@@ -595,32 +705,32 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
     protected void share(Context mContext, int listType, ParentItem timelineItem0) {
 //                EndlessList_Adapter.prepareToShare(mContext,blogItem.getTitlePicture(), blogItem.getStatement(), loadedImage[0]);
 
-        TimelineItem timelineItem = (TimelineItem) timelineItem0;
-        StringBuilder stringBuilder0 = new StringBuilder();
-        stringBuilder0.append(fillTitleForShare(mContext, timelineItem.getTitle(),timelineItem.getCategoryID()));
-        stringBuilder0.append("\n");
-        stringBuilder0.append("\n");
-
-
-        stringBuilder0.append(timelineItem.getTitle());
-        stringBuilder0.append("-");
-        stringBuilder0.append(timelineItem.getPicture());
-
-        stringBuilder0.append(" در ");
-        stringBuilder0.append(((TimelineItem) timelineItem0).getLocation());
-
-        stringBuilder0.append("\n");
-        stringBuilder0.append("\n");
-        stringBuilder0.append(" ثبت شده در اپلیکیشن تیوبلس در تاریخ ");
-        stringBuilder0.append(timelineItem.getRegisterDate());
-
-        stringBuilder0.append("\n");
-
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_TEXT, stringBuilder0.toString() );
-        intent.setType("text/plain");
-        ((Activity)mContext).startActivityForResult(intent , 60);
+//        TimelineItem timelineItem = (TimelineItem) timelineItem0;
+//        StringBuilder stringBuilder0 = new StringBuilder();
+//        stringBuilder0.append(fillTitleForShare(mContext, timelineItem.getTitle(),timelineItem.getCategoryID()));
+//        stringBuilder0.append("\n");
+//        stringBuilder0.append("\n");
+//
+//
+//        stringBuilder0.append(timelineItem.getTitle());
+//        stringBuilder0.append("-");
+//        stringBuilder0.append(timelineItem.getPicture());
+//
+//        stringBuilder0.append(" در ");
+//        stringBuilder0.append(((TimelineItem) timelineItem0).getLocation());
+//
+//        stringBuilder0.append("\n");
+//        stringBuilder0.append("\n");
+//        stringBuilder0.append(" ثبت شده در اپلیکیشن تیوبلس در تاریخ ");
+//        stringBuilder0.append(timelineItem.getRegisterDate());
+//
+//        stringBuilder0.append("\n");
+//
+//        Intent intent = new Intent();
+//        intent.setAction(Intent.ACTION_SEND);
+//        intent.putExtra(Intent.EXTRA_TEXT, stringBuilder0.toString() );
+//        intent.setType("text/plain");
+//        ((Activity)mContext).startActivityForResult(intent , 60);
     }
 
 

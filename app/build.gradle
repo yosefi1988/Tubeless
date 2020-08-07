@@ -8,8 +8,8 @@ def final Tubeless_VersionName = "5.0.0"
 def final Tubeless_VersionCode = 35
 
 def final appNameYafte = 'مدارک گم شده'
-def final Yafte_VersionName = "2.0.2"
-def final Yafte_VersionCode = 14
+def final Yafte_VersionName = "2.0.4"
+def final Yafte_VersionCode = 16
 
 def final appNameYadak = 'لوازم یدکی'
 def final Yadak_VersionName = "2.0.0"
