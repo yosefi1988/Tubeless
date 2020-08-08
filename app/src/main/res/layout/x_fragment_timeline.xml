@@ -1,17 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:textDirection="rtl"
     android:layoutDirection="rtl"
     android:fitsSystemWindows="true"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
+
+    <LinearLayout
+        android:id="@+id/metaRelativeLayout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/bourseExpire"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtPriceComment"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="اعتبار اکانت شما به اتمام رسید.سیگنال های جدید را پس از شارژ مجدد خواهید دید. جهت ادامه و شارژ حساب خود روی دکمه زیر کلیک کنید:" />
+
+
+            <Button
+                android:id="@+id/countinueButton"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:layout_gravity="center"
+                android:text="@string/countinue"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:visibility="visible"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+    </LinearLayout>
+
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_below="@+id/metaRelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -189,4 +230,4 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

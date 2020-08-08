@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -17,30 +20,39 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.readystatesoftware.systembartint.SystemBarTintManager.SystemBarConfig;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Tag;
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_All;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_Old;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_NEWS;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_PLANE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
+import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity.LOGIN_REQUEST_NEW_COMMENT;
 
 
@@ -58,6 +70,8 @@ public class ListFragment extends Fragment  {
     private LinearLayoutManager mLayoutManager;
     private TextView mTextViewNoting;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private LinearLayout bourseExpire;
+    private Button countinueButton;
     private DilatingDotsProgressBar mProgressBar;
 
     //public
@@ -134,6 +148,40 @@ public class ListFragment extends Fragment  {
         mProgressBar                    = (DilatingDotsProgressBar) view.findViewById(R.id.PBSjd);
         floatingActionButton            = (FloatingActionButton) view.findViewById(R.id.fab);
         floatingActionButtonList            = (FloatingActionButton) view.findViewById(R.id.fabList);
+
+        //todo Bourse uncomment
+        if (listType == TYPE_BOURSE_ANALIZE_All || listType == TYPE_BOURSE_ANALIZE_Old) {
+            bourseExpire                    = (LinearLayout) view.findViewById(R.id.bourseExpire);
+            countinueButton                 = (Button) view.findViewById(R.id.countinueButton);
+
+            if (!checkResult(context, StaticValue.configuration)){
+
+                //سرور دستور داده که رایگا ن باشه
+                bourseExpire.setVisibility(View.GONE);
+            }else {
+
+                if (StaticValue.bourseState.totalPayedValue > 0) {
+                    if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
+                        //پرداخت کرده و منقضی هم نشده
+                        bourseExpire.setVisibility(View.GONE);
+                    } else {
+                        //پرداخت کرده و منقضی شده
+                        bourseExpire.setVisibility(View.VISIBLE);
+
+                        countinueButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Bundle bundle = new Bundle();
+                                bundle.putInt("type" , TYPE_BOURSE_PLANE);
+                                getActivity().startActivityForResult(ContainerActivity.getIntent(getContext(),bundle),READ_RULE_AND_PAY);
+                            }
+                        });
+                    }
+                } else {
+                    //هیچ پرداختی قبلا انجام نداده است
+                }
+            }
+        }
     }
 
     //3
@@ -294,7 +342,7 @@ public class ListFragment extends Fragment  {
                     } else if (listType == TYPE_BOURSE_TRAIN) {
 //                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(context, RegNewBlogActivity.class));
-                    } else if (listType == TYPE_BOURSE_ANALIZE_All) {
+                    } else if (listType == TYPE_BOURSE_ANALIZE_All || listType == TYPE_BOURSE_ANALIZE_Old) {
 //                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(context, RegNewBlogActivity.class));
                     } else if (listType == TYPE_BOURSE_NEWS) {

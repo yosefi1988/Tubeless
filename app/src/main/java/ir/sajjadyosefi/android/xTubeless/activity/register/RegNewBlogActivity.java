@@ -31,6 +31,7 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 import ir.sajjadyosefi.android.xTubeless.classes.model.ddl.DdlSelectsObject;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -99,8 +100,27 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
         xxxxxxxxxxxxxx.add(t1);
         DdlSelectsObject t2 = new DdlSelectsObject("اخبار" , 20023);
         xxxxxxxxxxxxxx.add(t2);
-        DdlSelectsObject t3 = new DdlSelectsObject("تحلیل" , 20026);
-        xxxxxxxxxxxxxx.add(t3);
+
+        if (StaticValue.configuration.getConfiguration().getVip1Month() == 0){
+
+        }else {
+            DdlSelectsObject t3 = new DdlSelectsObject("تحلیل زیر 20 میلیون" , 20026);
+            xxxxxxxxxxxxxx.add(t3);
+        }
+
+        if (StaticValue.configuration.getConfiguration().getVip2Month() == 0){
+
+        }else {
+            DdlSelectsObject t3 = new DdlSelectsObject("تحلیل زیر 200 میلیون" , 20026);
+            xxxxxxxxxxxxxx.add(t3);
+        }
+        if (StaticValue.configuration.getConfiguration().getVip3Month() == 0){
+
+        }else {
+            DdlSelectsObject t3 = new DdlSelectsObject("تحلیل بالای 200 میلیون" , 20026);
+            xxxxxxxxxxxxxx.add(t3);
+        }
+
 
         for (DdlSelectsObject item:xxxxxxxxxxxxxx) {
             ItemData sss = new ItemData("- " + item.getTextValue(), item.getKeyValue() + "",  "");

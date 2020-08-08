@@ -52,6 +52,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     public static int TYPE_POST_SEARCH_RESULT  = 4;
     public static int TYPE_SEARCH_POST_BY_NAME  = 5;
     public static int TYPE_COMMENTS  = 6;
+    public static int TYPE_BOURSE_PLANE  = 7;
 
 
     public FirstFragmentsAdapter(Context context, ViewPager viewPager, FragmentManager supportFragmentManager) {

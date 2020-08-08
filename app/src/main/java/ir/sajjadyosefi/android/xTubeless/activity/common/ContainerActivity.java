@@ -1,6 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.List;
 
+import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
@@ -21,9 +23,11 @@ import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFrag
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_PLANE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
+import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 
 
 public class ContainerActivity extends TubelessTransparentStatusBarActivity {
@@ -78,6 +82,16 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
             ft.replace(R.id.include, new ListFragment(this,list ,type,bundle));
             ft.commit();
         }
+        if (requestCode == READ_RULE_AND_PAY) {
+            if (resultCode == Activity.RESULT_OK) {
+//                int payType = data.getIntExtra("payType" , 0);
+                setResult(Activity.RESULT_OK, data);
+                finish();
+            }else {
+                setResult(Activity.RESULT_CANCELED);
+                finish();
+            }
+        }
     }
 
     Bundle bundle;
@@ -114,6 +128,11 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
         }else if (type == TYPE_SEARCH_POST_BY_NAME){
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.include, new SearchByNameFragment());
+            ft.commit();
+
+        }else if (type == TYPE_BOURSE_PLANE){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.include, new FinancialAccountLimitFragment(getContext()));
             ft.commit();
 
         }else if (type == TYPE_COMMENTS){

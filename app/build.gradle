@@ -16,8 +16,8 @@ def final Yadak_VersionName = "2.0.1"
 def final Yadak_VersionCode = 5
 
 def final appNameBourse = 'بورس , سهام'
-def final Bourse_VersionName = "2.1.1"
-def final Bourse_VersionCode = 9
+def final Bourse_VersionName = "3.0.."
+def final Bourse_VersionCode = 10
 
 
 android {

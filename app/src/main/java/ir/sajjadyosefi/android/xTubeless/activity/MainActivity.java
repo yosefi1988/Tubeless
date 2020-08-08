@@ -112,6 +112,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     //val
     private static int LOGIN_REQUEST_CODE = 101 ;
     private static int OPEN_PROFILE_REQUEST_CODE = 102 ;
+    public static int payType;
+
 
     private BottomNavigation mBottomNavigation;
     private DrawerLayout drawer_layout;
@@ -167,11 +169,13 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 //go to pay
                 if (checkResult(getContext(), StaticValue.configuration)) {
                     //ShowSelectSturceDialog(mContext);
-                    payment(getContext());
+                    payType = data.getIntExtra("payType" , 0);
+                    payment(getContext(),data.getIntExtra("payType" , 0));
                 } else {
                     StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
                     StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
-                    StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
+                    StaticValue.bourseState.lastPayedType = 1;
+                    StaticValue.bourseState.updateAfterPay(10,StaticValue.configuration.getResponseStatus().getDate());
 
                     //refresh tab 3
                     firstFragmentsAdapter.notifyDataSetChanged();
@@ -190,14 +194,23 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     }
 
 
-    private void payment(Context mContext) {
+    private void payment(Context mContext, int payType) {
         ZarinPal purches = ZarinPal.getPurchase(mContext);
         PaymentRequest payment = ZarinPal.getPaymentRequest();
 
         //todo Bourse uncomment
-        payment.setAmount(StaticValue.configuration.getConfiguration().vip1Month);
+        switch (payType){
+            case 1:
+                payment.setAmount(StaticValue.configuration.getConfiguration().vip1Month);
+                break;
+            case 2:
+                payment.setAmount(StaticValue.configuration.getConfiguration().vip2Month);
+                break;
+            case 3:
+                payment.setAmount(StaticValue.configuration.getConfiguration().vip3Month);
+        }
         payment.setMerchantID("e8a913e8-f089-11e6-8dec-005056a205be");
-        payment.setDescription("هزینه خرید اکانت سیگنال بورسی");
+        payment.setDescription("هزینه خرید اکانت سیگنال بورسی" + "-signal Type:" + payType);
         payment.setCallbackURL("return2://zarinpalpayment");
 
         purches.startPayment(payment, new OnCallbackRequestPaymentListener() {
@@ -252,7 +265,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
             } else {
                 aBoolean = configuration.getConfiguration().play;
-
             }
 
         }catch (Exception e){
@@ -399,8 +411,26 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     DialogUtil.showLoadingDialog(getContext());
 
                     //todo Bourse uncomment
-                    StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
-                    StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
+                    if(payType == 1){
+                        StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
+                        StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
+                    }
+                    if(payType == 2){
+                        StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip2Month() + StaticValue.bourseState.totalPayedValue;
+                        StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip2Month();
+                    }
+                    if(payType == 3){
+                        StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip3Month() + StaticValue.bourseState.totalPayedValue;
+                        StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip3Month();
+                    }
+                    if(payType == 0) {
+                        StaticValue.bourseState.totalPayedValue = 0 + StaticValue.bourseState.totalPayedValue;
+                        StaticValue.bourseState.lastPayedValue = 0;
+                    }
+
+
+
+                    StaticValue.bourseState.lastPayedType = payType;
                     StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
 
                     //refresh tab 3

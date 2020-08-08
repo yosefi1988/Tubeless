@@ -26,12 +26,63 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="حساب کاربری شما محدود می باشد مشاهده این قسمت برای شما هزینه دارد." />
+
+
             <TextView
                 android:id="@+id/txtPrice"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="هزینه برای یک ماه" />
+                android:text="نسبت به سرمایه مد نظر خود یکی از گذینه ها را انتخاب کنید :" />
+
+            <RelativeLayout
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layoutDirection="rtl"
+                android:foregroundGravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioGroup
+                    android:visibility="visible"
+                    android:id="@+id/rgRadios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <requestFocus/>
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="هزینه سیگنال برای سرمایه های کمتر از 20 میلیون تومان ؛"
+                        android:checked="true" >
+                        <requestFocus />
+
+                    </RadioButton>
+
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="هزینه سیگنال برای سرمایه های بین 20 تا 200 میلیون تومان ؛"
+                        android:layout_alignParentRight="true" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="هزینه سیگنال برای سرمایه های بیشتر از 200 میلیون تومان ؛"
+                        android:layout_alignParentRight="true" />
+
+                </RadioGroup>
+
+            </RelativeLayout>
+
 
             <TextView
                 android:layout_width="match_parent"

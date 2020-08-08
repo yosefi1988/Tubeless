@@ -45,6 +45,9 @@ public class BourseState extends LitePalSupport {
     public long lastPayedValue = 0;
 
     @Column(nullable = true)
+    public int lastPayedType = 0;
+
+    @Column(nullable = true)
     public long totalPayedValue = 0;
 
 
@@ -55,6 +58,7 @@ public class BourseState extends LitePalSupport {
             bourseState.startDate = null;
             bourseState.endDate = null;
             bourseState.lastPayedValue = 0;
+            bourseState.lastPayedType = 0;
             bourseState.totalPayedValue = 0;
             bourseState.save();
             return true;

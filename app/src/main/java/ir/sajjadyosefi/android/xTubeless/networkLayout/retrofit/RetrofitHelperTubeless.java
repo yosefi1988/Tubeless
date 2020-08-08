@@ -137,30 +137,60 @@ public class RetrofitHelperTubeless {
         userCall.enqueue(callback);
     }
     public void getTimelineListForBourseAnalize(Context context , int index, TubelessRetrofitCallbackss callback) {
+        //1
 //        Call<Object> userCall = service.getYafteTimeline(index,15);
 //        userCall.enqueue(callback);
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+        //2
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+//        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
 
+
+        StringBuilder stringBuilder = new StringBuilder();
+        switch (StaticValue.bourseState.lastPayedType){
+            case 0:
+            case 1:
+                stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+                break;
+            case 2:
+                stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+                break;
+            case 3:
+                stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+        }
         Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
         userCall.enqueue(callback);
     }
     public void getTimelineListForBourseAnalizeOld(Context context, int index, TubelessRetrofitCallbackss callback, String endDate) {
+        //1
 //        Call<Object> userCall = service.getYafteTimeline(index,15);
 //        userCall.enqueue(callback);
+//
+        //2
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
-
+        switch (StaticValue.bourseState.lastPayedType){
+            case 1:
+            case 0:
+                stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+                break;
+            case 2:
+                stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+                break;
+            case 3:
+                stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+        }
 
         //todo Bourse uncomment
         Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),StaticValue.bourseState.endDate);

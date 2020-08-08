@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -40,6 +41,9 @@ public class FinancialAccountLimitFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
     public static int READ_RULE_AND_PAY = 5200;
+
+    RadioButton radioButton1,radioButton2,radioButton3;
+
 
     public FinancialAccountLimitFragment newInstance(Context context) {
         this.context = context ;
@@ -86,18 +90,49 @@ public class FinancialAccountLimitFragment extends Fragment {
             }
         }
     }
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.financial_account_limited_fragment, container, false);
 
+        radioButton1 = view.findViewById(R.id.radioButton1);
+        radioButton2 = view.findViewById(R.id.radioButton2);
+        radioButton3 = view.findViewById(R.id.radioButton3);
+
         if (checkResult(getContext(), StaticValue.configuration)) {
             ((Button) (view.findViewById(R.id.button_pay))).setText(R.string.pardakht_rule);
-            ((TextView) (view.findViewById(R.id.txtPrice))).setText(
-                    ((TextView) (view.findViewById(R.id.txtPrice))).getText() + " " +
-                            StaticValue.configuration.getConfiguration().getVip1Month()
-                            + " " +
-                     context.getString(R.string.toman)
-            );
+
+            if (StaticValue.configuration.getConfiguration().getVip1Month() == 0){
+                radioButton1.setEnabled(false);
+            }else {
+                radioButton1.setText(
+                        radioButton1.getText() +
+                                " " +
+                                StaticValue.configuration.getConfiguration().getVip1Month() +
+                                " " +
+                                context.getString(R.string.toman));
+            }
+            if (StaticValue.configuration.getConfiguration().getVip2Month() == 0){
+                radioButton2.setEnabled(false);
+            }else {
+                radioButton2.setText(
+                        radioButton2.getText() +
+                                " " +
+                                StaticValue.configuration.getConfiguration().getVip2Month() +
+                                " " +
+                                context.getString(R.string.toman));
+
+            }
+            if (StaticValue.configuration.getConfiguration().getVip3Month() == 0){
+                radioButton3.setEnabled(false);
+            }else {
+                radioButton3.setText(
+                        radioButton3.getText() +
+                                " " +
+                                StaticValue.configuration.getConfiguration().getVip3Month() +
+                                " " +
+                                context.getString(R.string.toman));
+            }
 
         }else {
             ((TextView) (view.findViewById(R.id.txtPriceComment))).setText(context.getString(R.string.txtPriceComment));
@@ -113,6 +148,16 @@ public class FinancialAccountLimitFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("WebType" , "rule");
                 bundle.putBoolean("payButton" , true);
+
+                if(radioButton1.isChecked()){
+                    bundle.putInt("payType" , 1);
+                }
+                if(radioButton2.isChecked()){
+                    bundle.putInt("payType" , 2);
+                }
+                if(radioButton3.isChecked()){
+                    bundle.putInt("payType" , 3);
+                }
                 getActivity().startActivityForResult(WebViewActivity.getIntent(getContext(),bundle), READ_RULE_AND_PAY);
 
             }

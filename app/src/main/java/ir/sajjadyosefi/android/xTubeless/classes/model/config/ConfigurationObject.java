@@ -11,6 +11,8 @@ public class ConfigurationObject {
     public boolean social;
     public boolean play;
     public int vip1Month;
+    public int vip2Month;
+    public int vip3Month;
     public int vip6Month;
 
     public boolean isBazaar() {
@@ -69,6 +71,24 @@ public class ConfigurationObject {
     public void setVip1Month(int vip1Month) {
         this.vip1Month = vip1Month;
     }
+
+
+    public int getVip2Month() {
+        return vip2Month;
+    }
+
+    public void setVip2Month(int vip2Month) {
+        this.vip2Month = vip2Month;
+    }
+
+    public int getVip3Month() {
+        return vip3Month;
+    }
+
+    public void setVip3Month(int vip3Month) {
+        this.vip3Month = vip3Month;
+    }
+
 
     public int getVip6Month() {
         return vip6Month;
