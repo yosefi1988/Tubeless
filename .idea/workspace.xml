@@ -109,21 +109,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="17 mordad">
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="19 mordad">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/Fragment/FinancialAccountLimitFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/Fragment/FinancialAccountLimitFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/classes/model/bourseState/BourseState.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/classes/model/bourseState/BourseState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/ContainerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewBlogActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewBlogActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/config/ConfigurationObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/config/ConfigurationObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/financial_account_limited_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/financial_account_limited_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/x_fragment_timeline.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -886,7 +873,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596804862753</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="18 mordad">
+      <created>1596913930842</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1596913930842</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -913,8 +907,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="17 Farvardin" />
-    <MESSAGE value="21 Farvardin" />
     <MESSAGE value="25 Farvardin" />
     <MESSAGE value="28 Farvardin" />
     <MESSAGE value="3 ordibehesht" />
@@ -938,17 +930,19 @@
     <MESSAGE value="17 mordad" />
     <MESSAGE value="17 mordad 2" />
     <MESSAGE value="17 mordad 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="17 mordad 3" />
+    <MESSAGE value="18 mordad" />
+    <MESSAGE value="19 mordad" />
+    <option name="LAST_COMMIT_MESSAGE" value="19 mordad" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1596812849631">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1596812849631" />
-    <state x="144" y="0" key="CommitChangelistDialog2" timestamp="1596804855945">
+    <state x="144" y="0" key="CommitChangelistDialog2" timestamp="1596943876243">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="144" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1596804855945" />
+    <state x="144" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1596943876243" />
     <state width="672" height="594" key="DebuggerActiveHint" timestamp="1596903376889">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -989,10 +983,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="152" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1596903671694" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1596805086154">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1596913986717">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1596805086154" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1596913986717" />
     <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1596720803029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
