@@ -274,7 +274,6 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-
         if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
             Bundle bundle = new Bundle();
             Intent intent = SignInActivity.getIntent(getContext(),bundle);

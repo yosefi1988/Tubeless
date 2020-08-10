@@ -217,8 +217,9 @@ public class NewTimelineItem extends ParentItem{
                 stringBuilder.append(statementObj.getModel());
             }
 
-            stringBuilder.append("\n");
-            stringBuilder.append(statementObj.getDescription());
+            //todo check in Yafte-Yadak-Tubeless
+            //stringBuilder.append("\n");
+            //stringBuilder.append(statementObj.getDescription());
             stringBuilder.append("\n");
             stringBuilder.append(statementObj.getText());
 
