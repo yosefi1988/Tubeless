@@ -1,4 +1,16 @@
+apply plugin: 'maven-publish' // Apply this plugin at the top of your library build.gradle
 apply plugin: 'com.android.library'
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+def getVersionName = { ->
+    return "1.0.0" // todo versionName
+}
+
+def getArtificatId = { ->
+    return "accountauthenticator"
+}
 
 android {
     compileSdkVersion 29
@@ -10,7 +22,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -42,4 +54,43 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation 'com.tuyenmonkey:mkloader:1.4.0'
 
+}
+
+
+//
+//publishing {
+//    publications {
+//        bar(MavenPublication) {
+//            groupId 'ir.sajjadyosefi.libraries' // group ID
+//            artifactId getArtificatId()
+//            version getVersionName()
+//            artifact("$buildDir/outputs/aar/${getArtificatId()}-release.aar")
+//        }
+//    }
+//    repositories {
+//        maven {
+//            name = "GitHubPackages"
+//            url = uri("https://maven.pkg.github.com/yosefi1988/Tubeless")
+//            credentials {
+//                /** Create github.properties in root project folder file with
+//                 ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN
+//                 ** Set env variable GPR_USER & GPR_API_KEY if not adding a properties file**/
+//
+//                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+//                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+//            }
+//        }
+//    }
+//}
+
+
+repositories {
+    maven {
+        name = "accountauthenticator"
+        url = uri("https://maven.pkg.github.com/yosefi1988/tubeless")
+        credentials {
+             username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+            password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+        }
+    }
 }

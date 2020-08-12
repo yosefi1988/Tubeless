@@ -12,7 +12,6 @@ buildscript {
         }
         google()
         maven { url 'https://maven.fabric.io/public' }
-
     }
     dependencies {
 //        classpath 'com.android.tools.build:gradle:3.2.1'
@@ -52,6 +51,7 @@ ext {
     butterKnifeVersion = '10.1.0'
     rxjava2Version = '2.1.9'
     rxandroidVersion = '2.0.1'
+    accountauthenticatorVersion = '1.0.0'
 }
 
 task clean(type: Delete) {
