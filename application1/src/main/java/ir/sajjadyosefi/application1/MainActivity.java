@@ -23,7 +23,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
+import ir.sajjadyosefi.accountauthenticator.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 

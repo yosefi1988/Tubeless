@@ -19,6 +19,9 @@ def final appNameBourse = 'بورس , سهام'
 def final Bourse_VersionName = "3.0.1"
 def final Bourse_VersionCode = 11
 
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
 
 android {
     def final appId = 'ir.sajjadyosefi.android'
@@ -345,8 +348,9 @@ dependencies {
     implementation project(path: ':adad-sdk-core-5.1.1')
     implementation project(path: ':adad-sdk-ad-5.1.1')
 
-    implementation project(path: ':accountauthenticator')
+//    implementation project(path: ':accountauthenticator')
 //    implementation "ir.sajjadyosefi.libraries:accountauthenticator 1.0.0"
+//    implementation 'ir.sajjadyosefi.libraries:xAccountAuthenticator:1.0.0'
 
     implementation project(path: ':superpickerlibrary')
 
@@ -364,6 +368,23 @@ dependencies {
     implementation project(path: ':KMPAutoCompleteTextView')
     implementation 'com.zarinpal:purchase:0.0.8-beta'
 
+
 }
 
+
+repositories {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/yosefi1988/xAccountAuthenticator")
+        credentials {
+            username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+            password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+        }
+    }
+}
+
+
 apply plugin: 'com.google.gms.google-services'
+
+
+

@@ -5,12 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/KMPAutoCompleteTextView/KMPAutoCompleteTextView.iml" filepath="$PROJECT_DIR$/KMPAutoCompleteTextView/KMPAutoCompleteTextView.iml" group="TubelessX/KMPAutoCompleteTextView" />
       <module fileurl="file://$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" group="TubelessX/PagerSlidingTabStrip" />
       <module fileurl="file://$PROJECT_DIR$/TubelessX.iml" filepath="$PROJECT_DIR$/TubelessX.iml" group="TubelessX" />
-      <module fileurl="file://$PROJECT_DIR$/accountauthenticator/accountauthenticator.iml" filepath="$PROJECT_DIR$/accountauthenticator/accountauthenticator.iml" group="TubelessX/accountauthenticator" />
       <module fileurl="file://$PROJECT_DIR$/adad-sdk-ad-5.1.1/adad-sdk-ad-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-ad-5.1.1/adad-sdk-ad-5.1.1.iml" group="TubelessX/adad-sdk-ad-5.1.1" />
       <module fileurl="file://$PROJECT_DIR$/adad-sdk-banner-5.1.1/adad-sdk-banner-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-banner-5.1.1/adad-sdk-banner-5.1.1.iml" group="TubelessX/adad-sdk-banner-5.1.1" />
       <module fileurl="file://$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" filepath="$PROJECT_DIR$/adad-sdk-core-5.1.1/adad-sdk-core-5.1.1.iml" group="TubelessX/adad-sdk-core-5.1.1" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TubelessX/app" />
-      <module fileurl="file://$PROJECT_DIR$/application1/application1.iml" filepath="$PROJECT_DIR$/application1/application1.iml" group="TubelessX/application1" />
       <module fileurl="file://$PROJECT_DIR$/applicationtestkotlin/applicationtestkotlin.iml" filepath="$PROJECT_DIR$/applicationtestkotlin/applicationtestkotlin.iml" group="TubelessX/applicationtestkotlin" />
       <module fileurl="file://$PROJECT_DIR$/faboptions/faboptions.iml" filepath="$PROJECT_DIR$/faboptions/faboptions.iml" group="TubelessX/faboptions" />
       <module fileurl="file://$PROJECT_DIR$/superpickerlibrary/superpickerlibrary.iml" filepath="$PROJECT_DIR$/superpickerlibrary/superpickerlibrary.iml" group="TubelessX/superpickerlibrary" />
