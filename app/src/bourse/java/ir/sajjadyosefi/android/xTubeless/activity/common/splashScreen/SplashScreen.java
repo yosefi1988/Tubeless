@@ -36,7 +36,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import ir.adad.ad.AdadAdListener;
 import ir.adad.banner.AdadBannerAd;
 import ir.adad.core.Adad;
 import ir.sajjadyosefi.android.xTubeless.R;
