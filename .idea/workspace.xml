@@ -109,9 +109,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="26 mordad">
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="26 mordad 3">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github.properties" beforeDir="false" afterPath="$PROJECT_DIR$/github.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -595,13 +595,6 @@
       <option name="presentableId" value="Default" />
       <updated>1552667600839</updated>
     </task>
-    <task id="LOCAL-00001" summary="10 bahman">
-      <created>1580478153032</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1580478153032</updated>
-    </task>
     <task id="LOCAL-00002" summary="22 BAHMAN">
       <created>1581454967853</created>
       <option name="number" value="00002" />
@@ -931,7 +924,21 @@
       <option name="project" value="LOCAL" />
       <updated>1597558755884</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="26 mordad 2">
+      <created>1597558882988</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1597558882988</updated>
+    </task>
+    <task id="LOCAL-00050" summary="26 mordad 3">
+      <created>1597558945583</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1597558945583</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -958,8 +965,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20 khordad" />
-    <MESSAGE value="21 khordad" />
     <MESSAGE value="27 khordad" />
     <MESSAGE value="8 tir" />
     <MESSAGE value="13 tir" />
@@ -983,7 +988,9 @@
     <MESSAGE value="25 mordad" />
     <MESSAGE value="25 mordad 2" />
     <MESSAGE value="26 mordad" />
-    <option name="LAST_COMMIT_MESSAGE" value="26 mordad" />
+    <MESSAGE value="26 mordad 2" />
+    <MESSAGE value="26 mordad 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="26 mordad 3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="217" y="62" width="1149" height="666" key="#PSD" timestamp="1597481559837">
@@ -1050,10 +1057,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597216743380" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1597558885794">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1597558949219">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597558885794" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597558949219" />
     <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1597216696840">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
