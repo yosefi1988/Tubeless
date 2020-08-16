@@ -317,6 +317,7 @@
     <orderEntry type="library" name="Gradle: com.balysv:material-ripple:1.0.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.clans:fab:1.6.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-base:19.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: ir.sajjadyosefi.libraries:xAccountAuthenticator:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxandroid:2.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.zarinpal:purchase:0.0.8-beta@aar" level="project" />
     <orderEntry type="library" name="Gradle: artifacts:adad-sdk-banner-5.1.1:unspecified@jar" level="project" />

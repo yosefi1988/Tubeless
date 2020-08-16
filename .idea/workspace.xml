@@ -109,26 +109,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="25 mordad">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="25 mordad 2">
+      <change afterPath="$PROJECT_DIR$/Apks/aaaSocialNetwork/release/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/application1/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/ir/sajjadyosefi/application1/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faboptions/faboptions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/faboptions/faboptions.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github.properties" beforeDir="false" afterPath="$PROJECT_DIR$/github.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="5.4_FWVGA_API_25" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CB5A2ALB6N" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -263,12 +255,12 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="debug" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.examples" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
-      <recent name="ir.sajjadyosefi.android.xTubeless" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view" />
-      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\model\post" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\bourse\res\drawable" />
+      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\designPattern" />
+      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
+      <recent name="D:\Projects\Android\Tubelessx11\app\src\tubeless\res\drawable" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ir.sajjadyosefi.android.xTubeless.classes.model.post" />
@@ -291,12 +283,12 @@
       <recent name="ir.sajjadyosefi.android.xTubeless.Fragment" />
       <recent name="ir.sajjadYosefi.objectKmpautotextview" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\model\post" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\bourse\res\drawable" />
-      <recent name="D:\Projects\Android\TubelessX\app\src\main\java\ir\sajjadyosefi\android\xTubeless\classes\designPattern" />
-      <recent name="D:\Projects\Android\TubelessX\accountauthenticator\src\main\res\drawable" />
-      <recent name="D:\Projects\Android\Tubelessx11\app\src\tubeless\res\drawable" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.examples" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.Adapter" />
+      <recent name="ir.sajjadyosefi.android.xTubeless" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view" />
+      <recent name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -927,7 +919,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597466773677</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="25 mordad 2">
+      <created>1597483965189</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1597483965189</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -954,7 +953,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="11 Ordibehesht" />
     <MESSAGE value="25 Ordibehesht" />
     <MESSAGE value="20 khordad" />
     <MESSAGE value="21 khordad" />
@@ -979,7 +977,8 @@
     <MESSAGE value="20 mordad" />
     <MESSAGE value="22 mordad" />
     <MESSAGE value="25 mordad" />
-    <option name="LAST_COMMIT_MESSAGE" value="25 mordad" />
+    <MESSAGE value="25 mordad 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="25 mordad 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="217" y="62" width="1149" height="666" key="#PSD" timestamp="1597481559837">
@@ -998,10 +997,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1596812849631" />
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1597483906068">
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1597558749840">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1597483906068" />
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1597558749840" />
     <state width="672" height="594" key="DebuggerActiveHint" timestamp="1597033507156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1046,10 +1045,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597216743380" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1597466776588">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1597484351150">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597466776588" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597484351150" />
     <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1597216696840">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

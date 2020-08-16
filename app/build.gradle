@@ -350,7 +350,7 @@ dependencies {
 
 //    implementation project(path: ':accountauthenticator')
 //    implementation "ir.sajjadyosefi.libraries:accountauthenticator 1.0.0"
-//    implementation 'ir.sajjadyosefi.libraries:xAccountAuthenticator:1.0.0'
+    implementation 'ir.sajjadyosefi.libraries:xAccountAuthenticator:1.0.0'
 
     implementation project(path: ':superpickerlibrary')
 
