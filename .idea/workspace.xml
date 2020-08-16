@@ -109,9 +109,69 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="26 mordad 3">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="26 mordad 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/accountauthenticatorfirst.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/androidTest/java/ir/sajjadyosefi/accountauthenticator/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/AuthenticatorActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignInActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignUpActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/AccountGeneral.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/Authenticator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/AuthenticatorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ServerAuthenticate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/classes/exception/TubelessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/classes/util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/model/LoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/model/TubelessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/model/response/ServerResponseBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/java/ir/sajjadyosefi/accountauthenticator/model/response/ServerStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/drawable/bg_search.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/drawable/btn_search.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/drawable/png_icon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/layout/act_login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/layout/act_register.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/layout/x_main_progress.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/xml/authenticator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/main/res/xml/prefs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator/src/test/java/ir/sajjadyosefi/accountauthenticator/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/accountauthenticatorfirst.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/androidTest/java/ir/sajjadyosefi/accountauthenticator/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/AuthenticatorActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/activity/SignUpActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/AccountGeneral.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ServerAuthenticate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/UdinicAuthenticator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/UdinicAuthenticatorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/model/TubelessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/drawable-hdpi/ic_udinic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/drawable/bg_search.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/drawable/btn_search.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/layout/act_login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/layout/act_register.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/xml/authenticator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/main/res/xml/prefs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountauthenticator2/src/test/java/ir/sajjadyosefi/accountauthenticator/ExampleUnitTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -595,13 +655,6 @@
       <option name="presentableId" value="Default" />
       <updated>1552667600839</updated>
     </task>
-    <task id="LOCAL-00002" summary="22 BAHMAN">
-      <created>1581454967853</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1581454967853</updated>
-    </task>
     <task id="LOCAL-00003" summary="28 BAHMAN">
       <created>1581975728880</created>
       <option name="number" value="00003" />
@@ -938,7 +991,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597558945583</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="26 mordad 4">
+      <created>1597559174580</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1597559174580</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -965,7 +1025,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="27 khordad" />
     <MESSAGE value="8 tir" />
     <MESSAGE value="13 tir" />
     <MESSAGE value="15 tir" />
@@ -990,7 +1049,8 @@
     <MESSAGE value="26 mordad" />
     <MESSAGE value="26 mordad 2" />
     <MESSAGE value="26 mordad 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="26 mordad 3" />
+    <MESSAGE value="26 mordad 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="26 mordad 4" />
   </component>
   <component name="WindowStateProjectService">
     <state x="217" y="62" width="1149" height="666" key="#PSD" timestamp="1597481559837">
@@ -1009,10 +1069,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1596812849631" />
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1597558933236">
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1597559172095">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1597558933236" />
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1597559172095" />
     <state width="672" height="594" key="DebuggerActiveHint" timestamp="1597033507156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1554,12 +1614,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
-          <line>63</line>
+          <line>46</line>
           <option name="timeStamp" value="1915" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/accountauthenticator2/src/main/java/ir/sajjadyosefi/accountauthenticator/authentication/ParseComServerAuthenticate.java</url>
-          <line>148</line>
+          <line>131</line>
           <option name="timeStamp" value="1916" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
