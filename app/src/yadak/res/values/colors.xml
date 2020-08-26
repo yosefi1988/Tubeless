@@ -5,7 +5,7 @@
     <color name="tubelessColor_blue_02">@color/tubelessColor_blue_03</color>
     <color name="tubelessColor_blue_03">#01005A</color>
 
-    <color name="colorPrimary">#FFD329</color>
+    <color name="colorPrimary">#FBF6E1</color>
     <color name="colorTextGry">@color/tubelessColor_blue_03</color>
 
     <color name="colorAccent">@color/tubelessColor_blue_02</color>

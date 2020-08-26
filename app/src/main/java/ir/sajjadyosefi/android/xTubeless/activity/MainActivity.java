@@ -210,7 +210,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 payment.setAmount(StaticValue.configuration.getConfiguration().vip3Month);
         }
         payment.setMerchantID("e8a913e8-f089-11e6-8dec-005056a205be");
-        payment.setDescription("هزینه خرید اکانت سیگنال بورسی" + "-signal Type:" + payType);
+        payment.setDescription("هزینه خرید اکانت تحلیل بورسی" + "-signal Type:" + payType);
         payment.setCallbackURL("return2://zarinpalpayment");
 
         purches.startPayment(payment, new OnCallbackRequestPaymentListener() {

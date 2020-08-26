@@ -371,7 +371,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-        if (newTimelineItem.getUserImage().length() < 5){
+        if (newTimelineItem.getUserImage() != null && newTimelineItem.getUserImage().length() < 5){
             Picasso.get()
                     .load(R.drawable.png_user)
                     //.transform(transformation)

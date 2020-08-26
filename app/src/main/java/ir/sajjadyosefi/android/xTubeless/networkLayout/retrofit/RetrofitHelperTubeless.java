@@ -152,6 +152,7 @@ public class RetrofitHelperTubeless {
 
 
         StringBuilder stringBuilder = new StringBuilder();
+        //todo Bourse uncomment
         switch (StaticValue.bourseState.lastPayedType){
             case 0:
             case 1:
@@ -163,6 +164,7 @@ public class RetrofitHelperTubeless {
             case 3:
                 stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
         }
+
         Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
         userCall.enqueue(callback);
     }
@@ -180,6 +182,7 @@ public class RetrofitHelperTubeless {
 //        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
 
         StringBuilder stringBuilder = new StringBuilder();
+        //todo Bourse uncomment
         switch (StaticValue.bourseState.lastPayedType){
             case 1:
             case 0:
@@ -191,8 +194,6 @@ public class RetrofitHelperTubeless {
             case 3:
                 stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
         }
-
-        //todo Bourse uncomment
         Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),StaticValue.bourseState.endDate);
         userCall.enqueue(callback);
     }

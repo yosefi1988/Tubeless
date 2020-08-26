@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:text="هزینه سیگنال برای سرمایه های کمتر از 20 میلیون تومان ؛"
+                        android:text="هزینه تحلیل برای سرمایه های کمتر از 20 میلیون تومان ؛"
                         android:checked="true" >
                         <requestFocus />
 
@@ -68,7 +68,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="هزینه سیگنال برای سرمایه های بین 20 تا 200 میلیون تومان ؛"
+                        android:text="هزینه تحلیل برای سرمایه های بین 20 تا 200 میلیون تومان ؛"
                         android:layout_alignParentRight="true" />
 
                     <RadioButton
@@ -76,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="هزینه سیگنال برای سرمایه های بیشتر از 200 میلیون تومان ؛"
+                        android:text="هزینه تحلیل برای سرمایه های بیشتر از 200 میلیون تومان ؛"
                         android:layout_alignParentRight="true" />
 
                 </RadioGroup>

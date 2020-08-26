@@ -17,6 +17,6 @@
     <item
         android:id="@+id/bbn_item3"
         android:icon="@drawable/png_icon_analize"
-        android:title="سیگنال" />
+        android:title="تحلیل" />
 
 </menu>

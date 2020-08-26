@@ -31,7 +31,6 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 import ir.sajjadyosefi.android.xTubeless.classes.model.ddl.DdlSelectsObject;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -47,8 +46,11 @@ import retrofit2.Call;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity.GO_TO_LOGIN;
-import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
+
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue.*;
 
 public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
 
@@ -101,6 +103,7 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
         DdlSelectsObject t2 = new DdlSelectsObject("اخبار" , 20023);
         xxxxxxxxxxxxxx.add(t2);
 
+        //todo Bourse uncomment
         if (StaticValue.configuration.getConfiguration().getVip1Month() == 0){
 
         }else {

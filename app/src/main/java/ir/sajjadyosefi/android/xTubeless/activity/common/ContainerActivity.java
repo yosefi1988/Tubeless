@@ -15,7 +15,6 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.List;
 
-import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
@@ -27,7 +26,10 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
+
+//todo Bourse uncomment
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
+import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
 
 
 public class ContainerActivity extends TubelessTransparentStatusBarActivity {
@@ -82,6 +84,8 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
             ft.replace(R.id.include, new ListFragment(this,list ,type,bundle));
             ft.commit();
         }
+
+        //todo Bourse uncomment
         if (requestCode == READ_RULE_AND_PAY) {
             if (resultCode == Activity.RESULT_OK) {
 //                int payType = data.getIntExtra("payType" , 0);
@@ -131,6 +135,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
             ft.commit();
 
         }else if (type == TYPE_BOURSE_PLANE){
+            //todo Bourse uncomment
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.include, new FinancialAccountLimitFragment(getContext()));
             ft.commit();
