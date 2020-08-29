@@ -109,7 +109,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="5 shahrivar">
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="8 shahrivar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/Fragment/FinancialAccountDetailsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/FinancialAccountDetailsFragment.java" afterDir="false" />
@@ -587,13 +587,6 @@
       <option name="presentableId" value="Default" />
       <updated>1552667600839</updated>
     </task>
-    <task id="LOCAL-00005" summary="11 ESFAND">
-      <created>1583016134916</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1583016134916</updated>
-    </task>
     <task id="LOCAL-00006" summary="11 ESFAND 2">
       <created>1583088382246</created>
       <option name="number" value="00006" />
@@ -930,7 +923,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598429200995</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="8 shahrivar">
+      <created>1598700598496</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1598700598497</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -957,7 +957,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="15 tir" />
     <MESSAGE value="17 tir" />
     <MESSAGE value="29 khordad" />
     <MESSAGE value="22 tir" />
@@ -982,7 +981,8 @@
     <MESSAGE value="26 mordad 4" />
     <MESSAGE value="26 mordad 5" />
     <MESSAGE value="5 shahrivar" />
-    <option name="LAST_COMMIT_MESSAGE" value="5 shahrivar" />
+    <MESSAGE value="8 shahrivar" />
+    <option name="LAST_COMMIT_MESSAGE" value="8 shahrivar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="217" y="62" width="1149" height="666" key="#PSD" timestamp="1597481559837">
@@ -1005,10 +1005,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="223" width="539" height="289" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1598433978373" />
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1598433405202">
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1598701049216">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598433405202" />
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598701049216" />
     <state width="672" height="594" key="DebuggerActiveHint" timestamp="1597033507156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1053,10 +1053,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1598337627343" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1598429204278">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1598700871437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598429204278" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598700871437" />
     <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1598635829195">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1065,10 +1065,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="205" y="41" width="940" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1598696296603" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598684730191">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598700923409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598684730191" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598700923409" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
