@@ -56,9 +56,11 @@
         tools:ignore="GoogleAppIndexingWarning">
 
 
+<!--        bourse-->
+<!--        ca-app-pub-6595298957852131~8191473375-->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6595298957852131~7018766277"/>
+            android:value="ca-app-pub-6595298957852131~8191473375"/>
 
 
         <meta-data

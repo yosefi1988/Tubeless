@@ -7,9 +7,9 @@ buildscript {
     repositories {
         jcenter()
         maven { url "https://jitpack.io" }
-        maven {
-            url "https://maven.google.com" // Google's Maven repositorygradle-4.4+-all.zip
-        }
+//        maven {
+//            url "https://maven.google.com" // Google's Maven repositorygradle-4.4+-all.zip
+//        }
         google()
         maven { url 'https://maven.fabric.io/public' }
     }

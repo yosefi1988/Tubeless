@@ -151,7 +151,6 @@ public class ListFragment extends Fragment  {
         floatingActionButton            = (FloatingActionButton) view.findViewById(R.id.fab);
         floatingActionButtonList            = (FloatingActionButton) view.findViewById(R.id.fabList);
 
-        //todo Bourse uncomment
         if (listType == TYPE_BOURSE_ANALIZE_All || listType == TYPE_BOURSE_ANALIZE_Old) {
             bourseExpire                    = (LinearLayout) view.findViewById(R.id.bourseExpire);
             countinueButton                 = (Button) view.findViewById(R.id.countinueButton);

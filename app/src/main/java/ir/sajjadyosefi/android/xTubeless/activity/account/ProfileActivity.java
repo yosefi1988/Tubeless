@@ -181,12 +181,12 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
 //            }
 //        });
 
-            MobileAds.initialize(this, "ca-app-pub-6595298957852131/3747952719");
+
 
             AdRequest adRequest = new AdRequest.Builder().build();
 
 //        adView.setAdSize(AdSize.BANNER);
-//        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+//        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");     //test google
             adView.loadAd(adRequest);
 
             adView.setAdListener(new AdListener() {

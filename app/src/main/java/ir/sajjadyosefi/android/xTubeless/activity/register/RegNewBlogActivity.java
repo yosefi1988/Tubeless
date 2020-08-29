@@ -103,7 +103,6 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
         DdlSelectsObject t2 = new DdlSelectsObject("اخبار" , 20023);
         xxxxxxxxxxxxxx.add(t2);
 
-        //todo Bourse uncomment
         if (StaticValue.configuration.getConfiguration().getVip1Month() == 0){
 
         }else {

@@ -2,6 +2,7 @@ package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit;
 
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -29,6 +30,7 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Query;
+
 
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.IDApplication;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.REST_API_IP_ADDRESS_MAIN;
@@ -152,7 +154,6 @@ public class RetrofitHelperTubeless {
 
 
         StringBuilder stringBuilder = new StringBuilder();
-        //todo Bourse uncomment
         switch (StaticValue.bourseState.lastPayedType){
             case 0:
             case 1:
@@ -182,7 +183,6 @@ public class RetrofitHelperTubeless {
 //        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
 
         StringBuilder stringBuilder = new StringBuilder();
-        //todo Bourse uncomment
         switch (StaticValue.bourseState.lastPayedType){
             case 1:
             case 0:
@@ -266,6 +266,11 @@ public class RetrofitHelperTubeless {
 
     public void deleteTimelineItem(int id, String userId, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.deleteTimelineItem(id,userId);
+
+
+        Log.d("tubeless log", "id :" + id + " userId : " + userId);
+
+
         userCall.enqueue(callback);
     }
 

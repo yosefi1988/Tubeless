@@ -11,6 +11,7 @@ import androidx.multidex.MultiDexApplication;
 
 import android.widget.Toast;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
@@ -57,6 +58,8 @@ public class Global extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
+        MobileAds.initialize(this, "ca-app-pub-6595298957852131/3747952719");
+
         apiManagerPost = RetrofitHelperPost.getInstance();
         retrofitHelperEpolice = RetrofitHelperEpolice.getInstance(this);
 

@@ -601,7 +601,8 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         super.onStart();
         AdView adView = findViewById(R.id.adView);
 
-        if (Global.user.isAdmin()) {
+//        if (Global.user.isAdmin()) {
+        if (true) {//todo nnnnnnnnnnnn
             adView.setVisibility(View.VISIBLE);
 //        MobileAds.initialize(this, new OnInitializationCompleteListener() {
 //            @Override
@@ -610,12 +611,11 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 //            }
 //        });
 
-            MobileAds.initialize(this, "ca-app-pub-6595298957852131/3747952719");
 
             AdRequest adRequest = new AdRequest.Builder().build();
 
 //        adView.setAdSize(AdSize.BANNER);
-//        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+//        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");         //test google
             adView.loadAd(adRequest);
 
             adView.setAdListener(new AdListener() {
@@ -665,9 +665,6 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         }else {
             adView.setVisibility(View.GONE);
         }
-
-
-
     }
 
     private void getImageFromSevice() {

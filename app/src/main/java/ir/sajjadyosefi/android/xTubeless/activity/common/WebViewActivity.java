@@ -134,7 +134,6 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                     //textViewTitle.setText("راهنما");
                 } else if (bundle.getString("WebType").equals("rule")) {
 
-                    //todo Bourse uncomment
                     if (checkResult(context, StaticValue.configuration)){
                         htmlFilename = "rule.html";
                     }else {
@@ -150,7 +149,6 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                     if (bundle.getBoolean("payButton" , false) == true){
                         linearLayoutPay.setVisibility(View.VISIBLE);
 
-                        //todo Bourse uncomment
                         if (checkResult(getContext(), StaticValue.configuration)) {
                             button_pay.setText(R.string.accept_and_pardakht);
                         }else {

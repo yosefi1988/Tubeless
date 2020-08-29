@@ -4,12 +4,12 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 
 public class StaticValue {
 
-    public static int AdminUserID1 = 140237;
-    public static int AdminUserID2 = 1;
-    public static int AdminUserID3 = 1;
+    public static int AdminUserID1 = 200684;
+    public static int AdminUserID2 = 140326;
+    public static int AdminUserID3 = 140234;
 
     public static String AdminMail1 = "yosefi1988@gmail.com";
-    public static String AdminMail2 = ".com";
+    public static String AdminMail2 = "behrouzbb1989@gmail.com";
     public static String AdminMail3 = ".com";
 
     public static String AdminMobile1 = "432113963015089";

@@ -97,7 +97,7 @@ import static android.util.Log.VERBOSE;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
-//todo Bourse uncomment
+
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
@@ -163,7 +163,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             }
         }
 
-        //todo Bourse uncomment
         if (requestCode == READ_RULE_AND_PAY) {
             if (resultCode == Activity.RESULT_OK) {
                 //go to pay
@@ -198,7 +197,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         ZarinPal purches = ZarinPal.getPurchase(mContext);
         PaymentRequest payment = ZarinPal.getPaymentRequest();
 
-        //todo Bourse uncomment
         switch (payType){
             case 1:
                 payment.setAmount(StaticValue.configuration.getConfiguration().vip1Month);
@@ -410,7 +408,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
                     DialogUtil.showLoadingDialog(getContext());
 
-                    //todo Bourse uncomment
                     if(payType == 1){
                         StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip1Month() + StaticValue.bourseState.totalPayedValue;
                         StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();

@@ -1,13 +1,16 @@
 package ir.sajjadyosefi.android.xTubeless.classes;
 
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
+
 public class StaticValue {
 
-    public static int AdminUserID1 = 140237;
-    public static int AdminUserID2 = 1;
-    public static int AdminUserID3 = 1;
+    public static int AdminUserID1 = 200684;
+    public static int AdminUserID2 = 140326;
+    public static int AdminUserID3 = 140234;
 
     public static String AdminMail1 = "yosefi1988@gmail.com";
-    public static String AdminMail2 = ".com";
+    public static String AdminMail2 = "behrouzbb1989@gmail.com";
     public static String AdminMail3 = ".com";
 
     public static String AdminMobile1 = "432113963015089";
@@ -27,13 +30,16 @@ public class StaticValue {
     public static int newsCategory = 11;
 
 
-    public static final int IDApplicationVersion = 109;
-    public static final int IDApplication = 22;
+    public static final int IDApplicationVersion = 110;
+    public static final int IDApplication = 24;
 
 
     public static final int Tubeless_ITEM_TYPE = 1;
     public static final int PROGRESS_TYPE = 2;
 
 
+
+    public static Configuration configuration;
+    public static BourseState bourseState = null;
 
 }

@@ -14,7 +14,6 @@ import androidx.viewpager.widget.ViewPager;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
 
-//todo Bourse uncomment
 import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountDetailsFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
@@ -172,7 +171,6 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                     fragmentx3 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
 
-                    //todo Bourse uncomment
                     if (!checkResult(context, StaticValue.configuration)){
                         fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
                     }else {
