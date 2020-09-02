@@ -11,6 +11,7 @@
     tools:showIn="@layout/x_app_bar_main">
 
 
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/ViewPager01"
         android:layout_width="match_parent"
@@ -18,5 +19,10 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:background="@android:color/white"  />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nativeExpress">
+    </FrameLayout>
 
 </RelativeLayout>

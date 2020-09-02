@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +43,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.magnetadservices.sdk.AdSize;
+import com.magnetadservices.sdk.MagnetNativeExpress;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 import com.zarinpal.ewallets.purchase.OnCallbackRequestPaymentListener;
@@ -458,6 +461,13 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
             }
         });
+
+
+
+        FrameLayout adLayout = findViewById(R.id.nativeExpress);
+        MagnetNativeExpress nativeExpress = MagnetNativeExpress.create(getApplicationContext());
+        nativeExpress.load("2636f0db4e8008d8b839ebabba0194a4", adLayout, new AdSize(300, 300));
+
 
     }
 

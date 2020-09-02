@@ -34,6 +34,11 @@ public class StaticValue {
     public static final int IDApplication = 24;
 
 
+    //22 yadak  -> 109
+    //24 burse  -> 110
+
+
+
     public static final int Tubeless_ITEM_TYPE = 1;
     public static final int PROGRESS_TYPE = 2;
 

@@ -41,5 +41,12 @@
 -dontwarn org.litepal.**
 -keep class org.litepal.** {*; }
 
+
+
+-keep class com.magnetadservices.sdk.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+
+
 # without this line, I was having ClassCastException
 #-keepattributes Signature, *Annotation*
