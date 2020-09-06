@@ -5,8 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.google.gson.Gson;
+import com.magnetadservices.sdk.AdSize;
+import com.magnetadservices.sdk.MagnetNativeExpress;
+import com.magnetadservices.sdk.MagnetSDK;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,6 +22,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
@@ -28,6 +33,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemVi
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
+import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 import retrofit2.Call;
 
@@ -111,6 +117,8 @@ public class NewTimelineItem extends ParentItem{
             if (BuildConfig.FLAVOR_version_name.equals("bourse")){
                 //stringBuilder.append(" : ");
             }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+                //stringBuilder.append(" : ");
+            }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
                 //stringBuilder.append(" : ");
              }else if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
                 //stringBuilder.append(" : ");
@@ -335,6 +343,18 @@ public class NewTimelineItem extends ParentItem{
         TimelineItemViewHolder holder = (TimelineItemViewHolder) holder0;
         final NewTimelineItem timelineItem = (NewTimelineItem)item;
 
+        //magnet ads
+        if (BuildConfig.FLAVOR.equals("bourseMyket")) {
+            if (position % 5 == 0) {
+                MagnetNativeExpress nativeExpress = MagnetNativeExpress.create(mContext);
+                nativeExpress.load("2636f0db4e8008d8b839ebabba0194a4", holder.adLayout, new AdSize(DeviceUtil.getDisplayWidthAsDp(mContext), DeviceUtil.getHeight2to3AsDp(mContext)));
+                holder.adLayout.setVisibility(View.VISIBLE);
+            }else {
+                holder.adLayout.setVisibility(View.GONE);
+            }
+        }
+
+
         final boolean[] loadedImage = {false};
         DateConverterSjd dateUtiliti = new DateConverterSjd();
 
@@ -358,6 +378,9 @@ public class NewTimelineItem extends ParentItem{
 
         onclicks(mContext,listType , holder, timelineItem);
         loadImage(holder, timelineItem);
+
+
+
     }
 
     private void onclicks(Context mContext , int listType, TimelineItemViewHolder holder, NewTimelineItem timelineItem) {

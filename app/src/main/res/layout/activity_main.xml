@@ -36,10 +36,5 @@
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nativeExpress">
-    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

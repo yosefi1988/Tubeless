@@ -127,6 +127,10 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
+            android:name=".activity.common.blog.zoomImageActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
             android:name=".activity.account.profile.MainActivityProfile"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 

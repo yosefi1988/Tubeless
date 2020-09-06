@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.widget;
+package ir.sajjadyosefi.android.xTubeless.widget.imageView;
 
 import android.content.Context;
 import android.content.res.TypedArray;

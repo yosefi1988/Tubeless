@@ -44,9 +44,14 @@ public class GlobalLevel2 extends Global {
     @Override
     public void onCreate() {
         super.onCreate();
-        MagnetSDK.initialize(getApplicationContext());
-        MagnetSDK.getSettings().setTestMode(true);//todo remove this or set false
-
+        if (BuildConfig.FLAVOR_market.equals("myket") ) {
+            MagnetSDK.initialize(getApplicationContext());
+            if (BuildConfig.DEBUG) {
+                MagnetSDK.getSettings().setTestMode(true);
+            } else {
+                MagnetSDK.getSettings().setTestMode(false);
+            }
+        }
 
     }
 

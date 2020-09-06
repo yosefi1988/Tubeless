@@ -464,9 +464,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
 
-        FrameLayout adLayout = findViewById(R.id.nativeExpress);
-        MagnetNativeExpress nativeExpress = MagnetNativeExpress.create(getApplicationContext());
-        nativeExpress.load("2636f0db4e8008d8b839ebabba0194a4", adLayout, new AdSize(300, 300));
 
 
     }

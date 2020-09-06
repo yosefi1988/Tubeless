@@ -1,6 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder;
 
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class TimelineItemViewHolder extends PostViewHolder {
     public TextView textViewLocation;
     public TextView textViewDate;
     public TextView textViewCount;
+    public FrameLayout adLayout;
 
     public TimelineItemViewHolder(View itemView) {
         super(itemView);
@@ -40,5 +42,7 @@ public class TimelineItemViewHolder extends PostViewHolder {
         textViewLocation              = (TextView) itemView.findViewById(R.id.textViewLocation);
         textViewDate                  = (TextView) itemView.findViewById(R.id.textViewDate);
         textViewCount                 = (TextView) itemView.findViewById(R.id.textViewCount);
+
+        adLayout                      = itemView.findViewById(R.id.nativeExpress);
     }
 }

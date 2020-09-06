@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
@@ -38,6 +39,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResp
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
+import ir.sajjadyosefi.android.xTubeless.widget.imageView.NewZoomableImageView;
+import ir.sajjadyosefi.android.xTubeless.widget.imageView.ZoomableImageView;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
@@ -52,11 +55,10 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
     Context mContext = null;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setContentView(R.layout.activity_read_blog);
         mContext = this;
@@ -72,7 +74,6 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         imageViewUserAvatar = findViewById(R.id.imageViewUserAvatar);
         imageViewShare = findViewById(R.id.imageViewShare);
         imageViewComments = findViewById(R.id.imageViewComments);
-        imageviewPicture = findViewById(R.id.imageviewPicture);
         viewHeader = findViewById(R.id.header);
 
 
@@ -164,6 +165,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 //        aaaa.setVote(true);
 //        newVote(aaaa);
      }
+
 
     public static void fillTitle(Context context ,String title , int cat , TextView textViewTitle) {
         StringBuilder stringBuilderTitle = new StringBuilder();
@@ -299,7 +301,8 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
     TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewShare,textViewComments,textViewText;
-    ImageView imageViewUserAvatar, imageViewShare,imageViewComments,imageviewPicture;
+    ImageView imageViewUserAvatar, imageViewShare,imageViewComments;
+    ImageView imageviewPicture;
     View viewHeader;
 
     private void firstFillData(NewTimelineItem newTimelineItem) {
@@ -313,8 +316,22 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         }
 
 
+
         if (newTimelineItem.getTitlePicture() != null && newTimelineItem.getTitlePicture().length() > 10) {
+            imageviewPicture = findViewById(R.id.imageviewPicture);
             imageviewPicture.setVisibility(View.VISIBLE);
+
+            imageviewPicture = (ImageView)findViewById(R.id.imageviewPicture);
+            imageviewPicture.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), zoomImageActivity.class);
+                    intent.putExtra("image" , newTimelineItem.getTitlePicture());
+                    intent.putExtra("text" , newTimelineItem.getTextFromJson());
+                    getContext().startActivity(intent);
+                    overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+                }
+            });
             Picasso.get()
                     .load(newTimelineItem.getTitlePicture())
                     .placeholder(R.drawable.bg_search)
@@ -336,8 +353,6 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
                         }
                     } );
 
-        }else {
-            imageviewPicture.setVisibility(View.GONE);
         }
 
 
@@ -985,3 +1000,5 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
     }
 
 }
+
+

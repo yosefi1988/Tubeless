@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.FrameLayout;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.magnetadservices.sdk.AdSize;
+import com.magnetadservices.sdk.MagnetNativeExpress;
 import com.squareup.picasso.Picasso;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
@@ -625,6 +628,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         }else if (data.get(position) instanceof NewTimelineItem) {
             final NewTimelineItem item = (NewTimelineItem) data.get(position);
             item.fill(context,this , listType, holder, item, position);
+
+
 
         }else if (data.get(position) instanceof PostSearchResponseItem) {
             PostSearchResponseItem item = (PostSearchResponseItem) data.get(position);
