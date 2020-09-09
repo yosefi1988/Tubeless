@@ -24,6 +24,7 @@ import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
@@ -51,14 +52,19 @@ import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivit
  * Created by sajjad on 2/11/2018.
  */
 
-public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
+public class ReadBlogActivity extends TubelessActivity {
 
     Context mContext = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
+//          قسمت بالا و پایین به صورت کامل ترنسپرنت می شود
+//        هیچ سایه ای نداره
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setContentView(R.layout.activity_read_blog);
         mContext = this;
@@ -428,31 +434,31 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
         if (newTimelineItem.getPicture() != null && newTimelineItem.getPicture().length() > 10) {
-            imageviewPicture.setVisibility(View.VISIBLE);
-            Picasso.get()
-                    .load(newTimelineItem.getPicture())
-                    .placeholder(R.drawable.png_image)
-                    //.centerInside()
-                    //.transform(transformation)
-                    .into(imageviewPicture, new com.squareup.picasso.Callback() {
-                        @Override
-                        public void onSuccess() {
+            if ((imageviewPicture != null)) {
+                imageviewPicture.setVisibility(View.VISIBLE);
+                Picasso.get()
+                        .load(newTimelineItem.getPicture())
+                        .placeholder(R.drawable.png_image)
+                        //.centerInside()
+                        //.transform(transformation)
+                        .into(imageviewPicture, new com.squareup.picasso.Callback() {
+                            @Override
+                            public void onSuccess() {
 
-                        }
+                            }
 
-                        @Override
-                        public void onError(Exception e) {
+                            @Override
+                            public void onError(Exception e) {
 
-                            Picasso.get()
-                                    .load(R.drawable.png_image)
-                                    //.transform(transformation)
-                                    .into(imageviewPicture);
-                        }
-                    } );
-
-        }else {
-            imageviewPicture.setVisibility(View.GONE);
+                                Picasso.get()
+                                        .load(R.drawable.png_image)
+                                        //.transform(transformation)
+                                        .into(imageviewPicture);
+                            }
+                        });
+            }
         }
+
 
 
 

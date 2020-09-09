@@ -7,6 +7,11 @@ def final appNameTubeless = 'Tubeless'
 def final Tubeless_VersionName = "6.1.0"
 def final Tubeless_VersionCode = 37
 
+//todo change version code before publish
+def final appNameCarNews = 'اخبار خودرو-راهور-سوخت'
+def final CarNews_VersionName = "1.0.0"
+def final CarNews_VersionCode = 1
+
 def final appNameYafte = 'مدارک گم شده'
 def final Yafte_VersionName = "2.1.0"
 def final Yafte_VersionCode = 18
@@ -155,6 +160,18 @@ android {
                     appIcon: "@drawable/dot"
             ]
         }
+        carNews {
+            dimension "version_name"
+            resValue "string", "app_name", appNameCarNews
+
+            applicationIdSuffix ".xCarNews"
+
+            versionName "${CarNews_VersionName}"
+            versionCode CarNews_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/dot"
+            ]
+        }
 
         myket {
             dimension "market"
@@ -257,6 +274,9 @@ android {
 
 //            manifest.srcFile 'other/AndroidManifest.xml'
 //            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+        carNews {
+            res.srcDirs = ['src/carNews/res']
         }
 
     }

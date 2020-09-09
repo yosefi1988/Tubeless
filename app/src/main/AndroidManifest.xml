@@ -108,7 +108,7 @@
 
         <activity
             android:name=".bussines.post.activity.SearchByNationalCodeActivity"
-            android:theme="@style/ThemeFullSCreen"
+            android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
@@ -119,7 +119,7 @@
 
         <activity
             android:name=".bussines.post.activity.SearchByNameActivity"
-            android:theme="@style/ThemeFullSCreen"
+            android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="adjustResize|stateHidden">
         </activity>
 
@@ -175,14 +175,14 @@
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity"
-            android:theme="@style/ThemeFullSCreen"
+            android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity"
-            android:theme="@style/ThemeFullSCreen"
+            android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity
@@ -194,14 +194,15 @@
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:configChanges="orientation|screenSize" />
 
+<!--        ThemeFullSCreenXTmp-->
         <activity
             android:name=".activity.common.blog.ReadBlogActivity"
-            android:theme="@style/ThemeFullSCreenX"
+            android:theme="@style/AppDayTheme"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.SplashScreen"
-            android:theme="@style/ThemeFullSCreen">
+            android:theme="@style/ThemeFullSCreenX">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
