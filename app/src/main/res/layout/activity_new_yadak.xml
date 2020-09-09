@@ -118,19 +118,6 @@
                 android:text="مثال:    پژو 405 مدل 1376 GLX " />
 
             <EditText
-                android:id="@+id/editTextTitlePicture"
-                style="@style/AppTheme.DayEditText"
-                android:drawableLeft="@android:drawable/ic_secure"
-                android:hint="@string/what_date" />
-
-            <TextView
-                style="@style/AppTheme.DayTextView"
-                android:textSize="14dp"
-                android:textColor="@color/colorTextGry"
-                android:layout_marginTop="-10dp"
-                android:text="مثال:    اگه تا قبل از عید پیدا بشه خریدارم و شماره تماس 09123456789 لطفا پیامک ارسال کنید. " />
-
-            <EditText
                 android:id="@+id/editTextText"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_secure"
@@ -142,6 +129,20 @@
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="-10dp"
                 android:text="مثال:    کاربرات پوسته آلمینیومی دو دریچه ای شماره 56 فرانسوی لوله بنزین کوتاه" />
+
+
+            <EditText
+                android:id="@+id/editTextTitlePicture"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_secure"
+                android:hint="@string/what_date" />
+
+            <TextView
+                style="@style/AppTheme.DayTextView"
+                android:textSize="14dp"
+                android:textColor="@color/colorTextGry"
+                android:layout_marginTop="-10dp"
+                android:text="مثال:    اگه تا قبل از عید پیدا بشه خریدارم و شماره تماس 09123456789 لطفا پیامک ارسال کنید. " />
 
 
             <EditText

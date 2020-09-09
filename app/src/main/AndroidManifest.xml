@@ -89,11 +89,14 @@
 
 
 
+<!--        android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2"-->
+<!--        android:theme="@style/TubelessDayTheme.NoActionBar"-->
         <activity
+            android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2"
             android:name="ir.sajjadyosefi.android.xTubeless.activity.MainActivity"
             android:label="@string/app_name"
-            android:windowSoftInputMode="adjustResize|stateHidden"
-            android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2">
+            android:windowSoftInputMode="adjustResize|stateHidden">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" ></action>
@@ -124,6 +127,11 @@
 
         <activity
             android:name="ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:theme="@style/TubelessDayTheme.NoActionBar"
+            android:name=".activity.filter.filterDetailsActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity

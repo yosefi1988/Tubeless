@@ -26,6 +26,7 @@ import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
+import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
@@ -198,7 +199,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
+        if ((!BuildConfig.BUILD_TYPE.equals("debug")) && (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER )){
             Bundle bundle = new Bundle();
             Intent intent = SignInActivity.getIntent(getContext(),bundle);
             intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);

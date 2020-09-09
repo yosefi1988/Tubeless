@@ -70,6 +70,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.filter.filterDetailsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
@@ -515,6 +516,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             DialogUtil.hideLoading();
         }
 
+        //startActivity(new Intent(this, filterDetailsActivity.class));
     }
 
     private void loadNews() {

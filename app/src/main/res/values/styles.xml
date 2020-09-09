@@ -106,6 +106,9 @@
         <item name="android:textColorHint">@color/day_white_hint_text</item>
         <item name="android:textSize">16dp</item>
     </style>
+
+
+
     <style name="AppTheme.NightEditText" parent="@android:style/Widget.EditText">
         <item name="android:background">@drawable/rounded_edittext</item>
         <item name="android:imeOptions">flagNoExtractUi</item>
@@ -229,6 +232,11 @@
     <style name="TubelessDayTheme.NoActionBar"  parent="AppDayTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CollapsingToolbarLayoutExpandedTextStyle" parent="AppDayTheme">
+        <item name="android:textColor">@android:color/transparent</item>
+        <item name="android:textSize">0.1sp</item>
     </style>
 
     <style name="TubelessDayTheme.NoActionBar.NoTranslucent2" />
