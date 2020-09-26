@@ -1,19 +1,20 @@
-package ir.sajjadyosefi.android.xTubeless.classes.model.config;
+package ir.sajjadyosefi.android.xTubeless.classes.model;
 
 public class ConfigurationObject {
-
     public boolean bazaar;
     public boolean myket;
     public boolean jhobin;
     public boolean iranapps;
     public boolean kandoo;
-
     public boolean social;
     public boolean play;
+
     public int vip1Month;
     public int vip2Month;
     public int vip3Month;
     public int vip6Month;
+
+    public int oneTime;
 
     public boolean isBazaar() {
         return bazaar;
@@ -106,5 +107,13 @@ public class ConfigurationObject {
         this.social = social;
     }
 
+
+    public int getOneTime() {
+        return oneTime;
+    }
+
+    public void setOneTime(int oneTime) {
+        this.oneTime = oneTime;
+    }
 
 }

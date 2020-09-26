@@ -78,7 +78,4 @@
 
     <string name="font_secondary_bold">fonts/byekan.ttf</string>
 
-    <style name="TranslucentStatusBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
-    </style>
 </resources>

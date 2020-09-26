@@ -91,18 +91,21 @@
 
 <!--        android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2"-->
 <!--        android:theme="@style/TubelessDayTheme.NoActionBar"-->
+<!--        android:windowSoftInputMode="adjustResize|stateHidden"-->
         <activity
             android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2"
             android:name="ir.sajjadyosefi.android.xTubeless.activity.MainActivity"
             android:label="@string/app_name"
-            android:windowSoftInputMode="adjustResize|stateHidden">
+            android:windowSoftInputMode="stateHidden|adjustResize">
 
+<!--            <data android:scheme="return2" android:host="zarinpalpayment"></data>-->
+<!--            <data android:scheme="@string/schemezarinpalpayment" android:host="@string/zarinpalpayment3"></data>-->
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" ></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
                 <category android:name="android.intent.category.BROWSABLE"></category>
-                <data android:scheme="return2" android:host="zarinpalpayment"></data>
+                <data android:scheme="@string/schemezarinpalpayment" android:host="@string/zarinpalpayment"></data>
             </intent-filter>
         </activity>
 
@@ -194,10 +197,9 @@
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:configChanges="orientation|screenSize" />
 
-<!--        ThemeFullSCreenXTmp-->
         <activity
             android:name=".activity.common.blog.ReadBlogActivity"
-            android:theme="@style/AppDayTheme"
+            android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity

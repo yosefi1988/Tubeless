@@ -1,6 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.activity;
 
 import android.accounts.AccountManager;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -75,6 +76,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
+import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
@@ -105,13 +107,14 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
+import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.cancelByBackbuttonPressed;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowMessageDialog;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowSelectSturceDialog;
 
 @TargetApi (Build.VERSION_CODES.KITKAT_WATCH)
-public class MainActivity extends TubelessActivity implements BottomNavigation.OnMenuItemSelectionListener {
+public class MainActivity extends TubelessActivity implements BottomNavigation.OnMenuItemSelectionListener  {
 
     //val
     private static int LOGIN_REQUEST_CODE = 101 ;
@@ -121,7 +124,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
     private BottomNavigation mBottomNavigation;
     private DrawerLayout drawer_layout;
-    private ViewPager viewPager;
+    public ViewPager viewPager;
     private FirstFragmentsAdapter firstFragmentsAdapter;
     ViewGroup root;
     public ViewGroup rootView ;
@@ -179,7 +182,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip1Month();
                     StaticValue.bourseState.lastPayedType = 1;
                     StaticValue.bourseState.updateAfterPay(10,StaticValue.configuration.getResponseStatus().getDate());
-
                     //refresh tab 3
                     firstFragmentsAdapter.notifyDataSetChanged();
                 }
@@ -210,10 +212,19 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 break;
             case 3:
                 payment.setAmount(StaticValue.configuration.getConfiguration().vip3Month);
+                break;
+            case 6:
+                payment.setAmount(StaticValue.configuration.getConfiguration().vip6Month);
+                break;
+            case 100:
+                payment.setAmount(StaticValue.configuration.getConfiguration().oneTime);
+                break;
         }
         payment.setMerchantID("e8a913e8-f089-11e6-8dec-005056a205be");
-        payment.setDescription("هزینه خرید اکانت تحلیل بورسی" + "-signal Type:" + payType);
-        payment.setCallbackURL("return2://zarinpalpayment");
+        payment.setDescription(getString(R.string.paymenttitle) + "-signal Type:" + payType);
+//        payment.setCallbackURL("return2://zarinpalpayment");
+        payment.setCallbackURL(String.format("%s://%s",getString(R.string.schemezarinpalpayment),getString(R.string.zarinpalpayment)));
+//        payment.setCallbackURL("return3://zarinpalpayment3");
 
         purches.startPayment(payment, new OnCallbackRequestPaymentListener() {
             @Override
@@ -424,32 +435,46 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip3Month() + StaticValue.bourseState.totalPayedValue;
                         StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip3Month();
                     }
+                    if(payType == 6){
+                        StaticValue.bourseState.totalPayedValue = StaticValue.configuration.getConfiguration().getVip6Month() + StaticValue.bourseState.totalPayedValue;
+                        StaticValue.bourseState.lastPayedValue = StaticValue.configuration.getConfiguration().getVip6Month();
+                    }
+                    if(payType == 100){
+                        //کارت سوخت
+                        firstFragmentsAdapter.kartesokhtPayComplete(rootView);
+                        cancelByBackbuttonPressed = false;
+                        int a = 5 ;
+                        a++;
+                    }
                     if(payType == 0) {
                         StaticValue.bourseState.totalPayedValue = 0 + StaticValue.bourseState.totalPayedValue;
                         StaticValue.bourseState.lastPayedValue = 0;
                     }
 
 
+                    if(payType != 100) {
 
-                    StaticValue.bourseState.lastPayedType = payType;
-                    StaticValue.bourseState.updateAfterPay(30,StaticValue.configuration.getResponseStatus().getDate());
+                        StaticValue.bourseState.lastPayedType = payType;
+                        StaticValue.bourseState.updateAfterPay(30, StaticValue.configuration.getResponseStatus().getDate());
 
-                    //refresh tab 3
-                    firstFragmentsAdapter.notifyDataSetChanged();
+                        //refresh tab 3
+                        firstFragmentsAdapter.notifyDataSetChanged();
 
-                    //lod tsb 3
-                    viewPager.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            getViewPager().setCurrentItem(3,true);
-                        }
-                    }, 200);
+                        //load tsb 3
+                        viewPager.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                getViewPager().setCurrentItem(3,true);
+                            }
+                        }, 200);
+                    }
 
                 }else {
                     //not ok
-                    //show message refID
+//                    show message refID
 //                    Toast.makeText(getContext(),"not ok " ,Toast.LENGTH_LONG).show();
 
+                    cancelByBackbuttonPressed = true;
                 }
 
                 final Handler handler = new Handler();
@@ -464,11 +489,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         });
 
 
-
-
-
     }
-
 
 
 
@@ -517,6 +538,21 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         }
 
         //startActivity(new Intent(this, filterDetailsActivity.class));
+
+
+
+
+//        final Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//                if (firstFragmentsAdapter != null) {
+//                    firstFragmentsAdapter.kartesokhtPayComplete(rootView);
+//                }
+//
+//            }
+//        },10000);
     }
 
     private void loadNews() {
@@ -561,6 +597,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
             }
 
+            @SuppressLint("RestrictedApi")
             @Override
             public void t_onSuccess(Object response) {
                 TimelineListResponse responseX = (TimelineListResponse) response;
@@ -912,6 +949,11 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //        menux.add(R.string.code_melli);
 //        }
 
+
+        if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
+            MenuItem kartesokht = menux.findItem(R.id.nav_karte_sokht);
+            kartesokht.setVisible(false);
+        }
     }
 
 
@@ -963,7 +1005,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         if (null != viewPager) {
 
             getBottomNavigation().setMenuChangedListener(parent -> {
-                firstFragmentsAdapter = new FirstFragmentsAdapter(getContext(),getActivity(), parent.getMenuItemCount());
+                firstFragmentsAdapter = new FirstFragmentsAdapter(getContext(), getActivity(), parent.getMenuItemCount());
 
                 viewPager.setAdapter(firstFragmentsAdapter);
                 viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -983,8 +1025,18 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     @Override
                     public void onPageScrollStateChanged(final int state) { }
                 });
+
+
+
+
+
             });
 
+            if (firstFragmentsAdapter != null && firstFragmentsAdapter.getItem(0) instanceof KartesekhtFragment) {
+
+                int a = 5 ;
+                a++;
+            }
         }
     }
 
@@ -1072,7 +1124,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             getBottomNavigation().getBadgeProvider().remove(itemId);
 
 
-            if (BuildConfig.FLAVOR_version_name.equals("tubeless") || BuildConfig.FLAVOR_version_name.equals("yadak")){
+            if (BuildConfig.FLAVOR_version_name.equals("tubeless") ||  BuildConfig.FLAVOR_version_name.equals("yadak")){
                 //tubeless // yadak
                 if (null != getViewPager() && position != 2) {
                     getViewPager().setCurrentItem(position);
@@ -1091,7 +1143,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
                     }
                 }
-            }else if (BuildConfig.FLAVOR_version_name.equals("yafte") || BuildConfig.FLAVOR_version_name.equals("bourse")){
+            }else if (BuildConfig.FLAVOR_version_name.equals("yafte") || BuildConfig.FLAVOR_version_name.equals("kartesokht") || BuildConfig.FLAVOR_version_name.equals("bourse")){
                 if (null != getViewPager()) {
                     getViewPager().setCurrentItem(position);
                 }
@@ -1200,4 +1252,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     public void setAdditionResult(double result) {
         Log.d("test : ", Double.toString(result));
     }
+
+
+
 }

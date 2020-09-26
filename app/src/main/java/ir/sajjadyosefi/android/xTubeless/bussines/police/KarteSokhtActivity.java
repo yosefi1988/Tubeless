@@ -75,9 +75,6 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
         mContext = getContext();
 
 
-
-
-
         editText1 = (EditText) findViewById(R.id.editText1);
         editText2 = (EditText) findViewById(R.id.editText2);
         editText3 = (EditText) findViewById(R.id.editText3);
@@ -85,7 +82,6 @@ public class KarteSokhtActivity extends TubelessTransparentStatusBarActivity {
         listView = (Spinner) findViewById(R.id.spinner);
 
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(mContext, R.layout._custom_spinner_text,R.id.textview, countryArray);
         final SpinnerAdapterA spinnerAdapter = new SpinnerAdapterA(mContext,countryNames);
         listView.setAdapter(spinnerAdapter);
         listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

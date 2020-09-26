@@ -9,11 +9,14 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.Window;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
@@ -169,4 +172,7 @@ public abstract class TubelessActivity extends AppCompatActivity {
     public abstract boolean hasAppBarLayout();
 
     public abstract Toolbar getToolbar();
+
+
+
 }

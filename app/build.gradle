@@ -7,10 +7,13 @@ def final appNameTubeless = 'Tubeless'
 def final Tubeless_VersionName = "6.1.0"
 def final Tubeless_VersionCode = 37
 
-//todo change version code before publish
 def final appNameCarNews = 'اخبار خودرو-راهور-سوخت'
 def final CarNews_VersionName = "1.0.0"
 def final CarNews_VersionCode = 1
+
+def final appNameKartesokht = 'استعلام وضعیت صدور کارت سوخت'
+def final Kartesokht_VersionName = "1.0.1"
+def final Kartesokht_VersionCode = 12
 
 def final appNameYafte = 'مدارک گم شده'
 def final Yafte_VersionName = "2.1.0"
@@ -151,11 +154,24 @@ android {
             dimension "version_name"
             resValue "string", "app_name", appNameYafte
 
-//            applicationId "ir.sajjadyosefi.tubelessyafte"
             applicationIdSuffix ".xYafte"
 
             versionName "${Yafte_VersionName}"
             versionCode Yafte_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/dot"
+            ]
+        }
+        kartesokht {
+            dimension "version_name"
+            resValue "string", "app_name", appNameKartesokht
+
+//            applicationId "android.sajjadyosefi.ir.ksokht"
+            applicationIdSuffix ".xKsokht"
+
+
+            versionName "${Kartesokht_VersionName}"
+            versionCode Kartesokht_VersionCode
             manifestPlaceholders = [
                     appIcon: "@drawable/dot"
             ]
@@ -176,6 +192,10 @@ android {
         myket {
             dimension "market"
             versionNameSuffix "-m"
+        }
+        bazzar {
+            dimension "market"
+            versionNameSuffix "-b"
         }
         socialNetwork {
             dimension "market"

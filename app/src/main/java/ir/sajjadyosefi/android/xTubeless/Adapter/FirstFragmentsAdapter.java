@@ -1,21 +1,19 @@
 package ir.sajjadyosefi.android.xTubeless.Adapter;
 
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
-
-import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountDetailsFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
+import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
@@ -65,7 +63,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
         setCount();
     }
 
-    public FirstFragmentsAdapter(Context context,final AppCompatActivity activity, int count) {
+    public FirstFragmentsAdapter(Context context  ,final AppCompatActivity activity, int count) {
         super(activity.getSupportFragmentManager());
         this.context = context;
         setCount();
@@ -80,6 +78,8 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
             PAGE_COUNT = 3;
         }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
             PAGE_COUNT = 2;
+        }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
+            PAGE_COUNT = 3;
         }else {
             PAGE_COUNT = 2;
         }
@@ -133,6 +133,8 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                     fragmentx1 = new ListFragment(context,TYPE_YAFTE);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
                     fragmentx1 = new SearchByNameFragment();
+                }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
+                    fragmentx1 = new KartesekhtFragment();
                 }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
                     fragmentx1 = new ListFragment(context,TYPE_BOURSE_TRAIN);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
@@ -147,6 +149,8 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                 if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
                     fragmentx2 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+                    fragmentx2 = new ListFragment(context,TYPE_YAFTE);
+                }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
                     fragmentx2 = new ListFragment(context,TYPE_YAFTE);
                 }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
                     fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
@@ -168,6 +172,8 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                 if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
                     fragmentx3 = new BlankFragment();
                 }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+                    fragmentx3 = new ListFragment(context,TYPE_YADAK);
+                }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
                     fragmentx3 = new ListFragment(context,TYPE_YADAK);
                 }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
 
@@ -203,5 +209,13 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     public CharSequence getPageTitle(int position) {
         // Generate text based on item position
         return mTabTitles[position];
+    }
+
+
+    public void kartesokhtPayComplete(ViewGroup rootView) {
+        if (fragmentx1 != null)
+            if (fragmentx1 instanceof KartesekhtFragment){
+                ((KartesekhtFragment)fragmentx1).callService(rootView);
+            }
     }
 }

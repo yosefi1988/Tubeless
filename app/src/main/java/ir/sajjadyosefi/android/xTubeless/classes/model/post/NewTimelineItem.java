@@ -122,6 +122,8 @@ public class NewTimelineItem extends ParentItem{
                 //stringBuilder.append(" : ");
              }else if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
                 //stringBuilder.append(" : ");
+             }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
+                //stringBuilder.append(" : ");
             }else{
                 stringBuilder.append("-");
                 stringBuilder.append(" مدل: ");

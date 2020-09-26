@@ -62,9 +62,9 @@ public class ReadBlogActivity extends TubelessActivity {
 
 //          قسمت بالا و پایین به صورت کامل ترنسپرنت می شود
 //        هیچ سایه ای نداره
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        getWindow().setFlags(
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setContentView(R.layout.activity_read_blog);
         mContext = this;

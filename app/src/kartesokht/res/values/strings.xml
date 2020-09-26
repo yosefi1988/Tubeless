@@ -1,0 +1,5 @@
+<resources>
+    <string name="schemezarinpalpayment">return3</string>
+    <string name="zarinpalpayment">zarinpalpayment3</string>
+    <string name="paymenttitle">هزینه خرید اکانت تحلیل بورسی</string>
+</resources>

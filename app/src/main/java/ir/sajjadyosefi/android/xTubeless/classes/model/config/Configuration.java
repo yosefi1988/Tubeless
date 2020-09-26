@@ -1,17 +1,18 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.config;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
+import ir.sajjadyosefi.android.xTubeless.classes.model.ConfigurationObject;
 
 public class Configuration extends ServerResponseStatus {
 
-    ConfigurationObject configurationB = new ConfigurationObject();
+//    ConfigurationObject configurationB = new ConfigurationObject();
+    ConfigurationObject configuratioSokht = new ConfigurationObject();
 
     public ConfigurationObject getConfiguration() {
-        return configurationB;
+        return configuratioSokht;
     }
 
     public void setConfiguration(ConfigurationObject configuration) {
-        this.configurationB = configuration;
+        this.configuratioSokht = configuration;
     }
 
 }

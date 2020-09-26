@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/mainRelativeLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/fb_background_color"
     android:orientation="vertical"
     android:textDirection="rtl"
     android:layoutDirection="rtl"
@@ -11,9 +11,9 @@
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
         android:scrollbars="none">
         <LinearLayout
             android:layout_width="fill_parent"
@@ -36,7 +36,8 @@
             <TextView
                 android:id="@+id/login_title"
                 style="@style/AppTheme.DayTextViewBigTitle"
-                android:text="@string/estelam_by_plak" />
+                android:text="@string/estelam_by_plak" >
+            </TextView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -62,26 +63,26 @@
                     android:layout_width="300dp"
                     android:layout_height="160dp">
 
-
+<!--                    android:inputType="number"-->
                     <EditText
                         android:id="@+id/editText1"
                         android:layout_width="75dp"
                         android:layout_height="80dp"
-                        android:inputType="number"
-                        android:textSize="50dp"
-                        android:hint="555"
-                        android:layout_marginRight="0dp"
-                        android:maxLength="2"
+                        android:textSize="45dp"
+                        android:hint="55"
                         android:layout_marginTop="45dp"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"/>
+                        android:maxLength="2"
+                        android:gravity="center"
+                        android:layout_marginRight="0dp"
+                        android:background="@android:color/transparent"  >
+                    </EditText>
 
+<!--                    android:inputType="number"-->
                     <EditText
                         android:id="@+id/editText2"
                         android:layout_width="95dp"
                         android:layout_height="80dp"
-                        android:inputType="number"
-                        android:textSize="45dp"
+                        android:textSize="41dp"
                         android:hint="555"
                         android:maxLength="3"
                         android:layout_marginRight="63dp"
@@ -115,14 +116,13 @@
                     </RelativeLayout>
 
 
-
+<!--                    android:inputType="number"-->
                     <EditText
                         android:id="@+id/editText3"
                         android:layout_width="70dp"
                         android:layout_height="80dp"
-                        android:inputType="number"
                         android:layout_marginRight="205dp"
-                        android:textSize="45dp"
+                        android:textSize="41dp"
                         android:hint="55"
                         android:maxLength="2"
                         android:layout_marginTop="40dp"
@@ -133,7 +133,24 @@
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:padding="20dp"
+                android:orientation="horizontal" >
 
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="استعلام"
+                    android:textColor="#fff"
+                    android:textSize="25dp" />
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -142,23 +159,19 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="20dp"
+        android:padding="5dp"
+        android:visibility="gone"
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="استعلام"
+            android:background="@drawable/btn_search"
+            android:text="@string/searchRequest"
+            android:textAllCaps="false"
             android:textColor="#fff"
-            android:textSize="25dp" />
-
+            android:textSize="18sp" />
     </LinearLayout>
 
 </RelativeLayout>
-
-
-
