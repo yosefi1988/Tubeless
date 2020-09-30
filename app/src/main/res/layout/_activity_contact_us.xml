@@ -35,6 +35,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/reg_new_yafte"
                 android:textColor="#4267b2"
+                android:visibility="gone"
                 android:textStyle="bold" />
 
             <TextView
@@ -82,6 +83,14 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:text="@string/contactUs"
+                    android:layout_alignParentRight="true" />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/reportContent"
                     android:layout_alignParentRight="true" />
 
             </RadioGroup>

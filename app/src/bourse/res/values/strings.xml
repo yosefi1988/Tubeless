@@ -4,4 +4,10 @@
     <string name="where_miss">نماد - موضوع</string>
     <string name="what_date">توضیح کوتاه\n</string>
     <string name="text2">متن اصلی\n\n</string>
+
+    <string name="zarinpalpayment">zarinpalpayment4</string>
+    <string name="schemezarinpalpayment">return4</string>
+
+    <string name="paymenttitle">هزینه خرید اکانت تحلیل بورسی</string>
+
 </resources>

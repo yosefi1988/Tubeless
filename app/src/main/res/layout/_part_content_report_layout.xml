@@ -10,27 +10,28 @@
     android:layout_marginRight="10dp">
 
     <ImageView
-        android:id="@+id/imageViewComments"
+        android:id="@+id/imageViewReport"
         android:layout_width="30dp"
         android:layout_height="25dp"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/png_comments"
+        android:padding="3dp"
+        app:srcCompat="@drawable/png_yellow_alert"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textViewComments"
+        android:id="@+id/textViewReport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:layoutDirection="rtl"
         android:paddingRight="5dp"
-        android:text="نظرات"
+        android:text="گزارش محتوی"
         android:textColor="@color/colorTextGry"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/imageViewComments"
+        app:layout_constraintRight_toLeftOf="@+id/imageViewReport"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 

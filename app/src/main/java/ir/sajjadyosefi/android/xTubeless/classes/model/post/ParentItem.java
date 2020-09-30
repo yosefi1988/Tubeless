@@ -171,8 +171,10 @@ public abstract class ParentItem implements IItems {
         holder.textViewInvisible.setOnClickListener(onInvisibleClickListener);
         holder.imageViewInvisible.setOnClickListener(onInvisibleClickListener);
 
-        holder.imageViewShare.setOnClickListener(onShareClickListener);
-        holder.textViewShare.setOnClickListener(onShareClickListener);
+        if (holder.imageViewShare != null) {
+            holder.imageViewShare.setOnClickListener(onShareClickListener);
+            holder.textViewShare.setOnClickListener(onShareClickListener);
+        }
     }
 
 

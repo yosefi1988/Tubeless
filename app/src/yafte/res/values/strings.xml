@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="zarinpalpayment">zarinpalpayment5</string>
+    <string name="schemezarinpalpayment">return5</string>
+
 </resources>

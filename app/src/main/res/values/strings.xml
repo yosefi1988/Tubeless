@@ -435,4 +435,5 @@
     <string name="toman">تومان</string>
     <string name="userIsNull">"user null "</string>
     <string name="summry_filter_details">فیلتر ها</string>
+    <string name="reportContent">گزارش محتوی نامناسب</string>
 </resources>

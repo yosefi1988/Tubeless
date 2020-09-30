@@ -214,7 +214,9 @@ public class DialogUtil {
                 }else {
                     ActivityCompat.requestPermissions(
                             ((Activity)context),
-                            new String[]{Manifest.permission.CAMERA},
+                            new String[]{
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             PERMISSION_REQUEST_TAKE_PHOTO);
                 }
                 alertDialog1.dismiss();

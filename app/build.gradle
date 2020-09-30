@@ -12,8 +12,9 @@ def final CarNews_VersionName = "1.0.0"
 def final CarNews_VersionCode = 1
 
 def final appNameKartesokht = 'استعلام وضعیت صدور کارت سوخت'
-def final Kartesokht_VersionName = "1.0.1"
-def final Kartesokht_VersionCode = 12
+//def final appNameKartesokht = 'ksokht'
+def final Kartesokht_VersionName = "1.0.3"
+def final Kartesokht_VersionCode = 14
 
 def final appNameYafte = 'مدارک گم شده'
 def final Yafte_VersionName = "2.1.0"
@@ -77,7 +78,7 @@ android {
         release {
             minifyEnabled true
             useProguard true
-            debuggable false
+            debuggable true
 
 //            minifyEnabled true
 //            useProguard false

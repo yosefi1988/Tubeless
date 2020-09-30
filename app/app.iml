@@ -10,41 +10,41 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="kartesokhtBazzarDebug" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleKartesokhtBazzarDebug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileKartesokhtBazzarDebugSources" />
+        <option name="SELECTED_BUILD_VARIANT" value="kartesokhtBazzarRelease" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleKartesokhtBazzarRelease" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileKartesokhtBazzarReleaseSources" />
         <afterSyncTasks>
-          <task>generateKartesokhtBazzarDebugSources</task>
+          <task>generateKartesokhtBazzarReleaseSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/kartesokht/res;file://$MODULE_DIR$/src/bazzar/res;file://$MODULE_DIR$/src/kartesokhtBazzar/res;file://$MODULE_DIR$/src/debug/res;file://$MODULE_DIR$/src/kartesokhtBazzarDebug/res;file://$MODULE_DIR$/build/generated/fabric/res/kartesokhtBazzar/debug;file://$MODULE_DIR$/build/generated/res/google-services/kartesokhtBazzar/debug;file://$MODULE_DIR$/build/generated/res/rs/kartesokhtBazzar/debug;file://$MODULE_DIR$/build/generated/res/resValues/kartesokhtBazzar/debug" />
-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestKartesokht/res;file://$MODULE_DIR$/src/testKartesokht/res;file://$MODULE_DIR$/src/androidTestBazzar/res;file://$MODULE_DIR$/src/testBazzar/res;file://$MODULE_DIR$/src/androidTestDebug/res;file://$MODULE_DIR$/src/testDebug/res;file://$MODULE_DIR$/build/generated/res/rs/androidTest/kartesokhtBazzar/debug;file://$MODULE_DIR$/build/generated/res/resValues/androidTest/kartesokhtBazzar/debug" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/kartesokht/res;file://$MODULE_DIR$/src/bazzar/res;file://$MODULE_DIR$/src/kartesokhtBazzar/res;file://$MODULE_DIR$/src/release/res;file://$MODULE_DIR$/src/kartesokhtBazzarRelease/res;file://$MODULE_DIR$/build/generated/fabric/res/kartesokhtBazzar/release;file://$MODULE_DIR$/build/generated/res/google-services/kartesokhtBazzar/release;file://$MODULE_DIR$/build/generated/res/rs/kartesokhtBazzar/release;file://$MODULE_DIR$/build/generated/res/resValues/kartesokhtBazzar/release" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestKartesokht/res;file://$MODULE_DIR$/src/testKartesokht/res;file://$MODULE_DIR$/src/androidTestBazzar/res;file://$MODULE_DIR$/src/testBazzar/res;file://$MODULE_DIR$/src/testRelease/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/build/intermediates/javac/kartesokhtBazzarDebug/classes" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/kartesokhtBazzarDebugUnitTest/classes" />
+    <output url="file://$MODULE_DIR$/build/intermediates/javac/kartesokhtBazzarRelease/classes" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/kartesokhtBazzarReleaseUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/kartesokhtBazzarDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/kartesokhtBazzarDebug/compileKartesokhtBazzarDebugAidl/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/kartesokhtBazzar/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/kartesokhtBazzarDebug/compileKartesokhtBazzarDebugRenderscript/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/kartesokhtBazzar/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/kartesokhtBazzar/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/kartesokhtBazzar/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/kartesokhtBazzar/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarDebug/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarDebug/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarDebug/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarDebug/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarDebug/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarDebug/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarDebug/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/kartesokhtBazzarRelease/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/kartesokhtBazzarRelease/compileKartesokhtBazzarReleaseAidl/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/kartesokhtBazzar/release" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/kartesokhtBazzarRelease/compileKartesokhtBazzarReleaseRenderscript/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/kartesokhtBazzar/release" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/kartesokhtBazzar/release" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/kartesokhtBazzar/release" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/kartesokhtBazzar/release" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarRelease/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarRelease/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarRelease/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarRelease/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarRelease/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarRelease/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzarRelease/shaders" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzar/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzar/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzar/assets" type="java-resource" />
@@ -52,34 +52,14 @@
       <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzar/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzar/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtBazzar/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/kartesokhtBazzarDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/kartesokhtBazzarDebugAndroidTest/compileKartesokhtBazzarDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/kartesokhtBazzar/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/kartesokhtBazzarDebugAndroidTest/compileKartesokhtBazzarDebugAndroidTestRenderscript/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/kartesokhtBazzar/debug" type="java-test-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/kartesokhtBazzar/debug" type="java-test-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzarDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzarDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzarDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzarDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzarDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzarDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzarDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzar/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzar/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzar/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzar/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzar/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzar/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtBazzar/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/kartesokhtBazzarDebugUnitTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/kartesokhtBazzarReleaseUnitTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarRelease/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarRelease/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarRelease/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarRelease/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarRelease/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarRelease/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzarRelease/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzar/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzar/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtBazzar/assets" type="java-test-resource" />
@@ -129,27 +109,20 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/debug/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/debug/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/debug/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/debug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/release/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/release/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/release/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/release/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/release/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/release/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/release/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testRelease/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testRelease/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testRelease/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testRelease/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testRelease/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testRelease/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testRelease/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/assets" type="java-resource" />
@@ -176,19 +149,7 @@
     <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-integration:1.3@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-library:1.3@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: net.sf.kxml:kxml2:2.3.0@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.findbugs:jsr305:2.0.1@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.ext:junit:1.1.1@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-core:3.1.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.multidex:multidex-instrumentation:2.0.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:runner:1.1.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.2.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.2.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.mockito:mockito-core:1.10.19@jar" level="project" />
     <orderEntry type="library" name="Gradle: ./app/libs/jsoup-1.10.3.jar" level="project" />
     <orderEntry type="library" name="Gradle: ./app/libs/magnet-android-sdk-5.0.8.jar" level="project" />

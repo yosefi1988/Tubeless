@@ -1,5 +1,7 @@
 <resources>
+
+    <string name="app_name_file">ksokht</string>
     <string name="schemezarinpalpayment">return3</string>
     <string name="zarinpalpayment">zarinpalpayment3</string>
-    <string name="paymenttitle">هزینه خرید اکانت تحلیل بورسی</string>
+    <string name="paymenttitle">هزینه استعلام کارت سوخت</string>
 </resources>

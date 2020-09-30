@@ -26,6 +26,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -75,10 +76,12 @@ public class ReadBlogActivity extends TubelessActivity {
         textViewDate = findViewById(R.id.textViewDate);
         textViewCount = findViewById(R.id.textViewCount);
         textViewShare = findViewById(R.id.textViewShare);
+        textViewReport = findViewById(R.id.textViewReport);
         textViewComments = findViewById(R.id.textViewComments);
         textViewText = findViewById(R.id.textViewText);
         imageViewUserAvatar = findViewById(R.id.imageViewUserAvatar);
         imageViewShare = findViewById(R.id.imageViewShare);
+        imageViewReport = findViewById(R.id.imageViewReport);
         imageViewComments = findViewById(R.id.imageViewComments);
         viewHeader = findViewById(R.id.header);
 
@@ -155,7 +158,7 @@ public class ReadBlogActivity extends TubelessActivity {
             public void t_onSuccess(Object response) {
                 int a = 5 ;
                 a++;
-//                fillData(((TimelineItemResponse)response).getTimelineItem());
+                fillData(((TimelineItemResponse)response).getTimelineItem());
             }
         };
         Global.apiManagerTubeless.getTimelineItem(blogItem.getBlogID(), ssssssss);
@@ -306,8 +309,8 @@ public class ReadBlogActivity extends TubelessActivity {
     }
 
 
-    TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewShare,textViewComments,textViewText;
-    ImageView imageViewUserAvatar, imageViewShare,imageViewComments;
+    TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewReport,textViewShare,textViewComments,textViewText;
+    ImageView imageViewUserAvatar, imageViewReport,imageViewShare,imageViewComments;
     ImageView imageviewPicture;
     View viewHeader;
 
@@ -623,6 +626,31 @@ public class ReadBlogActivity extends TubelessActivity {
 //    }
 
     private void fillClicks(ParentItem timelineItem) {
+        View.OnClickListener onReportClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (timelineItem instanceof NewTimelineItem) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(ContactUsActivity.Type, ContactUsActivity.CONTENT_REPORT);
+                    bundle.putString(ContactUsActivity.Title, String.format("%s:%s",
+                            getContext().getString(R.string.reportContent),
+                            ((NewTimelineItem) timelineItem).getTitle()));
+                    bundle.putString(ContactUsActivity.Phone,  String.format("BID=%s-BUID=%s-UID=%s-UN=%s",
+                            ((NewTimelineItem) timelineItem).getBlogID(),
+                            ((NewTimelineItem) timelineItem).getUserID(),
+                            ((Global.user == null ? "X":Global.user.getUserId())),
+                            ((Global.user == null ? "X":Global.user.getUserName()))));
+                    getActivity().startActivity(ContactUsActivity.getIntent(getContext(), bundle));
+                }else {
+
+                }
+            }
+        };
+
+        textViewReport.setOnClickListener(onReportClickListener);
+        imageViewReport.setOnClickListener(onReportClickListener);
+
+
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

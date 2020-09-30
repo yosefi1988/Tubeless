@@ -14,7 +14,7 @@
         android:layout_width="30dp"
         android:layout_height="40dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_view"
+        app:srcCompat="@drawable/png_blue_eye"
         android:scaleType="centerInside"
         tools:ignore="MissingConstraints" />
 

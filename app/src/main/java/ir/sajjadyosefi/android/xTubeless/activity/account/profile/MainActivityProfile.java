@@ -184,7 +184,9 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         }
 
         getImageFromSeviceStream();
-        getImageFromSevice();
+
+        if(Global.user != null)
+            getImageFromSevice();
     }
 
     @Override
@@ -275,7 +277,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     @Override
     @SuppressLint("ResourceAsColor")
     public Uri startCropActivity(Uri source){
-        imageName = getString(R.string.app_name);
+        imageName = getString(R.string.app_name_file);
         Uri newCropedFile = null;
 
         if(uCrop == null){
@@ -301,7 +303,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     protected Uri getImageFile(Activity activity){
         String imagePathStr = Environment.getExternalStorageDirectory() + "/" +
                 (folder == null ?
-                        Environment.DIRECTORY_DCIM + "/" + activity.getString(ir.sajjadyosefi.android.superpickerlibrary.R.string.app_name) :
+                        Environment.DIRECTORY_DCIM + "/" + activity.getString(R.string.app_name_file) :
                         folder);
 
         File path = new File(imagePathStr);

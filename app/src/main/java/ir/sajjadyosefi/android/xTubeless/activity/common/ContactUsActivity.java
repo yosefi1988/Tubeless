@@ -19,6 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 //import com.orm.SugarContext;
+import com.google.android.material.textfield.TextInputEditText;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 //import com.vansuita.gaussianblur.GaussianBlur;
 
@@ -49,16 +50,18 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
     public static final String Type = "TYPE";
     public static final String Title = "Title";
     public static final String Text = "Text";
+    public static final String Phone = "Phone";
 
     //Create New Activity List
     public static final int SUGGESTION              = 1;
     public static final int ORDER_APP               = 2;
     public static final int CONTACT_US              = 3;
+    public static final int CONTENT_REPORT          = 4;
     public static int messageType = 0;
 
 
     Context context;
-    RadioButton radioButton1,radioButton2,radioButton3;
+    RadioButton radioButton1,radioButton2,radioButton3,radioButton4;
 
     EditText editTextTitle , editTextText , editTextPhone;
     Button buttonReg , buttonBack;
@@ -94,6 +97,7 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
         radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
+        radioButton4 = (RadioButton) findViewById(R.id.radioButton4);
         editTextTitle = (EditText) findViewById(R.id.editTextTitle);
         editTextText = (EditText) findViewById(R.id.editTextText);
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
@@ -126,6 +130,7 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
                     radioButton1.setChecked(false);
                     radioButton2.setChecked(false);
                     radioButton3.setChecked(true);
+                    radioButton4.setChecked(false);
                     break;
                 }
                 case ORDER_APP: {
@@ -133,6 +138,7 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
                     radioButton1.setChecked(false);
                     radioButton2.setChecked(true);
                     radioButton3.setChecked(false);
+                    radioButton4.setChecked(false);
                     break;
                 }
                 case SUGGESTION: {
@@ -140,6 +146,23 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
                     radioButton1.setChecked(true);
                     radioButton2.setChecked(false);
                     radioButton3.setChecked(false);
+                    radioButton4.setChecked(false);
+                    break;
+                }
+                case CONTENT_REPORT: {
+                    messageType = CONTENT_REPORT;
+                    radioButton1.setChecked(false);
+                    radioButton1.setEnabled(false);
+                    radioButton2.setChecked(false);
+                    radioButton2.setEnabled(false);
+                    radioButton3.setChecked(false);
+                    radioButton3.setEnabled(false);
+                    radioButton4.setChecked(true);
+                    editTextTitle.setText(bundle.getString(Title));
+                    editTextTitle.setEnabled(false);
+                    editTextPhone.setText(bundle.getString(Phone));
+                    editTextPhone.setVisibility(View.GONE);
+                    editTextText.setText(bundle.getString(Text));
                     break;
                 }
             }
@@ -154,19 +177,30 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
                                 radioButton1.setChecked(true);
                                 radioButton2.setChecked(false);
                                 radioButton3.setChecked(false);
+                                radioButton4.setChecked(false);
                                 messageType = SUGGESTION;
                                 break;
                             case R.id.radioButton2:
                                 radioButton1.setChecked(false);
                                 radioButton2.setChecked(true);
                                 radioButton3.setChecked(false);
+                                radioButton4.setChecked(false);
                                 messageType = ORDER_APP;
                                 break;
                             case R.id.radioButton3:
                                 radioButton1.setChecked(false);
                                 radioButton2.setChecked(false);
                                 radioButton3.setChecked(true);
+                                radioButton4.setChecked(false);
                                 messageType = CONTACT_US;
+                                break;
+
+                            case R.id.radioButton4:
+                                radioButton1.setChecked(false);
+                                radioButton2.setChecked(false);
+                                radioButton3.setChecked(false);
+                                radioButton4.setChecked(true);
+                                messageType = CONTENT_REPORT;
                                 break;
 
 
@@ -188,10 +222,21 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
                 boolean isValid = true;
 
                 if (Global.user == null){
-                    if (Validation.validatePhoneNumber(editTextPhone.getText().toString())){
-                        message.setPhoneNumber(editTextPhone.getText().toString());
+                    if (messageType != CONTENT_REPORT) {
+                        if (Validation.validatePhoneNumber(editTextPhone.getText().toString())) {
+                            message.setPhoneNumber(editTextPhone.getText().toString());
+                        } else {
+                            isValid = false;
+                        }
+                    }else if (editTextPhone.getVisibility() == View.VISIBLE){
+                        if (Validation.validatePhoneNumber(editTextPhone.getText().toString())) {
+                            message.setPhoneNumber(editTextPhone.getText().toString());
+                        } else {
+                            isValid = false;
+                        }
                     }else {
-                        isValid = false;
+                        //handle in background
+                        message.setPhoneNumber(editTextPhone.getText().toString());
                     }
                 } else {
                     if (Validation.validatePhoneNumber(Global.user.getUserName())){
@@ -237,6 +282,10 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
                         }
                         case SUGGESTION: {
                             message.setTitle(radioButton1.getText().toString());
+                            break;
+                        }
+                        case CONTENT_REPORT: {
+                            message.setTitle(radioButton4.getText().toString());
                             break;
                         }
                     }

@@ -105,18 +105,42 @@
             android:layout_gravity="right"
             android:gravity="center_vertical"
             android:layoutDirection="rtl"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:paddingBottom="5dp"
             android:paddingRight="10dp"
             android:paddingTop="5dp">
 
-            <include
-                layout="@layout/_part_visit_count"></include>
-            <include
-                layout="@layout/_part_share_layout"></include>
-            <include
-                layout="@layout/_part_comments_layout"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="center_vertical"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal" >
+
+                <include
+                    layout="@layout/_part_visit_count"></include>
+                <include
+                    layout="@layout/_part_share_layout"></include>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="center_vertical"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal">
+
+                <include
+                    layout="@layout/_part_comments_layout"></include>
+
+                <include
+                    layout="@layout/_part_content_report_layout"></include>
+            </LinearLayout>
         </LinearLayout>
+
+
 
 
     </LinearLayout>

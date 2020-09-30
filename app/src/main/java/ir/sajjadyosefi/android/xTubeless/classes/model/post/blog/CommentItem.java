@@ -12,7 +12,9 @@ import java.util.ArrayList;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
@@ -186,6 +188,24 @@ public class CommentItem extends ParentItem{
 
     private void onclicks(Context mContext , int listType, CommentItemViewHolder holder, CommentItem timelineItem) {
 
+        View.OnClickListener onReportClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putInt(ContactUsActivity.Type, ContactUsActivity.CONTENT_REPORT);
+                bundle.putString(ContactUsActivity.Title, String.format("%s:%s",
+                        mContext.getString(R.string.reportContent),
+                        ((CommentItem) timelineItem).getStatementFromJson()));
+                bundle.putString(ContactUsActivity.Phone,  String.format("CID=%s-CUID=%s-UID=%s-UN=%s",
+                        ((CommentItem) timelineItem).getCommentId(),
+                        ((CommentItem) timelineItem).getUserID(),
+                        ((Global.user == null ? "X":Global.user.getUserId())),
+                        ((Global.user == null ? "X":Global.user.getUserName()))));
+                ((Activity)mContext).startActivity(ContactUsActivity.getIntent(mContext, bundle));
+            }
+        };
+        holder.imageViewReport.setOnClickListener(onReportClickListener);
+        holder.textViewReport.setOnClickListener(onReportClickListener);
 
         View.OnClickListener onStarClickListener = new View.OnClickListener() {
             @Override

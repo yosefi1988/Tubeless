@@ -147,20 +147,19 @@
         <LinearLayout
             android:id="@+id/linearLayoutBottom"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:gravity="center_vertical"
             android:layoutDirection="rtl"
-            android:layout_marginTop="-6dp"
+            android:layout_marginTop="-3dp"
             android:orientation="horizontal"
-            android:visibility="gone"
             android:paddingRight="10dp" >
 
-
             <include
-                layout="@layout/_part_share_layout"></include>
+                layout="@layout/_part_content_report_layout"></include>
 
-
+<!--            <include-->
+<!--                layout="@layout/_part_share_layout"></include>-->
 
         </LinearLayout>
 

@@ -32,6 +32,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -108,6 +109,7 @@ import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFr
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
 import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.cancelByBackbuttonPressed;
+import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.mContext;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowMessageDialog;
@@ -553,6 +555,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //
 //            }
 //        },10000);
+
+
     }
 
     private void loadNews() {

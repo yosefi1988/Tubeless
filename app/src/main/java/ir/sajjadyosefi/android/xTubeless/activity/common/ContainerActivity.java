@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
@@ -80,6 +81,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
         if (type == TYPE_COMMENTS){
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             bundle.putInt("blogId",getIntent().getIntExtra("blogId",0));
+            list = new ArrayList<>();
             ft.replace(R.id.include, new ListFragment(this,list ,type,bundle));
             ft.commit();
         }
