@@ -28,6 +28,7 @@ import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
@@ -163,7 +164,6 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
                     });
                 }else {
                     NewBlogCommentRequest aaaa = new NewBlogCommentRequest();
-
 
                     aaaa.setUserID((int)Global.user.getUserId());
 //                    aaaa.setUserID(140430);
@@ -307,12 +307,12 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
         TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {
             @Override
             public void t_beforeSendRequest() {
-
+                ((TubelessActivity)getContext()).progressDialog.show();
             }
 
             @Override
             public void t_afterGetResponse() {
-
+                ((TubelessActivity)getContext()).progressDialog.hide();
             }
 
             @Override
@@ -377,6 +377,7 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
                         TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.new_yafte_new_yafte_inserted), "ok", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                setResult(Activity.RESULT_OK,getIntent());
                                 finish();
                             }
                         });

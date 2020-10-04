@@ -25,6 +25,7 @@ import java.util.Collection;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
@@ -508,6 +509,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                         data.clear();
                         adapter.notifyDataSetChanged();
                     }
+
+                    if (current_page == 1){
+                        if (((Activity)context) instanceof TubelessActivity)
+                            ((TubelessActivity)context).progressDialog.show();
+                    }
                 }
 
                 @Override
@@ -534,6 +540,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 public void t_onSuccess(Object response) {
                     CommentListResponse responseX = (CommentListResponse) response;
 
+                    if (((Activity)context) instanceof TubelessActivity)
+                        ((TubelessActivity)context).progressDialog.hide();
 //                Gson gson = new Gson();
 //                JsonElement jsonElement = gson.toJsonTree(response.body());
 //                TimelineListResponse responseX = gson.fromJson(jsonElement.getAsString(), TimelineListResponse.class);

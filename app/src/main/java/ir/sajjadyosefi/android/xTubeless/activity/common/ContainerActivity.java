@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
@@ -79,11 +81,16 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (type == TYPE_COMMENTS){
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            bundle.putInt("blogId",getIntent().getIntExtra("blogId",0));
-            list = new ArrayList<>();
-            ft.replace(R.id.include, new ListFragment(this,list ,type,bundle));
-            ft.commit();
+            if (resultCode == Activity.RESULT_OK) {
+
+                ((TubelessActivity)mContext).progressDialog.show();
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                bundle.putInt("blogId", getIntent().getIntExtra("blogId", 0));
+                list = new ArrayList<>();
+                ft.replace(R.id.include, new ListFragment(this, list, type, bundle));
+                ft.commit();
+            }
         }
 
         if (requestCode == READ_RULE_AND_PAY) {
@@ -102,8 +109,6 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
 
 
         setContentView(R.layout.x_activity_container);
@@ -136,7 +141,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
 
         }else if (type == TYPE_BOURSE_PLANE){
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.include, new FinancialAccountLimitFragment(getContext()));
+            ft.replace(R.id.include, new FinancialAccountLimitFragment(this));
             ft.commit();
 
         }else if (type == TYPE_COMMENTS){
@@ -220,6 +225,46 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
     public Toolbar getToolbar() {
         return null;
     }
+
+//    @Override
+//    public SystemBarTintManager getSystemBarTint() {
+//        return null;
+//    }
+//
+//    @Override
+//    public boolean hasTranslucentNavigation() {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean hasTranslucentStatusBar() {
+//        return false;
+//    }
+//
+//    @Override
+//    public BottomNavigation getBottomNavigation() {
+//        return null;
+//    }
+//
+//    @Override
+//    public int getNavigationBarHeight() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public boolean hasManagedToolbarScroll() {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean hasAppBarLayout() {
+//        return false;
+//    }
+//
+//    @Override
+//    public Toolbar getToolbar() {
+//        return null;
+//    }
 
 
     Fragment prepareFragment() {

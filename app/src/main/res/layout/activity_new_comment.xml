@@ -47,7 +47,7 @@
                 android:id="@+id/editTextText"
                 style="@style/AppTheme.DayEditText"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
-                android:background="@null"
+                android:background="@drawable/circle_background"
                 android:hint="@string/your_reply" />
 
             <TextView

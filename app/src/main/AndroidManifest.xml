@@ -8,8 +8,6 @@
     <uses-permission
         android:name="android.permission.AUTHENTICATE_ACCOUNTS"
         android:maxSdkVersion="22" />
-
-
     <uses-permission
         android:name="android.permission.GET_ACCOUNTS"
         android:maxSdkVersion="22" />
@@ -19,50 +17,34 @@
     <uses-permission
         android:name="android.permission.USE_CREDENTIALS"
         android:maxSdkVersion="22" />
-
-
-
-
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+<!--    <uses-permission android:name="android.permission.CAMERA" />-->
+
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- برای آواتار -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- for JobIntentService -->
+    <!-- fileupload service -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
-<!--    برای آواتار-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-
-    <!-- <permission -->
-    <!-- android:name="ir.sajjadyosefi.android.tubeless.permission.C2D_MESSAGE" -->
-    <!-- android:protectionLevel="signature" /> -->
-
-
-    <!-- SMS -->
-    <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
-<!--    android:icon="@drawable/png_icon"-->
     <application
         android:name=".GlobalLevel2"
         android:allowBackup="true"
         android:icon="@drawable/png_icon2"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
         android:theme="@style/TubelessDayTheme"
-        tools:replace="android:theme ,android:icon"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:theme ,android:icon">
 
-
-<!--        bourse-->
-<!--        ca-app-pub-6595298957852131~8191473375-->
+        <!-- bourse -->
+        <!-- ca-app-pub-6595298957852131~8191473375 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6595298957852131~8191473375"/>
-
-
+            android:value="ca-app-pub-6595298957852131~8191473375" />
         <meta-data
             android:name="DATABASE"
             android:value="tubeless.db" />
@@ -80,192 +62,131 @@
             android:value="683bcb491cc6431ab73bc844f88c8a45" />
         <meta-data
             android:name="AdadTestMode"
-            android:value="False" />
-
-<!--        <activity-->
-<!--            android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2"-->
-<!--            android:name="ir.sajjadyosefi.android.xTubeless.xMainActivity"-->
-<!--            android:configChanges="orientation|screenSize" />-->
-
-
-
-<!--        android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2"-->
-<!--        android:theme="@style/TubelessDayTheme.NoActionBar"-->
-<!--        android:windowSoftInputMode="adjustResize|stateHidden"-->
+            android:value="False" /> <!-- <activity -->
+        <!-- android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2" -->
+        <!-- android:name="ir.sajjadyosefi.android.xTubeless.xMainActivity" -->
+        <!-- android:configChanges="orientation|screenSize" /> -->
+        <!-- android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2" -->
+        <!-- android:theme="@style/TubelessDayTheme.NoActionBar" -->
+        <!-- android:windowSoftInputMode="adjustResize|stateHidden" -->
         <activity
-            android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2"
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name"
+            android:theme="@style/TubelessDayTheme.NoActionBar.NoTranslucent2"
             android:windowSoftInputMode="stateHidden|adjustResize">
 
-<!--            <data android:scheme="return2" android:host="zarinpalpayment"></data>-->
-<!--            <data android:scheme="@string/schemezarinpalpayment" android:host="@string/zarinpalpayment3"></data>-->
+            <!-- <data android:scheme="return2" android:host="zarinpalpayment"></data> -->
+            <!-- <data android:scheme="@string/schemezarinpalpayment" android:host="@string/zarinpalpayment3"></data> -->
 
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" ></action>
-                <category android:name="android.intent.category.DEFAULT"></category>
-                <category android:name="android.intent.category.BROWSABLE"></category>
-                <data android:scheme="@string/schemezarinpalpayment" android:host="@string/zarinpalpayment"></data>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="@string/zarinpalpayment"
+                    android:scheme="@string/schemezarinpalpayment" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".bussines.post.activity.SearchByNationalCodeActivity"
             android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-
         <activity
             android:name="com.magnetadservices.sdk.MagnetInterstitialActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:hardwareAccelerated="true" />
-
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name=".bussines.post.activity.SearchByNameActivity"
             android:theme="@style/ThemeFullSCreenX"
-            android:windowSoftInputMode="adjustResize|stateHidden">
-        </activity>
-
-
-
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.account.ProfileActivity"
+            android:name=".activity.account.ProfileActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
         <activity
-            android:theme="@style/TubelessDayTheme.NoActionBar"
             android:name=".activity.filter.filterDetailsActivity"
+            android:theme="@style/TubelessDayTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
         <activity
             android:name=".activity.common.blog.zoomImageActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
         <activity
             android:name=".activity.account.profile.MainActivityProfile"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
-
         <activity
             android:name=".networkLayout.retrofit.DownloadUploadPicture.FileListActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
         <activity
             android:name=".activity.register.RegNewCommentActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
-
-
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity"
-            android:theme="@style/ThemeFullSCreenX"
+            android:name=".activity.register.RegNewYafteActivity"
             android:configChanges="orientation|screenSize"
             android:isScrollContainer="true"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-
-        <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity"
             android:theme="@style/ThemeFullSCreenX"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.register.RegNewYadakActivity"
             android:configChanges="orientation|screenSize"
             android:isScrollContainer="true"
+            android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.bussines.police.KarteSokhtActivity"
-            android:theme="@style/ThemeFullSCreenX"
+            android:name=".bussines.police.KarteSokhtActivity"
             android:configChanges="orientation|screenSize"
             android:isScrollContainer="true"
+            android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity"
+            android:name=".activity.common.ContactUsActivity"
             android:theme="@style/ThemeFullSCreenX"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-
-
-
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity"
+            android:name=".activity.common.WebViewActivity"
             android:theme="@style/ThemeFullSCreenX"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".activity.common.ListActivity" />
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ListActivity"  />
-
-        <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity"
-            android:theme="@style/ThemeFullSCreenX"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:configChanges="orientation|screenSize" />
-
+            android:name=".activity.common.ContainerActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.common.blog.ReadBlogActivity"
             android:theme="@style/ThemeFullSCreenX"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.SplashScreen"
+            android:name=".activity.common.splashScreen.SplashScreen"
             android:theme="@style/ThemeFullSCreenX">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--        <activity-->
-        <!--            android:name=".activity.innerActivity.ImageAndVideoPlayer"-->
-        <!--            android:isScrollContainer="true"-->
-        <!--            android:theme="@style/TranslucentSajjad2"-->
-        <!--            android:windowSoftInputMode="adjustPan" />-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <activity android:name=".activity.register.RegNewBlogActivity" >
+        </activity> <!-- <activity -->
+        <!-- android:name=".activity.innerActivity.ImageAndVideoPlayer" -->
+        <!-- android:isScrollContainer="true" -->
+        <!-- android:theme="@style/TranslucentSajjad2" -->
+        <!-- android:windowSoftInputMode="adjustPan" /> -->
+        <activity android:name=".activity.register.RegNewBlogActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity android:name="ir.moslem_deris.apps.zarinpal.PaymentActivity" />
-        <activity android:name="ir.sajjadyosefi.android.superpickerlibrary.TempActivity" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
-            android:theme="@style/TubelessDayTheme.NoActionBar"   />
-
-<!--        <activity-->
-<!--            android:name="eu.janmuller.android.simplecropimage.CropImage"-->
-<!--            android:screenOrientation="landscape" />-->
-<!--        <activity-->
-<!--            android:name="ir.adad.client.AdadActivity"-->
-<!--            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"-->
-<!--            android:theme="@android:style/Theme.Translucent" />-->
-
+            android:theme="@style/TubelessDayTheme.NoActionBar" /> <!-- <activity -->
+        <!-- android:name="eu.janmuller.android.simplecropimage.CropImage" -->
+        <!-- android:screenOrientation="landscape" /> -->
+        <!-- <activity -->
+        <!-- android:name="ir.adad.client.AdadActivity" -->
+        <!-- android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" -->
+        <!-- android:theme="@android:style/Theme.Translucent" /> -->
         <!-- <receiver -->
         <!-- android:name="ir.sls.android.slspush.Receiver.GcmBroadcastReceiver" -->
         <!-- android:permission="com.google.android.c2dm.permission.SEND"> -->
@@ -275,21 +196,19 @@
         <!-- <category android:name="ir.sajjadyosefi.android.tubeless" /> -->
         <!-- </intent-filter> -->
         <!-- </receiver> -->
-
-<!--        <service android:name=".services.MyFireBaseInstanceIDService">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
-<!--        <service-->
-<!--            android:name=".services.GCMNotificationIntentService"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
-
+        <!-- <service android:name=".services.MyFireBaseInstanceIDService"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <!-- <service -->
+        <!-- android:name=".services.GCMNotificationIntentService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher" />
@@ -305,9 +224,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_paths" />
-        </provider>
-
-        <!-- <receiver -->
+        </provider> <!-- <receiver -->
         <!-- android:name="ir.sls.android.slspush.Receiver.BaasReceiver" -->
         <!-- android:exported="false"> -->
         <!-- <intent-filter> -->
@@ -321,14 +238,11 @@
         <!-- <action android:name="ir.sls.android.slspush.ActionSlsPushReceived" /> -->
         <!-- </intent-filter> -->
         <!-- </receiver> -->
-
         <meta-data
             android:name="META_DATA_LOCATION"
-            android:value="true" />
-
-        <!-- sms -->
+            android:value="true" /> <!-- sms -->
         <receiver
-            android:name="ir.sajjadyosefi.android.xTubeless.utility.radyab.SMSUtils"
+            android:name=".utility.radyab.SMSUtils"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -337,19 +251,23 @@
             </intent-filter>
         </receiver>
 
-
-
-        <uses-library android:name="org.apache.http.legacy" android:required="false" />
-
-
-        <!--fileupload service-->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" /> <!-- fileupload service -->
         <service
             android:name=".service.FileUploadService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-    </application>
 
-    <!--for JobIntentService-->
-    <!--fileupload service-->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+
+<!--        template-->
+        <activity android:name="ir.sajjadyosefi.android.template.activity.TemplateActivityMainActivityFullScreen"  >
+        </activity>
+        <activity android:name="ir.sajjadyosefi.android.superpickerlibrary.TempActivity" />
+
+
+
+    </application>
 
 </manifest>

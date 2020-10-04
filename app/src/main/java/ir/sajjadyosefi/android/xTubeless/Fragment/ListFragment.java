@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.Fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -64,7 +65,7 @@ public class ListFragment extends Fragment  {
     private RecyclerView mRecyclerView;
     private CoordinatorLayout mCoordinatorLayout;
     private View fragmentRootView;
-    private TubelessActivity activity;
+    private Activity activity;
     private int listType;
     private Bundle bundle;
     private List<IItems> list;
@@ -190,10 +191,11 @@ public class ListFragment extends Fragment  {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        activity            = (TubelessActivity) getActivity();
+//        activity            = (TubelessActivity) getActivity();
+        activity            = (Activity) getActivity();
 
-        if (activity.getSystemBarTint() != null)
-            config              = activity.getSystemBarTint().getConfig();
+//        if (activity.getSystemBarTint() != null)
+//            config              = activity.getSystemBarTint().getConfig();
 
         mRoot               = (ViewGroup) activity.findViewById(R.id.CoordinatorLayout01);
         if (mRoot instanceof CoordinatorLayout) {

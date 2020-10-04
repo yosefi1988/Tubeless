@@ -1,7 +1,7 @@
 <resources>
     <string name="app_id">17</string>
 
-        <string name="HOST" translatable="false">http://www.example.com</string>
+    <string name="HOST" translatable="false">http://www.example.com</string>
 
 
     <string name="app_price">1000</string>
@@ -196,7 +196,6 @@
     <string name="server_not_response">متاسفانه سرور پاسخی نداد</string>
 
 
-
     <string name="profile">پروفایل</string>
     <string name="register_and_login">ورود / ثبت نام</string>
     <string name="Communicate">پل های ارتباطی</string>
@@ -240,7 +239,6 @@
     <string name="code_melli_not_true">کد ملی صحیح نیست</string>
     <string name="data_not_true">اطلاعات را به درستی وارد نکرده اید.</string>
     <string name="help2">درصورتی که شما مدت زمان زیادی هست به دنبال قطعه های کمیاب خودرو می گردید اطلاعات قطعه خود را در این اپ وارد کنید. به سرعت با شما تماس گرفته خواهد شد.</string>
-
 
 
     <!-- Strings related to login -->
@@ -396,8 +394,8 @@
     <string name="contact_us_hint">متن</string>
     <string name="estelam_by_plak">استعلام با شماره پلاک</string>
     <string name="save">save</string>
-    <string name="not_any_file" >هیچ فایلی وجود ندارد</string>
-    <string name="end_of_list" >انتهای لیست</string>
+    <string name="not_any_file">هیچ فایلی وجود ندارد</string>
+    <string name="end_of_list">انتهای لیست</string>
     <string name="add_files">افزودن فایل</string>
 
 

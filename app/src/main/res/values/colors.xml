@@ -15,7 +15,7 @@
     <color name="day_content_text">#f9353535</color>
     <color name="day_contact_us_text">#121212</color>
     <color name="day_title">@color/tubelessColor_blue_02</color>
-    <color name="day_horisontal_line">#caccd1</color>
+    <color name="day_horisontal_line">#F0F1F4</color>
     <color name="day_border_line">#999999</color>
 
     <color name="night_dark_transparent">#8b000000</color>

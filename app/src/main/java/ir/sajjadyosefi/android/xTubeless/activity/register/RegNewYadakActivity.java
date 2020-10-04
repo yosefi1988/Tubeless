@@ -29,6 +29,7 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
 
 import ir.sajjadyosefi.android.xTubeless.activity.account.profile.IProfileView;
@@ -326,12 +327,20 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
         TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {
             @Override
             public void t_beforeSendRequest() {
+                try {
+                    ((TubelessActivity)getContext()).progressDialog.show();
+                }catch (Exception ex){
 
+                }
             }
 
             @Override
             public void t_afterGetResponse() {
+                try {
+                    ((TubelessActivity)getContext()).progressDialog.hide();
+                }catch (Exception ex){
 
+                }
             }
 
             @Override
@@ -361,7 +370,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 
                 if (responseX.getTubelessException().getCode() > 0) {
 
-                    boolean havePic = true;
+                    boolean havePic = false;
                     if (filesList.size()>=3){
                         havePic = true;
                     }
