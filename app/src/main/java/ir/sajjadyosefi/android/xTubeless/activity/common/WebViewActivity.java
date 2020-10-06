@@ -30,7 +30,7 @@ import java.io.Writer;
 
 
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 

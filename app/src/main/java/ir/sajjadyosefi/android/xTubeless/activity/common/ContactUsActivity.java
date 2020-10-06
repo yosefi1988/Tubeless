@@ -1,36 +1,29 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
 //import com.orm.SugarContext;
-import com.google.android.material.textfield.TextInputEditText;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 //import com.vansuita.gaussianblur.GaussianBlur;
 
 
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.Validation;

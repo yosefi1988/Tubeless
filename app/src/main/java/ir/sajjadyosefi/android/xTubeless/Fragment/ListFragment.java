@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -22,13 +21,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.readystatesoftware.systembartint.SystemBarTintManager.SystemBarConfig;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;

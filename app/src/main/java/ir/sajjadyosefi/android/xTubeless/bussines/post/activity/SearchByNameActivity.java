@@ -26,7 +26,7 @@ import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;

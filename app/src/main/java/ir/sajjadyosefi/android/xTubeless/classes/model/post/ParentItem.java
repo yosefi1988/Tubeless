@@ -15,17 +15,8 @@ import androidx.appcompat.widget.PopupMenu;
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
-import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
-import retrofit2.Call;
-
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
 public abstract class ParentItem implements IItems {
 

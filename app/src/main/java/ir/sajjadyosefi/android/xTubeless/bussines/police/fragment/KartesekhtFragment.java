@@ -20,7 +20,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.zarinpal.ewallets.purchase.OnCallbackRequestPaymentListener;
@@ -31,7 +30,7 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.ConfigurationObject;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import retrofit2.Call;
@@ -409,7 +408,7 @@ public class KartesekhtFragment extends Fragment {
         final TextView textView = (TextView) dialoglayout.findViewById(R.id.textView1);
         final Button btn10 = (Button) dialoglayout.findViewById(R.id.button10);
         btn1.setText(String.format("پرداخت"));
-        textView.setText(String.format("هزینه هر بار استعلام %s تومان می باشد." , configuration.oneTime));
+        textView.setText(String.format("هزینه هر بار استعلام %s تومان می باشد.\n\nدر نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.\n\n" , configuration.oneTime));
 //        btn2.setText(btn2Text);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override

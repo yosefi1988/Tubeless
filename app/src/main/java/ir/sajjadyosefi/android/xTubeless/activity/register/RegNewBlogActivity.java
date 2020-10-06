@@ -3,7 +3,6 @@ package ir.sajjadyosefi.android.xTubeless.activity.register;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +29,7 @@ import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 import ir.sajjadyosefi.android.xTubeless.classes.model.ddl.DdlSelectsObject;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -50,7 +49,6 @@ import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteAct
 
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue.*;
 
 public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
 

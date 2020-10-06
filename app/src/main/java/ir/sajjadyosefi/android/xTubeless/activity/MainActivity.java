@@ -6,7 +6,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -21,7 +20,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +30,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -45,8 +42,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
-import com.magnetadservices.sdk.AdSize;
-import com.magnetadservices.sdk.MagnetNativeExpress;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 import com.zarinpal.ewallets.purchase.OnCallbackRequestPaymentListener;
@@ -56,6 +51,7 @@ import com.zarinpal.ewallets.purchase.ZarinPal;
 
 import org.litepal.LitePal;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
@@ -68,13 +64,11 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.filter.filterDetailsActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
-import ir.sajjadyosefi.android.xTubeless.bussines.police.KarteSokhtActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
@@ -83,7 +77,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 
@@ -98,22 +91,20 @@ import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import it.sephiroth.android.library.bottomnavigation.FloatingActionButtonBehavior;
 import it.sephiroth.android.library.bottomnavigation.MiscUtils;
 import retrofit2.Call;
-import retrofit2.Response;
 
 import static android.util.Log.VERBOSE;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_KSOKHT;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
-import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
 import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.cancelByBackbuttonPressed;
-import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.mContext;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowMessageDialog;
-import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowSelectSturceDialog;
 
 @TargetApi (Build.VERSION_CODES.KITKAT_WATCH)
 public class MainActivity extends TubelessActivity implements BottomNavigation.OnMenuItemSelectionListener  {
@@ -829,14 +820,21 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
                 } else if (id == R.id.nav_karte_sokht) {
                     try {
-                        PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
-                        String versionName = pInfo.versionName;
-                        //todo 1 change version if not complete
-                        if (versionName.contains("4.3.0") || versionName.contains("1.3.0")|| versionName.contains("1.1.0")) {
-                            Toast.makeText(getContext(),"در حال آماده سازی هستیم." , Toast.LENGTH_LONG).show();
-                        } else {
-                            getContext().startActivity(new Intent(getContext(), KarteSokhtActivity.class));
-                        }
+                        //1
+//                        PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
+//                        String versionName = pInfo.versionName;
+//                        //todo 1 change version if not complete
+//                        if (versionName.contains("4.3.0") || versionName.contains("1.3.0")|| versionName.contains("1.1.0")) {
+//                            Toast.makeText(getContext(),"در حال آماده سازی هستیم." , Toast.LENGTH_LONG).show();
+//                        } else {
+//                            getContext().startActivity(new Intent(getContext(), KarteSokhtActivity.class));
+//                        }
+
+                        //2
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("type" , TYPE_KSOKHT);
+//                        bundle.putSerializable("LIST", (Serializable) responseX.getData());
+                        getActivity().startActivity(ContainerActivity.getIntent(getContext(),bundle));
                     }catch (Exception ex){
 
                     }

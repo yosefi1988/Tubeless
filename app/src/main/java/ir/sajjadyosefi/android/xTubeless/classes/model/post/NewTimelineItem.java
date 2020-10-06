@@ -5,26 +5,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 
 import com.google.gson.Gson;
 import com.magnetadservices.sdk.AdSize;
 import com.magnetadservices.sdk.MagnetNativeExpress;
-import com.magnetadservices.sdk.MagnetSDK;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.TextContent;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
@@ -37,9 +29,6 @@ import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.READ_BLOG_COMMENTS;
-import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitle;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitleForShare;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;

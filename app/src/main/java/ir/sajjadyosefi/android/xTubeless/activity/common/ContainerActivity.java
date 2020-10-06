@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,14 +18,16 @@ import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_PLANE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_KSOKHT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
@@ -34,7 +35,7 @@ import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFr
 import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
 
 
-public class ContainerActivity extends TubelessTransparentStatusBarActivity {
+public class ContainerActivity extends TubelessActivity {
 
     private Context mContext;
     private int type = 0 ;
@@ -138,7 +139,10 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.include, new SearchByNameFragment());
             ft.commit();
-
+        }else if (type == TYPE_KSOKHT){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.include, new KartesekhtFragment());
+            ft.commit();
         }else if (type == TYPE_BOURSE_PLANE){
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.include, new FinancialAccountLimitFragment(this));

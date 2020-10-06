@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,9 +22,7 @@ import java.util.ArrayList;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
@@ -41,8 +38,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResp
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
-import ir.sajjadyosefi.android.xTubeless.widget.imageView.NewZoomableImageView;
-import ir.sajjadyosefi.android.xTubeless.widget.imageView.ZoomableImageView;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
@@ -77,6 +72,7 @@ public class ReadBlogActivity extends TubelessActivity {
         textViewCount = findViewById(R.id.textViewCount);
         textViewShare = findViewById(R.id.textViewShare);
         textViewReport = findViewById(R.id.textViewReport);
+        linearLayoutCommentsAndReport = findViewById(R.id.linearLayoutCommentsAndReport);
         textViewComments = findViewById(R.id.textViewComments);
         textViewText = findViewById(R.id.textViewText);
         imageViewUserAvatar = findViewById(R.id.imageViewUserAvatar);
@@ -120,6 +116,7 @@ public class ReadBlogActivity extends TubelessActivity {
             firstFillDataNews((TimelineItem)blogItem);
 
             fillTitle(getContext(),((TimelineItem) blogItem).getTitle(),((TimelineItem) blogItem).getCategoryID(),textViewTitle);
+            linearLayoutCommentsAndReport.setVisibility(View.GONE);
         }
 
 
@@ -312,7 +309,7 @@ public class ReadBlogActivity extends TubelessActivity {
     TextView textViewUserName,textViewTitle,textViewLocation,textViewDate,textViewCount,textViewReport,textViewShare,textViewComments,textViewText;
     ImageView imageViewUserAvatar, imageViewReport,imageViewShare,imageViewComments;
     ImageView imageviewPicture;
-    View viewHeader;
+    View viewHeader , linearLayoutCommentsAndReport;
 
     private void firstFillData(NewTimelineItem newTimelineItem) {
 

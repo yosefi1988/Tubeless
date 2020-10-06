@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.activity;
+package ir.sajjadyosefi.android.xTubeless.activity.activities;
 
 import android.app.Activity;
 import android.app.Dialog;

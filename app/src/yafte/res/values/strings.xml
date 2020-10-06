@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_file">yafte</string>
 
     <string name="zarinpalpayment">zarinpalpayment5</string>
     <string name="schemezarinpalpayment">return5</string>
 
+    <string name="paymenttitle">هزینه استعلام کارت سوخت از اپ مدارک گم شده</string>
 </resources>

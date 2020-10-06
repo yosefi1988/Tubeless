@@ -16,17 +16,13 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import org.litepal.LitePal;
 
-import java.util.List;
-
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;

@@ -7,21 +7,16 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.CommentContent;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CommentItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
@@ -30,8 +25,6 @@ import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.READ_BLOG_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 

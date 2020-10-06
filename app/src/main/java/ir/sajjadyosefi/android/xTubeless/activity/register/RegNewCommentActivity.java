@@ -4,12 +4,10 @@ import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -28,23 +26,17 @@ import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.TubelessTransparentStatusBarActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
-import ir.sajjadyosefi.android.xTubeless.service.FileUploadService;
-import ir.sajjadyosefi.android.xTubeless.utility.file.UriUtil;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 

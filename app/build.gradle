@@ -13,8 +13,8 @@ def final CarNews_VersionCode = 1
 
 def final appNameKartesokht = 'استعلام وضعیت صدور کارت سوخت'
 //def final appNameKartesokht = 'ksokht'
-def final Kartesokht_VersionName = "1.0.5"
-def final Kartesokht_VersionCode = 16
+def final Kartesokht_VersionName = "1.0.6"
+def final Kartesokht_VersionCode = 17
 
 def final appNameYafte = 'مدارک گم شده'
 def final Yafte_VersionName = "2.1.0"

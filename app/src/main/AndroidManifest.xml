@@ -18,7 +18,6 @@
         android:name="android.permission.USE_CREDENTIALS"
         android:maxSdkVersion="22" />
     <uses-permission android:name="android.permission.INTERNET" />
-<!--    <uses-permission android:name="android.permission.CAMERA" />-->
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -152,9 +151,9 @@
             android:name=".activity.common.ContainerActivity"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <activity
             android:name=".activity.common.blog.ReadBlogActivity"
-            android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.common.splashScreen.SplashScreen"
