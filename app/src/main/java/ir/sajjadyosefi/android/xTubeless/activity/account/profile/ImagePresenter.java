@@ -16,20 +16,30 @@ public class ImagePresenter implements IProfilePresenter {
     }
 
 
+//    @Override
+//    public void cameraClick() {
+//        if (!view.checkPermission(Manifest.permission.CAMERA)) {
+//            view.showPermissionDialog(false);
+//            return;
+//        }
+//
+//        File file = view.newFile();
+//
+//        if (file == null) {
+//            view.showErrorDialog();
+//            return;
+//        }
+//
+//        view.startCamera(file);
+//    }
+
     @Override
     public void cameraClick() {
-        if (!view.checkPermission(Manifest.permission.CAMERA)) {
-            view.showPermissionDialog(false);
-            return;
-        }
-
         File file = view.newFile();
-
         if (file == null) {
             view.showErrorDialog();
             return;
         }
-
         view.startCamera(file);
     }
 

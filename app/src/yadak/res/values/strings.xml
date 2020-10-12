@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="app_name_file">yadak</string>
+
+    <string name="zarinpalpayment">zarinpalpayment6</string>
+    <string name="schemezarinpalpayment">return6</string>
+
+
+    <string name="paymenttitle">یدک</string>
+
+    <!--    todo change by store-->
+    <!--    <string name="paySecoundMessage">در نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.</string>-->
+    <string name="paySecoundMessage"></string>
+
 </resources>

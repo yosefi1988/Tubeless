@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat;
 
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.configuration;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -36,6 +36,9 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.SplashScreenPresenterCompl;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -43,6 +46,9 @@ import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static org.litepal.LitePalApplication.getContext;
 //import ir.sls.android.slspush.Mono;
@@ -135,21 +141,33 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     @Override
     protected void onStart() {
         super.onStart();
+        Global.apiManagerTubeless.config(new Callback<Configuration>() {
+            @Override
+            public void onResponse(Call<Configuration> call, Response<Configuration> response) {
+                configuration = response.body();
 
-
-        if (peresenter.isFirstRun()) {
+                //on start
+                BourseState bourseState = new BourseState();
+                if (peresenter.isFirstRun()) {
 //            if (!AndroidOs.checkPermission(context, wantPermission)) {
 //                if (AndroidOs.shouldShowRequestPermissionRationale(this, wantPermission)){
 //                    Toast.makeText(this, this.getString(R.string.loginBySimcardDescription), Toast.LENGTH_LONG).show();
 //                }
 //                AndroidOs.requestPermissions(this, new String[]{wantPermission},PERMISSION_REQUEST_CODE);
 //            } else {
-                peresenter.registerDevice();
+                    peresenter.registerDevice();
 //            }
-        }else {
-            peresenter.goToMainPage();
-        }
+                }else {
+                    peresenter.goToMainPage();
+                }
 
+            }
+
+            @Override
+            public void onFailure(Call<Configuration> call, Throwable t) {
+                Toast.makeText(context,"خطا در برقراری ارتباط",Toast.LENGTH_LONG).show();
+            }
+        });
 
 //        getSupportActionBar().hide();
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);

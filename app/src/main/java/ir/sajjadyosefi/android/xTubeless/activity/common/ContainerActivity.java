@@ -4,7 +4,9 @@ package ir.sajjadyosefi.android.xTubeless.activity.common;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
+import com.zarinpal.ewallets.purchase.OnCallbackVerificationPaymentListener;
+import com.zarinpal.ewallets.purchase.PaymentRequest;
+import com.zarinpal.ewallets.purchase.ZarinPal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +27,9 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
+import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_PLANE;
@@ -32,13 +39,16 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.payType;
+import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.cancelByBackbuttonPressed;
+
 import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
 
 
 public class ContainerActivity extends TubelessActivity {
 
     private Context mContext;
-    private int type = 0 ;
+    private static int type = 0 ;
     private List<IItems> list;
     private Toolbar toolbar;
 
@@ -114,80 +124,137 @@ public class ContainerActivity extends TubelessActivity {
 
         setContentView(R.layout.x_activity_container);
         mContext = this;
-        type = getIntent().getIntExtra("type",0);
-
-        list = (List<IItems>) getIntent().getSerializableExtra("LIST");
-
-
-        if (type == TYPE_POST_SEARCH_RESULT){
-//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//            FragmentAbouteUs fragmentDemo = FragmentAbouteUs.newInstance();
-//            ft.replace(R.id.output, fragmentDemo);
-//            ft.commit();
-
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.include, new ListFragment(this,list ,TYPE_POST_SEARCH_RESULT));
-//            ft.replace(R.id.include, new BlankFragment(getContext()));
-            ft.commit();
- //            ListFragment2 newFragment = new ListFragment2(getContext(),2);
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            transaction.replace(R.id.include, newFragment);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
-
-        }else if (type == TYPE_SEARCH_POST_BY_NAME){
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.include, new SearchByNameFragment());
-            ft.commit();
-        }else if (type == TYPE_KSOKHT){
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.include, new KartesekhtFragment());
-            ft.commit();
-        }else if (type == TYPE_BOURSE_PLANE){
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.include, new FinancialAccountLimitFragment(this));
-            ft.commit();
-
-        }else if (type == TYPE_COMMENTS){
-
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            bundle = new Bundle();
-            bundle.putInt("blogId",getIntent().getIntExtra("blogId",0));
-            ft.replace(R.id.include, new ListFragment(this,list ,type,bundle));
-            ft.commit();
-
-        }else if (type == 1){
-
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//            FragmentNotifications fragmentDemo = FragmentNotifications.newInstance(1,1);
-//            ft.replace(R.id.output, fragmentDemo);
-            ft.commit();
-
-        }else if (type == 2){
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//            FragmentProfile fragmentDemo = FragmentProfile.newInstance(getContext() ,1,1);
-//            ft.replace(R.id.output, fragmentDemo);
-            ft.commit();
-//        }else {
-//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//            FragmentNotifications fragmentDemo = FragmentNotifications.newInstance(1,1);
-//            ft.replace(R.id.output, fragmentDemo);
-//            ft.commit();
-        } else {
-            // Begin the transaction
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            // Replace the contents of the container with the new fragment
-            ft.replace(R.id.include, prepareFragment());
-            // or ft.add(R.id.your_placeholder, new FooFragment());
-            // Complete the changes added above
-            ft.commit();
+        if(type == 0){
+            type = getIntent().getIntExtra("type", 0);
         }
 
 
+        if (type != 0) {
+            list = (List<IItems>) getIntent().getSerializableExtra("LIST");
+            if (type == TYPE_POST_SEARCH_RESULT) {
+                //            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                //            FragmentAbouteUs fragmentDemo = FragmentAbouteUs.newInstance();
+                //            ft.replace(R.id.output, fragmentDemo);
+                //            ft.commit();
 
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.include, new ListFragment(this, list, TYPE_POST_SEARCH_RESULT));
+                //            ft.replace(R.id.include, new BlankFragment(getContext()));
+                ft.commit();
+                //            ListFragment2 newFragment = new ListFragment2(getContext(),2);
+                //            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                //            transaction.replace(R.id.include, newFragment);
+                //            transaction.addToBackStack(null);
+                //            transaction.commit();
+
+            } else if (type == TYPE_SEARCH_POST_BY_NAME) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.include, new SearchByNameFragment());
+                ft.commit();
+            } else if (type == TYPE_KSOKHT) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.include, new KartesekhtFragment(), "KartesekhtFragment");
+                ft.commit();
+            } else if (type == TYPE_BOURSE_PLANE) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.include, new FinancialAccountLimitFragment(this));
+                ft.commit();
+
+            } else if (type == TYPE_COMMENTS) {
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                bundle = new Bundle();
+                bundle.putInt("blogId", getIntent().getIntExtra("blogId", 0));
+                ft.replace(R.id.include, new ListFragment(this, list, type, bundle));
+                ft.commit();
+
+            } else if (type == 1) {
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                //            FragmentNotifications fragmentDemo = FragmentNotifications.newInstance(1,1);
+                //            ft.replace(R.id.output, fragmentDemo);
+                ft.commit();
+
+            } else if (type == 2) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                //            FragmentProfile fragmentDemo = FragmentProfile.newInstance(getContext() ,1,1);
+                //            ft.replace(R.id.output, fragmentDemo);
+                ft.commit();
+                //        }else {
+                //            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                //            FragmentNotifications fragmentDemo = FragmentNotifications.newInstance(1,1);
+                //            ft.replace(R.id.output, fragmentDemo);
+                //            ft.commit();
+            } else {
+                // Begin the transaction
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                // Replace the contents of the container with the new fragment
+                ft.replace(R.id.include, prepareFragment());
+                // or ft.add(R.id.your_placeholder, new FooFragment());
+                // Complete the changes added above
+                ft.commit();
+            }
+        }
+
+
+        Uri data2 = getIntent().getData();
+        ZarinPal.getPurchase(getContext()).verificationPayment(data2, new OnCallbackVerificationPaymentListener() {
+            @Override
+            public void onCallbackResultVerificationPayment(boolean isPaymentSuccess, String refID, PaymentRequest paymentRequest) {
+                if(isPaymentSuccess){
+//                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+                    DialogUtil.showLoadingDialog(getContext());
+
+                    if(payType == 100){
+                        //کارت سوخت
+                        KartesekhtFragment myFragment = (KartesekhtFragment)getSupportFragmentManager().findFragmentByTag("KartesekhtFragment");
+                        if (myFragment != null && myFragment.isVisible()) {
+                            // add your code here
+                            if (myFragment instanceof KartesekhtFragment){
+                                ((KartesekhtFragment)myFragment).callService(getRootActivity());
+                            }
+                        }
+
+                        cancelByBackbuttonPressed = false;
+                        int a = 5 ;
+                        a++;
+                    }
+
+
+                    if(payType != 100) {
+
+                    }
+
+                }else {
+                    //not ok
+//                    show message refID
+//                    Toast.makeText(getContext(),"not ok " ,Toast.LENGTH_LONG).show();
+
+                    cancelByBackbuttonPressed = true;
+                }
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        DialogUtil.hideLoading();
+                    }
+                },2000);
+
+            }
+        });
 
         int a = 5 ;
         a++;
+
+
+        KartesekhtFragment myFragment = (KartesekhtFragment)getSupportFragmentManager().findFragmentByTag("KartesekhtFragment");
+        if (myFragment != null && myFragment.isVisible()) {
+            // add your code here
+            if (myFragment instanceof KartesekhtFragment){
+                ((KartesekhtFragment)myFragment).callService(getRootActivity());
+            }
+        }
     }
 
     @Override
@@ -287,6 +354,9 @@ public class ContainerActivity extends TubelessActivity {
     }
 
 
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        type = 0;
+    }
 }

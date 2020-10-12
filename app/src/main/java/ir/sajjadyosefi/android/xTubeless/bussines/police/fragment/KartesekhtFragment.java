@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
@@ -402,13 +403,13 @@ public class KartesekhtFragment extends Fragment {
         builder.setView(dialoglayout);
         final AlertDialog alertDialog1 = builder.create();
 //        alertDialog1.getWindow().getAttributes().windowAnimations = R.style.alertDialogAnimation;
-        alertDialog1.setCancelable(false);
+        alertDialog1.setCancelable(true);
 
         final Button btn1 = (Button) dialoglayout.findViewById(R.id.button1);
         final TextView textView = (TextView) dialoglayout.findViewById(R.id.textView1);
         final Button btn10 = (Button) dialoglayout.findViewById(R.id.button10);
         btn1.setText(String.format("پرداخت"));
-        textView.setText(String.format("هزینه هر بار استعلام %s تومان می باشد.\n\nدر نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.\n\n" , configuration.oneTime));
+        textView.setText(String.format("هزینه هر بار استعلام %s تومان می باشد.\n\n%s" , configuration.oneTime, mContext.getString(R.string.paySecoundMessage)));
 //        btn2.setText(btn2Text);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -434,6 +435,18 @@ public class KartesekhtFragment extends Fragment {
         //text
 //        TextView textViewText = (TextView) dialoglayout.findViewById(R.id.textView1);
 //        textViewText.setText(text);
+        alertDialog1.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                ((TubelessActivity)mContext).progressDialog.hide();
+            }
+        });
+        alertDialog1.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                ((TubelessActivity)mContext).progressDialog.hide();
+            }
+        });
 
 
         try {
@@ -449,8 +462,9 @@ public class KartesekhtFragment extends Fragment {
 
         payment.setMerchantID("e8a913e8-f089-11e6-8dec-005056a205be");
         payment.setAmount(amount);
-        payment.setDescription("هزینه استعلام کارت سوخت 2");
-        payment.setCallbackURL("return3://zarinpalpayment3");
+        payment.setDescription(getString(R.string.paymenttitle));
+        payment.setCallbackURL(String.format("%s://%s",getString(R.string.schemezarinpalpayment),getString(R.string.zarinpalpayment)));
+
         MainActivity.payType = 100 ;
 
         purches.startPayment(payment, new OnCallbackRequestPaymentListener() {

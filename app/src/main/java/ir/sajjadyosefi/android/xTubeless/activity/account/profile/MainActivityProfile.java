@@ -235,10 +235,18 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         if (resultCode == RESULT_OK) {
             if (requestCode == REQUEST_TAKE_PHOTO) {
                 try {
-                    //=>
+                    //sajjad
                     Uri mPhotoURI0 = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", mPhotoFile);
-
                     Uri newCropedFile = mImagePresenter.cropImage(mPhotoURI0);
+
+//                    //cafebazarr
+//                    Uri imageUri = data.getData();
+//                    if(imageUri != null) {
+//                        // do something with image
+//                        mImagePresenter.cropImage(imageUri);
+//                    }
+
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -479,38 +487,53 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     @Override
     public void startCamera(File file) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             if (file != null) {
-
-//                ContentValues values = new ContentValues(1);
-//                values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpg");
-//                Uri mPhotoURI = activity.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-//                takePictureIntent.setClipData( ClipData.newRawUri( "", mPhotoURI ) );
-//                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mPhotoURI);
-
-
-                //old
                 Uri mPhotoURI0 = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", file);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mPhotoURI0);
                 mPhotoFile = file;
-
-
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
             }
         }
-
-
-//        new PickerManagerBuilder(this,true, PickerManagerBuilder.SELECT_FROM_CAMERA)
-//                .setOnImageReceivedListener(new PickerManagerBuilder.onImageReceivedListener() {
-//                    @Override
-//                    public void onImageReceived(Uri imageUri) {
-////                        Toast.makeText(activity,"Got image - " + imageUri, Toast.LENGTH_LONG).show();
-//
-//                    }
-//                })
-//                .setImageName("avatar")
-//                .start();
     }
+
+
+//    @Override
+//    public void startCamera(File file) {
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//            if (file != null) {
+//
+////                ContentValues values = new ContentValues(1);
+////                values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpg");
+////                Uri mPhotoURI = activity.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+////                takePictureIntent.setClipData( ClipData.newRawUri( "", mPhotoURI ) );
+////                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mPhotoURI);
+//
+//
+//                //old
+//                Uri mPhotoURI0 = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", file);
+//                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mPhotoURI0);
+//                mPhotoFile = file;
+//
+//
+//                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+//            }
+//        }
+//
+//
+////        new PickerManagerBuilder(this,true, PickerManagerBuilder.SELECT_FROM_CAMERA)
+////                .setOnImageReceivedListener(new PickerManagerBuilder.onImageReceivedListener() {
+////                    @Override
+////                    public void onImageReceived(Uri imageUri) {
+//////                        Toast.makeText(activity,"Got image - " + imageUri, Toast.LENGTH_LONG).show();
+////
+////                    }
+////                })
+////                .setImageName("avatar")
+////                .start();
+//    }
 
     @Override
     public void chooseGallery() {

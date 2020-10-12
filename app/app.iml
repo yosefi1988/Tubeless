@@ -10,105 +10,105 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="yafteBazzarRelease" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleYafteBazzarRelease" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileYafteBazzarReleaseSources" />
+        <option name="SELECTED_BUILD_VARIANT" value="yadakMyketRelease" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleYadakMyketRelease" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileYadakMyketReleaseSources" />
         <afterSyncTasks>
-          <task>generateYafteBazzarReleaseSources</task>
+          <task>generateYadakMyketReleaseSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/yafte/res;file://$MODULE_DIR$/src/bazzar/res;file://$MODULE_DIR$/src/yafteBazzar/res;file://$MODULE_DIR$/src/release/res;file://$MODULE_DIR$/src/yafteBazzarRelease/res;file://$MODULE_DIR$/build/generated/fabric/res/yafteBazzar/release;file://$MODULE_DIR$/build/generated/res/google-services/yafteBazzar/release;file://$MODULE_DIR$/build/generated/res/rs/yafteBazzar/release;file://$MODULE_DIR$/build/generated/res/resValues/yafteBazzar/release" />
-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestYafte/res;file://$MODULE_DIR$/src/testYafte/res;file://$MODULE_DIR$/src/androidTestBazzar/res;file://$MODULE_DIR$/src/testBazzar/res;file://$MODULE_DIR$/src/testRelease/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/yadak/res;file://$MODULE_DIR$/src/myket/res;file://$MODULE_DIR$/src/yadakMyket/res;file://$MODULE_DIR$/src/release/res;file://$MODULE_DIR$/src/yadakMyketRelease/res;file://$MODULE_DIR$/build/generated/fabric/res/yadakMyket/release;file://$MODULE_DIR$/build/generated/res/google-services/yadakMyket/release;file://$MODULE_DIR$/build/generated/res/rs/yadakMyket/release;file://$MODULE_DIR$/build/generated/res/resValues/yadakMyket/release" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestYadak/res;file://$MODULE_DIR$/src/testYadak/res;file://$MODULE_DIR$/src/androidTestMyket/res;file://$MODULE_DIR$/src/testMyket/res;file://$MODULE_DIR$/src/testRelease/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/build/intermediates/javac/yafteBazzarRelease/classes" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/yafteBazzarReleaseUnitTest/classes" />
+    <output url="file://$MODULE_DIR$/build/intermediates/javac/yadakMyketRelease/classes" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/yadakMyketReleaseUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yafteBazzarRelease/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yafteBazzarRelease/compileYafteBazzarReleaseAidl/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/yafteBazzar/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/yafteBazzarRelease/compileYafteBazzarReleaseRenderscript/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/yafteBazzar/release" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/yafteBazzar/release" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/yafteBazzar/release" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/yafteBazzar/release" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzarRelease/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzarRelease/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzarRelease/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzarRelease/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzarRelease/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzarRelease/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzarRelease/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzar/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzar/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzar/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzar/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzar/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzar/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteBazzar/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yafteBazzarReleaseUnitTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzarRelease/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzarRelease/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzarRelease/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzarRelease/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzarRelease/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzarRelease/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzarRelease/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzar/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzar/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzar/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzar/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzar/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzar/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteBazzar/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/bazzar/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/bazzar/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/bazzar/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/bazzar/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/bazzar/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/bazzar/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/bazzar/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestBazzar/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestBazzar/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestBazzar/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestBazzar/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestBazzar/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestBazzar/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestBazzar/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testBazzar/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakMyketRelease/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yadakMyketRelease/compileYadakMyketReleaseAidl/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/yadakMyket/release" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/yadakMyketRelease/compileYadakMyketReleaseRenderscript/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/yadakMyket/release" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/yadakMyket/release" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/yadakMyket/release" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/yadakMyket/release" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketRelease/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketRelease/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketRelease/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketRelease/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketRelease/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketRelease/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketRelease/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakMyketReleaseUnitTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketRelease/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketRelease/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketRelease/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketRelease/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketRelease/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketRelease/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketRelease/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadak/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadak/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadak/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadak/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadak/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadak/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/yadak/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/myket/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/myket/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/myket/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/myket/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/myket/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/myket/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/myket/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestMyket/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestMyket/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestMyket/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestMyket/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestMyket/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestMyket/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestMyket/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testMyket/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testMyket/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testMyket/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testMyket/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testMyket/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testMyket/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testMyket/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/assets" type="java-resource" />

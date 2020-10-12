@@ -77,12 +77,12 @@
             <!-- <data android:scheme="return2" android:host="zarinpalpayment"></data> -->
             <!-- <data android:scheme="@string/schemezarinpalpayment" android:host="@string/zarinpalpayment3"></data> -->
 
+
+<!--                todo comment on yafte -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="@string/zarinpalpayment"
                     android:scheme="@string/schemezarinpalpayment" />
@@ -147,10 +147,21 @@
             android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".activity.common.ListActivity" />
+
         <activity
             android:name=".activity.common.ContainerActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+<!--&lt;!&ndash;           todo un comment on yafte &ndash;&gt;-->
+<!--                <intent-filter>-->
+<!--                    <action android:name="android.intent.action.VIEW" />-->
+<!--                    <category android:name="android.intent.category.DEFAULT" />-->
+<!--                    <category android:name="android.intent.category.BROWSABLE" />-->
+<!--                    <data-->
+<!--                        android:host="@string/zarinpalpayment"-->
+<!--                        android:scheme="@string/schemezarinpalpayment" />-->
+<!--                </intent-filter>-->
+        </activity>
 
         <activity
             android:name=".activity.common.blog.ReadBlogActivity"

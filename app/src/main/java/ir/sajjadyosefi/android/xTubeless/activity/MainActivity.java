@@ -51,7 +51,6 @@ import com.zarinpal.ewallets.purchase.ZarinPal;
 
 import org.litepal.LitePal;
 
-import java.io.Serializable;
 import java.util.Calendar;
 
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
@@ -95,7 +94,6 @@ import retrofit2.Call;
 import static android.util.Log.VERBOSE;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_KSOKHT;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 

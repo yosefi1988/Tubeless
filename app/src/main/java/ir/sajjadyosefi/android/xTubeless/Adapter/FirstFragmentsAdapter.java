@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -218,5 +219,6 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
             if (fragmentx1 instanceof KartesekhtFragment){
                 ((KartesekhtFragment)fragmentx1).callService(rootView);
             }
+
     }
 }

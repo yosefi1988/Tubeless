@@ -5,39 +5,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.widget.RelativeLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.widget.Toast;
 
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.splunk.mint.Mint;
 
 //import ir.sajjadyosefi.android.tubeless.Class.model.AppStatus;
-import org.litepal.LitePal;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
-import ir.adad.banner.AdadBannerAd;
-import ir.adad.core.Adad;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
@@ -45,13 +25,8 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
-import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
-import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidHardware;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 import retrofit2.Call;
 import retrofit2.Callback;

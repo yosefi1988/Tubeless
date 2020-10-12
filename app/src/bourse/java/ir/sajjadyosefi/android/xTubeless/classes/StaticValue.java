@@ -1,7 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
-import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Configuration;
 
 public class StaticValue {
 
