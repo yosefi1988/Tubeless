@@ -234,9 +234,9 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 //            }
 
         if (Global.user != null && Global.user.isAdmin()) {
-            buttonAddFiles.setEnabled(true);
+            buttonAddFiles.setVisibility(View.VISIBLE);
         }else {
-            buttonAddFiles.setEnabled(false);
+            buttonAddFiles.setVisibility(View.GONE);
         }
 //        }catch (Exception ex){
 //

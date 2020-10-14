@@ -126,6 +126,8 @@ public class ContainerActivity extends TubelessActivity {
         mContext = this;
         if(type == 0){
             type = getIntent().getIntExtra("type", 0);
+        }else if (getIntent() != null && getIntent().hasExtra("type") && type != getIntent().getIntExtra("type", 0)){
+            type = getIntent().getIntExtra("type", 0);
         }
 
 

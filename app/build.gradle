@@ -17,12 +17,12 @@ def final Kartesokht_VersionName = "1.0.7"
 def final Kartesokht_VersionCode = 18
 
 def final appNameYafte = 'مدارک گم شده'
-def final Yafte_VersionName = "2.2.0"
-def final Yafte_VersionCode = 19
+def final Yafte_VersionName = "2.2.1"
+def final Yafte_VersionCode = 21
 
 def final appNameYadak = 'لوازم یدکی'
-def final Yadak_VersionName = "2.1.0"
-def final Yadak_VersionCode = 7
+def final Yadak_VersionName = "2.2.0"
+def final Yadak_VersionCode = 8
 
 def final appNameBourse = 'بورس , سهام'
 def final Bourse_VersionName = "3.1.2"

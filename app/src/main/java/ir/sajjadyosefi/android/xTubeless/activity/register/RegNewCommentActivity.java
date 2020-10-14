@@ -24,6 +24,7 @@ import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
+import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
@@ -177,8 +178,7 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 
 //        if (Global.IDUser == NOT_LOGN_USER ){
 
-
-        if (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER ){
+        if ((!BuildConfig.BUILD_TYPE.equals("debug")) && (Global.user == null || Global.user.getUserId() == NOT_LOGN_USER )){
             Bundle bundlex = new Bundle();
             Intent intentx = SignInActivity.getIntent(getContext(),bundlex);
             intentx.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
@@ -211,8 +211,13 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
 //            if (versionName.contains("4.5.0") || versionName.contains("1.5.0")|| versionName.contains("1.3.0")) {
 //                buttonAddFiles.setEnabled(false);
 //            } else {
-                buttonAddFiles.setEnabled(true);
+//                buttonAddFiles.setVisibility(View.VISIBLE);
 //            }
+        if (Global.user != null && Global.user.isAdmin()) {
+            buttonAddFiles.setVisibility(View.VISIBLE);
+        } else {
+            buttonAddFiles.setVisibility(View.GONE);
+        }
 //        }catch (Exception ex){
 //
 //        }

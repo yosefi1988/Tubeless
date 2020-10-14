@@ -1,6 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.bussines.post.activity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYafteActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.SearchRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.ServerResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -221,7 +223,7 @@ public class SearchByNationalCodeActivity extends TubelessTransparentStatusBarAc
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"reg" ,Toast.LENGTH_SHORT).show();
+                getContext().startActivity(new Intent(getContext(), RegNewYafteActivity.class));
             }
         });
         alertDialog.show();

@@ -152,7 +152,7 @@
             android:name=".activity.common.ContainerActivity"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden|adjustResize" >
-<!--&lt;!&ndash;           todo un comment on yafte &ndash;&gt;-->
+<!--           todo un comment on yafte -->
 <!--                <intent-filter>-->
 <!--                    <action android:name="android.intent.action.VIEW" />-->
 <!--                    <category android:name="android.intent.category.DEFAULT" />-->
