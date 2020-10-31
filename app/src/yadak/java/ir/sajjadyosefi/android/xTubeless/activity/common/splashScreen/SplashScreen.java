@@ -34,6 +34,7 @@ import ir.adad.core.Adad;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.SplashScreenPresenterCompl;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
@@ -130,6 +131,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 
 
 
+
     }
 
     @Override
@@ -153,6 +155,9 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 
 //        getSupportActionBar().hide();
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+
     }
 
 

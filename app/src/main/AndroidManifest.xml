@@ -132,6 +132,7 @@
             android:isScrollContainer="true"
             android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <activity
             android:name=".bussines.police.KarteSokhtActivity"
             android:configChanges="orientation|screenSize"

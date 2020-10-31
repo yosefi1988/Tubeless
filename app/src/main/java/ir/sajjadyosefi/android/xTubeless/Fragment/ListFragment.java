@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -98,6 +99,28 @@ public class ListFragment extends Fragment  {
     }
 
     public ListFragment() {
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+//        savedInstanceState.putString(TITLE, "Gladiator");
+//        savedInstanceState.putDouble(RATING, 8.5);
+//        savedInstanceState.putInt(YEAR, 2000);
+
+//        mRecyclerView.computeHorizontalScrollOffset();
+//        mRecyclerView.computeVerticalScrollOffset();
+
+    }
+
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+//        title = savedInstanceState.getString(TITLE);
+//        rating = savedInstanceState.getDouble(RATING);
+//        year = savedInstanceState.getInt(YEAR);
     }
 
     public ListFragment(Context context, int listType) {
@@ -226,6 +249,7 @@ public class ListFragment extends Fragment  {
                 list,
                 bundle);
         mRecyclerView.setAdapter(xAdapter);
+
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
     }
 
@@ -353,6 +377,8 @@ public class ListFragment extends Fragment  {
 //                        Bundle bundle = new Bundle();
 //                        bundle.putString("X" , "X");
                         getActivity().startActivityForResult(RegNewCommentActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_NEW_COMMENT);
+                    } else {
+                        Toast.makeText(context, "not set", Toast.LENGTH_LONG).show();
                     }
                 }
             });

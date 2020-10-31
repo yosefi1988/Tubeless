@@ -52,6 +52,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     public static int TYPE_COMMENTS  = 6;
     public static int TYPE_BOURSE_PLANE  = 7;
     public static int TYPE_KSOKHT  = 8;
+    public static int TYPE_LIST  = 9;
 
 
     public FirstFragmentsAdapter(Context context, ViewPager viewPager, FragmentManager supportFragmentManager) {

@@ -3,6 +3,7 @@ package ir.sajjadyosefi.android.xTubeless.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,14 @@ import com.squareup.picasso.Picasso;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.mainList.MainListItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NotiesItem;
@@ -32,8 +35,10 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.CommentListResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.MainListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CommentItemViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.MainListViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
@@ -43,6 +48,7 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 
+import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
@@ -52,6 +58,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_NEWS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
@@ -155,7 +162,74 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     private void loadTimeline(Context context,int current_page, boolean isRefresh) {
 
-        if (listType == TYPE_YADAK) {
+        if (listType == TYPE_LIST) {
+//            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
+//                @Override
+//                public void t_beforeSendRequest() {
+//
+//                }
+//
+//                @Override
+//                public void t_afterGetResponse() {
+//
+//                }
+//
+//                @Override
+//                public void t_complite() {
+//
+//                }
+//
+//                @Override
+//                public void t_responseNull() {
+//
+//                }
+//
+//                @Override
+//                public void t_retry(Call<Object> call) {
+//
+//                }
+//
+//                @Override
+//                public void t_onSuccess(Object response) {
+//                    NewTimelineListResponse responseX = (NewTimelineListResponse) response;
+////                    data.add(new NotiesItem());
+//
+//                    for (NewTimelineItem item : responseX.getTimelineList()){
+////                        item.setType(Tubeless_ITEM_TYPE);
+//                        data.add(item);
+//                        if (isRefresh) {
+//                            adapter.notifyDataSetChanged();
+//                        }else {
+//                            adapter.notifyItemInserted(data.size());
+//                        }
+//                    }
+//                }
+//            };
+//            Global.apiManagerTubeless.getTimelineListForX(context,current_page - 1, ssssssss);
+
+
+            MainListResponse responseX = new MainListResponse();
+            List<MainListItem> dddddd = new ArrayList<>();
+            TimelineItem dddddddddd = new TimelineItem();
+            dddddddddd.setTitle("Group One");
+            dddddddddd.setText("group One Text");
+            Date date = new Date();
+            dddddddddd.setDate(date.getTime() + "");
+            dddddddddd.setRegisterDate(date.getTime() + "");
+            dddddddddd.setPicture("https://flutter-learn.ir/wp-content/uploads/2019/09/maxresdefault-100x75.png");
+
+            MainListItem sssssssssssss = new MainListItem(dddddddddd);
+            dddddd.add(sssssssssssss);
+            responseX.setMainListItems(dddddd);
+            for (MainListItem item : responseX.getMainListItems()){
+                data.add(item);
+                if (isRefresh) {
+                    adapter.notifyDataSetChanged();
+                }else {
+                    adapter.notifyItemInserted(data.size());
+                }
+            }
+        }else if (listType == TYPE_YADAK) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
@@ -196,6 +270,9 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                             adapter.notifyItemInserted(data.size());
                         }
                     }
+
+                    recyclerView.scrollToPosition(5);
+
                 }
             };
             Global.apiManagerTubeless.getTimelineListForYadak(context,current_page - 1, ssssssss);
@@ -578,6 +655,13 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         if (listType == TYPE_YADAK) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_of_yafte_item, parent, false);
             holder = new TimelineItemViewHolder(view);
+        }else if (listType == TYPE_LIST) {
+            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_group_item, parent, false);
+            //font 5
+//            FontChangeCrawler fontChanger = new FontChangeCrawler(context.getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
+//            fontChanger.replaceFonts((ViewGroup)view);
+            holder = new MainListViewHolder(view);
+
         }else if (listType == TYPE_YAFTE) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_yafte_item, parent, false);
             //font 5
@@ -654,6 +738,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         }else if (data.get(position) instanceof NotiesItem) {
 
             NotiesItem item = (NotiesItem) data.get(position);
+            item.fill(context , this, listType, holder, item,position);
+
+        }else if (data.get(position) instanceof MainListItem) {
+
+            MainListItem item = (MainListItem) data.get(position);
             item.fill(context , this, listType, holder, item,position);
 
         }

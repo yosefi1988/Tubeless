@@ -17,12 +17,19 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.splunk.mint.Mint;
 
 //import ir.sajjadyosefi.android.tubeless.Class.model.AppStatus;
+import java.io.Serializable;
+import java.util.ArrayList;
+
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.SplashScreenPresenterCompl;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
+
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
 
@@ -107,6 +114,13 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 //        startActivity( launchIntent );
 
         ((TextView)(findViewById(R.id.textViewVersionName))).setText(BuildConfig.VERSION_NAME);
+
+
+        //todo remove
+        Bundle bundle = new Bundle();
+        bundle.putInt("type" , TYPE_LIST);
+        bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
+        this.startActivity(ContainerActivity.getIntent(this,bundle));
     }
 
     @Override
