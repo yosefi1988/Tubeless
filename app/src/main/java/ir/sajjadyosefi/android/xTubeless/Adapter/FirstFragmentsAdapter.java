@@ -128,41 +128,42 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
             case 0:
 //                FragmentNotifications d33333 = new FragmentNotifications();
 //                fragmentx = d33333.newInstance(position,LIST_TIMELINE );
-
 //                fragment = new ListFragment(context);
 
+                if (fragmentx1 == null) {
 
-                if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
-                    fragmentx1 = new ListFragment(context,TYPE_YAFTE);
-                }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
-                    fragmentx1 = new SearchByNameFragment();
-                }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
-                    fragmentx1 = new KartesekhtFragment();
-                }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
-                    fragmentx1 = new ListFragment(context,TYPE_BOURSE_TRAIN);
-                }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
-                    fragmentx1 = new ListFragment(context,TYPE_YADAK);
-                }else {
-                    fragmentx1 = new ListFragment(context,TYPE_YAFTE);
+                    if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+                        fragmentx1 = new ListFragment(context, TYPE_YAFTE);
+                    } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                        fragmentx1 = new SearchByNameFragment();
+                    } else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")) {
+                        fragmentx1 = new KartesekhtFragment();
+                    } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                        fragmentx1 = new ListFragment(context, TYPE_BOURSE_TRAIN);
+                    } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+                        fragmentx1 = new ListFragment(context, TYPE_YADAK);
+                    } else {
+                        fragmentx1 = new ListFragment(context, TYPE_YAFTE);
+                    }
                 }
                 return fragmentx1;
 
             case 1:
-
-                if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
-                    fragmentx2 = new ListFragment(context,TYPE_YADAK);
-                }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
-                    fragmentx2 = new ListFragment(context,TYPE_YAFTE);
-                }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
-                    fragmentx2 = new ListFragment(context,TYPE_YAFTE);
-                }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
-                    fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
-                }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
-                    fragmentx2 = new ListFragment(context,TYPE_YAFTE);
-                }else {
-                    fragmentx2 = new ListFragment(context,TYPE_YADAK);
+                if (fragmentx2 == null) {
+                    if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+                        fragmentx2 = new ListFragment(context, TYPE_YADAK);
+                    } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                        fragmentx2 = new ListFragment(context, TYPE_YAFTE);
+                    } else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")) {
+                        fragmentx2 = new ListFragment(context, TYPE_YAFTE);
+                    } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                        fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
+                    } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+                        fragmentx2 = new ListFragment(context, TYPE_YAFTE);
+                    } else {
+                        fragmentx2 = new ListFragment(context, TYPE_YADAK);
+                    }
                 }
-
                 return fragmentx2;
 
             case 2:
@@ -172,34 +173,36 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 //                FragmentYafteha fragmentNotifications = new FragmentYafteha();
 //                fragment = fragmentNotifications.newInstance(context,position,LIST_TIMELINE );
 
-                if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
-                    fragmentx3 = new BlankFragment();
-                }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
-                    fragmentx3 = new ListFragment(context,TYPE_YADAK);
-                }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
-                    fragmentx3 = new ListFragment(context,TYPE_YADAK);
-                }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+                if (fragmentx3 == null) {
+                    if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+                        fragmentx3 = new BlankFragment();
+                    } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                        fragmentx3 = new ListFragment(context, TYPE_YADAK);
 
-                    if (!checkResult(context, StaticValue.configuration)){
-                        fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
-                    }else {
-                        if (StaticValue.bourseState.totalPayedValue > 0) {
-                            if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
-                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
-                            } else {
-                                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
-                            }
+                    } else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")) {
+                        fragmentx3 = new ListFragment(context, TYPE_YADAK);
+                    } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                        if (!checkResult(context, StaticValue.configuration)) {
+                            fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
                         } else {
+                            if (StaticValue.bourseState.totalPayedValue > 0) {
+                                if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
+                                    fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
+                                } else {
+                                    fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_Old);
+                                }
+                            } else {
 //                        fragmentx3 = new FinancialAccountDetailsFragment();
 
-                            //هیچ پرداختی قبلا انجام نداده است
-                            fragmentx3 = new FinancialAccountLimitFragment(context);
+                                //هیچ پرداختی قبلا انجام نداده است
+                                fragmentx3 = new FinancialAccountLimitFragment(context);
+                            }
                         }
+                    } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+                        fragmentx3 = new BlankFragment();
+                    } else {
+                        fragmentx3 = new BlankFragment();
                     }
-                }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
-                    fragmentx3 = new BlankFragment();
-                }else{
-                    fragmentx3 = new BlankFragment();
                 }
                 return fragmentx3;
         }

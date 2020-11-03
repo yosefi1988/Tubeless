@@ -11,6 +11,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -21,6 +22,8 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
@@ -75,7 +78,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     private RecyclerView recyclerView;
     private Picasso picasso;
     //private int navigationHeight;
-    private List<IItems> data;
+//    private List<IItems> data;
+    private Fragment fragment;
 
     XAdapter adapter;
     int listType;
@@ -88,10 +92,10 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     EndlessRecyclerOnScrollListener onScrollListener;
 
 
-    public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, final List<IItems> data, Bundle bundle) {
+    public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
         this.listType = listType;
         //this.navigationHeight = navigationHeight;
-        this.data = data;
+        this.fragment = fragment;
         //this.hasAppBarLayout = hasAppBarLayout;
         this.picasso = Picasso.get();
         this.context = context;
@@ -102,6 +106,10 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         this.mSwipeRefreshLayout = mSwipeRefreshLayout ;
         this.adapter = this;
         this.bundle = bundle;
+
+        if (((ListFragment)fragment).list == null)
+            ((ListFragment)fragment).list = new ArrayList<>();
+
 
         onScrollListener = new EndlessRecyclerOnScrollListener(mLayoutManager) {
             @Override
@@ -125,7 +133,6 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         };
 
         recyclerView.addOnScrollListener(onScrollListener);
-
         firstLoadAndRefresh(context);
     }
 
@@ -145,17 +152,23 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             @Override
             public void onRefresh() {
                 onScrollListener.reset();
+
 //                onScrollListener.resetCounter();
+
+
+                ((ListFragment)fragment).list.clear();
+
+//                if(listType == TYPE_YAFTE){
+//                }else
+//                if(listType == TYPE_YADAK){
+//                    ((ListFragment)fragment).list.clear();
+//                }else if(listType == TYPE_IMAGE){
+//                }
+
                 loadTimeline(context,1,true);
                 mSwipeRefreshLayout.setRefreshing(false);
 
-//                if(listType == TYPE_YAFTE){
-//
-//                }else if(listType == TYPE_YADAK){
-//
-//                }else if(listType == TYPE_IMAGE){
-//
-//                }
+
             }
         });
     }
@@ -222,11 +235,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             dddddd.add(sssssssssssss);
             responseX.setMainListItems(dddddd);
             for (MainListItem item : responseX.getMainListItems()){
-                data.add(item);
+                ((ListFragment)fragment).list.add(item);
                 if (isRefresh) {
                     adapter.notifyDataSetChanged();
                 }else {
-                    adapter.notifyItemInserted(data.size());
+                    adapter.notifyItemInserted(((ListFragment)fragment).list.size());
                 }
             }
         }else if (listType == TYPE_YADAK) {
@@ -263,15 +276,14 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                     for (NewTimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
-                        data.add(item);
+                        ((ListFragment)fragment).list.add(item);
                         if (isRefresh) {
                             adapter.notifyDataSetChanged();
                         }else {
-                            adapter.notifyItemInserted(data.size());
+                            adapter.notifyItemInserted(((ListFragment)fragment).list.size());
                         }
                     }
 
-                    recyclerView.scrollToPosition(5);
 
                 }
             };
@@ -323,11 +335,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     for (TimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
                         NewTimelineItem newTimelineItem = new NewTimelineItem(item);
-                        data.add(newTimelineItem);
+                        ((ListFragment)fragment).list.add(newTimelineItem);
                         if (isRefresh) {
                             adapter.notifyDataSetChanged();
                         }else {
-                            adapter.notifyItemInserted(data.size());
+                            adapter.notifyItemInserted(((ListFragment)fragment).list.size());
                         }
                     }
                     adapter.notifyDataSetChanged();
@@ -384,7 +396,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                     for (NewTimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
-                        data.add(item);
+                        ((ListFragment)fragment).list.add(item);
 //                        if (isRefresh) {
                         adapter.notifyDataSetChanged();
 //                        }else {
@@ -443,7 +455,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                     for (NewTimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
-                        data.add(item);
+                        ((ListFragment)fragment).list.add(item);
 //                        if (isRefresh) {
                         adapter.notifyDataSetChanged();
 //                        }else {
@@ -502,7 +514,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                     for (NewTimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
-                        data.add(item);
+                        ((ListFragment)fragment).list.add(item);
 //                        if (isRefresh) {
                         adapter.notifyDataSetChanged();
 //                        }else {
@@ -554,7 +566,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     if (isRefresh) {
                         adapter.notifyDataSetChanged();
                     }else {
-                        adapter.notifyItemInserted(data.size());
+                        adapter.notifyItemInserted(((ListFragment)fragment).list.size());
                     }
 //                }
 //                adapter.notifyDataSetChanged();
@@ -562,7 +574,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                     for (NewTimelineItem item : responseX.getTimelineList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
-                        data.add(item);
+                        ((ListFragment)fragment).list.add(item);
 //                        if (isRefresh) {
                         adapter.notifyDataSetChanged();
 //                        }else {
@@ -579,7 +591,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                 @Override
                 public void t_beforeSendRequest() {
                     if (isRefresh && current_page == 1 ) {
-                        data.clear();
+                        ((ListFragment)fragment).list.clear();
                         adapter.notifyDataSetChanged();
                     }
 
@@ -631,11 +643,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                     for (CommentItem item : responseX.getCommentList()){
 //                        item.setType(Tubeless_ITEM_TYPE);
-                        data.add(item);
+                        ((ListFragment)fragment).list.add(item);
                         if (isRefresh) {
                             adapter.notifyDataSetChanged();
                         }else {
-                            adapter.notifyItemInserted(data.size());
+                            adapter.notifyItemInserted(((ListFragment)fragment).list.size());
                         }
                     }
 //                    adapter.notifyItemChanged(data.size() - 1);//.notifyDataSetChanged();
@@ -705,29 +717,29 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         }
 
 
-        if (data.get(position) instanceof PictureItem) {
-            final PictureItem item = (PictureItem) data.get(position);
+        if (((ListFragment)fragment).list.get(position) instanceof PictureItem) {
+            final PictureItem item = (PictureItem) ((ListFragment)fragment).list.get(position);
             item.fill(context , this, listType, holder, item, position);
 
 //        }else if (data.get(position) instanceof TimelineItem) {
 //            final TimelineItem item = (TimelineItem) data.get(position);
 //            item.fill(context,this , listType, holder, item, position);
 
-        }else if (data.get(position) instanceof NewTimelineItem) {
-            final NewTimelineItem item = (NewTimelineItem) data.get(position);
+        }else if (((ListFragment)fragment).list.get(position) instanceof NewTimelineItem) {
+            final NewTimelineItem item = (NewTimelineItem) ((ListFragment)fragment).list.get(position);
             item.fill(context,this , listType, holder, item, position);
 
 
 
-        }else if (data.get(position) instanceof PostSearchResponseItem) {
-            PostSearchResponseItem item = (PostSearchResponseItem) data.get(position);
+        }else if (((ListFragment)fragment).list.get(position) instanceof PostSearchResponseItem) {
+            PostSearchResponseItem item = (PostSearchResponseItem) ((ListFragment)fragment).list.get(position);
             item.fill(context , this, listType, holder, item,position);
 
-        }else if (data.get(position) instanceof CommentItem) {
-            CommentItem item = (CommentItem) data.get(position);
+        }else if (((ListFragment)fragment).list.get(position) instanceof CommentItem) {
+            CommentItem item = (CommentItem) ((ListFragment)fragment).list.get(position);
             item.fill(context , this, listType, holder, item,position);
 
-        }else if (data.get(position) instanceof TextItem) {
+        }else if (((ListFragment)fragment).list.get(position) instanceof TextItem) {
 //            final TextItem item = (TextItem) data.get(position);
 //            holder.title.setText(item.CarName);
 //            Picasso.get()
@@ -735,14 +747,14 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //                    .load("http://sajjadyosefi.ir/img/profile.jpg")
 //                    .placeholder(R.drawable.progress_animation)
 //                    .into(holder.imageView);
-        }else if (data.get(position) instanceof NotiesItem) {
+        }else if (((ListFragment)fragment).list.get(position) instanceof NotiesItem) {
 
-            NotiesItem item = (NotiesItem) data.get(position);
+            NotiesItem item = (NotiesItem)((ListFragment)fragment).list.get(position);
             item.fill(context , this, listType, holder, item,position);
 
-        }else if (data.get(position) instanceof MainListItem) {
+        }else if (((ListFragment)fragment).list.get(position) instanceof MainListItem) {
 
-            MainListItem item = (MainListItem) data.get(position);
+            MainListItem item = (MainListItem) ((ListFragment)fragment).list.get(position);
             item.fill(context , this, listType, holder, item,position);
 
         }
@@ -766,16 +778,19 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     @Override
     public void removeItem (int listType , int removeIndex ){
-        data.remove(removeIndex);
+        ((ListFragment)fragment).list.remove(removeIndex);
         adapter.notifyItemRemoved(removeIndex);
     }
 
     @Override
     public int getItemCount() {
-        if (data == null)
-            data = new ArrayList<>();
+//        if (data == null)
+//            data = new ArrayList<>();
 
-        return data.size();
+        if (((ListFragment)fragment).list == null)
+            return 0;
+        else
+            return ((ListFragment)fragment).list.size();
     }
 
     @Override

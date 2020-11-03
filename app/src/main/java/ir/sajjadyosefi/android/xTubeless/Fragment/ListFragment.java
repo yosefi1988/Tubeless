@@ -39,6 +39,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
+import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_All;
@@ -65,7 +66,9 @@ public class ListFragment extends Fragment  {
     private Activity activity;
     private int listType;
     private Bundle bundle;
-    private List<IItems> list;
+    public List<IItems> list;
+    private int scrolledPos = 0;
+
     private FloatingActionButton floatingActionButton ,floatingActionButtonList;
     private LinearLayoutManager mLayoutManager;
     private TextView mTextViewNoting;
@@ -126,6 +129,12 @@ public class ListFragment extends Fragment  {
     public ListFragment(Context context, int listType) {
         this.context = context;
         this.listType = listType;
+
+        constractorInit();
+    }
+
+    private void constractorInit() {
+
     }
 
     public ListFragment(Context context,List<IItems> list, int listType) {
@@ -151,12 +160,16 @@ public class ListFragment extends Fragment  {
 //
 //        id = getArguments().getInt("id");
 //        term = getArguments().getString("term");
+
+
     }
 
     //1
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        fragmentRootView = inflater.inflate(R.layout.x_fragment_timeline, container, false);
+        if (fragmentRootView == null)
+            fragmentRootView = inflater.inflate(R.layout.x_fragment_timeline, container, false);
+
         return fragmentRootView;
     }
 
@@ -164,42 +177,45 @@ public class ListFragment extends Fragment  {
     @Override
     public void onViewCreated(final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView                   = (RecyclerView) view.findViewById(R.id.recyclerView);
-        mTextViewNoting                 = (TextView) view.findViewById(R.id.nothing_text);
-        mSwipeRefreshLayout             = (SwipeRefreshLayout)  view.findViewById(R.id.swipeRefreshLayout);
-        mProgressBar                    = (DilatingDotsProgressBar) view.findViewById(R.id.PBSjd);
-        floatingActionButton            = (FloatingActionButton) view.findViewById(R.id.fab);
-        floatingActionButtonList            = (FloatingActionButton) view.findViewById(R.id.fabList);
 
-        if (listType == TYPE_BOURSE_ANALIZE_All || listType == TYPE_BOURSE_ANALIZE_Old) {
-            bourseExpire                    = (LinearLayout) view.findViewById(R.id.bourseExpire);
-            countinueButton                 = (Button) view.findViewById(R.id.countinueButton);
+        if (mRecyclerView == null) {
+            mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+            mTextViewNoting = (TextView) view.findViewById(R.id.nothing_text);
+            mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+            mProgressBar = (DilatingDotsProgressBar) view.findViewById(R.id.PBSjd);
+            floatingActionButton = (FloatingActionButton) view.findViewById(R.id.fab);
+            floatingActionButtonList = (FloatingActionButton) view.findViewById(R.id.fabList);
 
-            if (!checkResult(context, StaticValue.configuration)){
+            if (listType == TYPE_BOURSE_ANALIZE_All || listType == TYPE_BOURSE_ANALIZE_Old) {
+                bourseExpire = (LinearLayout) view.findViewById(R.id.bourseExpire);
+                countinueButton = (Button) view.findViewById(R.id.countinueButton);
 
-                //سرور دستور داده که رایگا ن باشه
-                bourseExpire.setVisibility(View.GONE);
-            }else {
+                if (!checkResult(context, StaticValue.configuration)) {
 
-                if (StaticValue.bourseState.totalPayedValue > 0) {
-                    if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
-                        //پرداخت کرده و منقضی هم نشده
-                        bourseExpire.setVisibility(View.GONE);
-                    } else {
-                        //پرداخت کرده و منقضی شده
-                        bourseExpire.setVisibility(View.VISIBLE);
-
-                        countinueButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Bundle bundle = new Bundle();
-                                bundle.putInt("type" , TYPE_BOURSE_PLANE);
-                                getActivity().startActivityForResult(ContainerActivity.getIntent(getContext(),bundle),READ_RULE_AND_PAY);
-                            }
-                        });
-                    }
+                    //سرور دستور داده که رایگا ن باشه
+                    bourseExpire.setVisibility(View.GONE);
                 } else {
-                    //هیچ پرداختی قبلا انجام نداده است
+
+                    if (StaticValue.bourseState.totalPayedValue > 0) {
+                        if (BourseState.CheckDateIsValid(StaticValue.bourseState.endDate, StaticValue.configuration.getResponseStatus().getDate())) {
+                            //پرداخت کرده و منقضی هم نشده
+                            bourseExpire.setVisibility(View.GONE);
+                        } else {
+                            //پرداخت کرده و منقضی شده
+                            bourseExpire.setVisibility(View.VISIBLE);
+
+                            countinueButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Bundle bundle = new Bundle();
+                                    bundle.putInt("type", TYPE_BOURSE_PLANE);
+                                    getActivity().startActivityForResult(ContainerActivity.getIntent(getContext(), bundle), READ_RULE_AND_PAY);
+                                }
+                            });
+                        }
+                    } else {
+                        //هیچ پرداختی قبلا انجام نداده است
+                    }
                 }
             }
         }
@@ -211,20 +227,24 @@ public class ListFragment extends Fragment  {
         super.onActivityCreated(savedInstanceState);
 
 //        activity            = (TubelessActivity) getActivity();
-        activity            = (Activity) getActivity();
+        if (activity != null)
+            activity            = (Activity) getActivity();
 
 //        if (activity.getSystemBarTint() != null)
 //            config              = activity.getSystemBarTint().getConfig();
 
-        mRoot               = (ViewGroup) activity.findViewById(R.id.CoordinatorLayout01);
-        if (mRoot instanceof CoordinatorLayout) {
-            mCoordinatorLayout = (CoordinatorLayout) mRoot;
+        if (mRoot != null) {
+            mRoot = (ViewGroup) activity.findViewById(R.id.CoordinatorLayout01);
+            if (mRoot instanceof CoordinatorLayout) {
+                mCoordinatorLayout = (CoordinatorLayout) mRoot;
+            }
+        }
+        if (xAdapter == null) {
+            createAdater();
         }
 
-        createAdater();
+        mRecyclerView.getAdapter();
         prepareFabButton(fragmentRootView,listType);
-
-
 
         //font 4
 //        FontChangeCrawler fontChanger = new FontChangeCrawler(getContext().getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
@@ -246,10 +266,9 @@ public class ListFragment extends Fragment  {
                 //height,
                 //hasAppBarLayout,
                 mSwipeRefreshLayout,
-                list,
+                this,
                 bundle);
         mRecyclerView.setAdapter(xAdapter);
-
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
     }
 
