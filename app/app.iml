@@ -10,102 +10,102 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="yafteSocialNetworkDebug" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleYafteSocialNetworkDebug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileYafteSocialNetworkDebugSources" />
+        <option name="SELECTED_BUILD_VARIANT" value="tubelessSocialNetworkDebug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleTubelessSocialNetworkDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileTubelessSocialNetworkDebugSources" />
         <afterSyncTasks>
-          <task>generateYafteSocialNetworkDebugSources</task>
+          <task>generateTubelessSocialNetworkDebugSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/yafte/res;file://$MODULE_DIR$/src/socialNetwork/res;file://$MODULE_DIR$/src/yafteSocialNetwork/res;file://$MODULE_DIR$/src/debug/res;file://$MODULE_DIR$/src/yafteSocialNetworkDebug/res;file://$MODULE_DIR$/build/generated/fabric/res/yafteSocialNetwork/debug;file://$MODULE_DIR$/build/generated/res/google-services/yafteSocialNetwork/debug;file://$MODULE_DIR$/build/generated/res/rs/yafteSocialNetwork/debug" />
-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestYafte/res;file://$MODULE_DIR$/src/testYafte/res;file://$MODULE_DIR$/src/androidTestSocialNetwork/res;file://$MODULE_DIR$/src/testSocialNetwork/res;file://$MODULE_DIR$/src/androidTestDebug/res;file://$MODULE_DIR$/src/testDebug/res;file://$MODULE_DIR$/build/generated/res/rs/androidTest/yafteSocialNetwork/debug" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/tubeless/res;file://$MODULE_DIR$/src/socialNetwork/res;file://$MODULE_DIR$/src/tubelessSocialNetwork/res;file://$MODULE_DIR$/src/debug/res;file://$MODULE_DIR$/src/tubelessSocialNetworkDebug/res;file://$MODULE_DIR$/build/generated/fabric/res/tubelessSocialNetwork/debug;file://$MODULE_DIR$/build/generated/res/google-services/tubelessSocialNetwork/debug;file://$MODULE_DIR$/build/generated/res/rs/tubelessSocialNetwork/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestTubeless/res;file://$MODULE_DIR$/src/testTubeless/res;file://$MODULE_DIR$/src/androidTestSocialNetwork/res;file://$MODULE_DIR$/src/testSocialNetwork/res;file://$MODULE_DIR$/src/androidTestDebug/res;file://$MODULE_DIR$/src/testDebug/res;file://$MODULE_DIR$/build/generated/res/rs/androidTest/tubelessSocialNetwork/debug" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/build/intermediates/javac/yafteSocialNetworkDebug/classes" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/yafteSocialNetworkDebugUnitTest/classes" />
+    <output url="file://$MODULE_DIR$/build/intermediates/javac/tubelessSocialNetworkDebug/classes" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/tubelessSocialNetworkDebugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yafteSocialNetworkDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/yafteSocialNetwork/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yafteSocialNetworkDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/yafteSocialNetworkDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/yafteSocialNetwork/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/yafteSocialNetwork/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/yafteSocialNetwork/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetworkDebug/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetworkDebug/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetworkDebug/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetworkDebug/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetworkDebug/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetworkDebug/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetworkDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetwork/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetwork/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetwork/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetwork/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetwork/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetwork/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafteSocialNetwork/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yafteSocialNetworkDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/yafteSocialNetworkDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/yafteSocialNetwork/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yafteSocialNetworkDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/yafteSocialNetwork/debug" type="java-test-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetworkDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetworkDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetworkDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetworkDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetworkDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetworkDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetworkDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetwork/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetwork/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetwork/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetwork/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetwork/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetwork/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafteSocialNetwork/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yafteSocialNetworkDebugUnitTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetworkDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetworkDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetworkDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetworkDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetworkDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetworkDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetworkDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetwork/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetwork/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetwork/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetwork/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetwork/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetwork/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafteSocialNetwork/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yafte/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYafte/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYafte/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/tubelessSocialNetwork/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/tubelessSocialNetworkDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/tubelessSocialNetworkDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/tubelessSocialNetworkDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/tubelessSocialNetwork/debug" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/tubelessSocialNetwork/debug" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/tubelessSocialNetwork/debug" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetworkDebug/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetworkDebug/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetworkDebug/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetworkDebug/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetworkDebug/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetworkDebug/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetworkDebug/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetwork/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetwork/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetwork/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetwork/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetwork/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetwork/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubelessSocialNetwork/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/tubelessSocialNetworkDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/tubelessSocialNetworkDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/tubelessSocialNetwork/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/tubelessSocialNetworkDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/tubelessSocialNetwork/debug" type="java-test-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetworkDebug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetworkDebug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetworkDebug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetworkDebug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetworkDebug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetworkDebug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetworkDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetwork/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetwork/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetwork/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetwork/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetwork/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetwork/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubelessSocialNetwork/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/tubelessSocialNetworkDebugUnitTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetworkDebug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetworkDebug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetworkDebug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetworkDebug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetworkDebug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetworkDebug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetworkDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetwork/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetwork/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetwork/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetwork/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetwork/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetwork/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubelessSocialNetwork/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubeless/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubeless/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubeless/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubeless/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubeless/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubeless/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tubeless/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubeless/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubeless/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubeless/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubeless/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubeless/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubeless/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTubeless/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubeless/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubeless/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubeless/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubeless/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubeless/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubeless/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTubeless/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/socialNetwork/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/socialNetwork/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/socialNetwork/assets" type="java-resource" />

@@ -121,6 +121,9 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
         bundle.putInt("type" , TYPE_LIST);
         bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
         this.startActivity(ContainerActivity.getIntent(this,bundle));
+
+
+
     }
 
     @Override

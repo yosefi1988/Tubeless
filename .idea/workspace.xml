@@ -112,10 +112,8 @@
     <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="13 Aban">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/FirstFragmentsAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/ListFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/x_content_scrolling.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/x_content_scrolling.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/tubeless/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/tubeless/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faboptions/faboptions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/faboptions/faboptions.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -589,13 +587,6 @@
       <option name="presentableId" value="Default" />
       <updated>1552667600839</updated>
     </task>
-    <task id="LOCAL-00018" summary="21 Farvardin">
-      <created>1586465346625</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1586465346625</updated>
-    </task>
     <task id="LOCAL-00019" summary="25 Farvardin">
       <created>1586780965530</created>
       <option name="number" value="00019" />
@@ -932,7 +923,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604171367540</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="13 Aban">
+      <created>1604431844495</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1604431844497</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -1043,10 +1041,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="538" y="129" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1600755579984" />
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1604431835308">
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1605383661944">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1604431835308" />
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1605383661944" />
     <state width="672" height="607" key="DebuggerActiveHint" timestamp="1604430542089">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1055,22 +1053,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603084592823" />
-    <state width="1323" height="135" key="GridCell.Tab.0.bottom" timestamp="1604430984432">
+    <state width="1323" height="135" key="GridCell.Tab.0.bottom" timestamp="1604433049226">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="135" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604430984432" />
-    <state width="1323" height="135" key="GridCell.Tab.0.center" timestamp="1604430984431">
+    <state width="1323" height="135" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604433049226" />
+    <state width="1323" height="135" key="GridCell.Tab.0.center" timestamp="1604433049226">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="135" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604430984431" />
-    <state width="1323" height="135" key="GridCell.Tab.0.left" timestamp="1604430984431">
+    <state width="1323" height="135" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604433049226" />
+    <state width="1323" height="135" key="GridCell.Tab.0.left" timestamp="1604433049226">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="135" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604430984431" />
-    <state width="1323" height="135" key="GridCell.Tab.0.right" timestamp="1604430984432">
+    <state width="1323" height="135" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604433049226" />
+    <state width="1323" height="135" key="GridCell.Tab.0.right" timestamp="1604433049226">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="135" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604430984432" />
+    <state width="1323" height="135" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604433049226" />
     <state width="1323" height="137" key="GridCell.Tab.1.bottom" timestamp="1603190233301">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1087,14 +1085,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="137" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603190233301" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1598337627343">
+    <state x="184" y="6" key="SettingsEditor" timestamp="1604585350075">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1598337627343" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1604171402621">
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604585350075" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1604431864621">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604171402621" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604431864621" />
     <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1601440502202">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1103,10 +1101,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="0" width="1182" height="735" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1603533092268" />
-    <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1604202809055">
+    <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1605377565681">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1604202809055" />
+    <state x="378" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1605377565681" />
     <state x="322" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600663907977">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1115,10 +1113,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1600765170639" />
-    <state x="357" y="122" width="940" height="606" key="find.popup" timestamp="1604308965603">
+    <state x="357" y="122" width="940" height="606" key="find.popup" timestamp="1604943282232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="357" y="122" width="940" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1604308965603" />
+    <state x="357" y="122" width="940" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1604943282232" />
     <state width="331" height="197" key="javadoc.popup.new" timestamp="1604418656683">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
