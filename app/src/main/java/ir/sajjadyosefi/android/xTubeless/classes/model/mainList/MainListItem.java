@@ -7,34 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.gson.Gson;
-import com.magnetadservices.sdk.AdSize;
-import com.magnetadservices.sdk.MagnetNativeExpress;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
-import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.TextContent;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.MainListViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CategoryViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
-import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
-import retrofit2.Call;
-
-import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitleForShare;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
 /**
  * Created by sajjad on 1/20/2018.
@@ -327,7 +312,7 @@ public class MainListItem implements IItems{
                      IItems item,
                      int position) {
 
-        MainListViewHolder holder = (MainListViewHolder) holder0;
+        CategoryViewHolder holder = (CategoryViewHolder) holder0;
         final MainListItem listItem = (MainListItem)item;
 
 
@@ -350,13 +335,13 @@ public class MainListItem implements IItems{
 //        holder.textViewUserName.setText(timelineItem.getUserNameMasked());
         holder.textViewCount.setText(listItem.getViewCount() + "");
 
-        holder.imageviewPicture.setVisibility(View.GONE);
+        holder.imageViewPicture.setVisibility(View.GONE);
 
         onclicks(mContext,listType , holder, listItem);
         loadImage(holder, listItem);
     }
 
-    private void onclicks(Context mContext , int listType, MainListViewHolder holder, MainListItem timelineItem) {
+    private void onclicks(Context mContext , int listType, CategoryViewHolder holder, MainListItem timelineItem) {
 
 
         View.OnClickListener onStarClickListener = new View.OnClickListener() {
@@ -423,7 +408,7 @@ public class MainListItem implements IItems{
         };
 
 
-        holder.imageviewPicture.setOnClickListener(onContentClick);
+        holder.imageViewPicture.setOnClickListener(onContentClick);
         holder.textViewDate.setOnClickListener(onContentClick);
 //        holder.textViewLocation.setOnClickListener(onContentClick);
         holder.textViewTitle.setOnClickListener(onContentClick);
@@ -433,9 +418,9 @@ public class MainListItem implements IItems{
 
     }
 
-    private void loadImage(MainListViewHolder holder, MainListItem timelineItem) {
+    private void loadImage(CategoryViewHolder holder, MainListItem timelineItem) {
         //LoadImages.loadAvatarimage(timelineItem.getUserImage(),holder.imageViewUserAvatar);
-        LoadImages.loadProfileimage(timelineItem.getTitlePicture(),holder.imageviewPicture);
+        LoadImages.loadProfileimage(timelineItem.getTitlePicture(),holder.imageViewPicture);
     }
 
 }

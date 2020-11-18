@@ -15,6 +15,7 @@
         android:id="@+id/imageViewDelete"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="5dp"
         app:srcCompat="@android:drawable/ic_delete" />
 
     <TextView
@@ -24,7 +25,6 @@
         android:gravity="right"
         android:textColor="@color/day_content_text"
         android:layoutDirection="rtl"
-        android:layout_marginTop="5dp"
         android:paddingRight="5dp"
         android:text="حذف"  />
 

@@ -36,6 +36,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_KSOKHT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
@@ -102,6 +103,7 @@ public class ContainerActivity extends TubelessActivity {
                 bundle.putInt("blogId", getIntent().getIntExtra("blogId", 0));
                 list = new ArrayList<>();
                 ft.replace(R.id.include, new ListFragment(this, list, type, bundle));
+                ft.addToBackStack(ft.getClass().getName());
                 ft.commit();
             }
         }
@@ -162,7 +164,8 @@ public class ContainerActivity extends TubelessActivity {
             } else if (type == TYPE_LIST) {
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST));
+//                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST));
+                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST_CATEGORY,0));
                 ft.commit();
 
 

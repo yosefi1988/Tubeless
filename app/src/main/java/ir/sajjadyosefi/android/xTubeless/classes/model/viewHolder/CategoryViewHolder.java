@@ -8,8 +8,9 @@ import android.widget.TextView;
 
 import ir.sajjadyosefi.android.xTubeless.R;
 
-public class MainListViewHolder extends PostViewHolder {
+public class CategoryViewHolder extends PostViewHolder {
 
+    public LinearLayout linearLayoutMain;
     public LinearLayout linearLayoutTop;
     public LinearLayout linearLayoutCenter;
     public LinearLayout linearLayoutBottom;
@@ -17,30 +18,35 @@ public class MainListViewHolder extends PostViewHolder {
 
 
     public ImageView imageViewUserAvatar;
-    public ImageView imageviewPicture;
+    public ImageView imageViewPicture;
     public TextView textViewUserName;
+    public TextView textViewPicture;
 
     public TextView textViewTitle;
     public TextView textViewLocation;
     public TextView textViewDate;
     public TextView textViewCount;
+    public TextView textViewDescription;
 
-    public MainListViewHolder(View itemView) {
+    public CategoryViewHolder(View itemView) {
         super(itemView);
 
         linearLayoutTop               = (LinearLayout) itemView.findViewById(R.id.linearLayoutTop);
+        linearLayoutMain               = (LinearLayout) itemView.findViewById(R.id.linearLayoutMain);
         linearLayoutCenter            = (LinearLayout) itemView.findViewById(R.id.linearLayoutCenter);
         linearLayoutBottom            = (LinearLayout) itemView.findViewById(R.id.linearLayoutBottom);
 
 
         imageViewUserAvatar           = (ImageView) itemView.findViewById(R.id.imageViewUserAvatar);
-        imageviewPicture           = (ImageView) itemView.findViewById(R.id.imageviewPicture);
+        imageViewPicture              = (ImageView) itemView.findViewById(R.id.imageViewPicture);
         textViewUserName              = (TextView) itemView.findViewById(R.id.textViewUserName);
+        textViewPicture               = (TextView) itemView.findViewById(R.id.textViewPicture);
 
         textViewTitle                 = (TextView) itemView.findViewById(R.id.textViewTitle);
         textViewLocation              = (TextView) itemView.findViewById(R.id.textViewLocation);
         textViewDate                  = (TextView) itemView.findViewById(R.id.textViewDate);
         textViewCount                 = (TextView) itemView.findViewById(R.id.textViewCount);
+        textViewDescription           = (TextView) itemView.findViewById(R.id.textViewDescription);
 
     }
 }

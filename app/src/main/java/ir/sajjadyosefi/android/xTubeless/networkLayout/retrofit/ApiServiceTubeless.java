@@ -113,6 +113,11 @@ public interface ApiServiceTubeless {
     @POST("Api/Message/SendMessage")
     Call<Object> contactUs(@Body ContactUsRequest request);
 
+    @POST("api/Category/Category")
+    Call<Object> getCategory(@Query("id") int catId,
+                                 @Query("index") int index,
+                                 @Query("count") int count);
+
     @POST("Api/User/userImageProfileAndAvatar")
     Call<Object> profileImages(@Body LoginRequest request);
 

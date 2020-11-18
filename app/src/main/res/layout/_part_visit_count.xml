@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutCount"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,8 +12,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/png_blue_eye"
         android:scaleType="centerInside"
@@ -26,6 +27,7 @@
         android:layoutDirection="rtl"
         android:paddingRight="5dp"
         android:text="156"
+        android:textSize="@dimen/xTextViewSmallSize"
         android:textColor="@color/colorTextGry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/imageView"

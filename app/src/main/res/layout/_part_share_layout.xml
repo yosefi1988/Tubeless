@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/imageViewShare"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/png_red_sgare"
         android:scaleType="centerInside"
@@ -28,6 +28,7 @@
         android:paddingRight="5dp"
         android:text="بازنشر"
         android:textColor="@color/colorTextGry"
+        android:textSize="@dimen/xTextViewSmallSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/imageViewShare"
         app:layout_constraintTop_toTopOf="parent"

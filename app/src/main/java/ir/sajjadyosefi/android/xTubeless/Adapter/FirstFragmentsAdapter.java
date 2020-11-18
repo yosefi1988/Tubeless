@@ -55,6 +55,9 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     public static int TYPE_LIST  = 9;
 
 
+    public static int TYPE_LIST_CATEGORY  = 101;
+
+
     public FirstFragmentsAdapter(Context context, ViewPager viewPager, FragmentManager supportFragmentManager) {
         super(supportFragmentManager);
         this.context = context ;

@@ -60,8 +60,8 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
 
             responseX = gson.fromJson(jsonElement.getAsString(), ServerResponseBase.class);
             if (response.body() != null ) {
-                if (responseX.getTubelessException().getCode() != 0) {
-                    if (responseX.getTubelessException().getCode() > 0) {
+//                if (responseX.getTubelessException().getCode() != 0) {
+                    if (responseX.getTubelessException().getCode() >= 0) {
                         if (call != null && response != null) {
 
                             Object object = gson.fromJson(jsonElement.getAsString(), (Type) aClass);
@@ -71,9 +71,9 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
                     } else {
                         throw responseX.getTubelessException();
                     }
-                }else {
-                    throw responseX.getTubelessException();
-                }
+//                }else {
+//                    throw responseX.getTubelessException();
+//                }
             }else {
                 throw responseX.getTubelessException();
             }

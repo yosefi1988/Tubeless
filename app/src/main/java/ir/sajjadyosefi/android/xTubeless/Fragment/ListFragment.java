@@ -49,6 +49,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
@@ -65,6 +66,7 @@ public class ListFragment extends Fragment  {
     private View fragmentRootView;
     private Activity activity;
     private int listType;
+    private int catid;
     private Bundle bundle;
     public List<IItems> list;
     private int scrolledPos = 0;
@@ -148,6 +150,13 @@ public class ListFragment extends Fragment  {
         this.listType = listType;
         this.list = list;
         this.bundle = bundle;
+    }
+    public ListFragment(Context context,List<IItems> list, int listType , int catid) {
+        this.context = context;
+        this.listType = listType;
+        this.listType = TYPE_LIST_CATEGORY;
+        this.catid = catid;
+        this.list = list;
     }
 
     //0
@@ -258,6 +267,7 @@ public class ListFragment extends Fragment  {
         mRecyclerView.setLayoutManager(mLayoutManager);
         xAdapter = new XAdapter(
                 listType,
+                catid,
                 getContext(),
                 mRoot,
                 mRecyclerView,
@@ -396,6 +406,8 @@ public class ListFragment extends Fragment  {
 //                        Bundle bundle = new Bundle();
 //                        bundle.putString("X" , "X");
                         getActivity().startActivityForResult(RegNewCommentActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_NEW_COMMENT);
+                    } else if (listType == TYPE_LIST_CATEGORY) {
+                        Toast.makeText(context, "curent cat id is : " + catid, Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(context, "not set", Toast.LENGTH_LONG).show();
                     }

@@ -224,7 +224,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
                     //FirebaseCrash.report(e);
                 }
 
-                context.startActivity(new Intent(context, MainActivity.class));
+//                context.startActivity(new Intent(context, MainActivity.class));
 //                context.startActivity(new Intent(context, ReadBlogActivity.class));
                 overridePendingTransition(R.anim.fadeout, R.anim.fadein);
                 ((Activity)context).finish();

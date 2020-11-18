@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
+    android:layout_width="match_parent" >
+
+    <ImageView
+        android:id="@+id/imageviewPicture"
+        android:layout_width="70dp"
+        android:layout_margin="5dp"
+        android:layout_height="70dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/sym_def_app_icon"  />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="@string/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageviewPicture"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintStart_toEndOf="@id/imageviewPicture"
+        app:layout_constraintTop_toTopOf="@id/imageviewPicture"
+        android:text="@string/date"
+        android:textSize="@dimen/xTextViewSmallSize"
+        android:textColor="@color/colorTextGry"  />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/xTextViewSmallSize"
+        app:layout_constraintEnd_toEndOf="@id/textViewTitle"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+        android:text="@string/text"
+        android:textColor="@color/colorTextGry"  />
+
+    <LinearLayout
+        android:id="@id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDescription"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/_part_visit_count"></include>
+
+        <include
+            layout="@layout/_part_share_layout"></include>
+
+        <include
+            layout="@layout/_part_content_report_layout"></include>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBottomAdmin"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content" >
+
+        <include
+            layout="@layout/_part_admin_remove"></include>
+    </LinearLayout>
+
+    <include
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutBottomAdmin"
+        app:layout_constraintStart_toStartOf="@id/linearLayoutBottomAdmin"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        layout="@layout/_part_horizontal_line"></include>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

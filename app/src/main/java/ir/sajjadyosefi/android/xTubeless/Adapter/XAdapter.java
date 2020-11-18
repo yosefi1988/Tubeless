@@ -3,7 +3,6 @@ package ir.sajjadyosefi.android.xTubeless.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,19 +28,20 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.mainList.MainListItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NotiesItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.CommentListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.MainListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.category.CategoryListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CommentItemViewHolder;
-import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.MainListViewHolder;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.CategoryViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.PostViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TimelineItemViewHolder;
@@ -51,7 +51,6 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;
 
-import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
@@ -62,6 +61,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
@@ -71,10 +71,10 @@ import static org.litepal.LitePalApplication.getContext;
 
 public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements ITubelessAdapter {
 
-    private final View rootView;
+    private View rootView;
     //private final int scrollHeight;
-    private final SwipeRefreshLayout mSwipeRefreshLayout;
-    private final Bundle bundle;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private Bundle bundle;
     private RecyclerView recyclerView;
     private Picasso picasso;
     //private int navigationHeight;
@@ -83,6 +83,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     XAdapter adapter;
     int listType;
+    int catid;
     //private boolean hasAppBarLayout;
     private Context context;
 
@@ -92,8 +93,13 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     EndlessRecyclerOnScrollListener onScrollListener;
 
 
+
     public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
+         new XAdapter(listType, 0, context, rootView, recyclerView, linearLayoutManager, mSwipeRefreshLayout, fragment, bundle) ;
+    }
+    public XAdapter(int listType, int catid, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
         this.listType = listType;
+        this.catid = catid;
         //this.navigationHeight = navigationHeight;
         this.fragment = fragment;
         //this.hasAppBarLayout = hasAppBarLayout;
@@ -175,7 +181,74 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     private void loadTimeline(Context context,int current_page, boolean isRefresh) {
 
-        if (listType == TYPE_LIST) {
+        if (listType == TYPE_LIST_CATEGORY) {
+            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), CategoryListResponse.class) {
+                @Override
+                public void t_beforeSendRequest() {
+
+                }
+
+                @Override
+                public void t_afterGetResponse() {
+
+                }
+
+                @Override
+                public void t_complite() {
+
+                }
+
+                @Override
+                public void t_responseNull() {
+
+                }
+
+                @Override
+                public void t_retry(Call<Object> call) {
+
+                }
+
+                @Override
+                public void t_onSuccess(Object response) {
+                    CategoryListResponse responseX = (CategoryListResponse) response;
+//                    data.add(new NotiesItem());
+
+                    for (CategoryItem item : responseX.getCategoryItems()){
+//                        item.setType(Tubeless_ITEM_TYPE);
+                        ((ListFragment)fragment).list.add(item);
+                        if (isRefresh) {
+                            adapter.notifyDataSetChanged();
+                        }else {
+                            adapter.notifyItemInserted(((ListFragment)fragment).list.size());
+                        }
+                    }
+                }
+            };
+            Global.apiManagerTubeless.getCategoryRoot(catid,current_page - 1, ssssssss);
+
+//            MainListResponse responseX = new MainListResponse();
+//            List<MainListItem> dddddd = new ArrayList<>();
+//            TimelineItem dddddddddd = new TimelineItem();
+//            dddddddddd.setTitle("Group One");
+//            dddddddddd.setText("group One Text");
+//            Date date = new Date();
+//            dddddddddd.setDate(date.getTime() + "");
+//            dddddddddd.setRegisterDate(date.getTime() + "");
+//            dddddddddd.setPicture("https://flutter-learn.ir/wp-content/uploads/2019/09/maxresdefault-100x75.png");
+//
+//            MainListItem sssssssssssss = new MainListItem(dddddddddd);
+//            dddddd.add(sssssssssssss);
+//            responseX.setMainListItems(dddddd);
+//            for (MainListItem item : responseX.getMainListItems()){
+//                ((ListFragment)fragment).list.add(item);
+//                if (isRefresh) {
+//                    adapter.notifyDataSetChanged();
+//                }else {
+//                    adapter.notifyItemInserted(((ListFragment)fragment).list.size());
+//                }
+//            }
+
+        } else if (listType == TYPE_LIST) {
 //            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
 //                @Override
 //                public void t_beforeSendRequest() {
@@ -668,11 +741,18 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_of_yafte_item, parent, false);
             holder = new TimelineItemViewHolder(view);
         }else if (listType == TYPE_LIST) {
-            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_group_item, parent, false);
+            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_category_item2, parent, false);
             //font 5
 //            FontChangeCrawler fontChanger = new FontChangeCrawler(context.getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
 //            fontChanger.replaceFonts((ViewGroup)view);
-            holder = new MainListViewHolder(view);
+            holder = new CategoryViewHolder(view);
+
+        }else if (listType == TYPE_LIST_CATEGORY) {
+            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_category_item2, parent, false);
+            //font 5
+//            FontChangeCrawler fontChanger = new FontChangeCrawler(context.getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
+//            fontChanger.replaceFonts((ViewGroup)view);
+            holder = new CategoryViewHolder(view);
 
         }else if (listType == TYPE_YAFTE) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_yafte_item, parent, false);
@@ -755,6 +835,11 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         }else if (((ListFragment)fragment).list.get(position) instanceof MainListItem) {
 
             MainListItem item = (MainListItem) ((ListFragment)fragment).list.get(position);
+            item.fill(context , this, listType, holder, item,position);
+
+        }else if (((ListFragment)fragment).list.get(position) instanceof CategoryItem) {
+
+            CategoryItem item = (CategoryItem) ((ListFragment)fragment).list.get(position);
             item.fill(context , this, listType, holder, item,position);
 
         }

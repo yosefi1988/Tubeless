@@ -19,4 +19,10 @@
 
     <dimen name="main_image_height">200dp</dimen>
 
+
+    <dimen name="xTextViewSmallSize">12dp</dimen>
+
+
+
+
 </resources>

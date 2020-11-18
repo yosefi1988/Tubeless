@@ -37,6 +37,7 @@ import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.
 public class RetrofitHelperTubeless {
     private static ApiServiceTubeless service;
     private static RetrofitHelperTubeless apiManager;
+    private int responceCountSize = 5;
 
     private RetrofitHelperTubeless() {
 
@@ -106,6 +107,15 @@ public class RetrofitHelperTubeless {
         Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
         userCall.enqueue(callback);
 
+    }
+
+    public void getCategoryRoot(int catId,int index, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.getCategory(catId, index, responceCountSize * 1);
+        userCall.enqueue(callback);
+    }
+    public void getCategory(int count ,int index, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.getCategory(count , index,responceCountSize);
+        userCall.enqueue(callback);
     }
 
     public void getTimelineListForYafte(Context context , int index, TubelessRetrofitCallbackss callback) {

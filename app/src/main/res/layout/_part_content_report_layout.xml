@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/imageViewReport"
-        android:layout_width="30dp"
-        android:layout_height="25dp"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -29,6 +29,7 @@
         android:layoutDirection="rtl"
         android:paddingRight="5dp"
         android:text="گزارش محتوی"
+        android:textSize="@dimen/xTextViewSmallSize"
         android:textColor="@color/colorTextGry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/imageViewReport"
