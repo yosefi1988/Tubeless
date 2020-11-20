@@ -49,6 +49,7 @@
                 android:gravity="right"
                 android:layoutDirection="rtl"
                 android:foregroundGravity="right"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -69,6 +70,8 @@
                     app:completionIgnoreCase="true"/>
 
             </RelativeLayout>
+
+
 
             <EditText
                 android:id="@+id/editTextTitle"

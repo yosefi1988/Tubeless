@@ -24,6 +24,7 @@ import java.util.List;
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
@@ -31,8 +32,10 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 
+import ir.sajjadyosefi.android.xTubeless.activity.list.CategoryListActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Category;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.FileListActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
@@ -51,17 +54,21 @@ import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USE
 public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
 
 
-    public Button buttonReg , buttonBack , buttonAddFiles;
+    public Button buttonReg , buttonBack , buttonAddFiles,buttonAddCategory;
     EditText editTextText,editTextTextPicture,editTextTitleStatment,editTextTitlePicture,editTextTitle;
     RadioButton radioButton1,radioButton2,radioButton3;
     private int REQUEST_FILE_LIST = 525;
+    private int REQUEST_CATEGORY_LIST = 526;
 
     static List<File> filesList;
+    static List<Category> catList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         filesList = new ArrayList<File>();
+        catList = new ArrayList<Category>();
+
         File headerInList = new File();
         headerInList.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_HEADER);
         filesList.add(headerInList);
@@ -70,11 +77,21 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
         Emptylist.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_EMPTY_LIST);
         filesList.add(Emptylist);
 
+
+        Category headerInCatList = new Category();
+        headerInCatList.setListItemType(EndlessList_AdapterCategory.ListItemType.TYPE_HEADER);
+        catList.add(headerInCatList);
+
+        Category EmptyCatlist = new Category();
+        EmptyCatlist.setListItemType(EndlessList_AdapterCategory.ListItemType.TYPE_EMPTY_LIST);
+        catList.add(EmptyCatlist);
+
         setContentView(R.layout.activity_new_yadak);
 
         buttonReg = findViewById(R.id.buttonReg);
         buttonBack = findViewById(R.id.buttonBack);
         buttonAddFiles = findViewById(R.id.buttonAddFiles);
+        buttonAddCategory = findViewById(R.id.buttonAddCategory);
         editTextText = findViewById(R.id.editTextText);
         editTextTextPicture = findViewById(R.id.editTextTextPicture);
         editTextTitleStatment = findViewById(R.id.editTextTitleStatment);
@@ -136,6 +153,20 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 }else {
                     Toast.makeText(getContext(),getContext().getString(R.string.notEnugh),Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+        buttonAddCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //todo uncomment
+//                if (Global.user.isAdmin()) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("CAT_COUNT", 4);
+                    bundle.putSerializable("LIST", (Serializable) catList);
+                    getActivity().startActivityForResult(CategoryListActivity.getIntent(getContext(), bundle),REQUEST_CATEGORY_LIST);
+//                }else {
+//                    Toast.makeText(getContext(),getContext().getString(R.string.notEnugh),Toast.LENGTH_LONG).show();
+//                }
             }
         });
         buttonReg.setOnClickListener(new View.OnClickListener() {
@@ -301,6 +332,8 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
         if (resultCode == Activity.RESULT_OK){
             if (requestCode == REQUEST_FILE_LIST){
                 filesList = (List<File>) data.getSerializableExtra("LIST1");
+            }else if (requestCode == REQUEST_CATEGORY_LIST){
+                catList = (List<Category>) data.getSerializableExtra("LIST1");
             }else {
 
             }

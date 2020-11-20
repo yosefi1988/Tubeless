@@ -162,6 +162,7 @@ public class ContainerActivity extends TubelessActivity {
                 ft.replace(R.id.include, new KartesekhtFragment(), "KartesekhtFragment");
                 ft.commit();
             } else if (type == TYPE_LIST) {
+                ((TubelessActivity)mContext).progressDialog.show();
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST));

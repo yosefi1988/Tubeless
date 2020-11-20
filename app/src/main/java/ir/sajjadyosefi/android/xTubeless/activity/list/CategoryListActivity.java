@@ -1,9 +1,8 @@
-package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture;
+package ir.sajjadyosefi.android.xTubeless.activity.list;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,28 +37,26 @@ import io.reactivex.SingleEmitter;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.disposables.Disposable;
-import ir.sajjadyosefi.android.superpickerlibrary.PickerManagerBuilder;
-import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
+import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.classes.model.File;
+import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.model.Category;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.File.MAP_1;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
 import static org.litepal.LitePalApplication.getContext;
 
 
-public class FileListActivity extends Activity {
+public class CategoryListActivity extends Activity {
 
     private static final String TAG = "sssssssssssssss";
     private int RC_SIGN_IN = 1000;
-    private List<File> fileList ;
-    public int fileCount = 1;
+    private List<Category> categoryList;
+    public int categoryCount = 1;
     Context context;
 
 
     RecyclerView mRecyclerViewTimeline;
-    EndlessList_AdapterFile adapter_Posts;
+    EndlessList_AdapterCategory adapter;
     LinearLayoutManager mLayoutManager;
 
 
@@ -74,7 +70,7 @@ public class FileListActivity extends Activity {
 
     public synchronized static Intent getIntent(Context context, Bundle bundle) {
         bundle.putString("item1","value1");
-        Intent intent = new Intent(context, FileListActivity.class);
+        Intent intent = new Intent(context, CategoryListActivity.class);
         intent.putExtras(bundle);
         return intent;
     }
@@ -89,44 +85,41 @@ public class FileListActivity extends Activity {
 
         activity = this;
         context = this;
-        fileCount = getIntent().getIntExtra("FILE_COUNT",1);
-        fileList = (List<File>) getIntent().getSerializableExtra("LIST");
+        categoryCount = getIntent().getIntExtra("CAT_COUNT",1);
+        categoryList = (List<Category>) getIntent().getSerializableExtra("LIST");
 
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.activity_categories_list);
         rootView = (ViewGroup) ((ViewGroup) this.findViewById(android.R.id.content)).getChildAt(0);
         mRecyclerViewTimeline = findViewById(R.id.recyclerView);
         imageView = findViewById(R.id.imageView);
 
-        ((Button)(findViewById(R.id.buttonGallery))).setOnClickListener(new View.OnClickListener() {
+        ((Button)(findViewById(R.id.buttonAddCategory))).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectFromGallery(activity);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type" , TYPE_LIST);
+                bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
+                ((Activity)context).startActivity(ContainerActivity.getIntent(context,bundle));
             }
         });
-        ((Button)(findViewById(R.id.buttonCamera))).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectFromCamera(activity);
-            }
-        });
+
         ((Button)(findViewById(R.id.buttonClear))).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fileList = new ArrayList<>();
+                categoryList = new ArrayList<>();
 
-                File headerInList = new File();
-                headerInList.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_HEADER);
-                fileList.add(headerInList);
+                Category headerInList = new Category();
+                headerInList.setListItemType(EndlessList_AdapterCategory.ListItemType.TYPE_HEADER);
+                categoryList.add(headerInList);
 
-                File Emptylist = new File();
-                Emptylist.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_EMPTY_LIST);
-                fileList.add(Emptylist);
+                Category Emptylist = new Category();
+                Emptylist.setListItemType(EndlessList_AdapterCategory.ListItemType.TYPE_EMPTY_LIST);
+                categoryList.add(Emptylist);
 
                 fillWigets(rootView , activity);
-                adapter_Posts.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
 
-                ((Button)(findViewById(R.id.buttonGallery))).setEnabled(true);
-                ((Button)(findViewById(R.id.buttonCamera))).setEnabled(true);
+                ((Button)(findViewById(R.id.buttonAddCategory))).setEnabled(true);
 
 
 
@@ -219,26 +212,26 @@ public class FileListActivity extends Activity {
         ((Button)(findViewById(R.id.buttonOK))).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (lastCheckedPosition != -1) {
-                    for (File item : fileList) {
-                        item.setContentPic(false);
-                    }
-                    fileList.get(lastCheckedPosition).setContentPic(true);
-                }
-                if (lastCheckedPosition2 != -1) {
-                    for (File item : fileList) {
-                        item.setHeaderPic(false);
-                    }
-                    fileList.get(lastCheckedPosition2).setHeaderPic(true);
-                }
-
-                Intent returnIntent = getIntent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("LIST1", (Serializable) fileList);
-//                returnIntent.putExtra("LIST2", (Serializable) fileList);
-                returnIntent.putExtras(bundle);
-                setResult(Activity.RESULT_OK, returnIntent);
-                finish();
+//                if (lastCheckedPosition != -1) {
+//                    for (Category item : categoryList) {
+//                        item.setContentPic(false);
+//                    }
+//                    categoryList.get(lastCheckedPosition).setContentPic(true);
+//                }
+//                if (lastCheckedPosition2 != -1) {
+//                    for (Category item : categoryList) {
+//                        item.setHeaderPic(false);
+//                    }
+//                    categoryList.get(lastCheckedPosition2).setHeaderPic(true);
+//                }
+//
+//                Intent returnIntent = getIntent();
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("LIST1", (Serializable) categoryList);
+////                returnIntent.putExtra("LIST2", (Serializable) fileList);
+//                returnIntent.putExtras(bundle);
+//                setResult(Activity.RESULT_OK, returnIntent);
+//                finish();
             }
         });
 
@@ -265,12 +258,10 @@ public class FileListActivity extends Activity {
     }
 
     public void refreshButtons() {
-        if (fileCount + 2 == fileList.size()) {
-            ((Button) (findViewById(R.id.buttonGallery))).setEnabled(false);
-            ((Button) (findViewById(R.id.buttonCamera))).setEnabled(false);
+        if (categoryCount + 2 == categoryList.size()) {
+            ((Button) (findViewById(R.id.buttonAddCategory))).setEnabled(false);
         }else {
-            ((Button)(findViewById(R.id.buttonGallery))).setEnabled(true);
-            ((Button)(findViewById(R.id.buttonCamera))).setEnabled(true);
+            ((Button)(findViewById(R.id.buttonAddCategory))).setEnabled(true);
         }
     }
 
@@ -352,103 +343,20 @@ public class FileListActivity extends Activity {
         };
     }
 
-    private void selectFromGallery(final Activity activity) {
-        new PickerManagerBuilder(activity,true, PickerManagerBuilder.SELECT_FROM_GALLERY)
-                .setOnImageReceivedListener(new PickerManagerBuilder.onImageReceivedListener() {
-                    @Override
-                    public void onImageReceived(Uri imageUri) {
-                        Toast.makeText(activity,"Got image - " + imageUri, Toast.LENGTH_LONG).show();
-                        imageView.setImageURI(imageUri);
-
-
-                        File map1 = new File();
-                        map1.setTitle(imageUri.toString().substring(imageUri.toString().lastIndexOf("/")+1));
-                        map1.setRequestContentId(1);
-                        map1.setFrame(1);
-                        map1.setFileType(MAP_1);
-                        map1.setUri(imageUri.toString());
-                        map1.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_ITEM);
-                        fileList.add(fileList.size() - 1, map1);
-
-                        if (fileList.size() == 3) {
-                            fileList.remove(fileList.size() - 1);
-
-                            File Emptylist = new File();
-                            Emptylist.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_LAST_ITEM);
-                            fileList.add(fileList.size(),Emptylist);
-                        }
-
-                        adapter_Posts.notifyDataSetChanged();
-//                        adapter_Posts.notifyItemRangeChanged(fileList.size() - 2, 2);
-
-
-                        refreshButtons();
-                    }
-                })
-                .setImageName("avatar")
-                .start(PickerManagerBuilder.SELECT_FROM_GALLERY);
-    }
-
-    private void selectFromCamera(final Activity activity) {
-        new PickerManagerBuilder(activity,true, PickerManagerBuilder.SELECT_FROM_CAMERA)
-                .setOnImageReceivedListener(new PickerManagerBuilder.onImageReceivedListener() {
-                    @Override
-                    public void onImageReceived(Uri imageUri) {
-                        Toast.makeText(activity,"Got image - " + imageUri, Toast.LENGTH_LONG).show();
-                        imageView.setImageURI(imageUri);
-
-                        File map1 = new File();
-                        map1.setTitle(imageUri.toString().substring(imageUri.toString().lastIndexOf("/")+1));
-                        map1.setRequestContentId(1);
-                        map1.setFrame(1);
-                        map1.setFileType(MAP_1);
-                        map1.setUri(imageUri.toString());
-                        map1.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_ITEM);
-                        fileList.add(fileList.size() - 1, map1);
-
-                        if (fileList.size() == 3) {
-                            fileList.remove(fileList.size() - 1);
-
-                            File Emptylist = new File();
-                            Emptylist.setListItemType(EndlessList_AdapterFile.ListItemType.TYPE_LAST_ITEM);
-                            fileList.add(fileList.size(),Emptylist);
-                        }
-
-
-                        adapter_Posts.notifyDataSetChanged();
-//                        adapter_Posts.notifyItemRangeChanged(fileList.size() - 2, 2);
-
-                        refreshButtons();
-                    }
-                })
-                .setImageName("avatar")
-                .start(PickerManagerBuilder.SELECT_FROM_CAMERA);
-    }
 
     private void fillWigets(View rootView , Activity activity) {
-//        for (File file: fileList) {
-//            File map1 = new File();
-//            map1.setTitle("file.getDescription()");
-//            map1.setRequestContentId(file.getRequestContentId());
-//            map1.setFrame(file.getFrame());
-//            map1.setFileType(MAP_1);
-//            map1.setType(FILES);
-//            fileList.add(map1);
-//        }
-
-
         mRecyclerViewTimeline.setHasFixedSize(true);
         mRecyclerViewTimeline.setItemAnimator(new DefaultItemAnimator());
         mLayoutManager = new LinearLayoutManager(getContext());
-        adapter_Posts = new EndlessList_AdapterFile(
+        adapter = new EndlessList_AdapterCategory(
                 context,
                 mLayoutManager,
                 rootView,
-                fileList,
-                EndlessList_AdapterFile.ListType.LIST_OF_PICTURES,
+                categoryList,
+                EndlessList_AdapterCategory.ListType.LIST_OF_PICTURES,
                 true);
         mRecyclerViewTimeline.setLayoutManager(mLayoutManager);
-        mRecyclerViewTimeline.setAdapter(adapter_Posts);
+        mRecyclerViewTimeline.setAdapter(adapter);
     }
 
     private SingleObserver<Note> getSingleObserver() {

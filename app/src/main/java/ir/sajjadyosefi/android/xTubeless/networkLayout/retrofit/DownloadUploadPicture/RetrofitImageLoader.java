@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 
 public class RetrofitImageLoader extends AsyncTask<InputStream, Integer, Bitmap> {

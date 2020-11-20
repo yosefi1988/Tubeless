@@ -222,6 +222,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                             adapter.notifyItemInserted(((ListFragment)fragment).list.size());
                         }
                     }
+
+                    ((TubelessActivity)context).progressDialog.hide();
                 }
             };
             Global.apiManagerTubeless.getCategoryRoot(catid,current_page - 1, ssssssss);

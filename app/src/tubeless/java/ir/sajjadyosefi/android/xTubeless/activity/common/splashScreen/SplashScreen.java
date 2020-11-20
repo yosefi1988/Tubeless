@@ -116,7 +116,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
         ((TextView)(findViewById(R.id.textViewVersionName))).setText(BuildConfig.VERSION_NAME);
 
 
-        //todo remove
+        //todo comment
         Bundle bundle = new Bundle();
         bundle.putInt("type" , TYPE_LIST);
         bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
@@ -224,10 +224,11 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
                     //FirebaseCrash.report(e);
                 }
 
+                //todo uncomment
 //                context.startActivity(new Intent(context, MainActivity.class));
-//                context.startActivity(new Intent(context, ReadBlogActivity.class));
-                overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-                ((Activity)context).finish();
+////                context.startActivity(new Intent(context, ReadBlogActivity.class));
+//                overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//                ((Activity)context).finish();
 
             }
         },1500);

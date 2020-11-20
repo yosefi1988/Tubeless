@@ -36,7 +36,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.ddl.DdlSelectsObject;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.FileListActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.service.FileUploadService;
 import ir.sajjadyosefi.android.xTubeless.utility.file.UriUtil;
