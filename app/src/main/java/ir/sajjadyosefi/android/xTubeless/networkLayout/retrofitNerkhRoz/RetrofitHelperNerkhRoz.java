@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice;
+package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitNerkhRoz;
 
 import android.content.Context;
 
@@ -22,12 +22,12 @@ import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.
  * Created by sajjad on 11/7/2018.
  */
 
-public class RetrofitHelperEpolice {
+public class RetrofitHelperNerkhRoz {
 
-    private static IPoliceRestApi service;
-    private static RetrofitHelperEpolice retrofitHelper;
+    private static INerkhRozRestApi service;
+    private static RetrofitHelperNerkhRoz retrofitHelper;
 
-    private RetrofitHelperEpolice() {
+    private RetrofitHelperNerkhRoz() {
         try {
             URL url = new URL(REST_API_IP_ADDRESS);
             String serverHostname = url.getHost();
@@ -49,7 +49,7 @@ public class RetrofitHelperEpolice {
                     .client(client)
                     .build();
 
-            service = retrofit.create(IPoliceRestApi.class);
+            service = retrofit.create(INerkhRozRestApi.class);
 
             int a = 4 ;
             a++;
@@ -58,9 +58,9 @@ public class RetrofitHelperEpolice {
         }
     }
 
-    public static RetrofitHelperEpolice getInstance(Context mContext) {
+    public static RetrofitHelperNerkhRoz getInstance(Context mContext) {
         if (retrofitHelper == null) {
-            retrofitHelper = new RetrofitHelperEpolice();
+            retrofitHelper = new RetrofitHelperNerkhRoz();
         }
         return retrofitHelper;
     }
@@ -92,21 +92,11 @@ public class RetrofitHelperEpolice {
         }
     }
 
-    public void callPelackservice(String platesearch, String xtype, String plateusage, String platecode, Callback<String> callback) {
-        Call<String> userCall = service.reportGetUserCount(platesearch,xtype,plateusage,platecode);
+    public void getBourseDetailsService(Callback<String> callback) {
+        Call<String> userCall = service.reportBourseDetails();
         userCall.enqueue(callback);
     }
 
 
-//compileSdkVersion
-//    public void databaseKey(ConfigRequest search, Callback<ConnectionCheckResponse> callback) {
-//        Call<ConnectionCheckResponse> userCall = service.databaseKey(search);
-//        userCall.enqueue(callback);
-//    }
-
-//    public void config(ConfigRequest search, Callback<ConfigResponse> callback) {
-//        Call<ConfigResponse> userCall = service.config(search);
-//        userCall.enqueue(callback);
-//    }
 
 }

@@ -4,13 +4,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ir.sajjadyosefi.android.xTubeless.R;
 
 public class CategoryViewHolder extends PostViewHolder {
 
-    public LinearLayout linearLayoutMain;
+    public RelativeLayout linearLayoutMain;
     public LinearLayout linearLayoutTop;
     public LinearLayout linearLayoutCenter;
     public LinearLayout linearLayoutBottom;
@@ -19,6 +20,7 @@ public class CategoryViewHolder extends PostViewHolder {
 
     public ImageView imageViewUserAvatar;
     public ImageView imageViewPicture;
+    public ImageView readmore;
     public TextView textViewUserName;
     public TextView textViewPicture;
 
@@ -32,13 +34,14 @@ public class CategoryViewHolder extends PostViewHolder {
         super(itemView);
 
         linearLayoutTop               = (LinearLayout) itemView.findViewById(R.id.linearLayoutTop);
-        linearLayoutMain               = (LinearLayout) itemView.findViewById(R.id.linearLayoutMain);
+        linearLayoutMain               = (RelativeLayout) itemView.findViewById(R.id.linearLayoutMain);
         linearLayoutCenter            = (LinearLayout) itemView.findViewById(R.id.linearLayoutCenter);
         linearLayoutBottom            = (LinearLayout) itemView.findViewById(R.id.linearLayoutBottom);
 
 
         imageViewUserAvatar           = (ImageView) itemView.findViewById(R.id.imageViewUserAvatar);
         imageViewPicture              = (ImageView) itemView.findViewById(R.id.imageViewPicture);
+        readmore                        = (ImageView) itemView.findViewById(R.id.readmore);
         textViewUserName              = (TextView) itemView.findViewById(R.id.textViewUserName);
         textViewPicture               = (TextView) itemView.findViewById(R.id.textViewPicture);
 

@@ -1,7 +1,6 @@
-package ir.sajjadyosefi.android.xTubeless.classes.model;
+package ir.sajjadyosefi.android.xTubeless.classes.model.config;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.ConfigurationObject;
-import ir.sajjadyosefi.android.xTubeless.classes.model.config.ServerResponseStatus;
 
 public class Configuration extends ServerResponseStatus {
 

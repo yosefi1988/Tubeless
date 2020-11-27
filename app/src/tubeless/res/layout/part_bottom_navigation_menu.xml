@@ -8,4 +8,5 @@
     android:layout_height="wrap_content"
     android:background="@color/tubelessColor_blue_03"
     app:bbn_badgeProvider="@string/bbn_badgeProvider"
+    tools:bbn_badgeColor="@color/tubelessColor_blue_03"
     app:bbn_entries="@menu/bottom_bar_menu" />

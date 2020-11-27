@@ -225,10 +225,10 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
                 }
 
                 //todo uncomment
-//                context.startActivity(new Intent(context, MainActivity.class));
-////                context.startActivity(new Intent(context, ReadBlogActivity.class));
-//                overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-//                ((Activity)context).finish();
+                context.startActivity(new Intent(context, MainActivity.class));
+//                context.startActivity(new Intent(context, ReadBlogActivity.class));
+                overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+                ((Activity)context).finish();
 
             }
         },1500);

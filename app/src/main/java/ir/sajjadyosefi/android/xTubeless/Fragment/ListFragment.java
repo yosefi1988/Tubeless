@@ -24,7 +24,10 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapterNerkhRoz;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity;
@@ -226,6 +229,9 @@ public class ListFragment extends Fragment  {
                         //هیچ پرداختی قبلا انجام نداده است
                     }
                 }
+            }else if (listType == TYPE_LIST_CATEGORY) {
+                ((TubelessActivity)context).progressDialog.show();
+
             }
         }
     }
@@ -248,9 +254,7 @@ public class ListFragment extends Fragment  {
                 mCoordinatorLayout = (CoordinatorLayout) mRoot;
             }
         }
-        if (xAdapter == null) {
-            createAdater();
-        }
+        createAdater();
 
         mRecyclerView.getAdapter();
         prepareFabButton(fragmentRootView,listType);
@@ -261,30 +265,53 @@ public class ListFragment extends Fragment  {
     }
 
     XAdapter xAdapter;
+    XAdapterNerkhRoz xAdapterNerkhRoz;
     private void createAdater( ) {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        xAdapter = new XAdapter(
-                listType,
-                catid,
-                getContext(),
-                mRoot,
-                mRecyclerView,
-                mLayoutManager,
-                //scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
-                //height,
-                //hasAppBarLayout,
-                mSwipeRefreshLayout,
-                this,
-                bundle);
-        mRecyclerView.setAdapter(xAdapter);
+
+        if(listType < 200) {
+            xAdapter = new XAdapter(
+                    listType,
+                    catid,
+                    getContext(),
+                    mRoot,
+                    mRecyclerView,
+                    mLayoutManager,
+                    //scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
+                    //height,
+                    //hasAppBarLayout,
+                    mSwipeRefreshLayout,
+                    this,
+                    bundle);
+            mRecyclerView.setAdapter(xAdapter);
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        }else {
+            xAdapterNerkhRoz = new XAdapterNerkhRoz(
+                    listType,
+                    catid,
+                    getContext(),
+                    mRoot,
+                    mRecyclerView,
+                    mLayoutManager,
+                    //scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
+                    //height,
+                    //hasAppBarLayout,
+                    mSwipeRefreshLayout,
+                    this,
+                    bundle);
+            mRecyclerView.setAdapter(xAdapterNerkhRoz);
+        }
     }
 
 
     public void refreshForAdmin(){
-        xAdapter.notifyDataSetChanged();
+        if (xAdapter != null)
+            xAdapter.notifyDataSetChanged();
+
+        if (xAdapterNerkhRoz != null)
+            xAdapterNerkhRoz.notifyDataSetChanged();
     }
 
     public static List<IItems> createData() {

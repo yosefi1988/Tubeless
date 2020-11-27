@@ -25,7 +25,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Configuration;
+import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 import retrofit2.Call;

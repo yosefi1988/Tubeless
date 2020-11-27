@@ -41,6 +41,7 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Category;
+import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
 import static org.litepal.LitePalApplication.getContext;
@@ -80,6 +81,21 @@ public class CategoryListActivity extends Activity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK){
+            if (requestCode == 3333){
+                categoryList = (List<Category>) data.getSerializableExtra("LIST");
+            }else {
+
+            }
+        }else {
+
+        }
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -99,7 +115,7 @@ public class CategoryListActivity extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putInt("type" , TYPE_LIST);
                 bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
-                ((Activity)context).startActivity(ContainerActivity.getIntent(context,bundle));
+                ((Activity)context).startActivityForResult(ContainerActivity.getIntent(context,bundle),3333);
             }
         });
 

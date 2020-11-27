@@ -24,6 +24,7 @@ import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 import java.util.Random;
 
+import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitNerkhRoz.RetrofitHelperNerkhRoz;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice.RetrofitHelperEpolice;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
 
@@ -52,6 +53,7 @@ public class Global extends MultiDexApplication {
     public static RetrofitHelperPost apiManagerPost;
     public static RetrofitHelperTubeless apiManagerTubeless;
     public static RetrofitHelperEpolice retrofitHelperEpolice;
+    public static RetrofitHelperNerkhRoz retrofitHelperNerkhRoz;
 
 
     @Override
@@ -62,6 +64,7 @@ public class Global extends MultiDexApplication {
 
         apiManagerPost = RetrofitHelperPost.getInstance();
         retrofitHelperEpolice = RetrofitHelperEpolice.getInstance(this);
+        retrofitHelperNerkhRoz = RetrofitHelperNerkhRoz.getInstance(this);
 
         //font 1
 //        FontChanger.overrideDefaultFont(this, "DEFAULT", FONT_IRANSANS_MOBILE_NORMAL_TTF);

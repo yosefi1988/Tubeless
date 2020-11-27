@@ -5,7 +5,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface samaniumRestApi {
+public interface IPoliceRestApi {
 
 
 //    @GET("/addresssrv?status=platesearch&xtype=1&plateusage=1&platecode=220634456")

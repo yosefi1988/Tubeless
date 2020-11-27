@@ -1,8 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -58,6 +56,11 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     public static int TYPE_LIST_CATEGORY  = 101;
 
 
+    ////////////////// Nerkh Rox  ///////////////////////
+    public static int TYPE_NERKHROZ_BOURSE = 201;
+    /////////////////////////////////////////////////////
+
+
     public FirstFragmentsAdapter(Context context, ViewPager viewPager, FragmentManager supportFragmentManager) {
         super(supportFragmentManager);
         this.context = context ;
@@ -81,7 +84,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
         }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
             PAGE_COUNT = 3;
         }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
-            PAGE_COUNT = 3;
+            PAGE_COUNT = 4;
         }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
             PAGE_COUNT = 2;
         }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
@@ -124,6 +127,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     Fragment fragmentx1;
     Fragment fragmentx2;
     Fragment fragmentx3;
+    Fragment fragmentx4;
 
     @Override
     public Fragment getItem(int position) {
@@ -208,6 +212,23 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                     }
                 }
                 return fragmentx3;
+
+            case 3:
+//                FragmentProfile mainHomePageFragmentxz = new FragmentProfile();
+//                fragment = mainHomePageFragmentxz.newInstance(context,position,LIST_TIMELINE );
+//
+//                FragmentYafteha fragmentNotifications = new FragmentYafteha();
+//                fragment = fragmentNotifications.newInstance(context,position,LIST_TIMELINE );
+
+                if (fragmentx4 == null) {
+                    if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+//                        fragmentx4 = new BourseDataFragment(context);
+                        fragmentx4 = new ListFragment(context, TYPE_NERKHROZ_BOURSE);
+                    } else {
+                        fragmentx4 = new BlankFragment();
+                    }
+                }
+                return fragmentx4;
         }
         return null;
     }

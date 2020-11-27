@@ -7,4 +7,5 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/tubelessColor_blue_03"
+    tools:bbn_badgeColor="@color/tubelessColor_blue_03"
     app:bbn_entries="@menu/bottom_bar_menu_yadak"/>
