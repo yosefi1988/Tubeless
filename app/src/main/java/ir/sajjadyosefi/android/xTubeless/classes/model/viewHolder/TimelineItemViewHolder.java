@@ -1,12 +1,15 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.tapsell.plus.AdHolder;
+import ir.tapsell.plus.TapsellPlus;
 
 public class TimelineItemViewHolder extends PostViewHolder {
 
@@ -24,7 +27,8 @@ public class TimelineItemViewHolder extends PostViewHolder {
     public TextView textViewLocation;
     public TextView textViewDate;
     public TextView textViewCount;
-    public FrameLayout adLayout;
+//    public FrameLayout adLayout;
+    public ViewGroup adContainer;
 
     public TimelineItemViewHolder(View itemView) {
         super(itemView);
@@ -43,6 +47,9 @@ public class TimelineItemViewHolder extends PostViewHolder {
         textViewDate                  = (TextView) itemView.findViewById(R.id.textViewDate);
         textViewCount                 = (TextView) itemView.findViewById(R.id.textViewCount);
 
-        adLayout                      = itemView.findViewById(R.id.nativeExpress);
+//        adLayout                      = itemView.findViewById(R.id.nativeExpress);
+        adContainer                   = itemView.findViewById(R.id.adContainer);
+
+
     }
 }

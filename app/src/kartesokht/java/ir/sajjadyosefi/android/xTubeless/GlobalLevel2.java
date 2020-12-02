@@ -12,7 +12,6 @@ import androidx.multidex.MultiDexApplication;
 
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
-import com.magnetadservices.sdk.MagnetSDK;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 

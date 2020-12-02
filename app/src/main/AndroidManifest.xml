@@ -92,11 +92,13 @@
             android:name=".bussines.post.activity.SearchByNationalCodeActivity"
             android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity
-            android:name="com.magnetadservices.sdk.MagnetInterstitialActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+<!--        <activity-->
+<!--            android:name="com.magnetadservices.sdk.MagnetInterstitialActivity"-->
+<!--            android:configChanges="orientation|screenSize|keyboardHidden"-->
+<!--            android:hardwareAccelerated="true"-->
+<!--            android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
+
         <activity
             android:name=".bussines.post.activity.SearchByNameActivity"
             android:theme="@style/ThemeFullSCreenX"

@@ -1,11 +1,11 @@
 
-package ir.sajjadyosefi.android.xTubeless.classes.model.response.nerkhroz.bourse;
+package ir.sajjadyosefi.android.xTubeless.classes.model.nerkhroz.bourse;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class NerkhrozBourse {
+public class NerkhrozBourse implements ParentListItem  {
 
     @SerializedName("priceType")
     @Expose
@@ -19,6 +19,13 @@ public class NerkhrozBourse {
     @SerializedName("main")
     @Expose
     private List<Main> main = null;
+
+    public NerkhrozBourse(NerkhrozBourse nerkhrozBourse, List<Main> asList) {
+        this.name = nerkhrozBourse.getName();
+        this.priceType = nerkhrozBourse.getPriceType();
+        this.date = nerkhrozBourse.getDate();
+        this.main = asList;
+    }
 
     public String getPriceType() {
         return priceType;
@@ -44,8 +51,13 @@ public class NerkhrozBourse {
         this.date = date;
     }
 
-    public List<Main> getMain() {
+    public List<Main> getChildItemList() {
         return main;
+    }
+
+    @Override
+    public boolean isInitiallyExpanded() {
+        return false;
     }
 
     public void setMain(List<Main> main) {

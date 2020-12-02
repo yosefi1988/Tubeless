@@ -73,14 +73,15 @@
                 android:inputType="phone" />
 
 
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/adView"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                app:adSize="BANNER"
-                app:adUnitId="ca-app-pub-6595298957852131/3747952719"></com.google.android.gms.ads.AdView>
+<!--            google ads-->
+<!--            <com.google.android.gms.ads.AdView-->
+<!--                android:id="@+id/adView"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                app:adSize="BANNER"-->
+<!--                app:adUnitId="ca-app-pub-6595298957852131/3747952719"></com.google.android.gms.ads.AdView>-->
 
 
             <TextView

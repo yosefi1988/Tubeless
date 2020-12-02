@@ -13,9 +13,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import org.litepal.LitePal;
@@ -165,11 +162,11 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        AdView adView = findViewById(R.id.adView);
+//        AdView adView = findViewById(R.id.adView);
 
 
         if (Global.user.isAdmin()) {
-            adView.setVisibility(View.VISIBLE);
+//            adView.setVisibility(View.VISIBLE);
 //        MobileAds.initialize(this, new OnInitializationCompleteListener() {
 //            @Override
 //            public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -179,58 +176,58 @@ public class ProfileActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-            AdRequest adRequest = new AdRequest.Builder().build();
-
-//        adView.setAdSize(AdSize.BANNER);
-//        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");     //test google
-            adView.loadAd(adRequest);
-
-            adView.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                    // Code to be executed when an ad finishes loading.
-                    Toast.makeText(getContext(), "onAdLoaded", Toast.LENGTH_LONG).show();
-                }
-
-                @Override
-                public void onAdFailedToLoad(int errorCode) {
-                    // Code to be executed when an ad request fails.
-                    Toast.makeText(getContext(), errorCode + "", Toast.LENGTH_LONG).show();
-
-                }
-
-                @Override
-                public void onAdOpened() {
-                    // Code to be executed when an ad opens an overlay that
-                    // covers the screen.
-                    Toast.makeText(getContext(), "onAdOpened", Toast.LENGTH_LONG).show();
-
-                }
-
-                @Override
-                public void onAdClicked() {
-                    // Code to be executed when the user clicks on an ad.
-                    Toast.makeText(getContext(), "onAdClicked", Toast.LENGTH_LONG).show();
-
-                }
-
-                @Override
-                public void onAdLeftApplication() {
-                    // Code to be executed when the user has left the app.
-                    Toast.makeText(getContext(), "onAdLeftApplication", Toast.LENGTH_LONG).show();
-
-                }
-
-                @Override
-                public void onAdClosed() {
-                    // Code to be executed when the user is about to return
-                    // to the app after tapping on an ad.
-                    Toast.makeText(getContext(), "onAdClosed", Toast.LENGTH_LONG).show();
-
-                }
-            });
+//            AdRequest adRequest = new AdRequest.Builder().build();
+//
+////        adView.setAdSize(AdSize.BANNER);
+////        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");     //test google
+//            adView.loadAd(adRequest);
+//
+//            adView.setAdListener(new AdListener() {
+//                @Override
+//                public void onAdLoaded() {
+//                    // Code to be executed when an ad finishes loading.
+//                    Toast.makeText(getContext(), "onAdLoaded", Toast.LENGTH_LONG).show();
+//                }
+//
+//                @Override
+//                public void onAdFailedToLoad(int errorCode) {
+//                    // Code to be executed when an ad request fails.
+//                    Toast.makeText(getContext(), errorCode + "", Toast.LENGTH_LONG).show();
+//
+//                }
+//
+//                @Override
+//                public void onAdOpened() {
+//                    // Code to be executed when an ad opens an overlay that
+//                    // covers the screen.
+//                    Toast.makeText(getContext(), "onAdOpened", Toast.LENGTH_LONG).show();
+//
+//                }
+//
+//                @Override
+//                public void onAdClicked() {
+//                    // Code to be executed when the user clicks on an ad.
+//                    Toast.makeText(getContext(), "onAdClicked", Toast.LENGTH_LONG).show();
+//
+//                }
+//
+//                @Override
+//                public void onAdLeftApplication() {
+//                    // Code to be executed when the user has left the app.
+//                    Toast.makeText(getContext(), "onAdLeftApplication", Toast.LENGTH_LONG).show();
+//
+//                }
+//
+//                @Override
+//                public void onAdClosed() {
+//                    // Code to be executed when the user is about to return
+//                    // to the app after tapping on an ad.
+//                    Toast.makeText(getContext(), "onAdClosed", Toast.LENGTH_LONG).show();
+//
+//                }
+//            });
         }else {
-            adView.setVisibility(View.GONE);
+//            adView.setVisibility(View.GONE);
         }
     }
 }

@@ -1,10 +1,7 @@
 
-package ir.sajjadyosefi.android.xTubeless.classes.model.response.nerkhroz.bourse;
+package ir.sajjadyosefi.android.xTubeless.classes.model.nerkhroz.bourse;
 
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class NerkhrozBourseResponse {
 

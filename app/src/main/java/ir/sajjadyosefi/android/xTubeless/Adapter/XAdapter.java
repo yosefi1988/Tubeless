@@ -743,14 +743,14 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_of_yafte_item, parent, false);
             holder = new TimelineItemViewHolder(view);
         }else if (listType == TYPE_LIST) {
-            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_category_item2, parent, false);
+            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_bourse_nerkhroz_header, parent, false);
             //font 5
 //            FontChangeCrawler fontChanger = new FontChangeCrawler(context.getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
 //            fontChanger.replaceFonts((ViewGroup)view);
             holder = new CategoryViewHolder(view);
 
         }else if (listType == TYPE_LIST_CATEGORY) {
-            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_category_item2, parent, false);
+            final View view = LayoutInflater.from(context).inflate(R.layout._row_of_bourse_nerkhroz_header, parent, false);
             //font 5
 //            FontChangeCrawler fontChanger = new FontChangeCrawler(context.getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
 //            fontChanger.replaceFonts((ViewGroup)view);

@@ -176,11 +176,20 @@
 
     </LinearLayout>
 
+<!--    <FrameLayout-->
+<!--        android:id="@+id/nativeExpress"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:layout_marginBottom="2dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" >-->
+<!--    </FrameLayout>-->
+
     <FrameLayout
-        android:id="@+id/nativeExpress"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
+        android:id="@+id/adContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
     </FrameLayout>
+
+
+
 </LinearLayout>

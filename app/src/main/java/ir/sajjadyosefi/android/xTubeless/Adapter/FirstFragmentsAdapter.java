@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
+import ir.sajjadyosefi.android.xTubeless.Fragment.TwoLevelListFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 
@@ -223,7 +224,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                 if (fragmentx4 == null) {
                     if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
 //                        fragmentx4 = new BourseDataFragment(context);
-                        fragmentx4 = new ListFragment(context, TYPE_NERKHROZ_BOURSE);
+                        fragmentx4 = new TwoLevelListFragment();
                     } else {
                         fragmentx4 = new BlankFragment();
                     }

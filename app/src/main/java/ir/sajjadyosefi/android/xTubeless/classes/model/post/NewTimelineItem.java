@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.gson.Gson;
-import com.magnetadservices.sdk.AdSize;
-import com.magnetadservices.sdk.MagnetNativeExpress;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapter;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
@@ -27,6 +25,9 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
+import ir.tapsell.plus.AdHolder;
+import ir.tapsell.plus.AdRequestCallback;
+import ir.tapsell.plus.TapsellPlus;
 import retrofit2.Call;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitleForShare;
@@ -336,13 +337,30 @@ public class NewTimelineItem extends ParentItem{
 
         //magnet ads
         if (BuildConfig.FLAVOR.equals("bourseMyket")) {
-            if (position % 5 == 0) {
-                MagnetNativeExpress nativeExpress = MagnetNativeExpress.create(mContext);
-                nativeExpress.load("2636f0db4e8008d8b839ebabba0194a4", holder.adLayout, new AdSize(DeviceUtil.getDisplayWidthAsDp(mContext), DeviceUtil.getHeight2to3AsDp(mContext)));
-                holder.adLayout.setVisibility(View.VISIBLE);
-            }else {
-                holder.adLayout.setVisibility(View.GONE);
-            }
+//            if (position % 5 == 0) {
+//                MagnetNativeExpress nativeExpress = MagnetNativeExpress.create(mContext);
+//                nativeExpress.load("2636f0db4e8008d8b839ebabba0194a4", holder.adLayout, new AdSize(DeviceUtil.getDisplayWidthAsDp(mContext), DeviceUtil.getHeight2to3AsDp(mContext)));
+//                holder.adLayout.setVisibility(View.VISIBLE);
+//            }else {
+//                holder.adLayout.setVisibility(View.GONE);
+//            }
+
+            AdHolder adHolder = TapsellPlus.createAdHolder(((Activity)mContext), holder.adContainer, R.layout.native_banner);
+            TapsellPlus.requestNativeBanner(
+                    ((Activity)mContext),
+                    "5fc7fc4cc9d4dd00019ff328",
+                    new AdRequestCallback() {
+                        @Override
+                        public void response() {
+                            //ad is ready to show
+                            TapsellPlus.showAd(((Activity)mContext), adHolder, "5fc7fc4cc9d4dd00019ff328");
+                        }
+
+                        @Override
+                        public void error(String message) {
+                        }
+                    });
+
         }
 
 

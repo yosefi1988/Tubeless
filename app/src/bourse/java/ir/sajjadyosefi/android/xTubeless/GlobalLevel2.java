@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 
-import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.magnetadservices.sdk.MagnetSDK;
 import com.squareup.picasso.OkHttp3Downloader;
@@ -24,16 +23,7 @@ import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 import java.util.Random;
 
-import ir.adad.core.Adad;
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice.RetrofitHelperEpolice;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.RetrofitHelperPost;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-
-import static ir.sajjadyosefi.android.xTubeless.widget.CustomEditText.FONT_IRANSANS_MOBILE_NORMAL_TTF;
-
-//اس دی کی های تبلیغاتی عدد
+import ir.tapsell.plus.TapsellPlus;
 
 
 /**
@@ -45,14 +35,52 @@ public class GlobalLevel2 extends Global {
     public void onCreate() {
         super.onCreate();
         if (BuildConfig.FLAVOR_market.equals("myket") ) {
-            MagnetSDK.initialize(getApplicationContext());
-            if (BuildConfig.DEBUG) {
-                MagnetSDK.getSettings().setTestMode(true);
-            } else {
-                MagnetSDK.getSettings().setTestMode(false);
-            }
+//            MagnetSDK.initialize(getApplicationContext());
+//            if (BuildConfig.DEBUG) {
+//                MagnetSDK.getSettings().setTestMode(true);
+//            } else {
+//                MagnetSDK.getSettings().setTestMode(false);
+//            }
+
+            TapsellPlus.initialize(this, "esaohdhqicloeoqojffeteerbddecqkcecoabcckcnrofigptnmsghsmfkacoqmoratktg");
         }
 
+
+//        Picasso.Builder builder = new Picasso.Builder(this);
+//        builder.downloader(new OkHttp3Downloader(this,Integer.MAX_VALUE));
+//        Picasso built = builder.build();
+//        built.setIndicatorsEnabled(true);
+//        built.setLoggingEnabled(true);
+//        Picasso.setSingletonInstance(built);
+//
+//        Picasso.with(getActivity())
+//                .load(imageUrl)
+//                .networkPolicy(NetworkPolicy.OFFLINE)
+//                .into(imageView, new Callback() {
+//                    @Override
+//                    public void onSuccess() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError() {
+//                        //Try again online if cache failed
+//                        Picasso.with(getActivity())
+//                                .load(posts.get(position).getImageUrl())
+//                                .error(R.drawable.header)
+//                                .into(imageView, new Callback() {
+//                                    @Override
+//                                    public void onSuccess() {
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onError() {
+//                                        Log.v("Picasso","Could not fetch image");
+//                                    }
+//                                });
+//                    }
+//                });
     }
 
 }

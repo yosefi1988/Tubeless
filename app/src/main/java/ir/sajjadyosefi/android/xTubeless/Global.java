@@ -11,7 +11,6 @@ import androidx.multidex.MultiDexApplication;
 
 import android.widget.Toast;
 
-import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
@@ -32,8 +31,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.RetrofitHelperPost;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-//اس دی کی های تبلیغاتی عدد
-import ir.adad.core.Adad;
 
 import static ir.sajjadyosefi.android.xTubeless.widget.CustomEditText.FONT_IRANSANS_MOBILE_NORMAL_TTF;
 
@@ -60,7 +57,7 @@ public class Global extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
-        MobileAds.initialize(this, "ca-app-pub-6595298957852131/3747952719");
+//        MobileAds.initialize(this, "ca-app-pub-6595298957852131/3747952719");
 
         apiManagerPost = RetrofitHelperPost.getInstance();
         retrofitHelperEpolice = RetrofitHelperEpolice.getInstance(this);
@@ -76,9 +73,9 @@ public class Global extends MultiDexApplication {
                 .build());
 
 
-        Adad.setEnabled(true);
-        Adad.setTestMode(false);
-        Adad.initialize("357418d6-115d-47d3-8fb4-a228d2c1b882");// جایگاه وارد کردن توکن یا شناسه ی اپلیکیشن مورد نظر
+//        Adad.setEnabled(true);
+//        Adad.setTestMode(false);
+//        Adad.initialize("357418d6-115d-47d3-8fb4-a228d2c1b882");// جایگاه وارد کردن توکن یا شناسه ی اپلیکیشن مورد نظر
 
 
         apiManagerTubeless = RetrofitHelperTubeless.getInstance();

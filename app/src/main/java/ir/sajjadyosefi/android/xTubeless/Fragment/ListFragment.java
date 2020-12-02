@@ -25,7 +25,7 @@ import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.sajjadyosefi.android.xTubeless.Adapter.XAdapterNerkhRoz;
+import ir.sajjadyosefi.android.xTubeless.Adapter.recyclerView.XAdapterNerkhRoz;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
@@ -42,7 +42,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
-import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_All;
@@ -288,19 +287,19 @@ public class ListFragment extends Fragment  {
             mRecyclerView.setAdapter(xAdapter);
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         }else {
-            xAdapterNerkhRoz = new XAdapterNerkhRoz(
-                    listType,
-                    catid,
-                    getContext(),
-                    mRoot,
-                    mRecyclerView,
-                    mLayoutManager,
-                    //scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
-                    //height,
-                    //hasAppBarLayout,
-                    mSwipeRefreshLayout,
-                    this,
-                    bundle);
+//            xAdapterNerkhRoz = new XAdapterNerkhRoz(
+//                    listType,
+//                    catid,
+//                    getContext(),
+//                    mRoot,
+//                    mRecyclerView,
+//                    mLayoutManager,
+//                    //scrollHelper != null ? scrollHelper.getToolbarHeight() : 0 ,
+//                    //height,
+//                    //hasAppBarLayout,
+//                    mSwipeRefreshLayout,
+//                    this,
+//                    bundle);
             mRecyclerView.setAdapter(xAdapterNerkhRoz);
         }
     }
