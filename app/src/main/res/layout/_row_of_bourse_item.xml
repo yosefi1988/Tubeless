@@ -40,7 +40,7 @@
                 android:paddingTop="-2dp"
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="1dp"
-                android:text="@string/title"  />
+                android:text=""  />
 
             <ImageView
                 android:id="@+id/imageviewPicture"

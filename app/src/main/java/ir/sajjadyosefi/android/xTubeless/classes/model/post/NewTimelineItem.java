@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.gson.Gson;
@@ -14,6 +15,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.Statement;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.innerClass.TextContent;
@@ -30,6 +32,7 @@ import ir.tapsell.plus.AdRequestCallback;
 import ir.tapsell.plus.TapsellPlus;
 import retrofit2.Call;
 
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.fillTitleForShare;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
@@ -336,32 +339,41 @@ public class NewTimelineItem extends ParentItem{
         final NewTimelineItem timelineItem = (NewTimelineItem)item;
 
         //magnet ads
-        if (BuildConfig.FLAVOR.equals("bourseMyket")) {
-//            if (position % 5 == 0) {
+//        if (BuildConfig.FLAVOR.equals("bourseMyket")) {
+            if (position % 5 == 0) {
 //                MagnetNativeExpress nativeExpress = MagnetNativeExpress.create(mContext);
 //                nativeExpress.load("2636f0db4e8008d8b839ebabba0194a4", holder.adLayout, new AdSize(DeviceUtil.getDisplayWidthAsDp(mContext), DeviceUtil.getHeight2to3AsDp(mContext)));
 //                holder.adLayout.setVisibility(View.VISIBLE);
-//            }else {
+                if (!checkResult(mContext, StaticValue.configuration)) {
+                    //free رایگان
+                    holder.adContainer.setVisibility(View.GONE);
+                }else {
+                    holder.adContainer.setVisibility(View.VISIBLE);
+                    AdHolder adHolder = TapsellPlus.createAdHolder(((Activity) mContext), holder.adContainer, R.layout.native_banner);
+                    TapsellPlus.requestNativeBanner(
+                            ((Activity) mContext),
+                            "5fc7fc4cc9d4dd00019ff328",
+                            new AdRequestCallback() {
+                                @Override
+                                public void response() {
+                                    //ad is ready to show
+                                    TapsellPlus.showAd(((Activity) mContext), adHolder, "5fc7fc4cc9d4dd00019ff328");
+                                    if (holder.textViewTitle.getText().length() < 1)
+                                        xAdapter.notifyItemChanged(position);
+                                }
+
+                                @Override
+                                public void error(String message) {
+                                    holder.adContainer.setVisibility(View.GONE);
+                                }
+                            });
+
+                }
+            }else {
 //                holder.adLayout.setVisibility(View.GONE);
-//            }
-
-            AdHolder adHolder = TapsellPlus.createAdHolder(((Activity)mContext), holder.adContainer, R.layout.native_banner);
-            TapsellPlus.requestNativeBanner(
-                    ((Activity)mContext),
-                    "5fc7fc4cc9d4dd00019ff328",
-                    new AdRequestCallback() {
-                        @Override
-                        public void response() {
-                            //ad is ready to show
-                            TapsellPlus.showAd(((Activity)mContext), adHolder, "5fc7fc4cc9d4dd00019ff328");
-                        }
-
-                        @Override
-                        public void error(String message) {
-                        }
-                    });
-
-        }
+                holder.adContainer.setVisibility(View.GONE);
+            }
+//        }
 
 
         final boolean[] loadedImage = {false};

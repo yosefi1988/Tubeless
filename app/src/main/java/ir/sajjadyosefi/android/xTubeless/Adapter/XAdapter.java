@@ -3,6 +3,7 @@ package ir.sajjadyosefi.android.xTubeless.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -473,12 +474,13 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //                        item.setType(Tubeless_ITEM_TYPE);
                         ((ListFragment)fragment).list.add(item);
 //                        if (isRefresh) {
-                        adapter.notifyDataSetChanged();
+                        adapter.notifyItemChanged(((ListFragment)fragment).list.size());
+//                        adapter.notifyDataSetChanged();
 //                        }else {
 //                            adapter.notifyItemInserted(data.size());
 //                        }
                     }
-                    adapter.notifyDataSetChanged();
+                    //adapter.notifyDataSetChanged();
                 }
             };
             Global.apiManagerTubeless.getTimelineListForBourseTrain(context,current_page - 1, ssssssss);
@@ -803,12 +805,15 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
             final PictureItem item = (PictureItem) ((ListFragment)fragment).list.get(position);
             item.fill(context , this, listType, holder, item, position);
 
+
 //        }else if (data.get(position) instanceof TimelineItem) {
 //            final TimelineItem item = (TimelineItem) data.get(position);
 //            item.fill(context,this , listType, holder, item, position);
 
         }else if (((ListFragment)fragment).list.get(position) instanceof NewTimelineItem) {
             final NewTimelineItem item = (NewTimelineItem) ((ListFragment)fragment).list.get(position);
+            Log.e("filllllll" , listType + " " + position);
+
             item.fill(context,this , listType, holder, item, position);
 
 
@@ -848,7 +853,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
 
         //Animation Set the view to fade in
-        setScaleAnimation(holder.itemView);
+//        setScaleAnimation(holder.itemView);
     }
 
     private void setFadeAnimation(View view) {
