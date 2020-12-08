@@ -448,7 +448,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 }
             }
         };
-        Global.apiManagerTubeless.registerNewYafte(blogItem ,ssssssss);
+        Global.apiManagerTubeless.registerNewBlog(blogItem ,ssssssss);
 
 
     }

@@ -25,8 +25,8 @@ def final Yadak_VersionName = "2.2.0"
 def final Yadak_VersionCode = 8
 
 def final appNameBourse = 'بورس , سهام'
-def final Bourse_VersionName = "4.0.1"
-def final Bourse_VersionCode = 16
+def final Bourse_VersionName = "4.0.2"
+def final Bourse_VersionCode = 17
 
 def githubProperties = new Properties()
 githubProperties.load(new FileInputStream(rootProject.file("github.properties")))

@@ -49,7 +49,7 @@ public interface ApiServiceTubeless {
     Call<Object> login(@Body LoginRequest request);
 
     @POST("Api/Blog/SaveNewBlog")
-    Call<Object> newYafte(@Body NewBlogRequest request);
+    Call<Object> newBlog(@Body NewBlogRequest request);
 
     //------------ comments ---------------
     @POST("Api/Comment/SaveNewBlogComment")

@@ -223,8 +223,8 @@ public class RetrofitHelperTubeless {
     }
 
 
-    public void registerNewYafte(NewBlogRequest request, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.newYafte(request);
+    public void registerNewBlog(NewBlogRequest request, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.newBlog(request);
         userCall.enqueue(callback);
     }
 

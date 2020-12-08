@@ -242,7 +242,9 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
                     });
                 }else {
 
-                    aaaa.setUserID((int)Global.user.getUserId());
+                    if (Global.user != null) {
+                        aaaa.setUserID((int)Global.user.getUserId());
+                    }
 
                     aaaa.setTitlePicture("");
                     aaaa.setTextPicture("");
@@ -265,7 +267,7 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
                     oooo.addProperty("text",        editTextText.getText().toString());
                     aaaa.setText(oooo.toString());
                     progressDialog.show();
-                    newYadak(aaaa);
+                    newBlog(aaaa);
                 }
             }
         });
@@ -406,7 +408,7 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
 
     }
 
-    private void newYadak(NewBlogRequest blogItem) {
+    private void newBlog(NewBlogRequest blogItem) {
         final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
 
         TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), ServerResponseBase.class) {
@@ -499,7 +501,7 @@ public class RegNewBlogActivity extends TubelessTransparentStatusBarActivity {
                 }
             }
         };
-        Global.apiManagerTubeless.registerNewYafte(blogItem ,ssssssss);
+        Global.apiManagerTubeless.registerNewBlog(blogItem ,ssssssss);
 
     }
 
