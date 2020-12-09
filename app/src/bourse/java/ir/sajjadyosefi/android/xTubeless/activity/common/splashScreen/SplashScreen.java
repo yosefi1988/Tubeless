@@ -23,6 +23,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.SplashScreenPresenterCompl;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
+import ir.sajjadyosefi.android.xTubeless.activity.examples.MainActivityRxJavaList;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
@@ -236,7 +237,10 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
                     //FirebaseCrash.report(e);
                 }
 
-                context.startActivity(new Intent(context, MainActivity.class));
+
+                //todo uncomment
+//                context.startActivity(new Intent(context, MainActivity.class));
+                context.startActivity(new Intent(context, MainActivityRxJavaList.class));
                 overridePendingTransition(R.anim.fadeout, R.anim.fadein);
                 ((Activity)context).finish();
 

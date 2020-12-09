@@ -116,18 +116,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="13 azar 2">
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="÷">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewBlogActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewBlogActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYadakActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYafteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/register/RegNewYafteActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/ApiServiceTubeless.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/ApiServiceTubeless.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/networkLayout/retrofit/RetrofitHelperTubeless.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_blog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_blog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faboptions/faboptions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/faboptions/faboptions.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/bourse/java/ir/sajjadyosefi/android/xTubeless/activity/common/splashScreen/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/crypto/RecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/crypto/RecyclerViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_rx.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_rx.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/crypto.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +237,7 @@
     <property name="device.picker.selection" value="192.168.1.2:5555" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28328007" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -250,7 +245,7 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="PsdUISettings">
-    <option name="MODULE_TAB" value="Signing Configs" />
+    <option name="MODULE_TAB" value="Properties" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="TubelessSajjadSigning" />
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
@@ -600,13 +595,6 @@
       <option name="presentableId" value="Default" />
       <updated>1552667600839</updated>
     </task>
-    <task id="LOCAL-00026" summary="27 khordad">
-      <created>1592333396266</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1592333396266</updated>
-    </task>
     <task id="LOCAL-00027" summary="29 khordad">
       <created>1592484884055</created>
       <option name="number" value="00027" />
@@ -943,7 +931,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607026417247</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="18 azar">
+      <created>1607418142508</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1607418142511</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -970,7 +965,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="26 mordad 2" />
     <MESSAGE value="26 mordad 3" />
     <MESSAGE value="26 mordad 4" />
     <MESSAGE value="26 mordad 5" />
@@ -995,13 +989,14 @@
     <MESSAGE value="7 azar" />
     <MESSAGE value="13 azar" />
     <MESSAGE value="13 azar 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="13 azar 2" />
+    <MESSAGE value="18 azar" />
+    <option name="LAST_COMMIT_MESSAGE" value="18 azar" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="217" y="62" width="1149" height="666" key="#PSD" timestamp="1603532703567">
+    <state x="217" y="62" width="1149" height="666" key="#PSD" timestamp="1607421196066">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="217" y="62" width="1149" height="666" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1603532703567" />
+    <state x="217" y="62" width="1149" height="666" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1607421196066" />
     <state x="402" y="9" key="#app" timestamp="1603016362024">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1042,10 +1037,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="538" y="129" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1600755579984" />
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1607026407644">
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1607501853585">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607026407644" />
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607501853585" />
     <state width="672" height="607" key="DebuggerActiveHint" timestamp="1607405572765">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1054,22 +1049,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606588548854" />
-    <state width="1323" height="145" key="GridCell.Tab.0.bottom" timestamp="1607405927593">
+    <state width="1323" height="145" key="GridCell.Tab.0.bottom" timestamp="1607421944293">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607405927593" />
-    <state width="1323" height="145" key="GridCell.Tab.0.center" timestamp="1607405927592">
+    <state width="1323" height="145" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607421944293" />
+    <state width="1323" height="145" key="GridCell.Tab.0.center" timestamp="1607421944292">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607405927592" />
-    <state width="1323" height="145" key="GridCell.Tab.0.left" timestamp="1607405927592">
+    <state width="1323" height="145" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607421944292" />
+    <state width="1323" height="145" key="GridCell.Tab.0.left" timestamp="1607421944290">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607405927592" />
-    <state width="1323" height="145" key="GridCell.Tab.0.right" timestamp="1607405927592">
+    <state width="1323" height="145" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607421944290" />
+    <state width="1323" height="145" key="GridCell.Tab.0.right" timestamp="1607421944292">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607405927592" />
+    <state width="1323" height="145" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607421944292" />
     <state width="1323" height="137" key="GridCell.Tab.1.bottom" timestamp="1603190233301">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1090,10 +1085,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605712368785" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1607026440888">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1607418611659">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607026440888" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607418611659" />
     <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1601440502202">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1126,14 +1121,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1600765170639" />
-    <state x="363" y="122" width="940" height="606" key="find.popup" timestamp="1607014828764">
+    <state x="363" y="122" width="940" height="606" key="find.popup" timestamp="1607423820370">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="122" width="940" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1607014828764" />
-    <state width="331" height="147" key="javadoc.popup.new" timestamp="1606999582935">
+    <state x="363" y="122" width="940" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1607423820370" />
+    <state width="331" height="147" key="javadoc.popup.new" timestamp="1607423653668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="331" height="147" key="javadoc.popup.new/0.0.1366.728@0.0.1366.728" timestamp="1606999582935" />
+    <state width="331" height="147" key="javadoc.popup.new/0.0.1366.728@0.0.1366.728" timestamp="1607423653668" />
     <state x="527" y="247" key="psd.add.jar.dependency.panel.dimension" timestamp="1598953112414">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1146,10 +1141,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606910623118" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1607024189448">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1607424126430">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1607024189448" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1607424126430" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1393,16 +1388,6 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/account/profile/MainActivityProfile.java</url>
           <line>437</line>
           <option name="timeStamp" value="1376" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/examples/MainActivityRxJavaList.java</url>
-          <line>116</line>
-          <option name="timeStamp" value="1379" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/examples/MainActivityRxJavaList.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="1380" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/user/User.java</url>

@@ -172,6 +172,9 @@
         <activity
             android:name=".activity.common.blog.ReadBlogActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity  android:name=".activity.examples.MainActivityRxJavaList"></activity>
+
         <activity
             android:name=".activity.common.splashScreen.SplashScreen"
             android:theme="@style/ThemeFullSCreenX">
