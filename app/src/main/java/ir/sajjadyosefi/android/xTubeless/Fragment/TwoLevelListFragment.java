@@ -118,6 +118,10 @@ public class TwoLevelListFragment extends Fragment  {
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.append("آخرین تغییرات تا");
                 stringBuilder.append(nerkhrozBourses.get(0).getDate());
+                stringBuilder.append("\n");
+                stringBuilder.append("منبع: http://www.tsetmc.com");
+                stringBuilder.append("\n");
+
                 textView.setText(stringBuilder.toString());
                 textView.setVisibility(View.VISIBLE);
 

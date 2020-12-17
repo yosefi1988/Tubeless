@@ -24,7 +24,7 @@
 <!--        android:title="آخرین وضعیت" />-->
     <item
         android:id="@+id/bbn_item4"
-        android:icon="@drawable/png_icon_analize"
+        android:icon="@drawable/png_status"
         android:title="آخرین وضعیت" />
 
 </menu>

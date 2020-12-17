@@ -65,6 +65,12 @@
                 android:icon="@drawable/png_role"
                 android:title="قوانین" />
 
+
+            <item
+                android:id="@+id/nav_resource"
+                android:icon="@drawable/png_sourse"
+                android:title="منابع" />
+
         </menu>
     </item>
 

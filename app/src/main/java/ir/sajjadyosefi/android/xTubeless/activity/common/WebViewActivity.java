@@ -132,6 +132,8 @@ public class WebViewActivity extends TubelessTransparentStatusBarActivity {
                 } else if (bundle.getString("WebType").equals("help")) {
                     htmlFilename = "help.html";
                     //textViewTitle.setText("راهنما");
+                } else if (bundle.getString("WebType").equals("source")) {
+                    htmlFilename = "source.html";
                 } else if (bundle.getString("WebType").equals("rule")) {
 
                     if (checkResult(context, StaticValue.configuration)){
