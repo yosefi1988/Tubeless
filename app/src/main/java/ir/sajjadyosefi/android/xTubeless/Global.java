@@ -44,6 +44,10 @@ public class Global extends MultiDexApplication {
     public static User user = null;
     //_________________________________
 
+    /////////////setting /////////////
+    public static boolean tapcell_in_list = false;
+    public static boolean tapcell_in_activities = false;
+
 
 
     public static String token;

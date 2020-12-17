@@ -117,10 +117,10 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 
 
         //todo comment
-        Bundle bundle = new Bundle();
-        bundle.putInt("type" , TYPE_LIST);
-        bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
-        this.startActivity(ContainerActivity.getIntent(this,bundle));
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("type" , TYPE_LIST);
+//        bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
+//        this.startActivity(ContainerActivity.getIntent(this,bundle));
 
 
 

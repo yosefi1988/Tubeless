@@ -25,8 +25,8 @@ def final Yadak_VersionName = "2.2.0"
 def final Yadak_VersionCode = 8
 
 def final appNameBourse = 'بورس , سهام'
-def final Bourse_VersionName = "4.0.2"
-def final Bourse_VersionCode = 17
+def final Bourse_VersionName = "4.1.0"
+def final Bourse_VersionCode = 18
 
 def githubProperties = new Properties()
 githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
@@ -183,16 +183,15 @@ android {
                     appIcon: "@drawable/dot"
             ]
         }
+
         carNews {
             dimension "version_name"
             resValue "string", "app_name", appNameCarNews
-
             applicationIdSuffix ".xCarNews"
-
             versionName "${CarNews_VersionName}"
             versionCode CarNews_VersionCode
             manifestPlaceholders = [
-                    appIcon: "@drawable/dot"
+                    appIcon: "@drawable/png_icon"
             ]
         }
 

@@ -225,6 +225,10 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     }
 
                     ((TubelessActivity)context).progressDialog.hide();
+
+                    if (current_page == 1 && ((ListFragment)fragment).list.size() == 0){
+                        rootView.findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
+                    }
                 }
             };
             Global.apiManagerTubeless.getCategoryRoot(catid,current_page - 1, ssssssss);
@@ -474,13 +478,18 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //                        item.setType(Tubeless_ITEM_TYPE);
                         ((ListFragment)fragment).list.add(item);
 //                        if (isRefresh) {
-                        adapter.notifyItemChanged(((ListFragment)fragment).list.size());
+                            if (current_page != 1){
+                                adapter.notifyItemChanged(((ListFragment) fragment).list.size());
+                            }
 //                        adapter.notifyDataSetChanged();
 //                        }else {
 //                            adapter.notifyItemInserted(data.size());
 //                        }
                     }
-                    //adapter.notifyDataSetChanged();
+//                    adapter.notifyDataSetChanged();
+                    if (current_page == 1){
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             };
             Global.apiManagerTubeless.getTimelineListForBourseTrain(context,current_page - 1, ssssssss);

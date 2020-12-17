@@ -241,19 +241,21 @@ public class ListFragment extends Fragment  {
         super.onActivityCreated(savedInstanceState);
 
 //        activity            = (TubelessActivity) getActivity();
-        if (activity != null)
+        if (activity == null)
             activity            = (Activity) getActivity();
 
 //        if (activity.getSystemBarTint() != null)
 //            config              = activity.getSystemBarTint().getConfig();
 
-        if (mRoot != null) {
+        if (mRoot == null) {
             mRoot = (ViewGroup) activity.findViewById(R.id.CoordinatorLayout01);
             if (mRoot instanceof CoordinatorLayout) {
                 mCoordinatorLayout = (CoordinatorLayout) mRoot;
             }
         }
-        createAdater();
+
+        if (mLayoutManager == null)
+            createAdater();
 
         mRecyclerView.getAdapter();
         prepareFabButton(fragmentRootView,listType);

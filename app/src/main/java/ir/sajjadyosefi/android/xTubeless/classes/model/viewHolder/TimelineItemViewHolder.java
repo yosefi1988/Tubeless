@@ -8,8 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.tapsell.plus.AdHolder;
-import ir.tapsell.plus.TapsellPlus;
+
 
 public class TimelineItemViewHolder extends PostViewHolder {
 

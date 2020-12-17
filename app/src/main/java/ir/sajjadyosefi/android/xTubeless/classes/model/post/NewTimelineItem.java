@@ -27,6 +27,7 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.picasso.LoadImages;
+
 import ir.tapsell.plus.AdHolder;
 import ir.tapsell.plus.AdRequestCallback;
 import ir.tapsell.plus.TapsellPlus;
@@ -344,11 +345,15 @@ public class NewTimelineItem extends ParentItem{
 //                MagnetNativeExpress nativeExpress = MagnetNativeExpress.create(mContext);
 //                nativeExpress.load("2636f0db4e8008d8b839ebabba0194a4", holder.adLayout, new AdSize(DeviceUtil.getDisplayWidthAsDp(mContext), DeviceUtil.getHeight2to3AsDp(mContext)));
 //                holder.adLayout.setVisibility(View.VISIBLE);
+
+                //tapsell
                 if (!checkResult(mContext, StaticValue.configuration)) {
                     //free رایگان
-                    holder.adContainer.setVisibility(View.GONE);
+                    if(holder.adContainer != null)
+                        holder.adContainer.setVisibility(View.GONE);
                 }else {
                     holder.adContainer.setVisibility(View.VISIBLE);
+
                     AdHolder adHolder = TapsellPlus.createAdHolder(((Activity) mContext), holder.adContainer, R.layout.native_banner);
                     TapsellPlus.requestNativeBanner(
                             ((Activity) mContext),
@@ -371,7 +376,9 @@ public class NewTimelineItem extends ParentItem{
                 }
             }else {
 //                holder.adLayout.setVisibility(View.GONE);
-                holder.adContainer.setVisibility(View.GONE);
+                if (holder.adContainer != null) {
+                    holder.adContainer.setVisibility(View.GONE);
+                }
             }
 //        }
 
