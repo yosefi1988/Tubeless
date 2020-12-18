@@ -116,19 +116,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="ad error fix">
-      <change afterPath="$PROJECT_DIR$/app/src/bourse/res/drawable/png_sourse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/bourse/res/drawable/png_status.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/source.html" afterDir="false" />
+    <list default="true" id="9f8997c6-b334-4e0a-b0cb-5a66c8b18228" name="Default" comment="bazar fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PagerSlidingTabStrip/PagerSlidingTabStrip.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/bourse/res/menu/activity_main_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/bourse/res/menu/activity_main_drawer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/TwoLevelListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/TwoLevelListFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/WebViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/activity/common/WebViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/bottom_bar_menu_bourse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_bar_menu_bourse.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faboptions/faboptions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/faboptions/faboptions.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -601,13 +591,6 @@
       <option name="presentableId" value="Default" />
       <updated>1552667600839</updated>
     </task>
-    <task id="LOCAL-00029" summary="13 tir">
-      <created>1593800166480</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1593800166480</updated>
-    </task>
     <task id="LOCAL-00030" summary="15 tir">
       <created>1593927469650</created>
       <option name="number" value="00030" />
@@ -944,7 +927,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608190008344</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="bazar fix">
+      <created>1608239720918</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1608239720920</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -971,7 +961,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="26 mordad 5" />
     <MESSAGE value="5 shahrivar" />
     <MESSAGE value="8 shahrivar" />
     <MESSAGE value="8 shahrivar 2" />
@@ -996,7 +985,8 @@
     <MESSAGE value="18 azar" />
     <MESSAGE value="ok" />
     <MESSAGE value="ad error fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="ad error fix" />
+    <MESSAGE value="bazar fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bazar fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="217" y="62" width="1149" height="666" key="#PSD" timestamp="1607421196066">
@@ -1031,10 +1021,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="538" y="129" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1600755579984" />
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1608189994656">
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2" timestamp="1608239711091">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608189994656" />
+    <state x="144" y="0" width="1040" height="728" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608239711091" />
     <state width="672" height="607" key="DebuggerActiveHint" timestamp="1607546636655">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1043,22 +1033,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606588548854" />
-    <state width="1323" height="143" key="GridCell.Tab.0.bottom" timestamp="1608199144452">
+    <state width="1323" height="331" key="GridCell.Tab.0.bottom" timestamp="1608242472571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="143" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608199144452" />
-    <state width="1323" height="143" key="GridCell.Tab.0.center" timestamp="1608199144451">
+    <state width="1323" height="331" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608242472571" />
+    <state width="1323" height="331" key="GridCell.Tab.0.center" timestamp="1608242472571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="143" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608199144451" />
-    <state width="1323" height="143" key="GridCell.Tab.0.left" timestamp="1608199144451">
+    <state width="1323" height="331" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608242472571" />
+    <state width="1323" height="331" key="GridCell.Tab.0.left" timestamp="1608242472570">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="143" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608199144451" />
-    <state width="1323" height="143" key="GridCell.Tab.0.right" timestamp="1608199144451">
+    <state width="1323" height="331" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608242472570" />
+    <state width="1323" height="331" key="GridCell.Tab.0.right" timestamp="1608242472571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="143" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608199144451" />
+    <state width="1323" height="331" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608242472571" />
     <state width="1323" height="137" key="GridCell.Tab.1.bottom" timestamp="1603190233301">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1079,10 +1069,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605712368785" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1608190012723">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1608301057487">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1608190012723" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1608301057487" />
     <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1601440502202">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -1741,18 +1731,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java</url>
-          <line>489</line>
-          <option name="timeStamp" value="2331" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Adapter/XAdapter.java</url>
           <line>481</line>
           <option name="timeStamp" value="2332" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/classes/model/post/NewTimelineItem.java</url>
-          <line>349</line>
-          <option name="timeStamp" value="2333" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/ir/sajjadyosefi/android/xTubeless/Fragment/TwoLevelListFragment.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="2334" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

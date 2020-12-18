@@ -110,49 +110,51 @@ public class TwoLevelListFragment extends Fragment  {
                 List<NerkhrozBourse> nerkhrozBourses = new ArrayList<>();//= Arrays.asList(molvie_category_one,  molvie_category_two, molvie_category_three,molvie_category_four);
 
 
-                for (NerkhrozBourse nerkhrozBourse : founderArray){
-                    NerkhrozBourse nerkhrozBourse1 = new NerkhrozBourse(nerkhrozBourse, nerkhrozBourse.getChildItemList());
-                    nerkhrozBourses.add(nerkhrozBourse1);
-                }
+                if (founderArray != null) {
+                    for (NerkhrozBourse nerkhrozBourse : founderArray) {
+                        NerkhrozBourse nerkhrozBourse1 = new NerkhrozBourse(nerkhrozBourse, nerkhrozBourse.getChildItemList());
+                        nerkhrozBourses.add(nerkhrozBourse1);
+                    }
 
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append("آخرین تغییرات تا");
-                stringBuilder.append(nerkhrozBourses.get(0).getDate());
-                stringBuilder.append("\n");
-                stringBuilder.append("منبع: http://www.tsetmc.com");
-                stringBuilder.append("\n");
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.append("آخرین تغییرات تا");
+                    stringBuilder.append(nerkhrozBourses.get(0).getDate());
+                    stringBuilder.append("\n");
+                    stringBuilder.append("منبع: http://www.tsetmc.com");
+                    stringBuilder.append("\n");
 
-                textView.setText(stringBuilder.toString());
-                textView.setVisibility(View.VISIBLE);
+                    textView.setText(stringBuilder.toString());
+                    textView.setVisibility(View.VISIBLE);
 
 
-                recyclerView = (RecyclerView) fragmentRootView.findViewById(R.id.recyclerView);
-                mAdapter = new XAdapterNerkhRoz(getContext(), nerkhrozBourses);
-                mAdapter.setExpandCollapseListener(new ExpandableRecyclerAdapter.ExpandCollapseListener() {
-                    @Override
-                    public void onListItemExpanded(int position) {
-                        NerkhrozBourse expandedMovieCategory = nerkhrozBourses.get(position);
+                    recyclerView = (RecyclerView) fragmentRootView.findViewById(R.id.recyclerView);
+                    mAdapter = new XAdapterNerkhRoz(getContext(), nerkhrozBourses);
+                    mAdapter.setExpandCollapseListener(new ExpandableRecyclerAdapter.ExpandCollapseListener() {
+                        @Override
+                        public void onListItemExpanded(int position) {
+                            NerkhrozBourse expandedMovieCategory = nerkhrozBourses.get(position);
 
 //                        String toastMsg = getResources().getString(R.string.app_name, expandedMovieCategory.getName());
 //                        Toast.makeText(getContext(),
 //                                toastMsg,
 //                                Toast.LENGTH_SHORT)
 //                                .show();
-                    }
+                        }
 
-                    @Override
-                    public void onListItemCollapsed(int position) {
-                        NerkhrozBourse collapsedMovieCategory = nerkhrozBourses.get(position);
+                        @Override
+                        public void onListItemCollapsed(int position) {
+                            NerkhrozBourse collapsedMovieCategory = nerkhrozBourses.get(position);
 
 //                        String toastMsg = getResources().getString(R.string.app_name, collapsedMovieCategory.getName());
 //                        Toast.makeText(getContext(),
 //                                toastMsg,
 //                                Toast.LENGTH_SHORT)
 //                                .show();
-                    }
-                });
-                recyclerView.setAdapter(mAdapter);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        }
+                    });
+                    recyclerView.setAdapter(mAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                }
                 ((TubelessActivity)getContext()).progressDialog.hide();
             }
 
