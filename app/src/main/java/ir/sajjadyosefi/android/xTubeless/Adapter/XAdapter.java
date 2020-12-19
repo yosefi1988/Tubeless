@@ -98,6 +98,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
          new XAdapter(listType, 0, context, rootView, recyclerView, linearLayoutManager, mSwipeRefreshLayout, fragment, bundle) ;
     }
+
     public XAdapter(int listType, int catid, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
         this.listType = listType;
         this.catid = catid;
@@ -144,6 +145,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     }
 
     private final static int FADE_DURATION = 500; //FADE_DURATION in milliseconds
+
 
     private void firstLoadAndRefresh(Context context) {
 //        mSwipeRefreshLayout.setOnRefreshListener(() -> {

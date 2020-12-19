@@ -1,19 +1,15 @@
-package ir.sajjadyosefi.android.xTubeless.classes.model;
+package ir.sajjadyosefi.android.xTubeless.classes.model.category;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
-import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
 import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
-import ir.sajjadyosefi.android.xTubeless.utility.file.FileUtils;
+import ir.sajjadyosefi.android.xTubeless.classes.model.TubelessObject;
 
 /**
  * Created by sajjad on 1/20/2018.

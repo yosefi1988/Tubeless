@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.widget.TextView;
@@ -24,12 +25,14 @@ import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.SplashScreenPresenterCompl;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
+import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
 
@@ -114,17 +117,9 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
 //        startActivity( launchIntent );
 
         ((TextView)(findViewById(R.id.textViewVersionName))).setText(BuildConfig.VERSION_NAME);
-
-
-        //todo comment
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("type" , TYPE_LIST);
-//        bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
-//        this.startActivity(ContainerActivity.getIntent(this,bundle));
-
-
-
     }
+
+
 
     @Override
     protected void onStart() {
@@ -225,10 +220,10 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
                 }
 
                 //todo uncomment
-                context.startActivity(new Intent(context, MainActivity.class));
+//                context.startActivity(new Intent(context, MainActivity.class));
 //                context.startActivity(new Intent(context, ReadBlogActivity.class));
-                overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-                ((Activity)context).finish();
+//                overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//                ((Activity)context).finish();
 
             }
         },1500);

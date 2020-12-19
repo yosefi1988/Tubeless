@@ -91,8 +91,6 @@ public class ListFragment extends Fragment  {
     public static final String      ARG_HEADER = "ARG_HEADER";
     public static Context           context;
 
-
-
     public ListFragment newInstance(Context context, int page, int list, int headerId) {
         this.context = context ;
         Bundle args = new Bundle();
@@ -153,13 +151,15 @@ public class ListFragment extends Fragment  {
         this.list = list;
         this.bundle = bundle;
     }
-    public ListFragment(Context context,List<IItems> list, int listType , int catid) {
+
+    public ListFragment(Context context,List<IItems> list, int listType  ,  int catid) {
         this.context = context;
         this.listType = listType;
         this.listType = TYPE_LIST_CATEGORY;
         this.catid = catid;
         this.list = list;
     }
+
 
     //0
     @Override
@@ -171,7 +171,6 @@ public class ListFragment extends Fragment  {
 //
 //        id = getArguments().getInt("id");
 //        term = getArguments().getString("term");
-
 
     }
 

@@ -165,9 +165,8 @@ public class ContainerActivity extends TubelessActivity {
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST));
-                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST_CATEGORY,0));
+                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST_CATEGORY, 0));
                 ft.commit();
-
 
             } else if (type == TYPE_BOURSE_PLANE) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

@@ -1,6 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model;
 
 
+import ir.sajjadyosefi.android.xTubeless.classes.model.category.Category;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 
 /**

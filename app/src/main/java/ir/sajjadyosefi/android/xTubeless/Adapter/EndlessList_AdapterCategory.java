@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Category;
+import ir.sajjadyosefi.android.xTubeless.classes.model.category.Category;
 
 
 public class EndlessList_AdapterCategory extends RecyclerView.Adapter<EndlessList_AdapterCategory.ParentViewHolder> {

@@ -750,10 +750,13 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     Bundle bundle = new Bundle();
                     bundle.putString("WebType" , "rule");
                     getActivity().startActivityForResult(WebViewActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
-                }else if (id == R.id.nav_resource) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("WebType" , "source");
-                    getActivity().startActivityForResult(WebViewActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+
+                    //todo uncomment for bourse bazaar and etc...
+//                }else if (id == R.id.nav_resource) {
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("WebType" , "source");
+//                    getActivity().startActivityForResult(WebViewActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_CODE);
+
                 }else if (id == R.id.nav_about_us) {
 
                     Bundle bundle = new Bundle();

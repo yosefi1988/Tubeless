@@ -33,7 +33,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 
 import ir.sajjadyosefi.android.xTubeless.activity.list.CategoryListActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Category;
+import ir.sajjadyosefi.android.xTubeless.classes.model.category.Category;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;

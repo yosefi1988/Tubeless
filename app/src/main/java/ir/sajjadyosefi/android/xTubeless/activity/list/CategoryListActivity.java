@@ -15,7 +15,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,8 +41,8 @@ import io.reactivex.disposables.Disposable;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Category;
-import ir.sajjadyosefi.android.xTubeless.classes.model.File;
+import ir.sajjadyosefi.android.xTubeless.classes.model.category.Category;
+import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
 import static org.litepal.LitePalApplication.getContext;
@@ -83,16 +84,37 @@ public class CategoryListActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK){
-            if (requestCode == 3333){
-                categoryList = (List<Category>) data.getSerializableExtra("LIST");
-            }else {
+        if (resultCode == Activity.RESULT_OK) {
+            int payType = data.getIntExtra("CatID" , 0);
+            Bundle dd = data.getExtras();
+            dd.getString("CatIDX");
+            String selectedItemString = dd.getString("SelectedObject");
+//            setResult(Activity.RESULT_OK, data);
+//            finish();
 
+            if (payType != 0){
+                if (categoryList.size() == 2){
+                    categoryList.remove(1);
+                }
+
+                Gson gson = new Gson();
+                CategoryItem selectedObject = gson.fromJson(selectedItemString, CategoryItem.class);
+
+
+                Category category = new Category();
+                category.setListItemType(EndlessList_AdapterCategory.ListItemType.TYPE_ITEM);
+
+                category.setName(selectedObject.getCatName());
+
+                categoryList.add(category);
+                adapter.notifyDataSetChanged();
             }
+//            if (requestCode == 3333)
+//                categoryList = (List<Category>) data.getSerializableExtra("LIST");
         }else {
-
+            setResult(Activity.RESULT_CANCELED);
+            finish();
         }
-
     }
 
     @Override
@@ -114,7 +136,8 @@ public class CategoryListActivity extends Activity {
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("type" , TYPE_LIST);
-                bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
+                bundle.putInt("CAT_COUNT", categoryCount);
+//                bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
                 ((Activity)context).startActivityForResult(ContainerActivity.getIntent(context,bundle),3333);
             }
         });
@@ -263,6 +286,7 @@ public class CategoryListActivity extends Activity {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+
 
     }
 
