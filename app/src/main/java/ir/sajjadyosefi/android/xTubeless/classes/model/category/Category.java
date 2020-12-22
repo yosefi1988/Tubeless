@@ -3,13 +3,18 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.category;
 import android.content.Context;
 import android.view.View;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.list.CategoryListActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.TubelessObject;
+
+import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory.ListItemType.TYPE_LAST_ITEM;
 
 /**
  * Created by sajjad on 1/20/2018.
@@ -20,6 +25,9 @@ public class Category extends TubelessObject {
     private int HeaderID;
     private String Name;
     private String Statement;
+
+
+    private String image;
 
     private EndlessList_AdapterCategory.ListItemType listItemType;
 
@@ -56,6 +64,14 @@ public class Category extends TubelessObject {
         Statement = statement;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
 
     public EndlessList_AdapterCategory.ListItemType getListItemType() {
         return listItemType;
@@ -67,17 +83,17 @@ public class Category extends TubelessObject {
 
 
 
-    public void prepareFileItem(Context mContext,
-                                EndlessList_AdapterCategory.CategoryViewHolder holder,
-                                List<Category> mTimelineItemList,
-                                int position,
-                                EndlessList_AdapterCategory adapter,
-                                boolean deletable) {
+    public void bind(Context mContext,
+                     EndlessList_AdapterCategory.CategoryViewHolder holder,
+                     List<Category> categoryList,
+                     int position,
+                     EndlessList_AdapterCategory adapter,
+                     boolean deletable) {
 
-        Category file = (Category) mTimelineItemList.get(position);
+        Category category = (Category) categoryList.get(position);
 
         StringBuilder text = new StringBuilder();
-        //text.append(file.getTitle());
+        text.append(category.getName());
 
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,17 +102,21 @@ public class Category extends TubelessObject {
             }
         });
 
-        holder.textView.setText(text.toString());
-        holder.textView.setOnClickListener(new View.OnClickListener() {
+        holder.textViewTitle.setText(text.toString());
+        holder.textViewDescription.setText(category.getStatement());
+
+        holder.textViewTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
+        holder.textViewDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        holder.radioButton.setChecked(position == EndlessList_AdapterFile.lastCheckedPosition);
-        holder.radioButton2.setChecked(position == EndlessList_AdapterFile.lastCheckedPosition2);
-
+            }
+        });
 
 
         if (deletable){
@@ -110,27 +130,28 @@ public class Category extends TubelessObject {
         holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mTimelineItemList.remove(position);
+                categoryList.remove(position);
 
-                if (mTimelineItemList.size() == 0 )
-                    holder.textView.setText(R.string.someText);
+                if (categoryList.size() >= 3) {
+                    if (categoryList.get(categoryList.size() - 1).getListItemType() == TYPE_LAST_ITEM) {
+                        categoryList.remove(categoryList.size() - 1);
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        adapter.notifyDataSetChanged();
+                    }
+                }else {
+                    adapter.notifyDataSetChanged();
+                }
 
-                adapter.notifyDataSetChanged();
-
-
-//                ((FileListActivity) mContext).fileCount = ((FileListActivity) mContext).fileCount - 1;
-                ((FileListActivity)mContext).refreshButtons();
+                ((CategoryListActivity)mContext).refreshButtons();
             }
         });
 
-        holder.buttonShow.setEnabled(true);
-        holder.buttonShow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                holder.textView.performClick();
-            }
-        });
 
+        Picasso.get()
+                .load(category.getImage())
+                //.transform(transformation)
+                .into(holder.imageView);
     }
 
 

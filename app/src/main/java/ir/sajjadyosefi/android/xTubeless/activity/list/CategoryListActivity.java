@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,6 +45,8 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.Category;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory.ListItemType.TYPE_EMPTY_LIST;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterCategory.ListItemType.TYPE_LAST_ITEM;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
 import static org.litepal.LitePalApplication.getContext;
 
@@ -62,7 +65,7 @@ public class CategoryListActivity extends Activity {
     LinearLayoutManager mLayoutManager;
 
 
-    Button buttonBack,buttonClear;
+    Button buttonBack,buttonClear , buttonAddCategory;
     TextView textViewNameFamily1,TextViewSerial,textViewDate,textViewNameFamily2,textViewMobile,TextViewCodePosti,TextViewAddress;
 
     public static Activity activity ;
@@ -92,29 +95,56 @@ public class CategoryListActivity extends Activity {
 //            setResult(Activity.RESULT_OK, data);
 //            finish();
 
-            if (payType != 0){
-                if (categoryList.size() == 2){
-                    categoryList.remove(1);
+
+            Gson gson = new Gson();
+            CategoryItem selectedObject = gson.fromJson(selectedItemString, CategoryItem.class);
+
+            if (checkExist(selectedObject)){
+                Toast.makeText(getContext(),"آیتم تکراری انتخاب کرده اید" , Toast.LENGTH_SHORT).show();
+            }else {
+                if (payType != 0) {
+                    if (categoryList.size() == 2 && categoryList.get(1).getListItemType() == TYPE_EMPTY_LIST) {
+                        categoryList.remove(1);
+                    }
+
+
+                    Category category = new Category();
+                    category.setListItemType(EndlessList_AdapterCategory.ListItemType.TYPE_ITEM);
+
+                    category.setID(selectedObject.getId());
+                    category.setName(selectedObject.getCatName());
+                    category.setImage(selectedObject.getImage());
+                    category.setStatement(selectedObject.getStatment());
+
+                    categoryList.add(category);
+                    adapter.notifyDataSetChanged();
+
+
+                    if (categoryList.size() - 1 == categoryCount) {
+                        Category Emptylist = new Category();
+                        Emptylist.setListItemType(TYPE_LAST_ITEM);
+                        categoryList.add(Emptylist);
+                        adapter.notifyDataSetChanged();
+                    }
+
                 }
-
-                Gson gson = new Gson();
-                CategoryItem selectedObject = gson.fromJson(selectedItemString, CategoryItem.class);
-
-
-                Category category = new Category();
-                category.setListItemType(EndlessList_AdapterCategory.ListItemType.TYPE_ITEM);
-
-                category.setName(selectedObject.getCatName());
-
-                categoryList.add(category);
-                adapter.notifyDataSetChanged();
-            }
 //            if (requestCode == 3333)
 //                categoryList = (List<Category>) data.getSerializableExtra("LIST");
+
+            }
         }else {
             setResult(Activity.RESULT_CANCELED);
             finish();
         }
+    }
+
+    private boolean checkExist(CategoryItem selectedObject) {
+        boolean retVal = false;
+        for (Category item: categoryList) {
+            if (item.getID() == selectedObject.getId())
+                retVal = true;
+        }
+        return retVal;
     }
 
     @Override
@@ -128,10 +158,16 @@ public class CategoryListActivity extends Activity {
 
         setContentView(R.layout.activity_categories_list);
         rootView = (ViewGroup) ((ViewGroup) this.findViewById(android.R.id.content)).getChildAt(0);
+        buttonClear = findViewById(R.id.buttonClear);
+        buttonAddCategory = findViewById(R.id.buttonAddCategory);
+        buttonBack = findViewById(R.id.buttonBack);
+        textViewDate = findViewById(R.id.textViewDate);
+
+
         mRecyclerViewTimeline = findViewById(R.id.recyclerView);
         imageView = findViewById(R.id.imageView);
 
-        ((Button)(findViewById(R.id.buttonAddCategory))).setOnClickListener(new View.OnClickListener() {
+        buttonAddCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
@@ -152,13 +188,13 @@ public class CategoryListActivity extends Activity {
                 categoryList.add(headerInList);
 
                 Category Emptylist = new Category();
-                Emptylist.setListItemType(EndlessList_AdapterCategory.ListItemType.TYPE_EMPTY_LIST);
+                Emptylist.setListItemType(TYPE_EMPTY_LIST);
                 categoryList.add(Emptylist);
 
                 fillWigets(rootView , activity);
                 adapter.notifyDataSetChanged();
 
-                ((Button)(findViewById(R.id.buttonAddCategory))).setEnabled(true);
+                buttonAddCategory.setEnabled(true);
 
 
 
@@ -274,9 +310,6 @@ public class CategoryListActivity extends Activity {
             }
         });
 
-        buttonClear = findViewById(R.id.buttonClear);
-        buttonBack = findViewById(R.id.buttonBack);
-        textViewDate = findViewById(R.id.textViewDate);
         fillWigets(rootView , activity);
 
 
@@ -299,9 +332,16 @@ public class CategoryListActivity extends Activity {
 
     public void refreshButtons() {
         if (categoryCount + 2 == categoryList.size()) {
-            ((Button) (findViewById(R.id.buttonAddCategory))).setEnabled(false);
+            buttonAddCategory.setEnabled(false);
         }else {
-            ((Button)(findViewById(R.id.buttonAddCategory))).setEnabled(true);
+            buttonAddCategory.setEnabled(true);
+        }
+
+        if (categoryList.size() == 1) {
+            Category Emptylist = new Category();
+            Emptylist.setListItemType(TYPE_EMPTY_LIST);
+            categoryList.add(Emptylist);
+            adapter.notifyDataSetChanged();
         }
     }
 

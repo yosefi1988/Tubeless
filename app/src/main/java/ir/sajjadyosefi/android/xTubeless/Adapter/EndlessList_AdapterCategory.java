@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -112,42 +110,19 @@ public class EndlessList_AdapterCategory extends RecyclerView.Adapter<EndlessLis
 
     public class CategoryViewHolder extends ParentViewHolder {
         public View rootView;
-        public TextView textView;
-        public ImageButton buttonDelete , buttonShow;
-        public RadioButton radioButton;
-        public RadioButton radioButton2;
+        public TextView textViewTitle , textViewDescription;
+        public ImageButton buttonDelete;
         public ImageView imageView;
 
 
         public CategoryViewHolder(View itemView) {
             super(itemView);
             rootView = (View) itemView.findViewById(R.id.rootView);
-            textView = (TextView) itemView.findViewById(R.id.textView);
+            textViewTitle = (TextView) itemView.findViewById(R.id.textViewTitle);
+            textViewDescription = (TextView) itemView.findViewById(R.id.textViewDescription);
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             buttonDelete = (ImageButton) itemView.findViewById(R.id.buttonDelete);
-            buttonShow = (ImageButton) itemView.findViewById(R.id.buttonShow);
-            radioButton = (RadioButton) itemView.findViewById(R.id.radioButton);
-            radioButton2 = (RadioButton) itemView.findViewById(R.id.radioButton2);
 
-            radioButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int copyOfLastCheckedPosition = lastCheckedPosition;
-                    lastCheckedPosition = getAdapterPosition();
-                    notifyItemChanged(copyOfLastCheckedPosition);
-                    notifyItemChanged(lastCheckedPosition);
-
-                }
-            });
-            radioButton2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int copyOfLastCheckedPosition = lastCheckedPosition2;
-                    lastCheckedPosition2 = getAdapterPosition();
-                    notifyItemChanged(copyOfLastCheckedPosition);
-                    notifyItemChanged(lastCheckedPosition2);
-                }
-            });
         }
     }
 
@@ -168,11 +143,11 @@ public class EndlessList_AdapterCategory extends RecyclerView.Adapter<EndlessLis
         View view ;
         switch (viewType)   {
             case 1: //TYPE_ITEM
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_file, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_category, parent, false);
                 CategoryViewHolder viewHolder = new CategoryViewHolder(view);
                 return viewHolder;
             case 2: //TYPE_HEADER
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_file_header, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_category_header, parent, false);
                 return new HeaderOfListHolder(view);
             case 3: //TYPE_PROGRESS
 
@@ -192,17 +167,12 @@ public class EndlessList_AdapterCategory extends RecyclerView.Adapter<EndlessLis
         throw new RuntimeException("there is no type that matches the type " + viewType + " + make sure your using types correctly");
     }
 
-    public static RadioGroup lastCheckedRadioGroup = null;
-    public static  int lastCheckedPosition = -1;
-    public static  int lastCheckedPosition2 = -1;
-
-
     @Override
     public void onBindViewHolder(final ParentViewHolder holder, final int position) {
         if (holder instanceof CategoryViewHolder) {
             //String dataItem = getItem(position);
             //cast holder to VHItem and set data
-            ((Category) mTimelineItemList.get(position)).prepareFileItem(mContext, (CategoryViewHolder) holder, mTimelineItemList, position, adapter, deletable);
+            ((Category) mTimelineItemList.get(position)).bind(mContext, (CategoryViewHolder) holder, mTimelineItemList, position, adapter, deletable);
 
         } else if (holder instanceof HeaderOfListHolder) {
             //Header
@@ -219,7 +189,7 @@ public class EndlessList_AdapterCategory extends RecyclerView.Adapter<EndlessLis
         } else if (holder instanceof EmptyListHolder) {
             //Header
             //cast holder to VHHeader and set data for header.
-            ((EmptyListHolder) holder).textView.setText(R.string.not_any_file);
+            ((EmptyListHolder) holder).textView.setText(R.string.not_any_category);
 
         }else if (holder instanceof EndOfListHolder) {
             ((EndOfListHolder) holder).textView.setText(R.string.end_of_list);

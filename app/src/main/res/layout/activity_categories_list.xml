@@ -19,13 +19,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
         android:layout_marginBottom="55dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+
             android:padding="10dp">
 
 
@@ -57,6 +59,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:descendantFocusability="afterDescendants"
