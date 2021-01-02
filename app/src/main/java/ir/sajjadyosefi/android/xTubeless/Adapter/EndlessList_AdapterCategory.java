@@ -111,7 +111,7 @@ public class EndlessList_AdapterCategory extends RecyclerView.Adapter<EndlessLis
     public class CategoryViewHolder extends ParentViewHolder {
         public View rootView;
         public TextView textViewTitle , textViewDescription;
-        public ImageButton buttonDelete;
+        public ImageView buttonDelete;
         public ImageView imageView;
 
 
@@ -121,7 +121,7 @@ public class EndlessList_AdapterCategory extends RecyclerView.Adapter<EndlessLis
             textViewTitle = (TextView) itemView.findViewById(R.id.textViewTitle);
             textViewDescription = (TextView) itemView.findViewById(R.id.textViewDescription);
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
-            buttonDelete = (ImageButton) itemView.findViewById(R.id.buttonDelete);
+            buttonDelete = (ImageView) itemView.findViewById(R.id.buttonDelete);
 
         }
     }

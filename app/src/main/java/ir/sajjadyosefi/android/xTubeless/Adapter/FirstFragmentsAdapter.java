@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment;
@@ -19,6 +23,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
 
@@ -27,6 +32,7 @@ import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResul
  */
 public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     Context context;
+    FragmentManager supportFragmentManager;
 
     int PAGE_COUNT;
     private String mTabTitles[] = new String[] {
@@ -54,7 +60,8 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     public static int TYPE_LIST  = 9;
 
 
-    public static int TYPE_LIST_CATEGORY  = 101;
+    public static int TYPE_SELECT_CATEGORY = 101;
+    public static int TYPE_LIST_CATEGORY = 102;
 
 
     ////////////////// Nerkh Rox  ///////////////////////
@@ -64,6 +71,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
     public FirstFragmentsAdapter(Context context, ViewPager viewPager, FragmentManager supportFragmentManager) {
         super(supportFragmentManager);
+        this.supportFragmentManager = supportFragmentManager;
         this.context = context ;
         setCount();
     }
@@ -75,6 +83,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
     public FirstFragmentsAdapter(Context context  ,final AppCompatActivity activity, int count) {
         super(activity.getSupportFragmentManager());
+        this.supportFragmentManager = activity.getSupportFragmentManager();
         this.context = context;
         setCount();
     }
@@ -87,7 +96,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
         }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
             PAGE_COUNT = 4;
         }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
-            PAGE_COUNT = 2;
+            PAGE_COUNT = 3;
         }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
             PAGE_COUNT = 3;
         }else {
@@ -126,7 +135,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
 
     Fragment fragmentx1;
-    Fragment fragmentx2;
+    public static Fragment fragmentx2;
     Fragment fragmentx3;
     Fragment fragmentx4;
 
@@ -167,7 +176,13 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                     } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
                         fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
                     } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
-                        fragmentx2 = new ListFragment(context, TYPE_YAFTE);
+//                        fragmentx2 = new BlankFragment(supportFragmentManager,this);
+
+                        List<IItems> iItems = new ArrayList<>();
+                        fragmentx2 = new ListFragment(context,iItems, TYPE_LIST_CATEGORY, 10021,"مسیر:");
+
+//                        fragmentx2 = new ListFragment(context, TYPE_YADAK);
+
                     } else {
                         fragmentx2 = new ListFragment(context, TYPE_YADAK);
                     }
@@ -207,7 +222,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                             }
                         }
                     } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
-                        fragmentx3 = new BlankFragment();
+                        fragmentx3 = new ListFragment(context, TYPE_YAFTE);
                     } else {
                         fragmentx3 = new BlankFragment();
                     }

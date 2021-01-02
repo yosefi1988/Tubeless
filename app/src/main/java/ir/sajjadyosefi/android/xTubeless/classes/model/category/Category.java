@@ -132,17 +132,8 @@ public class Category extends TubelessObject {
             public void onClick(View view) {
                 categoryList.remove(position);
 
-                if (categoryList.size() >= 3) {
-                    if (categoryList.get(categoryList.size() - 1).getListItemType() == TYPE_LAST_ITEM) {
-                        categoryList.remove(categoryList.size() - 1);
-                        adapter.notifyDataSetChanged();
-                    }else {
-                        adapter.notifyDataSetChanged();
-                    }
-                }else {
-                    adapter.notifyDataSetChanged();
-                }
 
+                ((CategoryListActivity)mContext).deleteDone();
                 ((CategoryListActivity)mContext).refreshButtons();
             }
         });

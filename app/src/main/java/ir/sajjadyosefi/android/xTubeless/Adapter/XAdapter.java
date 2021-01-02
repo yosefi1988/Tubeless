@@ -63,6 +63,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SELECT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
@@ -85,6 +86,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     XAdapter adapter;
     int listType;
     int catid;
+    String path;
     //private boolean hasAppBarLayout;
     private Context context;
 
@@ -93,15 +95,15 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     EndlessRecyclerOnScrollListener onScrollListener;
 
-
-
     public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
-         new XAdapter(listType, 0, context, rootView, recyclerView, linearLayoutManager, mSwipeRefreshLayout, fragment, bundle) ;
+         new XAdapter(listType, 0,"", context, rootView, recyclerView, linearLayoutManager, mSwipeRefreshLayout, fragment, bundle) ;
     }
 
-    public XAdapter(int listType, int catid, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
+    public XAdapter(int listType, int catid,String path, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
+
         this.listType = listType;
         this.catid = catid;
+        this.path = path;
         //this.navigationHeight = navigationHeight;
         this.fragment = fragment;
         //this.hasAppBarLayout = hasAppBarLayout;
@@ -184,7 +186,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     private void loadTimeline(Context context,int current_page, boolean isRefresh) {
 
-        if (listType == TYPE_LIST_CATEGORY) {
+        if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_LIST_CATEGORY) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), CategoryListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
@@ -762,7 +764,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 //            fontChanger.replaceFonts((ViewGroup)view);
             holder = new CategoryViewHolder(view);
 
-        }else if (listType == TYPE_LIST_CATEGORY) {
+        }else if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_LIST_CATEGORY) {
             final View view = LayoutInflater.from(context).inflate(R.layout._row_of_bourse_nerkhroz_header, parent, false);
             //font 5
 //            FontChangeCrawler fontChanger = new FontChangeCrawler(context.getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
@@ -858,7 +860,8 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         }else if (((ListFragment)fragment).list.get(position) instanceof CategoryItem) {
 
             CategoryItem item = (CategoryItem) ((ListFragment)fragment).list.get(position);
-            item.fill(context , this, listType, holder, item,position);
+            item.setTitle(path);
+            item.fill(context , this, listType,holder, item,position );
 
         }
 

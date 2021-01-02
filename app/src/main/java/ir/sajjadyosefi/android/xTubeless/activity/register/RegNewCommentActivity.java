@@ -158,7 +158,8 @@ public class RegNewCommentActivity extends TubelessTransparentStatusBarActivity 
                 }else {
                     NewBlogCommentRequest aaaa = new NewBlogCommentRequest();
 
-                    aaaa.setUserID((int)Global.user.getUserId());
+                    if (Global.user != null)
+                        aaaa.setUserID((int)Global.user.getUserId());
 //                    aaaa.setUserID(140430);
 //                    aaaa.setBlogID(84511);
                     aaaa.setBlogID(blogId);

@@ -46,6 +46,7 @@
             <RelativeLayout
                 android:layout_gravity="right"
                 android:gravity="right"
+                android:visibility="gone"
                 android:layoutDirection="rtl"
                 android:foregroundGravity="right"
                 android:layout_width="match_parent"

@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,7 +117,7 @@ public class CategoryListActivity extends Activity {
                     category.setImage(selectedObject.getImage());
                     category.setStatement(selectedObject.getStatment());
 
-                    categoryList.add(category);
+                    categoryList.add(1,category);
                     adapter.notifyDataSetChanged();
 
 
@@ -128,8 +129,7 @@ public class CategoryListActivity extends Activity {
                     }
 
                 }
-//            if (requestCode == 3333)
-//                categoryList = (List<Category>) data.getSerializableExtra("LIST");
+
 
             }
         }else {
@@ -173,7 +173,6 @@ public class CategoryListActivity extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putInt("type" , TYPE_LIST);
                 bundle.putInt("CAT_COUNT", categoryCount);
-//                bundle.putSerializable("LIST", (Serializable) new ArrayList<>());
                 ((Activity)context).startActivityForResult(ContainerActivity.getIntent(context,bundle),3333);
             }
         });
@@ -276,17 +275,27 @@ public class CategoryListActivity extends Activity {
 
             }
         });
-        ((Button)(findViewById(R.id.buttonCancel))).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_CANCELED, returnIntent);
-                finish();
-            }
+        findViewById(R.id.buttonCancel).setOnClickListener(view -> {
+            Intent returnIntent = new Intent();
+            setResult(Activity.RESULT_CANCELED, returnIntent);
+            finish();
         });
-        ((Button)(findViewById(R.id.buttonOK))).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+
+        findViewById(R.id.buttonOK).setOnClickListener(view -> {
+            List<Category> returnedcategoryList = new ArrayList<>();
+            for (Category category:categoryList) {
+                if (category.getListItemType() == EndlessList_AdapterCategory.ListItemType.TYPE_ITEM){
+                    returnedcategoryList.add(category);
+                }
+            }
+
+            Intent returnIntent = new Intent();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("LIST", (Serializable) returnedcategoryList);
+            returnIntent.putExtras(bundle);
+            setResult(Activity.RESULT_OK, returnIntent);
+            finish();
+
 //                if (lastCheckedPosition != -1) {
 //                    for (Category item : categoryList) {
 //                        item.setContentPic(false);
@@ -307,7 +316,6 @@ public class CategoryListActivity extends Activity {
 //                returnIntent.putExtras(bundle);
 //                setResult(Activity.RESULT_OK, returnIntent);
 //                finish();
-            }
         });
 
         fillWigets(rootView , activity);
@@ -330,12 +338,27 @@ public class CategoryListActivity extends Activity {
         refreshButtons();
     }
 
+    public void deleteDone() {
+        if (categoryList.size() >= categoryCount + 1) {
+            if (categoryList.get(categoryList.size() - 1).getListItemType() == TYPE_LAST_ITEM) {
+                categoryList.remove(categoryList.size() - 1);
+                adapter.notifyDataSetChanged();
+            } else {
+                adapter.notifyDataSetChanged();
+            }
+        } else {
+            adapter.notifyDataSetChanged();
+        }
+    }
     public void refreshButtons() {
         if (categoryCount + 2 == categoryList.size()) {
             buttonAddCategory.setEnabled(false);
         }else {
             buttonAddCategory.setEnabled(true);
         }
+
+
+
 
         if (categoryList.size() == 1) {
             Category Emptylist = new Category();

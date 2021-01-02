@@ -11,6 +11,10 @@
         android:icon="@drawable/png_car_part2"
         android:title="یدکی" />
     <item
+        android:id="@+id/bbn_item_cat"
+        android:icon="@drawable/png_car_part2"
+        android:title="دسته بندی" />
+    <item
         android:id="@+id/bbn_item1"
         android:icon="@drawable/png_id_card2"
         android:title="مدارک" />

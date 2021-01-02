@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,10 +29,13 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.andremion.counterfab.CounterFab;
@@ -57,6 +61,8 @@ import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
+import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
+import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
@@ -97,9 +103,11 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.fragmentx2;
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 
 import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.cancelByBackbuttonPressed;
+import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.mContext;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowMessageDialog;
@@ -116,7 +124,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     private BottomNavigation mBottomNavigation;
     private DrawerLayout drawer_layout;
     public ViewPager viewPager;
-    private FirstFragmentsAdapter firstFragmentsAdapter;
+    public static FirstFragmentsAdapter firstFragmentsAdapter;
     ViewGroup root;
     public ViewGroup rootView ;
 
@@ -128,6 +136,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     private Toolbar toolbar;
     private AppBarLayout AppBarLayout01;
     private CounterFab counterFab;
+    private int lastSelectedPosition = 0;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -1047,6 +1056,40 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         }
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            viewPager.getCurrentItem();
+
+            if( keyCode == KeyEvent.KEYCODE_BACK ) {
+
+                int index = viewPager.getCurrentItem();
+                Fragment fragment = firstFragmentsAdapter.getItem(index);
+
+                if (viewPager.getCurrentItem() == 2){
+                    getSupportFragmentManager().beginTransaction().remove(fragmentx2).commit();
+                    fragmentx2 =  new BlankFragment(getSupportFragmentManager());
+                    firstFragmentsAdapter.notifyDataSetChanged();
+                }
+                return true;
+            }
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
+
+    public static boolean changeSecoundFragment(Context context){
+//    public static boolean changeSecoundFragment(Context context, TimelineFilter timelineFilter ){
+        ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction().remove(fragmentx2).commit();
+
+        fragmentx2 =  new BlankFragment(((AppCompatActivity)context).getSupportFragmentManager());
+
+        firstFragmentsAdapter.notifyDataSetChanged();
+
+        return true;
+    }
 
     public int getStatusBarHeight() {
         return getSystemBarTint().getConfig().getStatusBarHeight();
@@ -1131,8 +1174,30 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             getBottomNavigation().getBadgeProvider().remove(itemId);
 
 
-            if (BuildConfig.FLAVOR_version_name.equals("tubeless") ||  BuildConfig.FLAVOR_version_name.equals("yadak")){
-                //tubeless // yadak
+            if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+                // yadak
+                if (null != getViewPager() && position != 3) {
+                    getViewPager().setCurrentItem(position);
+                    lastSelectedPosition = position;
+                }
+                if (position == 3) {
+                    if(Global.user != null) {
+
+                        Bundle bundle = new Bundle();
+                        if (Global.user != null && Global.user.isAdmin())
+                            bundle.putBoolean("MustRefresh" , true);
+
+//                        getActivity().startActivityForResult(ProfileActivity.getIntent(getContext(),bundle),OPEN_PROFILE_REQUEST_CODE);
+                        getActivity().startActivityForResult(MainActivityProfile.getIntent(getContext(),bundle), OPEN_PROFILE_REQUEST_CODE);
+                    }else {
+                        Toast.makeText(getContext(),getContext().getString(R.string.not_login),Toast.LENGTH_LONG).show();
+
+                        getBottomNavigation().setSelectedIndex(lastSelectedPosition, false);
+
+                    }
+                }
+            }else if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
+                //tubeless
                 if (null != getViewPager() && position != 2) {
                     getViewPager().setCurrentItem(position);
                 }

@@ -24,10 +24,8 @@ import java.util.List;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
@@ -36,11 +34,10 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_KSOKHT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SELECT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.payType;
 import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.cancelByBackbuttonPressed;
@@ -165,7 +162,7 @@ public class ContainerActivity extends TubelessActivity {
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST));
-                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST_CATEGORY, 0));
+                ft.replace(R.id.include, new ListFragment(this,list, TYPE_SELECT_CATEGORY, 10021,""));
                 ft.commit();
 
             } else if (type == TYPE_BOURSE_PLANE) {

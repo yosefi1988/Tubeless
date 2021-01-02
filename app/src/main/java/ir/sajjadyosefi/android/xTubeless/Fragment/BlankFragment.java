@@ -4,12 +4,19 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
+
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
 import ir.sajjadyosefi.android.xTubeless.R;
+
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
 
 //import com.astuetz.PagerSlidingTabStripDefault;
 
@@ -20,14 +27,21 @@ import ir.sajjadyosefi.android.xTubeless.R;
 @SuppressLint("ValidFragment")
 public class BlankFragment extends Fragment {
     public static Context context;
-    public static int mIndex;
 
     public static final String ARG_PAGE = "ARG_PAGE";
+    private FirstFragmentsAdapter firstFragmentsAdapter;
+    private FragmentManager mFragmentManager;
 
 
     public BlankFragment() {
 
     }
+
+    public BlankFragment(FragmentManager supportFragmentManager ) {
+        this.mFragmentManager = supportFragmentManager;
+    }
+
+
 
     public BlankFragment newInstance(Context context) {
         this.context = context ;
@@ -53,8 +67,15 @@ public class BlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.blank_fragment, container, false);
+//        ((Button)view.findViewById(R.id.button)).setOnClickListener(view1 -> {
+////            mFragmentManager.beginTransaction().remove(fragmentx3).commit();
+////            fragmentx3 = new ListFragment(context, TYPE_YAFTE);;
+////            firstFragmentsAdapter.notifyDataSetChanged();
+//        });
 
         return view;
     }
+
+
 
 }

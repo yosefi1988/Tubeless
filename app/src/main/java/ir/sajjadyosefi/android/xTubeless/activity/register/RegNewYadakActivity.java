@@ -37,6 +37,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.category.Category;
 import ir.sajjadyosefi.android.xTubeless.classes.model.File;
 import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
@@ -161,7 +162,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 //todo uncomment
 //                if (Global.user.isAdmin()) {
                     Bundle bundle = new Bundle();
-                    bundle.putInt("CAT_COUNT", 4);
+                    bundle.putInt("CAT_COUNT", 2);
                     bundle.putSerializable("LIST", (Serializable) catList);
                     getActivity().startActivityForResult(CategoryListActivity.getIntent(getContext(), bundle),REQUEST_CATEGORY_LIST);
 //                }else {
@@ -177,7 +178,8 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                 if (
                         editTextTitleStatment.getText().toString().length() < 5 ||
                         editTextText.getText().toString().length() < 5 ||
-                        editTextTitle.getText().toString().length() < 5) {
+                        editTextTitle.getText().toString().length() < 5 ||
+                        catList.size() == 0) {
                     TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.values_not_correct), new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -198,10 +200,14 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
                         aaaa.setCategoryID(getResources().getInteger(R.integer.cat3Yadak));
                     }
 
+                    aaaa.setCategoryID(catList.get(0).getID());
 
 
-                    aaaa.setUserID((int)Global.user.getUserId());
-
+                    if(Global.user == null){
+                        aaaa.setUserID(140430);
+                    }else {
+                        aaaa.setUserID((int) Global.user.getUserId());
+                    }
 
                     aaaa.setTitlePicture("");
                     aaaa.setTextPicture("");
@@ -329,17 +335,7 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK){
-            if (requestCode == REQUEST_FILE_LIST){
-                filesList = (List<File>) data.getSerializableExtra("LIST1");
-            }else if (requestCode == REQUEST_CATEGORY_LIST){
-                catList = (List<Category>) data.getSerializableExtra("LIST1");
-            }else {
 
-            }
-        }else {
-
-        }
 
         if (requestCode == GO_TO_LOGIN){
             if (resultCode == Activity.RESULT_OK){
@@ -347,6 +343,19 @@ public class RegNewYadakActivity extends TubelessTransparentStatusBarActivity {
             }else {
                 finish();
             }
+        }
+
+
+        if (resultCode == Activity.RESULT_OK){
+            if (requestCode == REQUEST_FILE_LIST){
+                filesList = (List<File>) data.getSerializableExtra("LIST1");
+            }else if (requestCode == REQUEST_CATEGORY_LIST){
+                catList = (List<Category>) data.getSerializableExtra("LIST");
+            }else {
+
+            }
+        }else {
+
         }
 
     }

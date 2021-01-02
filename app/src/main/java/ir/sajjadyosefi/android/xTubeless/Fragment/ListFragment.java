@@ -52,6 +52,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SELECT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YAFTE;
@@ -69,6 +70,7 @@ public class ListFragment extends Fragment  {
     private Activity activity;
     private int listType;
     private int catid;
+    private String path;
     private Bundle bundle;
     public List<IItems> list;
     private int scrolledPos = 0;
@@ -91,8 +93,12 @@ public class ListFragment extends Fragment  {
     public static final String      ARG_HEADER = "ARG_HEADER";
     public static Context           context;
 
-    public ListFragment newInstance(Context context, int page, int list, int headerId) {
-        this.context = context ;
+    public ListFragment(Context context, int listType) {
+        this.context = context;
+        this.listType = listType;
+        constractorInit();
+    }
+    public static ListFragment newInstance(Context context, int page, int list, int headerId) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
         args.putInt(ARG_LIST, list);
@@ -105,6 +111,7 @@ public class ListFragment extends Fragment  {
 
     public ListFragment() {
     }
+
 
 
     @Override
@@ -128,17 +135,10 @@ public class ListFragment extends Fragment  {
 //        year = savedInstanceState.getInt(YEAR);
     }
 
-    public ListFragment(Context context, int listType) {
-        this.context = context;
-        this.listType = listType;
-
-        constractorInit();
-    }
 
     private void constractorInit() {
 
     }
-
     public ListFragment(Context context,List<IItems> list, int listType) {
         this.context = context;
         this.listType = listType;
@@ -152,11 +152,11 @@ public class ListFragment extends Fragment  {
         this.bundle = bundle;
     }
 
-    public ListFragment(Context context,List<IItems> list, int listType  ,  int catid) {
+    public ListFragment(Context context,List<IItems> list, int listType,int catid , String path) {
         this.context = context;
         this.listType = listType;
-        this.listType = TYPE_LIST_CATEGORY;
         this.catid = catid;
+        this.path = path;
         this.list = list;
     }
 
@@ -227,9 +227,8 @@ public class ListFragment extends Fragment  {
                         //هیچ پرداختی قبلا انجام نداده است
                     }
                 }
-            }else if (listType == TYPE_LIST_CATEGORY) {
+            }else if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_SELECT_CATEGORY) {
                 ((TubelessActivity)context).progressDialog.show();
-
             }
         }
     }
@@ -275,6 +274,7 @@ public class ListFragment extends Fragment  {
             xAdapter = new XAdapter(
                     listType,
                     catid,
+                    path,
                     getContext(),
                     mRoot,
                     mRecyclerView,
@@ -284,7 +284,7 @@ public class ListFragment extends Fragment  {
                     //hasAppBarLayout,
                     mSwipeRefreshLayout,
                     this,
-                    bundle);
+                    bundle );
             mRecyclerView.setAdapter(xAdapter);
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         }else {
@@ -433,8 +433,8 @@ public class ListFragment extends Fragment  {
 //                        Bundle bundle = new Bundle();
 //                        bundle.putString("X" , "X");
                         getActivity().startActivityForResult(RegNewCommentActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_NEW_COMMENT);
-                    } else if (listType == TYPE_LIST_CATEGORY) {
-                        Toast.makeText(context, "curent cat id is : " + catid, Toast.LENGTH_LONG).show();
+                    } else if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_LIST_CATEGORY) {
+                        Toast.makeText(context, " cat id is : " + catid, Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(context, "not set", Toast.LENGTH_LONG).show();
                     }
@@ -485,5 +485,6 @@ public class ListFragment extends Fragment  {
 
         }
     }
+
 
 }
