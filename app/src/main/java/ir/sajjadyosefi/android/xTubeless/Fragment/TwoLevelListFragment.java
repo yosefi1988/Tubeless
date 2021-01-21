@@ -85,6 +85,11 @@ public class TwoLevelListFragment extends Fragment  {
         callback = new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+                if (response.body() == null){
+                    Toast.makeText(getContext(),"no have data",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Gson gson = new Gson();
                 JsonElement jsonElement = gson.toJsonTree(response.body());
                 NerkhrozBourse[] founderArray = gson.fromJson(jsonElement.getAsString(), NerkhrozBourse[].class);

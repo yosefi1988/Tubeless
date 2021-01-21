@@ -39,6 +39,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.Tag;
 
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+import ir.sajjadyosefi.android.xTubeless.classes.model.filter.CategoryFiltersNode;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.PictureItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
@@ -51,6 +52,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_IMAGE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORIES_DATA;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SELECT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
@@ -63,19 +65,20 @@ import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentA
 
 public class ListFragment extends Fragment  {
 
+    private CategoryFiltersNode categoryFiltersNode;
     //private
     private RecyclerView mRecyclerView;
     private CoordinatorLayout mCoordinatorLayout;
     private View fragmentRootView;
     private Activity activity;
+
     private int listType;
-    private int catid;
-    private String path;
+
     private Bundle bundle;
     public List<IItems> list;
     private int scrolledPos = 0;
-
     private FloatingActionButton floatingActionButton ,floatingActionButtonList;
+
     private LinearLayoutManager mLayoutManager;
     private TextView mTextViewNoting;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -84,6 +87,9 @@ public class ListFragment extends Fragment  {
     private DilatingDotsProgressBar mProgressBar;
 
     //public
+    public int getListType() {
+        return listType;
+    }
     private SystemBarConfig config;
     private ViewGroup mRoot;
 
@@ -98,6 +104,14 @@ public class ListFragment extends Fragment  {
         this.listType = listType;
         constractorInit();
     }
+
+    public ListFragment(Context context, List<IItems> list, int listType, CategoryFiltersNode head) {
+        this.context = context;
+        this.listType = listType;
+        this.categoryFiltersNode = head;
+        this.list = list;
+    }
+
     public static ListFragment newInstance(Context context, int page, int list, int headerId) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
@@ -139,6 +153,7 @@ public class ListFragment extends Fragment  {
     private void constractorInit() {
 
     }
+
     public ListFragment(Context context,List<IItems> list, int listType) {
         this.context = context;
         this.listType = listType;
@@ -151,15 +166,6 @@ public class ListFragment extends Fragment  {
         this.list = list;
         this.bundle = bundle;
     }
-
-    public ListFragment(Context context,List<IItems> list, int listType,int catid , String path) {
-        this.context = context;
-        this.listType = listType;
-        this.catid = catid;
-        this.path = path;
-        this.list = list;
-    }
-
 
     //0
     @Override
@@ -227,7 +233,7 @@ public class ListFragment extends Fragment  {
                         //هیچ پرداختی قبلا انجام نداده است
                     }
                 }
-            }else if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_SELECT_CATEGORY) {
+            }else if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_SELECT_CATEGORY || listType == TYPE_LIST_CATEGORIES_DATA) {
                 ((TubelessActivity)context).progressDialog.show();
             }
         }
@@ -273,8 +279,7 @@ public class ListFragment extends Fragment  {
         if(listType < 200) {
             xAdapter = new XAdapter(
                     listType,
-                    catid,
-                    path,
+                    categoryFiltersNode,
                     getContext(),
                     mRoot,
                     mRecyclerView,
@@ -434,7 +439,7 @@ public class ListFragment extends Fragment  {
 //                        bundle.putString("X" , "X");
                         getActivity().startActivityForResult(RegNewCommentActivity.getIntent(getContext(),bundle), LOGIN_REQUEST_NEW_COMMENT);
                     } else if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_LIST_CATEGORY) {
-                        Toast.makeText(context, " cat id is : " + catid, Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, " cat id is : " + categoryFiltersNode.getCatId(), Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(context, "not set", Toast.LENGTH_LONG).show();
                     }

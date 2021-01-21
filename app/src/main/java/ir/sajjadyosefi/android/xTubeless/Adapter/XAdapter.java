@@ -30,6 +30,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.filter.CategoryFiltersNode;
 import ir.sajjadyosefi.android.xTubeless.classes.model.mainList.MainListItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.post.PostSearchResponseItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.NewTimelineItem;
@@ -62,6 +63,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORIES_DATA;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SELECT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_POST_SEARCH_RESULT;
@@ -73,6 +75,7 @@ import static org.litepal.LitePalApplication.getContext;
 
 public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements ITubelessAdapter {
 
+    private CategoryFiltersNode categoryFiltersNode;
     private View rootView;
     //private final int scrollHeight;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -85,8 +88,6 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     XAdapter adapter;
     int listType;
-    int catid;
-    String path;
     //private boolean hasAppBarLayout;
     private Context context;
 
@@ -96,14 +97,13 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     EndlessRecyclerOnScrollListener onScrollListener;
 
     public XAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
-         new XAdapter(listType, 0,"", context, rootView, recyclerView, linearLayoutManager, mSwipeRefreshLayout, fragment, bundle) ;
+         new XAdapter(listType, null, context, rootView, recyclerView, linearLayoutManager, mSwipeRefreshLayout, fragment, bundle) ;
     }
 
-    public XAdapter(int listType, int catid,String path, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
+    public XAdapter(int listType, CategoryFiltersNode categoryFiltersNode, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
 
         this.listType = listType;
-        this.catid = catid;
-        this.path = path;
+        this.categoryFiltersNode = categoryFiltersNode;
         //this.navigationHeight = navigationHeight;
         this.fragment = fragment;
         //this.hasAppBarLayout = hasAppBarLayout;
@@ -186,7 +186,56 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
     private void loadTimeline(Context context,int current_page, boolean isRefresh) {
 
-        if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_LIST_CATEGORY) {
+        if (listType == TYPE_LIST_CATEGORIES_DATA) {
+            TubelessRetrofitCallbackss callbackss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
+                @Override
+                public void t_beforeSendRequest() {
+
+                }
+
+                @Override
+                public void t_afterGetResponse() {
+                    ((TubelessActivity)context).progressDialog.hide();
+                }
+
+                @Override
+                public void t_complite() {
+
+                }
+
+                @Override
+                public void t_responseNull() {
+
+                }
+
+                @Override
+                public void t_retry(Call<Object> call) {
+
+                }
+
+                @Override
+                public void t_onSuccess(Object response) {
+                    NewTimelineListResponse responseX = (NewTimelineListResponse) response;
+                    //                    data.add(new NotiesItem());
+
+                    for (NewTimelineItem item : responseX.getTimelineList()) {
+                        //                        item.setType(Tubeless_ITEM_TYPE);
+                        ((ListFragment) fragment).list.add(item);
+                        if (isRefresh) {
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            adapter.notifyItemInserted(((ListFragment) fragment).list.size());
+                        }
+                    }
+
+
+                }
+            };
+
+            String selectedCatIds = bundle.getString("ids");
+
+            Global.apiManagerTubeless.getTimeline(context, current_page - 1, callbackss,selectedCatIds);
+        }else if (listType == TYPE_SELECT_CATEGORY || listType == TYPE_LIST_CATEGORY) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), CategoryListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
@@ -235,7 +284,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     }
                 }
             };
-            Global.apiManagerTubeless.getCategoryRoot(catid,current_page - 1, ssssssss);
+            Global.apiManagerTubeless.getCategory(categoryFiltersNode.getCatId(),current_page - 1, ssssssss);
 
 //            MainListResponse responseX = new MainListResponse();
 //            List<MainListItem> dddddd = new ArrayList<>();
@@ -371,10 +420,18 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                 }
             };
-            Global.apiManagerTubeless.getTimelineListForYadak(context,current_page - 1, ssssssss);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yadak));
+            stringBuilder.append("_");
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yadak));
+            stringBuilder.append("_");
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yadak));
+
+            Global.apiManagerTubeless.getTimeline(context,current_page - 1, ssssssss,stringBuilder.toString());
 
         }else if (listType == TYPE_YAFTE) {
-            TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
+            TubelessRetrofitCallbackss callbackss = new TubelessRetrofitCallbackss(getContext(), TimelineListResponse.class) {
                 @Override
                 public void t_beforeSendRequest() {
 
@@ -430,7 +487,13 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
 
                 }
             };
-            Global.apiManagerTubeless.getTimelineListForYafte(context,current_page - 1, ssssssss);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yafte));
+            stringBuilder.append("_");
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yafte));
+            stringBuilder.append("_");
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yafte));
+            Global.apiManagerTubeless.getTimeline(context,current_page - 1, callbackss,stringBuilder.toString());
 
         }else if (listType == TYPE_BOURSE_TRAIN) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
@@ -496,7 +559,14 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     }
                 }
             };
-            Global.apiManagerTubeless.getTimelineListForBourseTrain(context,current_page - 1, ssssssss);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseTrain));
+            stringBuilder.append("_");
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseTrain));
+            stringBuilder.append("_");
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseTrain));
+            Global.apiManagerTubeless.getTimeline(context,current_page - 1, ssssssss,stringBuilder.toString());
 
         }else if (listType == TYPE_BOURSE_ANALIZE_All) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
@@ -555,7 +625,22 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     adapter.notifyDataSetChanged();
                 }
             };
-            Global.apiManagerTubeless.getTimelineListForBourseAnalize(context,current_page - 1, ssssssss);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            switch (StaticValue.bourseState.lastPayedType){
+                case 0:
+                case 1:
+                    stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+                    break;
+                case 2:
+                    stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+                    break;
+                case 3:
+                    stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+            }
+
+            Global.apiManagerTubeless.getTimeline(context,current_page - 1, ssssssss,stringBuilder.toString());
+
         }else if (listType == TYPE_BOURSE_ANALIZE_Old) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
                 @Override
@@ -614,8 +699,33 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     adapter.notifyDataSetChanged();
                 }
             };
+            StringBuilder stringBuilder = new StringBuilder();
+            switch (StaticValue.bourseState.lastPayedType){
+                case 1:
+                case 0:
+                    stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+                    break;
+                case 2:
+                    stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+                    break;
+                case 3:
+                    stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+            }
 
-            Global.apiManagerTubeless.getTimelineListForBourseAnalizeOld(context,current_page - 1, ssssssss, StaticValue.bourseState.endDate);
+            StringBuilder stringBuilder5 = new StringBuilder();
+            switch (StaticValue.bourseState.lastPayedType){
+                case 1:
+                case 0:
+                    stringBuilder5.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+                    break;
+                case 2:
+                    stringBuilder5.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+                    break;
+                case 3:
+                    stringBuilder5.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+            }
+            Global.apiManagerTubeless.getTimeline(context,current_page - 1, ssssssss, StaticValue.bourseState.endDate,stringBuilder5.toString());
+
         }else if (listType == TYPE_BOURSE_NEWS) {
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), NewTimelineListResponse.class) {
                 @Override
@@ -674,7 +784,15 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
                     adapter.notifyDataSetChanged();
                 }
             };
-            Global.apiManagerTubeless.getTimelineListForBourseNews(context,current_page - 1, ssssssss);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseNews));
+            stringBuilder.append("_");
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseNews));
+            stringBuilder.append("_");
+            stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseNews));
+
+            Global.apiManagerTubeless.getTimeline(context,current_page - 1, ssssssss,stringBuilder.toString());
         }else if (listType == TYPE_COMMENTS) {
             int blogId = bundle.getInt("blogId");
             TubelessRetrofitCallbackss ssssssss = new TubelessRetrofitCallbackss(getContext(), CommentListResponse.class) {
@@ -754,7 +872,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
     public PostViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
 
         PostViewHolder holder = null;
-        if (listType == TYPE_YADAK) {
+        if (listType == TYPE_YADAK || listType == TYPE_LIST_CATEGORIES_DATA) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_of_yafte_item, parent, false);
             holder = new TimelineItemViewHolder(view);
         }else if (listType == TYPE_LIST) {
@@ -860,7 +978,7 @@ public class XAdapter extends RecyclerView.Adapter<PostViewHolder> implements IT
         }else if (((ListFragment)fragment).list.get(position) instanceof CategoryItem) {
 
             CategoryItem item = (CategoryItem) ((ListFragment)fragment).list.get(position);
-            item.setTitle(path);
+            item.setNode(categoryFiltersNode);
             item.fill(context , this, listType,holder, item,position );
 
         }

@@ -23,8 +23,10 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.filter.CategoryFiltersNode;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.categoryFiltersNodeList;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.checkResult;
 
 /**
@@ -62,6 +64,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
     public static int TYPE_SELECT_CATEGORY = 101;
     public static int TYPE_LIST_CATEGORY = 102;
+    public static int TYPE_LIST_CATEGORIES_DATA = 103;
 
 
     ////////////////// Nerkh Rox  ///////////////////////
@@ -177,10 +180,10 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                         fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
                     } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
 //                        fragmentx2 = new BlankFragment(supportFragmentManager,this);
-
                         List<IItems> iItems = new ArrayList<>();
-                        fragmentx2 = new ListFragment(context,iItems, TYPE_LIST_CATEGORY, 10021,"مسیر:");
-
+                        CategoryFiltersNode newNode = createRootNode();
+                        categoryFiltersNodeList.AddLast(newNode);
+                        fragmentx2 = new ListFragment(context,iItems, TYPE_LIST_CATEGORY, categoryFiltersNodeList.getHead());
 //                        fragmentx2 = new ListFragment(context, TYPE_YADAK);
 
                     } else {
@@ -249,6 +252,15 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
         return null;
     }
 
+    public static CategoryFiltersNode createRootNode() {
+        //todo hard code
+        CategoryFiltersNode newNode = new CategoryFiltersNode();
+        newNode.setCatId(10021);
+        newNode.setDescription("10021");
+        newNode.setPathTitle("\\" + "10021");
+        newNode.setTitle("10021");
+        return newNode;
+    }
 
 
     @Override

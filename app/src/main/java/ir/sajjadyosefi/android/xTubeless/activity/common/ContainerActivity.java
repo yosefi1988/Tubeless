@@ -26,6 +26,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.fragment.SearchByNameFragment;
+import ir.sajjadyosefi.android.xTubeless.classes.model.filter.CategoryFiltersNode;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
@@ -39,6 +40,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.categoryFiltersNodeList;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.payType;
 import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.cancelByBackbuttonPressed;
 
@@ -162,7 +164,13 @@ public class ContainerActivity extends TubelessActivity {
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //                ft.replace(R.id.include, new ListFragment(this,list,TYPE_LIST));
-                ft.replace(R.id.include, new ListFragment(this,list, TYPE_SELECT_CATEGORY, 10021,""));
+                CategoryFiltersNode newNode = new CategoryFiltersNode();
+                newNode.setCatId(10021);
+                newNode.setDescription("10021");
+                newNode.setPathTitle("\\" + "10021");
+                newNode.setTitle("10021");
+//                categoryFiltersNodeList.AddLast(newNode);
+                ft.replace(R.id.include, new ListFragment(this,list, TYPE_SELECT_CATEGORY, newNode));
                 ft.commit();
 
             } else if (type == TYPE_BOURSE_PLANE) {

@@ -35,7 +35,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.andremion.counterfab.CounterFab;
@@ -55,14 +54,16 @@ import com.zarinpal.ewallets.purchase.ZarinPal;
 
 import org.litepal.LitePal;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
-import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
+import ir.sajjadyosefi.android.xTubeless.Fragment.TwoLevelListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter;
@@ -80,8 +81,12 @@ import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFrag
 import ir.sajjadyosefi.android.xTubeless.classes.SAccounts;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
+import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
+import ir.sajjadyosefi.android.xTubeless.classes.model.filter.CategoryFiltersNode;
+import ir.sajjadyosefi.android.xTubeless.classes.model.filter.CategoryFiltersNodeList;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 
@@ -100,14 +105,16 @@ import retrofit2.Call;
 import static android.util.Log.VERBOSE;
 import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_KSOKHT;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORIES_DATA;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_SEARCH_POST_BY_NAME;
 
 
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.fragmentx2;
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 
 import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.cancelByBackbuttonPressed;
-import static ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment.mContext;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.ShowMessageDialog;
@@ -1059,32 +1066,84 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            viewPager.getCurrentItem();
-
             if( keyCode == KeyEvent.KEYCODE_BACK ) {
 
                 int index = viewPager.getCurrentItem();
                 Fragment fragment = firstFragmentsAdapter.getItem(index);
 
-                if (viewPager.getCurrentItem() == 2){
-                    getSupportFragmentManager().beginTransaction().remove(fragmentx2).commit();
-                    fragmentx2 =  new BlankFragment(getSupportFragmentManager());
-                    firstFragmentsAdapter.notifyDataSetChanged();
+                if (viewPager.getCurrentItem() == 1){
+
+
+                    int ssss = ((ListFragment)fragment).getListType();
+                    if (ssss == TYPE_LIST_CATEGORY ) {
+                        if (categoryFiltersNodeList.getCurrent() != null && categoryFiltersNodeList.getCurrent().getPreNode() != null) {
+                            changeSecoundFragment(getContext(), categoryFiltersNodeList.getCurrent().getPreNode());
+                            categoryFiltersNodeList.getCurrent().getPreNode().setNextNode(null);
+                            categoryFiltersNodeList.setCurrent(categoryFiltersNodeList.getCurrent().getPreNode());
+                            categoryFiltersNodeList.getLast();
+                        } else {
+                            return super.onKeyDown(keyCode, event);
+                        }
+                    }else{
+                        categoryFiltersNodeList = new CategoryFiltersNodeList();
+                        List<IItems> iItems = new ArrayList<>();
+                        categoryFiltersNodeList.AddLast(FirstFragmentsAdapter.createRootNode());
+                        ListFragment fragmentx2 = new ListFragment(getContext(), iItems, TYPE_LIST_CATEGORY, categoryFiltersNodeList.getHead());
+                        resetSecoundFragment(getContext(), fragmentx2);
+                    }
                 }
-                return true;
+                return super.onKeyDown(keyCode, event);
             }
-            return true;
+            return false;
         } else {
             return super.onKeyDown(keyCode, event);
         }
     }
 
 
-    public static boolean changeSecoundFragment(Context context){
+    public static CategoryFiltersNodeList categoryFiltersNodeList = new CategoryFiltersNodeList();
+    
+    public static boolean resetSecoundFragment(Context context , ListFragment listFragment){
+        ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction().remove(fragmentx2).commit();
+        fragmentx2 = listFragment;
+        firstFragmentsAdapter.notifyDataSetChanged();
+        return true;
+    }
+
+    public static boolean changeSecoundFragment(Context context , CategoryItem categoryItem){
+        ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction().remove(fragmentx2).commit();
+        List<IItems> idList = new ArrayList<>();
+//            StringBuilder stringBuilder = new StringBuilder();
+//            stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yadak));
+//            stringBuilder.append("_");
+//            stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yadak));
+//            stringBuilder.append("_");
+//            stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yadak));
+
+        Bundle bundle = new Bundle();
+        bundle.putString("ids" , categoryItem.getId().toString());
+        fragmentx2 = new ListFragment(context,idList, TYPE_LIST_CATEGORIES_DATA,bundle);
+
+        firstFragmentsAdapter.notifyDataSetChanged();
+
+        return true;
+
+    }
+
+    public static boolean changeSecoundFragment(Context context , CategoryFiltersNode categoryFiltersNode){
 //    public static boolean changeSecoundFragment(Context context, TimelineFilter timelineFilter ){
         ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction().remove(fragmentx2).commit();
-
-        fragmentx2 =  new BlankFragment(((AppCompatActivity)context).getSupportFragmentManager());
+//        fragmentx2 = new BlankFragment(((AppCompatActivity)context).getSupportFragmentManager());
+        List<IItems> iItems = new ArrayList<>();
+        if (categoryFiltersNode == null) {
+            List<IItems> idList = new ArrayList<>();
+//            CategoryItem cat = new CategoryItem(new TimelineItem());
+//            cat.setId(10);
+//            idList.add(cat);
+            fragmentx2 = new ListFragment(context,idList, TYPE_LIST_CATEGORIES_DATA);
+        } else {
+            fragmentx2 = new ListFragment(context, iItems, TYPE_LIST_CATEGORY, categoryFiltersNode);
+        }
 
         firstFragmentsAdapter.notifyDataSetChanged();
 

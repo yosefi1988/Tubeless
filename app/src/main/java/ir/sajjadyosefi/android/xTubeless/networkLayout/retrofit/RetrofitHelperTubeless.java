@@ -93,134 +93,119 @@ public class RetrofitHelperTubeless {
     }
 
 
-    public void getTimelineListForYadak(Context context , int index, TubelessRetrofitCallbackss callback) {
-//        Call<Object> userCall = service.getTimelineYadak(index,15);
-//        userCall.enqueue(callback);
-
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yadak));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yadak));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yadak));
-
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
+    int countInPage = 15;
+    public void getTimeline(Context context , int index, TubelessRetrofitCallbackss callback,String Ids) {
+        Call<Object> userCall = service.getTimeline(index,countInPage,Ids,null);
         userCall.enqueue(callback);
-
     }
 
-    public void getCategoryRoot(int catId,int index, TubelessRetrofitCallbackss callback) {
+    public void getTimeline(Context context , int index, TubelessRetrofitCallbackss callback,String Ids,String endDate) {
+        Call<Object> userCall = service.getTimeline(index,countInPage,Ids,endDate);
+        userCall.enqueue(callback);
+    }
+
+//    public void getTimelineListForYadak(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yadak));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yadak));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yadak));
+//
+//        Call<Object> userCall = service.getTimeline(index,countInPage,stringBuilder.toString(),null);
+//        userCall.enqueue(callback);
+//
+//    }
+//
+//    public void getTimelineListForBourseAnalizeOld(Context context, int index, TubelessRetrofitCallbackss callback, String endDate) {
+//
+//        StringBuilder stringBuilder = new StringBuilder();
+//        switch (StaticValue.bourseState.lastPayedType){
+//            case 1:
+//            case 0:
+//                stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+//                break;
+//            case 2:
+//                stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+//                break;
+//            case 3:
+//                stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+//        }
+//        Call<Object> userCall = service.getTimeline(index,countInPage,stringBuilder.toString(),StaticValue.bourseState.endDate);
+//        userCall.enqueue(callback);
+//    }
+//
+//    public void getTimelineListForYafte(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yafte));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yafte));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yafte));
+//
+//        Call<Object> userCall = service.getTimeline(index,countInPage,stringBuilder.toString(),null);
+//        userCall.enqueue(callback);
+//    }
+//
+//    public void getTimelineListForBourseTrain(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseTrain));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseTrain));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseTrain));
+//
+//        Call<Object> userCall = service.getTimeline(index,countInPage,stringBuilder.toString(),null);
+//        userCall.enqueue(callback);
+//    }
+//
+//    public void getTimelineListForBourseAnalize(Context context , int index, TubelessRetrofitCallbackss callback) {
+//        StringBuilder stringBuilder = new StringBuilder();
+//        switch (StaticValue.bourseState.lastPayedType){
+//            case 0:
+//            case 1:
+//                stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
+//                break;
+//            case 2:
+//                stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
+//                break;
+//            case 3:
+//                stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
+//        }
+//
+//        Call<Object> userCall = service.getTimeline(index,countInPage,stringBuilder.toString(),null);
+//        userCall.enqueue(callback);
+//    }
+//
+//    public void getTimelineListForBourseNews(Context context , int index, TubelessRetrofitCallbackss callback) {
+////        Call<Object> userCall = service.getYafteTimeline(index,15);
+////        userCall.enqueue(callback);
+//
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseNews));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseNews));
+//        stringBuilder.append("_");
+//        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseNews));
+//
+//        Call<Object> userCall = service.getTimeline(index,countInPage,stringBuilder.toString(),null);
+//        userCall.enqueue(callback);
+//    }
+
+
+    public void getCategory(int catId, int index, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.getCategory(catId, index, responceCountSize * 1);
         userCall.enqueue(callback);
     }
-    public void getCategory(int count ,int index, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.getCategory(count , index,responceCountSize);
-        userCall.enqueue(callback);
-    }
-
-    public void getTimelineListForYafte(Context context , int index, TubelessRetrofitCallbackss callback) {
-//        Call<Object> userCall = service.getYafteTimeline(index,15);
+//    public void getCategory(int count ,int index, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.getCategory(count , index,responceCountSize);
 //        userCall.enqueue(callback);
-
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yafte));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat2Yafte));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yafte));
-
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
-        userCall.enqueue(callback);
-    }
-
-    public void getTimelineListForBourseTrain(Context context , int index, TubelessRetrofitCallbackss callback) {
-//        Call<Object> userCall = service.getYafteTimeline(index,15);
-//        userCall.enqueue(callback);
-
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseTrain));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseTrain));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseTrain));
-
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
-        userCall.enqueue(callback);
-    }
-    public void getTimelineListForBourseAnalize(Context context , int index, TubelessRetrofitCallbackss callback) {
-        //1
-//        Call<Object> userCall = service.getYafteTimeline(index,15);
-//        userCall.enqueue(callback);
-
-        //2
-//        StringBuilder stringBuilder = new StringBuilder();
-//        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
-//        stringBuilder.append("_");
-//        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
-//        stringBuilder.append("_");
-//        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
-//        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
+//    }
 
 
-        StringBuilder stringBuilder = new StringBuilder();
-        switch (StaticValue.bourseState.lastPayedType){
-            case 0:
-            case 1:
-                stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
-                break;
-            case 2:
-                stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
-                break;
-            case 3:
-                stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
-        }
 
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
-        userCall.enqueue(callback);
-    }
-    public void getTimelineListForBourseAnalizeOld(Context context, int index, TubelessRetrofitCallbackss callback, String endDate) {
-        //1
-//        Call<Object> userCall = service.getYafteTimeline(index,15);
-//        userCall.enqueue(callback);
-//
-        //2
-//        StringBuilder stringBuilder = new StringBuilder();
-//        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
-//        stringBuilder.append("_");
-//        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
-//        stringBuilder.append("_");
-//        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
 
-        StringBuilder stringBuilder = new StringBuilder();
-        switch (StaticValue.bourseState.lastPayedType){
-            case 1:
-            case 0:
-                stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseAnalize));
-                break;
-            case 2:
-                stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseAnalize));
-                break;
-            case 3:
-                stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseAnalize));
-        }
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),StaticValue.bourseState.endDate);
-        userCall.enqueue(callback);
-    }
 
-    public void getTimelineListForBourseNews(Context context , int index, TubelessRetrofitCallbackss callback) {
-//        Call<Object> userCall = service.getYafteTimeline(index,15);
-//        userCall.enqueue(callback);
-
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat1BourseNews));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat2BourseNews));
-        stringBuilder.append("_");
-        stringBuilder.append(context.getResources().getInteger(R.integer.cat3BourseNews));
-
-        Call<Object> userCall = service.getTimeline(index,15,stringBuilder.toString(),null);
-        userCall.enqueue(callback);
-    }
 
 
     public void registerNewBlog(NewBlogRequest request, TubelessRetrofitCallbackss callback) {
