@@ -111,6 +111,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TY
 
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_YADAK;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.createRootNode;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.fragmentx2;
 import static ir.sajjadyosefi.android.xTubeless.Fragment.FinancialAccountLimitFragment.READ_RULE_AND_PAY;
 
@@ -1087,7 +1088,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     }else{
                         categoryFiltersNodeList = new CategoryFiltersNodeList();
                         List<IItems> iItems = new ArrayList<>();
-                        categoryFiltersNodeList.AddLast(FirstFragmentsAdapter.createRootNode());
+                        categoryFiltersNodeList.AddLast(createRootNode());
                         ListFragment fragmentx2 = new ListFragment(getContext(), iItems, TYPE_LIST_CATEGORY, categoryFiltersNodeList.getHead());
                         resetSecoundFragment(getContext(), fragmentx2);
                     }
@@ -1111,8 +1112,14 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     }
 
     public static boolean changeSecoundFragment(Context context , CategoryItem categoryItem){
-        ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction().remove(fragmentx2).commit();
-        List<IItems> idList = new ArrayList<>();
+        try {
+            try {
+                ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction().remove(fragmentx2).commit();
+            }catch (Exception e){
+
+            }
+
+            List<IItems> idList = new ArrayList<>();
 //            StringBuilder stringBuilder = new StringBuilder();
 //            stringBuilder.append(context.getResources().getInteger(R.integer.cat1Yadak));
 //            stringBuilder.append("_");
@@ -1120,14 +1127,19 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //            stringBuilder.append("_");
 //            stringBuilder.append(context.getResources().getInteger(R.integer.cat3Yadak));
 
-        Bundle bundle = new Bundle();
-        bundle.putString("ids" , categoryItem.getId().toString());
-        fragmentx2 = new ListFragment(context,idList, TYPE_LIST_CATEGORIES_DATA,bundle);
+            Bundle bundle = new Bundle();
+            bundle.putString("ids", categoryItem.getId().toString());
+            fragmentx2 = new ListFragment(context, idList, TYPE_LIST_CATEGORIES_DATA, bundle);
 
-        firstFragmentsAdapter.notifyDataSetChanged();
-
-        return true;
-
+            firstFragmentsAdapter.notifyDataSetChanged();
+            return true;
+        }catch (Exception ex){
+            List<IItems> iItems = new ArrayList<>();
+            CategoryFiltersNode newNode = createRootNode();
+            categoryFiltersNodeList.AddLast(newNode);
+            fragmentx2 = new ListFragment(context,iItems, TYPE_LIST_CATEGORY, categoryFiltersNodeList.getHead());
+            return false;
+        }
     }
 
     public static boolean changeSecoundFragment(Context context , CategoryFiltersNode categoryFiltersNode){
