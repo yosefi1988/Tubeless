@@ -250,7 +250,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     @Override
     public void onThrowException(Throwable t) {
         TubelessException sException = new TubelessException();
-        sException.handleServerMessage(getContext(),t);
+        sException.handleServerMessage(context,t);
     }
 
 //    @Override

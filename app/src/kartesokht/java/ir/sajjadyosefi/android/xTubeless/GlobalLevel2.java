@@ -23,7 +23,6 @@ import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 import java.util.Random;
 
-import ir.adad.core.Adad;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice.RetrofitHelperEpolice;

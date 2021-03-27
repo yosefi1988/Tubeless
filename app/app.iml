@@ -10,102 +10,102 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="yadakMyketDebug" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleYadakMyketDebug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileYadakMyketDebugSources" />
+        <option name="SELECTED_BUILD_VARIANT" value="kartesokhtMyketDebug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleKartesokhtMyketDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileKartesokhtMyketDebugSources" />
         <afterSyncTasks>
-          <task>generateYadakMyketDebugSources</task>
+          <task>generateKartesokhtMyketDebugSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/yadak/res;file://$MODULE_DIR$/src/myket/res;file://$MODULE_DIR$/src/yadakMyket/res;file://$MODULE_DIR$/src/debug/res;file://$MODULE_DIR$/src/yadakMyketDebug/res;file://$MODULE_DIR$/build/generated/fabric/res/yadakMyket/debug;file://$MODULE_DIR$/build/generated/res/google-services/yadakMyket/debug;file://$MODULE_DIR$/build/generated/res/rs/yadakMyket/debug" />
-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestYadak/res;file://$MODULE_DIR$/src/testYadak/res;file://$MODULE_DIR$/src/androidTestMyket/res;file://$MODULE_DIR$/src/testMyket/res;file://$MODULE_DIR$/src/androidTestDebug/res;file://$MODULE_DIR$/src/testDebug/res;file://$MODULE_DIR$/build/generated/res/rs/androidTest/yadakMyket/debug" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/kartesokht/res;file://$MODULE_DIR$/src/myket/res;file://$MODULE_DIR$/src/kartesokhtMyket/res;file://$MODULE_DIR$/src/debug/res;file://$MODULE_DIR$/src/kartesokhtMyketDebug/res;file://$MODULE_DIR$/build/generated/fabric/res/kartesokhtMyket/debug;file://$MODULE_DIR$/build/generated/res/google-services/kartesokhtMyket/debug;file://$MODULE_DIR$/build/generated/res/rs/kartesokhtMyket/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/androidTest/res;file://$MODULE_DIR$/src/test/res;file://$MODULE_DIR$/src/androidTestKartesokht/res;file://$MODULE_DIR$/src/testKartesokht/res;file://$MODULE_DIR$/src/androidTestMyket/res;file://$MODULE_DIR$/src/testMyket/res;file://$MODULE_DIR$/src/androidTestDebug/res;file://$MODULE_DIR$/src/testDebug/res;file://$MODULE_DIR$/build/generated/res/rs/androidTest/kartesokhtMyket/debug" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/build/intermediates/javac/yadakMyketDebug/classes" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/yadakMyketDebugUnitTest/classes" />
+    <output url="file://$MODULE_DIR$/build/intermediates/javac/kartesokhtMyketDebug/classes" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/kartesokhtMyketDebugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yadakMyketDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakMyketDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/yadakMyketDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/yadakMyket/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/yadakMyket/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/yadakMyket/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/yadakMyket/debug" type="java-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketDebug/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketDebug/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketDebug/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketDebug/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketDebug/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketDebug/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyketDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadakMyket/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/yadakMyketDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/yadakMyket/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/yadakMyketDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakMyketDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/yadakMyket/debug" type="java-test-resource" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyketDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyketDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyketDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyketDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyketDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyketDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyketDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyket/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyket/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyket/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyket/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyket/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyket/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadakMyket/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/yadakMyketDebugUnitTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyketDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadakMyket/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadak/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadak/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadak/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadak/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadak/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadak/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/yadak/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYadak/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYadak/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/kartesokhtMyketDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/kartesokhtMyketDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/kartesokhtMyket/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/kartesokhtMyketDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/kartesokhtMyket/debug" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/kartesokhtMyket/debug" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/kartesokhtMyket/debug" type="java-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyketDebug/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyketDebug/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyketDebug/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyketDebug/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyketDebug/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyketDebug/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyketDebug/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyket/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyket/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyket/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyket/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyket/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyket/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokhtMyket/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/kartesokhtMyketDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/kartesokhtMyketDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/kartesokhtMyket/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/kartesokhtMyketDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/kartesokhtMyket/debug" type="java-test-resource" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyketDebug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyketDebug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyketDebug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyketDebug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyketDebug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyketDebug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyketDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyket/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyket/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyket/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyket/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyket/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyket/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokhtMyket/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/kartesokhtMyketDebugUnitTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyketDebug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyketDebug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyketDebug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyketDebug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyketDebug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyketDebug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyketDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyket/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyket/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyket/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyket/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyket/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyket/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokhtMyket/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokht/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokht/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokht/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokht/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokht/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokht/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/kartesokht/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokht/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokht/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokht/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokht/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokht/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokht/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestKartesokht/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokht/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokht/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokht/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokht/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokht/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokht/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testKartesokht/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/myket/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/myket/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/myket/assets" type="java-resource" />

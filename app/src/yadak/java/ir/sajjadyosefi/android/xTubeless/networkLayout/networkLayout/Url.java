@@ -14,7 +14,7 @@ public class Url {
 
     public static final String REST_API_IP_ADDRESS                       = "http://sokht.epolice.ir:7001/";   //internet Dns
     public static final String REST_API_IP_ADDRESS2                      = "http://test.sajjadyosefi.ir";   //internet Dns
-    public static final String REST_API_IP_ADDRESS_MAIN                  = "http://test.sajjadyosefi.ir/";   //internet Dns
+    public static final String REST_API_IP_ADDRESS_MAIN                  = "https://test.sajjadyosefi.ir/";   //internet Dns
 
 
 
